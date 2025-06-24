@@ -1,8 +1,8 @@
 "use client";
-import { useIsMobile } from "../../hooks/Mobile";
+import { useIsMobile } from "@/app/hooks/Mobile";
 import Link from "next/link";
-import { RouteConfigStatic } from "../../config/route.config";
-import Container from "../../ui/container";
+import { RouteConfigStatic } from "@/app/config/route.config";
+import Container from "@/app/ui/container";
 import Image from "next/image";
 import Icon from "@/public/asset/icon fix.svg";
 

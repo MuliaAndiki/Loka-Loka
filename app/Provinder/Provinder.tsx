@@ -1,5 +1,5 @@
 "use client";
-import { useIsMobile } from "@/app/components/hooks/Mobile";
+import { useIsMobile } from "@/app/hooks/Mobile";
 import contex from "../hooks/contexs/contex";
 
 export const Provider = ({ children }: { children: React.ReactNode }) => {

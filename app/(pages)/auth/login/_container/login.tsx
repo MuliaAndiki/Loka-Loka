@@ -1,16 +1,16 @@
 "use client";
-import { useIsMobile } from "@/app/components/hooks/Mobile";
+import { useIsMobile } from "@/app/hooks/Mobile";
 import { useEffect } from "react";
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { formLogin } from "@/app/components/types/form";
-import TextFieldInput from "@/app/components/ui/TextFieldInput";
-import Container from "@/app/components/ui/container";
-import { RouteConfigStatic } from "@/app/components/config/route.config";
+import { formLogin } from "@/app/types/form";
+import { Input } from "@/app/ui/input";
+import Container from "@/app/ui/container";
+import { RouteConfigStatic } from "@/app/config/route.config";
 import Image from "next/image";
 import Icon from "@/public/asset/icon fix.svg";
-import Button from "@/app/components/ui/button";
+import { Button } from "@/app/ui/button";
 import GoogleSVG from "@/app/components/svg/app/Google";
 import FacebookSVG from "@/app/components/svg/app/Facebook";
 
@@ -40,27 +40,11 @@ const LoginChild: React.FC = () => {
               width={106}
               height={106}
             />
-            <Container className="flex my-2 gap-8">
-              {RouteConfigStatic.map((items, key) => (
-                <Container key={key}>
-                  <Link href={items.google.href}>
-                    <GoogleSVG />
-                  </Link>
-                </Container>
-              ))}
-              {RouteConfigStatic.map((items, key) => (
-                <Container key={key}>
-                  <Link href={items.facebook.href}>
-                    <FacebookSVG />
-                  </Link>
-                </Container>
-              ))}
-            </Container>
+
             <h1 className="font-bold">Selamar Datang Di Loka-Loka</h1>
             <p className="font-light">Masukkan Akun Kamu Untuk Lantut !</p>
             <Container className="mb-4 mt-4 ">
-              <TextFieldInput
-                label="Email"
+              <Input
                 name={formLogin.email}
                 value={formLogin.email}
                 className="w-full"
@@ -73,8 +57,7 @@ const LoginChild: React.FC = () => {
               />
             </Container>
             <Container className="mb-2 relative ">
-              <TextFieldInput
-                label="Password"
+              <Input
                 type={showPassword ? "text" : "password"}
                 name={formLogin.password}
                 value={formLogin.password}
@@ -99,9 +82,25 @@ const LoginChild: React.FC = () => {
               <Button onClick={handleLogin}>Login</Button>
             </Container>
 
-            <Container className="flex justify-center items-center w-full">
-              <p className="flex ">
-                Tidak Memiliki Akun ?{" "}
+            <Container className="flex justify-center items-center w-full flex-col">
+              <Container className="flex my-2 gap-8">
+                {RouteConfigStatic.map((items, key) => (
+                  <Container key={key}>
+                    <Link href={items.google.href}>
+                      <GoogleSVG />
+                    </Link>
+                  </Container>
+                ))}
+                {RouteConfigStatic.map((items, key) => (
+                  <Container key={key}>
+                    <Link href={items.facebook.href}>
+                      <FacebookSVG />
+                    </Link>
+                  </Container>
+                ))}
+              </Container>
+              <p className="flex">
+                Tidak Memiliki Akun?{" "}
                 {RouteConfigStatic.map((items, key) => (
                   <Container key={key} className="flex ">
                     <Link href={items.register.href}>

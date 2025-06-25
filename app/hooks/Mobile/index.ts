@@ -1,6 +1,7 @@
 ~"use client";
 import { useEffect, useState } from "react";
 import { MobileType } from "../../types/hooks";
+import { createContext } from "react";
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -23,3 +24,7 @@ export function useIsMobile(): MobileType {
 
   return { isMobile };
 }
+
+export const MobileContex = createContext<{ isMobile: boolean }>({
+  isMobile: false,
+});

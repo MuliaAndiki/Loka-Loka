@@ -10,11 +10,5 @@ export const RouteConfigStatic: RouteConfig[] = [
       title: "Daftar Sekarang!",
       href: "/auth/register",
     },
-    facebook: {
-      href: "/",
-    },
-    google: {
-      href: "/",
-    },
   },
 ];

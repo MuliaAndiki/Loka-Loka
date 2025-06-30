@@ -11,8 +11,11 @@ import { RouteConfigStatic } from "@/app/config/route.config";
 import Image from "next/image";
 import Icon from "@/public/asset/icon fix.svg";
 import { Button } from "@/app/ui/button";
-import GoogleSVG from "@/app/components/svg/app/Google";
-import FacebookSVG from "@/app/components/svg/app/Facebook";
+import {
+  CredentialResponse,
+  GoogleLogin,
+  GoogleOAuthProvider,
+} from "@react-oauth/google";
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -22,6 +25,7 @@ const LoginChild: React.FC = () => {
   });
   const [showPassword, setShowPassword] = useState<boolean>();
 
+  const handleLoginGoogle = async (e: CredentialResponse) => {};
   const handleLogin = async () => {};
   return (
     <Container as="main" className="w-full h-hull">
@@ -43,6 +47,16 @@ const LoginChild: React.FC = () => {
 
             <h1 className="font-bold">Selamar Datang Di Loka-Loka</h1>
             <p className="font-light">Masukkan Akun Kamu Untuk Lantut !</p>
+            <Container className="mb-4 mt-4">
+              <GoogleOAuthProvider clientId="">
+                <GoogleLogin
+                  onSuccess={(e) => handleLoginGoogle(e)}
+                  onError={() =>
+                    console.log("Gagal Melakukan Login Menggunakan Google")
+                  }
+                />
+              </GoogleOAuthProvider>
+            </Container>
             <Container className="mb-4 mt-4 ">
               <Input
                 name={formLogin.email}
@@ -83,22 +97,6 @@ const LoginChild: React.FC = () => {
             </Container>
 
             <Container className="flex justify-center items-center w-full flex-col">
-              <Container className="flex my-2 gap-8">
-                {RouteConfigStatic.map((items, key) => (
-                  <Container key={key}>
-                    <Link href={items.google.href}>
-                      <GoogleSVG />
-                    </Link>
-                  </Container>
-                ))}
-                {RouteConfigStatic.map((items, key) => (
-                  <Container key={key}>
-                    <Link href={items.facebook.href}>
-                      <FacebookSVG />
-                    </Link>
-                  </Container>
-                ))}
-              </Container>
               <p className="flex">
                 Tidak Memiliki Akun?{" "}
                 {RouteConfigStatic.map((items, key) => (

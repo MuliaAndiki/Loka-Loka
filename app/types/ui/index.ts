@@ -1,7 +1,7 @@
 import { JSX } from "react";
 
 export interface ContainerType {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
 }

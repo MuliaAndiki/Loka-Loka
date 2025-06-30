@@ -1,5 +1,5 @@
 "use client";
-import { useIsMobile } from "@/app/hooks/Mobile";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
 import Link from "next/link";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Container from "@/app/ui/container";

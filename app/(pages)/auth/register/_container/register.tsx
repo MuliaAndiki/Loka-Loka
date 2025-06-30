@@ -1,10 +1,10 @@
 "use client";
 import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import Icon from "@/public/asset/icon fix.svg";
+import Icon from "@/public/asset/iconFix.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { formRegister } from "@/app/types/form";
@@ -15,6 +15,7 @@ import {
   GoogleLogin,
   GoogleOAuthProvider,
 } from "@react-oauth/google";
+import { Button } from "@/app/ui/button";
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -40,13 +41,7 @@ const RegisterChildren: React.FC = () => {
           </Container>
           <Container className="flex flex-col w-full mx-auto">
             <Container className="w-full flex justify-center border-black">
-              <Image
-                alt="icon"
-                src={Icon}
-                width={90}
-                height={90}
-                className="object-cover h-auto w-full"
-              />
+              <Image alt="icon" src={Icon} width={300} height={300} />
             </Container>
             <Container className="mx-auto w-full max-w-[70%]">
               <Container className="my-1">
@@ -60,7 +55,7 @@ const RegisterChildren: React.FC = () => {
                 </GoogleOAuthProvider>
               </Container>
 
-              <Container className="my-1">
+              <Container className="my-2">
                 <Input
                   placeholder="Email"
                   name={formRegister.email}
@@ -73,7 +68,7 @@ const RegisterChildren: React.FC = () => {
                   }
                 />
               </Container>
-              <Container className="my-1">
+              <Container className="my-2">
                 <Input
                   placeholder="Password"
                   type="password"
@@ -87,6 +82,8 @@ const RegisterChildren: React.FC = () => {
                   }
                 />
               </Container>
+
+              <Button className="w-full">Register</Button>
             </Container>
           </Container>
         </Container>
@@ -95,7 +92,7 @@ const RegisterChildren: React.FC = () => {
       {!isMobile && (
         <Container as="main" className="w-screen h-screen ">
           <Container className="flex justify-center items-center">
-            <h1>Web Ini Tidak Tersedia Di Desktop</h1>
+            <Label>Website Ini Tidak Tersedia di Desktop</Label>
           </Container>
         </Container>
       )}

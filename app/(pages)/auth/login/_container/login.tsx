@@ -1,5 +1,5 @@
 "use client";
-import { useIsMobile } from "@/app/hooks/Mobile";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -8,7 +8,7 @@ import { Input } from "@/app/ui/input";
 import Container from "@/app/ui/container";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Image from "next/image";
-import Icon from "@/public/asset/icon fix.svg";
+import Icon from "@/public/asset/iconFix.png";
 import { Button } from "@/app/ui/button";
 import { Label } from "@radix-ui/themes/components/context-menu";
 import {
@@ -16,9 +16,14 @@ import {
   GoogleLogin,
   GoogleOAuthProvider,
 } from "@react-oauth/google";
+import ToggleTheme from "@/app/ui/toggle";
+import { themeConfig } from "@/app/types/config/theme.config";
+import { useTheme } from "@/app/hooks/theme/use-theme";
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
+  const { theme } = useTheme();
+
   const [formLogin, setFormLogin] = useState<formLogin>({
     email: "",
     password: "",
@@ -33,11 +38,14 @@ const LoginChild: React.FC = () => {
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (
-        <Container className="h-full w-full">
-          <Container className="flex justify-start items-start p-2">
+        <Container
+          className={`w-full h-full bg-[${themeConfig[theme].primary.background}]`}
+        >
+          <Container className="flex justify-between items-center p-2">
             <Link href="/home">
               <ArrowLeft />
             </Link>
+            <ToggleTheme />
           </Container>
 
           <Container className="flex flex-col w-full mx-auto">

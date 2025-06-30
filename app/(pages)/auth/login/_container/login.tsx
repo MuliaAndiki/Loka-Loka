@@ -1,7 +1,6 @@
 "use client";
 import { useIsMobile } from "@/app/hooks/Mobile";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { formLogin } from "@/app/types/form";
@@ -28,9 +27,9 @@ const LoginChild: React.FC = () => {
   const handleLoginGoogle = async (e: CredentialResponse) => {};
   const handleLogin = async () => {};
   return (
-    <Container as="main" className="w-full h-hull">
+    <Container as="main" className="w-full h-full">
       {isMobile && (
-        <Container className="h-full w-screen">
+        <Container className="h-full w-full">
           <Container className="flex justify-start items-start p-2">
             <Link href="/home">
               <ArrowLeft />

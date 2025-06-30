@@ -1,0 +1,26 @@
+import Container from "../ui/container";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import ToggleTheme from "@/app/ui/toggle";
+import { useRouter } from "next/navigation";
+export default function HeaderApp() {
+  const router = useRouter();
+
+  const handleBack = () => {
+    if (window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/");
+    }
+  };
+  return (
+    <nav>
+      <Container className="flex justify-between items-center p-2">
+        <button onClick={() => handleBack()}>
+          <ArrowLeft />
+        </button>
+        <ToggleTheme />
+      </Container>
+    </nav>
+  );
+}

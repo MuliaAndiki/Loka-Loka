@@ -43,7 +43,7 @@ interface ThemeConfig {
 export const themeConfig: ThemeConfig = {
   light: {
     background: "#FCF7F8",
-    foreground: "#000000",
+    foreground: "#0E0A17",
     card: {
       background: "#FFFFFF",
       foreground: "#911DEC",
@@ -62,7 +62,7 @@ export const themeConfig: ThemeConfig = {
     },
     muted: {
       background: "#F5EAFF",
-      foreground: "rgba(145, 29, 236, 0.6)",
+      foreground: "#0E0A17",
     },
     accent: {
       background: "#F5EAFF",

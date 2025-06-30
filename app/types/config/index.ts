@@ -7,10 +7,4 @@ export interface RouteConfig {
     title: string;
     href: string;
   };
-  google: {
-    href: string;
-  };
-  facebook: {
-    href: string;
-  };
 }

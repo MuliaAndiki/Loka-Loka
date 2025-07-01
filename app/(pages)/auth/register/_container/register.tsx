@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { formRegister } from "@/app/types/form";
 import { useState } from "react";
-import { Label } from "@radix-ui/themes/components/context-menu";
+import { Text } from "@/app/ui/Text";
 import {
   CredentialResponse,
   GoogleLogin,
@@ -15,10 +15,12 @@ import {
 } from "@react-oauth/google";
 import { Button } from "@/app/ui/button";
 import NavLayout from "@/app/core/layouts/nav.layout";
+import Link from "next/link";
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const [formRegister, setFormRegister] = useState<formRegister>({
+    nama: "",
     email: "",
     password: "",
   });
@@ -30,12 +32,22 @@ const RegisterChildren: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container as="main" className="w-full h-full">
-            <Container className="flex justify-start items-start p-2"></Container>
             <Container className="flex flex-col w-full mx-auto">
               <Container className="w-full flex justify-center border-black">
-                <Image alt="icon" src={Icon} width={300} height={300} />
+                <Image
+                  alt="icon"
+                  src={Icon}
+                  width={280}
+                  height={280}
+                  className="object-cover h-auto"
+                />
               </Container>
               <Container className="mx-auto w-full max-w-[70%]">
+                <Container className="w-full text-center">
+                  <Text className="font-bold md:text-4xl text-md ">
+                    Daftarkan Diri Anda Di Loka-Loka
+                  </Text>
+                </Container>
                 <Container className="my-1">
                   <GoogleOAuthProvider clientId="">
                     <GoogleLogin
@@ -45,6 +57,20 @@ const RegisterChildren: React.FC = () => {
                       }
                     />
                   </GoogleOAuthProvider>
+                </Container>
+
+                <Container className="my-2">
+                  <Input
+                    placeholder="Nama"
+                    name={formRegister.nama}
+                    value={formRegister.nama}
+                    onChange={(e) =>
+                      setFormRegister((prev) => {
+                        const newObj = { ...prev, nama: e.target.value };
+                        return newObj;
+                      })
+                    }
+                  />
                 </Container>
 
                 <Container className="my-2">
@@ -75,7 +101,19 @@ const RegisterChildren: React.FC = () => {
                   />
                 </Container>
 
-                <Button className="w-full">Register</Button>
+                <Button className="w-full">Daftar</Button>
+                <Container className="w-full flex items-center justify-center gap-1">
+                  <Text className="text-center text-sm lg:text-4xl">
+                    Sudah Memiliki Akun?
+                  </Text>
+                  {RouteConfigStatic.map((route, key) => (
+                    <Link key={key} href={route.login.href}>
+                      <Text className="hover:text-[var(--custom-hover)] hover:duration-[0.2s] text-sm md:text-2xl">
+                        {route.login.title}
+                      </Text>
+                    </Link>
+                  ))}
+                </Container>
               </Container>
             </Container>
           </Container>
@@ -85,7 +123,7 @@ const RegisterChildren: React.FC = () => {
       {!isMobile && (
         <Container as="main" className="w-screen h-screen ">
           <Container className="flex justify-center items-center">
-            <Label>Website Ini Tidak Tersedia di Desktop</Label>
+            <Text>Website Ini Tidak Tersedia di Desktop</Text>
           </Container>
         </Container>
       )}

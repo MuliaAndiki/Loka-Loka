@@ -7,4 +7,12 @@ export interface RouteConfig {
     title: string;
     href: string;
   };
+  lupaKataSandi: {
+    title: string;
+    href: string;
+  };
+  metodeLain: {
+    title: string;
+    href: string;
+  };
 }

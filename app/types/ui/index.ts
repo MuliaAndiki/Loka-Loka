@@ -10,3 +10,8 @@ export interface ButtonType {
   children: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface TextProps {
+  className?: string;
+  children: React.ReactNode;
+}

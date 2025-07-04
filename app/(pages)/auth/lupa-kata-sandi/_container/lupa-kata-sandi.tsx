@@ -28,8 +28,8 @@ const LupaKataSandiChildren: React.FC = () => {
                 className="object-cover h-auto"
                 src={ForrgotPassword}
                 alt="Icon"
-                width={300}
-                height={300}
+                width={isMobile ? 300 : 400}
+                height={isMobile ? 300 : 400}
               />
             </Container>
           </Container>

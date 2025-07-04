@@ -49,8 +49,8 @@ const LoginChild: React.FC = () => {
                   className="object-cover h-auto "
                   src={Icon}
                   alt="Icon"
-                  width={280}
-                  height={280}
+                  width={isMobile ? 300 : 400}
+                  height={isMobile ? 300 : 400}
                 />
 
                 <Text className="font-bold">Selamat Datang Di Loka-Loka</Text>

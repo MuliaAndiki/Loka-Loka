@@ -14,7 +14,7 @@ const MetodeLainChildren: React.FC = () => {
     <Container as="main" className="w-full min-h-screen">
       {isMobile && (
         <NavLayout>
-          <Container className="w-full h-full">
+          <Container className={`w-full h-full `}>
             <Container className="flex justify-center items-center flex-col">
               <Text className="text-lg md:text-4xl font-bold">Metode Lain</Text>
               <Image
@@ -29,7 +29,7 @@ const MetodeLainChildren: React.FC = () => {
               </Text>
               <Container className="w-full max-w-[70%]">
                 <Container className="my-2">
-                  <Input />
+                  <Input placeholder="Nomor Telepon" />
                 </Container>
                 <Container className="my-2">
                   <Button className="w-full">Verifikasi</Button>

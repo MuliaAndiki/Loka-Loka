@@ -6,7 +6,7 @@ import Link from "next/link";
 import { formLogin } from "@/app/types/form";
 import { Input } from "@/app/ui/input";
 import Container from "@/app/ui/container";
-import { RouteConfigStatic } from "@/app/config/route.config";
+import { RouteConfigStatic, RouteConfigLogic } from "@/app/config/route.config";
 import Image from "next/image";
 import Icon from "@/public/asset/iconFix.png";
 import { Button } from "@/app/ui/button";
@@ -16,14 +16,15 @@ import {
   GoogleLogin,
   GoogleOAuthProvider,
 } from "@react-oauth/google";
-
 import { themeConfig } from "@/app/types/config/theme.config";
 import { useTheme } from "@/app/hooks/theme/use-theme";
 import NavLayout from "@/app/core/layouts/nav.layout";
+import { useRouter } from "next/navigation";
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
   const { theme } = useTheme();
+  const router = useRouter();
 
   const [formLogin, setFormLogin] = useState<formLogin>({
     email: "",
@@ -32,10 +33,16 @@ const LoginChild: React.FC = () => {
   const [showPassword, setShowPassword] = useState<boolean>();
 
   const handleLoginGoogle = async (e: CredentialResponse) => {};
-  const handleLogin = async () => {
-    try {
-    } catch (error) {}
+
+  const handleLogin = () => {
+    const isRoute = RouteConfigLogic.login.href;
+    if (isRoute) {
+      router.push(isRoute);
+    } else {
+      console.error("Login Route Not Found In Config");
+    }
   };
+
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (

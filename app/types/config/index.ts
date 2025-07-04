@@ -1,4 +1,4 @@
-export interface RouteConfig {
+export interface RouteStaticConfig {
   login: {
     title: string;
     href: string;

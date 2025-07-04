@@ -1,4 +1,7 @@
 export interface userType {
-  username: string;
-  password: string;
+  token: string;
+  user: {
+    username: string;
+    password: string;
+  };
 }

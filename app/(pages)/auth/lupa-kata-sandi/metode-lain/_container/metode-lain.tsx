@@ -20,8 +20,8 @@ const MetodeLainChildren: React.FC = () => {
               <Image
                 alt="icon"
                 src={Icon}
-                width={200}
-                height={200}
+                width={isMobile ? 150 : 200}
+                height={isMobile ? 150 : 200}
                 className="object-cover h-auto "
               />
               <Text className="text-sm md:text-2xl">

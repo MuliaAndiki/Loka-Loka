@@ -37,8 +37,8 @@ const RegisterChildren: React.FC = () => {
                 <Image
                   alt="icon"
                   src={Icon}
-                  width={280}
-                  height={280}
+                  width={isMobile ? 300 : 400}
+                  height={isMobile ? 300 : 400}
                   className="object-cover h-auto"
                 />
               </Container>

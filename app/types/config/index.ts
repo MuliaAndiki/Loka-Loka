@@ -16,3 +16,9 @@ export interface RouteStaticConfig {
     href: string;
   };
 }
+
+export interface RouteLogicConfig {
+  login: {
+    href: string;
+  };
+}

@@ -1,4 +1,4 @@
-import { RouteStaticConfig } from "../types/config";
+import { RouteStaticConfig, RouteLogicConfig } from "../types/config";
 
 export const RouteConfigStatic: RouteStaticConfig[] = [
   {
@@ -21,7 +21,7 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
   },
 ];
 
-export const RouteConfigLogic = {
+export const RouteConfigLogic: RouteLogicConfig = {
   login: {
     href: "/home",
   },

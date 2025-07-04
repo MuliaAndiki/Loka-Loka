@@ -1,6 +1,6 @@
 "use client";
 import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Icon from "@/public/asset/iconFix.png";
 import Image from "next/image";

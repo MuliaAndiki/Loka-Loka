@@ -3,8 +3,8 @@ import { store, persistor } from "@/app/stores/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { useEffect } from "react";
-import { useIsMobile } from "../../hooks/Mobile/use-mobile.config";
-import { MobileContex } from "../../hooks/Mobile/use-mobile.config";
+import { useIsMobile } from "../../hooks/Mobile/use-mobile";
+import { MobileContex } from "../../hooks/Mobile/use-mobile";
 import { ThemeProvider } from "@/app/hooks/theme/use-theme";
 
 export default function LayoutClient({

@@ -1,6 +1,6 @@
 "use client";
 import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import NavLayout from "@/app/core/layouts/nav.layout";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Link from "next/link";

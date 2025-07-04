@@ -1,5 +1,5 @@
 "use client";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 

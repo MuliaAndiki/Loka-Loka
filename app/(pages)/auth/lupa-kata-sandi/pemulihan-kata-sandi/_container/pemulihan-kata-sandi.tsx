@@ -1,6 +1,6 @@
 "use client";
 import NavLayout from "@/app/core/layouts/nav.layout";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import Container from "@/app/ui/container";
 import { Text } from "@/app/ui/Text";
 import RecoveryIcon from "@/public/asset/recovery.png";

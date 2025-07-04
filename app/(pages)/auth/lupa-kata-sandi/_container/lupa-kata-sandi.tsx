@@ -9,7 +9,6 @@ import { Input } from "@/app/ui/input";
 import { Button } from "@/app/ui/button";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Link from "next/link";
-import { Label } from "@/app/ui/label";
 
 const LupaKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();

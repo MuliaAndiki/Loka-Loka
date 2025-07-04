@@ -15,8 +15,8 @@ export const RouteConfigStatic: RouteConfig[] = [
       title: "Lupa Kata Sandi?",
     },
     metodeLain: {
-      href: "/",
-      title: "Coba Menggunakan Cara Lain?",
+      href: "/auth/lupa-kata-sandi/metode-lain",
+      title: "Coba menggunakan cara lain ?",
     },
   },
 ];

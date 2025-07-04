@@ -4,6 +4,7 @@ export interface formLogin {
 }
 
 export interface formRegister {
+  nama: string;
   email: string;
   password: string;
 }

@@ -10,7 +10,7 @@ import { RouteConfigStatic } from "@/app/config/route.config";
 import Image from "next/image";
 import Icon from "@/public/asset/iconFix.png";
 import { Button } from "@/app/ui/button";
-import { Label } from "@radix-ui/themes/components/context-menu";
+import { Text } from "@/app/ui/Text";
 import {
   CredentialResponse,
   GoogleLogin,
@@ -49,14 +49,14 @@ const LoginChild: React.FC = () => {
                   className="object-cover h-auto "
                   src={Icon}
                   alt="Icon"
-                  width={300}
-                  height={300}
+                  width={280}
+                  height={280}
                 />
 
-                <Label className="font-bold">Selamar Datang Di Loka-Loka</Label>
-                <Label className="font-light">
+                <Text className="font-bold">Selamat Datang Di Loka-Loka</Text>
+                <Text className="font-light">
                   Masukkan Akun Kamu Untuk Lanjut !
-                </Label>
+                </Text>
               </Container>
 
               <Container className="mx-auto w-full max-w-[70%]">
@@ -73,6 +73,7 @@ const LoginChild: React.FC = () => {
 
                 <Container className="mb-4 mt-4 ">
                   <Input
+                    placeholder="Email"
                     name={formLogin.email}
                     value={formLogin.email}
                     className="w-full"
@@ -88,6 +89,7 @@ const LoginChild: React.FC = () => {
                 <Container className="mb-2 relative ">
                   <Input
                     type={showPassword ? "text" : "password"}
+                    placeholder="Passowrd"
                     name={formLogin.password}
                     value={formLogin.password}
                     onChange={(e) =>
@@ -99,9 +101,7 @@ const LoginChild: React.FC = () => {
                   />
                   <button
                     type="button"
-                    aria-label={
-                      showPassword ? "Hide password" : "Show password"
-                    }
+                    aria-Text={showPassword ? "Hide password" : "Show password"}
                     className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-sm"
                     onClick={() => setShowPassword((prev) => !prev)}
                   >
@@ -112,21 +112,30 @@ const LoginChild: React.FC = () => {
                 <Button onClick={() => handleLogin()} className="w-full my-2">
                   Login
                 </Button>
+                <Container className="text-end w-full">
+                  {RouteConfigStatic.map((route, key) => (
+                    <Link key={key} href={route.lupaKataSandi.href}>
+                      <Text className="text-sm md:text-2xl">
+                        {route.lupaKataSandi.title}
+                      </Text>
+                    </Link>
+                  ))}
+                </Container>
               </Container>
 
               <Container className="flex justify-center items-center w-full flex-col">
-                <p className="flex">
-                  Tidak Memiliki Akun?{" "}
+                <Container className="flex">
+                  <p>Tidak Memiliki Akun?</p>
                   {RouteConfigStatic.map((items, key) => (
                     <Container key={key} className="flex ">
                       <Link href={items.register.href}>
-                        <span className="text-violet-900">
+                        <Text className="hover:text-[var(--custom-hover)] hover:duration-[0.3s]">
                           {items.register.title}
-                        </span>
+                        </Text>
                       </Link>
                     </Container>
                   ))}
-                </p>
+                </Container>
               </Container>
             </Container>
           </Container>
@@ -136,7 +145,7 @@ const LoginChild: React.FC = () => {
       {!isMobile && (
         <Container as="main" className="w-screen h-screen">
           <Container className="flex justify-center items-center">
-            <Label>Website Ini Tidak Tersedia di Desktop</Label>
+            <Text>Website Ini Tidak Tersedia di Desktop</Text>
           </Container>
         </Container>
       )}

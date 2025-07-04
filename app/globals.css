@@ -76,6 +76,7 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
+  --custom-hover:oklch(0.2749 0.088 271.44);
 }
 
 .dark {
@@ -110,16 +111,16 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --custom-hover: oklch(0.2749 0.088 271.44);
 }
 
 @layer base {
   :root {
     --background: #ffffff
     --foreground: #0a0a0a
-
     --primary: #7f5af0;
-
     --primary-foreground: #ffffff
+    
   }
   .dark {
     --background: #0a0a0a;

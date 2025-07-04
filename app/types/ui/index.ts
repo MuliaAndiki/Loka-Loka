@@ -15,3 +15,9 @@ export interface TextProps {
   className?: string;
   children: React.ReactNode;
 }
+
+export interface SidebarProps {
+  title: string;
+  href: string;
+  icon: any;
+}

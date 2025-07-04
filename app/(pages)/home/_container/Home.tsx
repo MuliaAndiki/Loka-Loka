@@ -1,11 +1,8 @@
 "use client";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile.config";
-import Link from "next/link";
-import { RouteConfigStatic } from "@/app/config/route.config";
 import Container from "@/app/ui/container";
-import Image from "next/image";
-import Icon from "@/public/asset/iconFix.png";
 import NavLayout from "@/app/core/layouts/nav.layout";
+import { Text } from "@/app/ui/Text";
 
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -14,14 +11,8 @@ const HomeChildren: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container as="main" className="w-screen h-screen">
-            <Container className="flex justify-center items-center h-full flex-col">
-              {RouteConfigStatic.map((items, key) => (
-                <Container as="main" key={key} className=" ">
-                  <Link href={items.login.href}>
-                    <Image src={Icon} alt="icon" />
-                  </Link>
-                </Container>
-              ))}
+            <Container className="flex justify-center items-center  flex-col">
+              <Text>Ini Home</Text>
             </Container>
           </Container>
         </NavLayout>

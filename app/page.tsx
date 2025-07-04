@@ -1,5 +1,5 @@
-import Home from "./(pages)/home/page";
+import SplashScreen from "./(pages)/splash/page";
 
 export default function Base() {
-  return <Home />;
+  return <SplashScreen />;
 }

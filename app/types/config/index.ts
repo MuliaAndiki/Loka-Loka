@@ -1,4 +1,4 @@
-export interface RouteConfig {
+export interface RouteStaticConfig {
   login: {
     title: string;
     href: string;
@@ -13,6 +13,12 @@ export interface RouteConfig {
   };
   metodeLain: {
     title: string;
+    href: string;
+  };
+}
+
+export interface RouteLogicConfig {
+  login: {
     href: string;
   };
 }

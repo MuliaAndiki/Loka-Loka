@@ -1,6 +1,6 @@
-import { RouteConfig } from "../types/config";
+import { RouteStaticConfig, RouteLogicConfig } from "../types/config";
 
-export const RouteConfigStatic: RouteConfig[] = [
+export const RouteConfigStatic: RouteStaticConfig[] = [
   {
     login: {
       title: "Masuk Sekarang!",
@@ -20,3 +20,9 @@ export const RouteConfigStatic: RouteConfig[] = [
     },
   },
 ];
+
+export const RouteConfigLogic: RouteLogicConfig = {
+  login: {
+    href: "/home",
+  },
+};

@@ -13,6 +13,7 @@ export default function LayoutClient({
   children: React.ReactNode;
 }) {
   const IsMobile = useIsMobile();
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>

@@ -1,7 +1,7 @@
 "use client";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import Container from "@/app/ui/container";
-import NavLayout from "@/app/core/layouts/nav.layout";
+import HomeLayout from "@/app/core/layouts/home.layout";
 import { Text } from "@/app/ui/Text";
 
 const HomeChildren: React.FC = () => {
@@ -9,7 +9,7 @@ const HomeChildren: React.FC = () => {
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (
-        <NavLayout>
+        <HomeLayout>
           <Container as="main" className="w-full h-full">
             <Container className="flex justify-center items-center flex-col">
               <Container className="flex justify-start items-start w-full px-2">
@@ -17,7 +17,7 @@ const HomeChildren: React.FC = () => {
               </Container>
             </Container>
           </Container>
-        </NavLayout>
+        </HomeLayout>
       )}
       {!isMobile && (
         <Container as="main" className="w-screen h-screen">

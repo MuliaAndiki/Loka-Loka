@@ -21,3 +21,14 @@ export interface SidebarProps {
   href: string;
   icon: any;
 }
+
+export interface DropdownProps {
+  Keluar: {
+    title: string;
+    href: string;
+  };
+  Pengaturan: {
+    title: string;
+    href: string;
+  };
+}

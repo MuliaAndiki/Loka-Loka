@@ -46,11 +46,11 @@ export const themeConfig: ThemeConfig = {
     foreground: "#0E0A17",
     card: {
       background: "#FFFFFF",
-      foreground: "#911DEC",
+      foreground: "#0E0A17",
     },
     popover: {
       background: "#FFFFFF",
-      foreground: "#911DEC",
+      foreground: "#0E0A17",
     },
     primary: {
       background: "#0E0A17",
@@ -58,7 +58,7 @@ export const themeConfig: ThemeConfig = {
     },
     secondary: {
       background: "#F5EAFF",
-      foreground: "#911DEC",
+      foreground: "#0E0A17",
     },
     muted: {
       background: "#F5EAFF",

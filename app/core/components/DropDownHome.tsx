@@ -6,13 +6,17 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/app/ui/dropdown-menu";
-import { Bell, Search } from "lucide-react";
+import { Bell } from "lucide-react";
+import UseTooltip from "../partials/tooltip";
+import { Text } from "@/app/ui/Text";
 
 const DropDownMenuHome: React.FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Bell />
+        <UseTooltip content="Notafikasi">
+          <Bell />
+        </UseTooltip>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>Notafikasi</DropdownMenuLabel>

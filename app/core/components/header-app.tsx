@@ -2,6 +2,8 @@ import Container from "@/app/ui/container";
 import { ArrowLeft } from "lucide-react";
 import ToggleTheme from "@/app/ui/toggle";
 import { useRouter } from "next/navigation";
+import UseTooltip from "../partials/tooltip";
+import { Text } from "@/app/ui/Text";
 
 export default function HeaderApp() {
   const router = useRouter();
@@ -19,7 +21,9 @@ export default function HeaderApp() {
         <button onClick={() => handleBack()}>
           <ArrowLeft />
         </button>
-        <ToggleTheme />
+        <UseTooltip content="Tema">
+          <ToggleTheme />
+        </UseTooltip>
       </Container>
     </nav>
   );

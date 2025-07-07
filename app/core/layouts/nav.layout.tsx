@@ -1,5 +1,5 @@
 import Container from "@/app/ui/container";
-import HeaderApp from "@/app/components/header-app";
+import HeaderApp from "@/app/core/components/header-app";
 import AuthShapeHeader from "@/app/components/auth-shape-header";
 
 export default function NavLayout({ children }: { children: React.ReactNode }) {

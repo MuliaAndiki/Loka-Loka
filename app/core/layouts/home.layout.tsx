@@ -1,7 +1,8 @@
 import Container from "@/app/ui/container";
-import HeaderApp from "@/app/components/header-app";
+import HeaderApp from "@/app/core/components/header-app";
 import { SidebarProvider, SidebarTrigger } from "@/app/ui/sidebar";
-import { AppSidebar } from "@/app/components/sidebar-app";
+import { AppSidebar } from "@/app/core/components/sidebar-app";
+import HomeShapeHeaderV1 from "@/app/components/home-shape-headerV1";
 
 export default function HomeLayout({
   children,
@@ -10,7 +11,8 @@ export default function HomeLayout({
 }) {
   return (
     <SidebarProvider>
-      <Container className="flex flex-col min-h-screen">
+      <Container className="flex flex-col min-h-screen overflow-hidden ">
+        <HomeShapeHeaderV1 />
         <HeaderApp />
         <AppSidebar />
         <Container className="w-screen h-auto">

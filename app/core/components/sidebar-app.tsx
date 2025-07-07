@@ -8,7 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/app/ui/sidebar";
-import { SidebarItems, DropdownItems } from "../config/side.config";
+import { SidebarItems, DropdownItems } from "@/app/config/side.config";
 
 import {
   DropdownMenu,
@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@/app/ui/dropdown-menu";
 import Link from "next/link";
-import { Text } from "../ui/Text";
+import { Text } from "@/app/ui/Text";
 
 import { User2, ChevronUp } from "lucide-react";
 

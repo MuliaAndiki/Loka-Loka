@@ -15,7 +15,6 @@ const PemulihanKataSandiChildren: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container className="w-full h-full relative">
-            <AuthShapeHeader />
             <Container className="flex justify-center items-center flex-col">
               <Text>Page Pemulihan Kata Sandi</Text>
               <Image

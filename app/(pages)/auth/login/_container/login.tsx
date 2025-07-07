@@ -3,7 +3,7 @@ import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { formLogin } from "@/app/types/form";
+import { formLoginSchema } from "@/app/types/form";
 import { Input } from "@/app/ui/input";
 import Container from "@/app/ui/container";
 import { RouteConfigStatic, RouteConfigLogic } from "@/app/config/route.config";
@@ -20,14 +20,13 @@ import { themeConfig } from "@/app/types/config/theme.config";
 import { useTheme } from "@/app/hooks/theme/use-theme";
 import NavLayout from "@/app/core/layouts/nav.layout";
 import { useRouter } from "next/navigation";
-import AuthShapeHeader from "@/app/components/auth-shape-header";
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
   const { theme } = useTheme();
   const router = useRouter();
 
-  const [formLogin, setFormLogin] = useState<formLogin>({
+  const [formLogin, setFormLogin] = useState<formLoginSchema>({
     email: "",
     password: "",
   });
@@ -49,17 +48,16 @@ const LoginChild: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container
-            className={`w-full h-full bg-[${themeConfig[theme].primary.background}] relative `}
+            className={`w-full h-full bg-[${themeConfig[theme].primary.background}] `}
           >
-            <AuthShapeHeader />
             <Container className="flex flex-col w-full mx-auto z-0">
               <Container className="flex flex-col justify-center items-center">
                 <Image
                   className="object-cover h-auto"
                   src={Icon}
                   alt="Icon"
-                  width={isMobile ? 280 : 400}
-                  height={isMobile ? 280 : 400}
+                  width={isMobile ? 300 : 400}
+                  height={isMobile ? 300 : 400}
                 />
 
                 <Text className="font-bold">Selamat Datang Di Loka-Loka</Text>
@@ -133,7 +131,7 @@ const LoginChild: React.FC = () => {
               </Container>
 
               <Container className="flex justify-center items-center w-full flex-col">
-                <Container className="flex">
+                <Container className="flex gap-1">
                   <p>Tidak Memiliki Akun?</p>
                   {RouteConfigStatic.map((items, key) => (
                     <Container key={key} className="flex ">

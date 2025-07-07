@@ -9,7 +9,6 @@ import { Input } from "@/app/ui/input";
 import { Button } from "@/app/ui/button";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Link from "next/link";
-import AuthShapeHeader from "@/app/components/auth-shape-header";
 
 const LupaKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -18,7 +17,6 @@ const LupaKataSandiChildren: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container className="w-full h-full relative">
-            <AuthShapeHeader />
             <Container className="w-full justify-center items-center flex flex-col">
               <Text className="font-bold text-lg md:text-2xl">
                 Lupa Kata Sandi?

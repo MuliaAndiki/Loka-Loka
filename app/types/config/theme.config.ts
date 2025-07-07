@@ -60,7 +60,7 @@ export const themeConfig: ThemeConfig = {
     },
     primary: {
       background: "#FFBE5D",
-      foreground: "#F5EAFF",
+      foreground: "#0E0A17",
     },
     secondary: {
       background: "#F5EAFF",

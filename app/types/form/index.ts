@@ -1,10 +1,15 @@
-export interface formLogin {
-  email: string;
-  password: string;
-}
+import { z } from "zod";
 
-export interface formRegister {
-  nama: string;
-  email: string;
-  password: string;
-}
+export const formLoginType = z.object({
+  email: z.string(),
+  password: z.string(),
+});
+
+export const formRegisterType = z.object({
+  nama: z.string(),
+  email: z.string(),
+  password: z.string(),
+});
+
+export type formLoginSchema = z.infer<typeof formLoginType>;
+export type formRegisterSchema = z.infer<typeof formRegisterType>;

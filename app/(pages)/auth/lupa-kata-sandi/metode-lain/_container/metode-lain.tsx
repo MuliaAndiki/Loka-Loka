@@ -16,7 +16,6 @@ const MetodeLainChildren: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container className={`w-full h-full relative`}>
-            <AuthShapeHeader />
             <Container className="flex justify-center items-center flex-col">
               <Text className="text-lg md:text-4xl font-bold">Metode Lain</Text>
               <Image

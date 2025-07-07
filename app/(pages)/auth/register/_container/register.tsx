@@ -5,7 +5,7 @@ import { RouteConfigStatic } from "@/app/config/route.config";
 import Icon from "@/public/asset/iconFix.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
-import { formRegister } from "@/app/types/form";
+import { formRegisterSchema } from "@/app/types/form";
 import { useState } from "react";
 import { Text } from "@/app/ui/Text";
 import {
@@ -20,7 +20,7 @@ import AuthShapeHeader from "@/app/components/auth-shape-header";
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
-  const [formRegister, setFormRegister] = useState<formRegister>({
+  const [formRegister, setFormRegister] = useState<formRegisterSchema>({
     nama: "",
     email: "",
     password: "",

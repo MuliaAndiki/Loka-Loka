@@ -7,13 +7,15 @@ import RecoveryIcon from "@/public/asset/recovery.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { Button } from "@/app/ui/button";
+import AuthShapeHeader from "@/app/components/auth-shape-header";
 const PemulihanKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   return (
     <Container className="w-full min-h-screen">
       {isMobile && (
         <NavLayout>
-          <Container className="w-full h-full">
+          <Container className="w-full h-full relative">
+            <AuthShapeHeader />
             <Container className="flex justify-center items-center flex-col">
               <Text>Page Pemulihan Kata Sandi</Text>
               <Image

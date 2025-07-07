@@ -4,6 +4,8 @@ import Container from "@/app/ui/container";
 import HomeLayout from "@/app/core/layouts/home.layout";
 import { Text } from "@/app/ui/Text";
 import CardProfile from "@/app/core/components/CardProfile";
+import FilterHome from "@/app/core/components/filter-home";
+import { Input } from "@/app/ui/input";
 
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -13,8 +15,12 @@ const HomeChildren: React.FC = () => {
         <HomeLayout>
           <Container as="main" className="w-full h-full ">
             <Container className="flex justify-center items-center flex-col">
-              <Container className="flex justify-start items-start w-full px-2">
+              <Container className="flex w-full ">
                 <CardProfile />
+              </Container>
+              <Container className="flex items-center gap-2 w-full px-4 mt-2">
+                <Input placeholder="Pencarian" />
+                <FilterHome />
               </Container>
             </Container>
           </Container>

@@ -36,3 +36,8 @@ export interface DropdownProps {
     href: string;
   };
 }
+
+export interface ToolTipProps {
+  content: any;
+  children?: React.ReactNode;
+}

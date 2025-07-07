@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "pnpm build && pnpm start",
+    "cleanbuild": "rm -rf .next && pnpm build && pnpm start"
   },
   "dependencies": {
     "@iconify/react": "^6.0.0",

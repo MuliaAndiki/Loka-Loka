@@ -8,7 +8,6 @@ import {
 } from "@/app/ui/dropdown-menu";
 import { Bell } from "lucide-react";
 import UseTooltip from "../partials/tooltip";
-import { Text } from "@/app/ui/Text";
 
 const DropDownMenuHome: React.FC = () => {
   return (

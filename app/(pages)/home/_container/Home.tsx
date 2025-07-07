@@ -6,6 +6,7 @@ import { Text } from "@/app/ui/Text";
 import CardProfile from "@/app/core/components/CardProfile";
 import FilterHome from "@/app/core/components/filter-home";
 import { Input } from "@/app/ui/input";
+import PromotionApp from "@/app/core/components/promotion-app";
 
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -21,6 +22,10 @@ const HomeChildren: React.FC = () => {
               <Container className="flex items-center gap-2 w-full px-4 mt-2">
                 <Input placeholder="Pencarian" />
                 <FilterHome />
+              </Container>
+
+              <Container className="flex  w-full mt-4 items-start justify-center p-4 ">
+                <PromotionApp />
               </Container>
             </Container>
           </Container>

@@ -20,6 +20,7 @@ import { themeConfig } from "@/app/types/config/theme.config";
 import { useTheme } from "@/app/hooks/theme/use-theme";
 import NavLayout from "@/app/core/layouts/nav.layout";
 import { useRouter } from "next/navigation";
+import Shape from "@/app/ui/shape";
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -48,9 +49,10 @@ const LoginChild: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container
-            className={`w-full h-full bg-[${themeConfig[theme].primary.background}]`}
+            className={`w-full h-full bg-[${themeConfig[theme].primary.background}] relative`}
           >
-            <Container className="flex flex-col w-full mx-auto">
+            <Shape className="absolute rounded-full bg-[var(--shape)] left-1/2 -translate-x-1/2 w-120 h-120 z-[-5] -translate-y-80" />
+            <Container className="flex flex-col w-full mx-auto z-0">
               <Container className="flex flex-col justify-center items-center">
                 <Image
                   className="object-cover h-auto "

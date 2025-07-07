@@ -119,14 +119,15 @@
     --foreground: #0a0a0a
     --primary: #7f5af0;
     --primary-foreground: #ffffff
+    --shape: #FFBE5D;
 
   }
   .dark {
     --background: #0a0a0a;
     --foreground: #0a0a0a;
-
     --primary: #9a7dff;
     --primary-foreground: #000000;
+    --shape: #175753;
   }
   .body {
     background: var(--background);

@@ -1,4 +1,4 @@
-import Container from "../ui/container";
+import Container from "@/app/ui/container";
 import { ArrowLeft } from "lucide-react";
 import ToggleTheme from "@/app/ui/toggle";
 import { useRouter } from "next/navigation";

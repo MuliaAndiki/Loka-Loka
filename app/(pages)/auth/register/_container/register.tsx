@@ -5,7 +5,7 @@ import { RouteConfigStatic } from "@/app/config/route.config";
 import Icon from "@/public/asset/iconFix.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
-import { formRegister } from "@/app/types/form";
+import { formRegisterSchema } from "@/app/types/form";
 import { useState } from "react";
 import { Text } from "@/app/ui/Text";
 import {
@@ -16,10 +16,11 @@ import {
 import { Button } from "@/app/ui/button";
 import NavLayout from "@/app/core/layouts/nav.layout";
 import Link from "next/link";
+import AuthShapeHeader from "@/app/components/auth-shape-header";
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
-  const [formRegister, setFormRegister] = useState<formRegister>({
+  const [formRegister, setFormRegister] = useState<formRegisterSchema>({
     nama: "",
     email: "",
     password: "",
@@ -31,7 +32,8 @@ const RegisterChildren: React.FC = () => {
     <Container as="main" className="w-full h-full">
       {isMobile && (
         <NavLayout>
-          <Container as="main" className="w-full h-full">
+          <Container as="main" className="w-full h-full relative">
+            <AuthShapeHeader />
             <Container className="flex flex-col w-full mx-auto">
               <Container className="w-full flex justify-center border-black">
                 <Image

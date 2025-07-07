@@ -7,6 +7,7 @@ import Icon from "@/public/asset/hpl.png";
 import Image from "next/image";
 import { Button } from "@/app/ui/button";
 import { Input } from "@/app/ui/input";
+import AuthShapeHeader from "@/app/components/auth-shape-header";
 
 const MetodeLainChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -14,7 +15,7 @@ const MetodeLainChildren: React.FC = () => {
     <Container as="main" className="w-full min-h-screen">
       {isMobile && (
         <NavLayout>
-          <Container className={`w-full h-full `}>
+          <Container className={`w-full h-full relative`}>
             <Container className="flex justify-center items-center flex-col">
               <Text className="text-lg md:text-4xl font-bold">Metode Lain</Text>
               <Image

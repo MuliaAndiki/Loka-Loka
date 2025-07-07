@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { themeConfig } from "@/app/types/config/theme.config";
 import React from "react";
+import { object } from "zod";
 
 type Theme = "light" | "dark";
 
@@ -44,15 +45,27 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     Object.entries(themeValues).forEach(([key, value]) => {
       if (typeof value === "string") {
         document.documentElement.style.setProperty(`--${key}`, value);
-      } else if (typeof value === "object") {
-        document.documentElement.style.setProperty(
-          `--${key}`,
-          value.background
-        );
-        document.documentElement.style.setProperty(
-          `--${key}-foreground`,
-          value.foreground
-        );
+      } else if (typeof value === "object" && value !== null) {
+        if ("background" in value && "foreground" in value) {
+          document.documentElement.style.setProperty(
+            `--${key}`,
+            value.background
+          );
+          document.documentElement.style.setProperty(
+            `--${key}-foreground`,
+            value.foreground
+          );
+        }
+        if ("parent" in value && "child" in value) {
+          document.documentElement.style.setProperty(
+            `--${key}-parent`,
+            value.parent
+          );
+          document.documentElement.style.setProperty(
+            `--${key}-child`,
+            value.child
+          );
+        }
       }
     });
   };

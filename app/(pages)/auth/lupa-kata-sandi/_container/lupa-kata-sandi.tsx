@@ -16,7 +16,7 @@ const LupaKataSandiChildren: React.FC = () => {
     <Container className="w-full min-h-screen" as="main">
       {isMobile && (
         <NavLayout>
-          <Container className="w-full h-full">
+          <Container className="w-full h-full relative">
             <Container className="w-full justify-center items-center flex flex-col">
               <Text className="font-bold text-lg md:text-2xl">
                 Lupa Kata Sandi?

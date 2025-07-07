@@ -2,6 +2,10 @@ interface ColorConfig {
   background: string;
   foreground: string;
 }
+interface ShapeConfig {
+  parent: string;
+  child: string;
+}
 
 interface ThemeConfig {
   light: {
@@ -20,7 +24,7 @@ interface ThemeConfig {
     border: string;
     input: string;
     ring: string;
-    shape: string;
+    shape: ShapeConfig;
   };
   dark: {
     background: string;
@@ -38,7 +42,7 @@ interface ThemeConfig {
     border: string;
     input: string;
     ring: string;
-    shape: string;
+    shape: ShapeConfig;
   };
 }
 
@@ -56,7 +60,7 @@ export const themeConfig: ThemeConfig = {
     },
     primary: {
       background: "#FFBE5D",
-      foreground: "#F5EAFF",
+      foreground: "#0E0A17",
     },
     secondary: {
       background: "#F5EAFF",
@@ -87,9 +91,12 @@ export const themeConfig: ThemeConfig = {
       foreground: "#04B4FC22",
     },
     border: "#000000",
-    input: "#000000",
+    input: "#FFBE5D",
     ring: "#000000",
-    shape: "#FFBE5D",
+    shape: {
+      parent: "#FFBE5D",
+      child: "#FFAB2D",
+    },
   },
   dark: {
     background: "#0E0A17",
@@ -103,7 +110,7 @@ export const themeConfig: ThemeConfig = {
       foreground: "#F5EAFF",
     },
     primary: {
-      background: "#FCF7F8",
+      background: "#175753",
       foreground: "#000000",
     },
     secondary: {
@@ -135,8 +142,11 @@ export const themeConfig: ThemeConfig = {
       foreground: "#04B4FC22",
     },
     border: "rgba(245, 234, 255, 0.1)",
-    input: "rgba(245, 234, 255, 0.15)",
+    input: "#175753",
     ring: "#FCF7F8",
-    shape: "#175753",
+    shape: {
+      parent: "#175753",
+      child: "#0A4440",
+    },
   },
 };

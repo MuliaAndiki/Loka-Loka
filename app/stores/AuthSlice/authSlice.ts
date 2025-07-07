@@ -1,8 +1,8 @@
-import { userType } from "@/app/types/api";
+import { userSchema } from "@/app/types/api";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface AuthState {
-  currentUser: userType | null;
+  currentUser: userSchema | null;
 }
 
 const initialState: AuthState = {
@@ -13,7 +13,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setCurrentUser(state, action: PayloadAction<userType | null>) {
+    setCurrentUser(state, action: PayloadAction<userSchema | null>) {
       state.currentUser = action.payload;
     },
     logout(state) {

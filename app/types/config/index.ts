@@ -15,6 +15,10 @@ export interface RouteStaticConfig {
     title: string;
     href: string;
   };
+  lihatSemua: {
+    title: string;
+    href: string;
+  };
 }
 
 export interface RouteLogicConfig {

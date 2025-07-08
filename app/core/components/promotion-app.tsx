@@ -7,7 +7,7 @@ import { PromotionSchemaProps } from "@/app/types/props";
 const PromotionApp: React.FC<PromotionSchemaProps> = ({ data }) => {
   return (
     <Container className="w-full min-h-full">
-      <Container className="bg-[var(--shape-parent)] flex justify-between items-center w-full  rounded-md p-3 relative overflow-hidden z-0 ">
+      <Container className="bg-[var(--shape-parent)] flex justify-between items-center w-full  rounded-md p-3 relative overflow-hidden z-0 drop-shadow-lg">
         <PromotionShapeApp />
         <Container className="flex justify-start flex-col">
           <Text className="md:text-2xl text-lg font-bold w-full ">

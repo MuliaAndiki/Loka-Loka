@@ -3,7 +3,7 @@ import { Text } from "@/app/ui/Text";
 import Image from "next/image";
 import ProfileDummy from "@/public/asset/Profile.svg";
 import { Button } from "@/app/ui/button";
-import DropDownMenuHome from "./DropDownHome";
+import DropDownMenuHome from "../../components/drop-down-home";
 
 const CardProfile: React.FC = () => {
   return (

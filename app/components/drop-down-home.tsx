@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/app/ui/dropdown-menu";
 import { Bell } from "lucide-react";
-import UseTooltip from "../partials/tooltip";
+import UseTooltip from "../core/partials/tooltip";
 
 const DropDownMenuHome: React.FC = () => {
   return (

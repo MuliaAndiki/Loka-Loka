@@ -8,7 +8,7 @@ const FooterApp: React.FC = () => {
     "Home"
   );
   const [visible, setVisible] = useState(true);
-  // Chore
+
   useEffect(() => {
     const time = setTimeout(() => {
       setVisible(false);

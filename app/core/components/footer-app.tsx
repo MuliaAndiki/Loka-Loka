@@ -8,7 +8,6 @@ const FooterApp: React.FC = () => {
     "Home"
   );
   const [visible, setVisible] = useState(true);
-  const handleRedirect = () => {};
 
   useEffect(() => {
     const time = setTimeout(() => {

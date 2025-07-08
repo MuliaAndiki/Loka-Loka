@@ -9,7 +9,10 @@ const FooterApp: React.FC = () => {
   );
   const [visible, setVisible] = useState(true);
 
-  const handleRedirect = () => {};
+  const handleRedirect = () => {
+    try {
+    } catch (error) {}
+  };
 
   useEffect(() => {
     const time = setTimeout(() => {

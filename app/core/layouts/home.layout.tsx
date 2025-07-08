@@ -20,7 +20,7 @@ export default function HomeLayout({
           <SidebarTrigger />
           {children}
         </Container>
-        <Container className="fixed bottom-2 left-0 w-full z-20 ">
+        <Container className="fixed bottom-0 left-0 w-full z-20 ">
           <FooterApp />
         </Container>
       </Container>

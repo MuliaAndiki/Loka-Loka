@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "tsx scripts/custom-dev.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -39,11 +39,16 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/figlet": "^1.7.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-redux": "^7.1.34",
+    "chalk": "^5.4.1",
+    "figlet": "^1.8.1",
     "tailwindcss": "^4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.3",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"
   }

@@ -2,7 +2,7 @@
 import Container from "@/app/ui/container";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import { Text } from "@/app/ui/Text";
-import NavLayout from "@/app/core/layouts/nav.layout";
+import NavLayout from "@/app/core/layouts/auth.layout";
 import ForrgotPassword from "@/public/asset/Lupa.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";

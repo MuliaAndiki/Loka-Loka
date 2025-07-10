@@ -18,7 +18,7 @@ import {
 } from "@react-oauth/google";
 import { themeConfig } from "@/app/types/config/theme.config";
 import { useTheme } from "@/app/hooks/theme/use-theme";
-import NavLayout from "@/app/core/layouts/nav.layout";
+import NavLayout from "@/app/core/layouts/auth.layout";
 import { useRouter } from "next/navigation";
 
 const LoginChild: React.FC = () => {

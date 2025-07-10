@@ -25,23 +25,6 @@ export const RekomendasiSchemaData: RekomendasiSchema[] = [
     image: Tiket,
     organizer: "Motion Ime",
     price: "1.000.000.000",
-  },
-  {
-    title: "Tiket",
-    image: Tiket,
-    organizer: "Motion Ime",
-    price: "1.000.000.000",
-  },
-  {
-    title: "Tiket",
-    image: Tiket,
-    organizer: "Motion Ime",
-    price: "1.000.000.000",
-  },
-  {
-    title: "Tiket",
-    image: Tiket,
-    organizer: "Motion Ime",
-    price: "1.000.000.000",
+    cart: "Masukan Ke Keranjang",
   },
 ];

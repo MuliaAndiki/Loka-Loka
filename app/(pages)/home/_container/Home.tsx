@@ -66,7 +66,7 @@ const HomeChildren: React.FC = () => {
                   </Link>
                 ))}
               </Container>
-              <Container className="w-full p-2">
+              <Container className="w-full h-full p-2">
                 <Container className="grid grid-cols-2 grid-rows-1 gap-4 ">
                   {RekomendasiSchemaData.slice(0, 4).map((items, key) => (
                     <Container
@@ -85,7 +85,7 @@ const HomeChildren: React.FC = () => {
                   </Text>
                   {RouteConfigStatic.map((items, key) => (
                     <Link key={key} href={items.lihatSemuaTerdekat.href}>
-                      <Text className="md:text-4xl text-lg font-bold">
+                      <Text className="font-extralight text-sm">
                         {items.lihatSemuaTerdekat.title}
                       </Text>
                     </Link>

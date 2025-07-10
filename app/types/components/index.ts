@@ -11,6 +11,7 @@ export const RekomendasiType = z.object({
   title: z.string(),
   organizer: z.string(),
   price: z.string(),
+  cart: z.string(),
 });
 
 export type PromotionSchema = z.infer<typeof PromotionType>;

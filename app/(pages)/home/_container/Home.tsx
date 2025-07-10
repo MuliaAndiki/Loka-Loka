@@ -12,6 +12,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import KategoriHome from "@/app/core/components/kategori-home";
 import { RouteStaticConfig } from "@/app/types/config";
 import { RouteConfigStatic } from "@/app/config/route.config";
+import RekomendasiHome from "@/app/components/rekomendasi-home";
+import { RekomendasiSchemaData } from "@/app/config/component.config";
 import Link from "next/link";
 
 const HomeChildren: React.FC = () => {
@@ -48,7 +50,7 @@ const HomeChildren: React.FC = () => {
                   ))}
                 </Swiper>
               </Container>
-              <Container className="w-full flex mt-2 p-4 border">
+              <Container className="w-full flex mt-2 p-4 ">
                 <KategoriHome />
               </Container>
 
@@ -63,6 +65,18 @@ const HomeChildren: React.FC = () => {
                     </Text>
                   </Link>
                 ))}
+              </Container>
+              <Container className="w-full p-2">
+                <Container className="grid grid-cols-2 grid-rows-1 gap-4 ">
+                  {RekomendasiSchemaData.map((items, key) => (
+                    <Container
+                      key={key}
+                      className="flex justify-center items-center"
+                    >
+                      <RekomendasiHome data={items} />
+                    </Container>
+                  ))}
+                </Container>
               </Container>
             </Container>
           </Container>

@@ -6,8 +6,8 @@ import { PromotionSchemaProps } from "@/app/types/props";
 
 const PromotionApp: React.FC<PromotionSchemaProps> = ({ data }) => {
   return (
-    <Container className="w-full min-h-full">
-      <Container className="bg-[var(--shape-parent)] flex justify-between items-center w-full  rounded-md p-3 relative overflow-hidden z-0 drop-shadow-lg">
+    <Container className="w-full min-h-full ">
+      <Container className="bg-[var(--shape-parent)] shadow-md/20 flex justify-between items-center w-full  rounded-md p-3 relative overflow-hidden z-0">
         <PromotionShapeApp />
         <Container className="flex justify-start flex-col">
           <Text className="md:text-2xl text-lg font-bold w-full ">
@@ -15,13 +15,13 @@ const PromotionApp: React.FC<PromotionSchemaProps> = ({ data }) => {
           </Text>
           <Text className="text-3xl md:text-lg font-bold">{data.desk}</Text>
         </Container>
-        <Container className="flex  w-full ">
+        <Container className="flex w-full ">
           <Image
             alt="Foto"
             src={data.image}
             width={60}
             height={60}
-            className="object-cover h-auto"
+            className="object-cover h-auto "
           />
         </Container>
       </Container>

@@ -5,7 +5,7 @@ import Image from "next/image";
 const KategoriHome: React.FC = () => {
   return (
     <Container className="w-full h-full ">
-      <Container className="bg-[var(--shape-parent)] flex justify-center items-center rounded-lg p-2">
+      <Container className="bg-[var(--shape-parent)] flex justify-center items-center rounded-lg p-2 shadow-md/20">
         <Text>Kategori</Text>
       </Container>
     </Container>

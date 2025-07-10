@@ -18,7 +18,11 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
       href: "/auth/lupa-kata-sandi/metode-lain",
       title: "Coba menggunakan cara lain ?",
     },
-    lihatSemua: {
+    lihatSemuaRekomendasi: {
+      title: "Lihat Semua",
+      href: "#",
+    },
+    lihatSemuaTerdekat: {
       title: "Lihat Semua",
       href: "#",
     },

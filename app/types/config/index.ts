@@ -15,7 +15,11 @@ export interface RouteStaticConfig {
     title: string;
     href: string;
   };
-  lihatSemua: {
+  lihatSemuaRekomendasi: {
+    title: string;
+    href: string;
+  };
+  lihatSemuaTerdekat: {
     title: string;
     href: string;
   };

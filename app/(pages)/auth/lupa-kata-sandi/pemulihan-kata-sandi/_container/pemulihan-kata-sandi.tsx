@@ -1,5 +1,5 @@
 "use client";
-import NavLayout from "@/app/core/layouts/auth.layout";
+import NavLayout from "@/app/core/layouts/auth-layout";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import Container from "@/app/ui/container";
 import { Text } from "@/app/ui/Text";

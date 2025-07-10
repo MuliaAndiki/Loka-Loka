@@ -10,7 +10,7 @@ export default function OnboardingLayout({
       <Container className="absolute right-0">
         <AuthShapeHeader />
       </Container>
-      <Container className="w-screen h-auto">{children}</Container>
+      <Container className="w-screen h-screen">{children}</Container>
       <Container className="absolute ">
         <AuthShapeHeader />
       </Container>

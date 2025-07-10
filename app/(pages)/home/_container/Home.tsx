@@ -1,7 +1,7 @@
 "use client";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import Container from "@/app/ui/container";
-import HomeLayout from "@/app/core/layouts/home.layout";
+import HomeLayout from "@/app/core/layouts/home-layout";
 import { Text } from "@/app/ui/Text";
 import CardProfile from "@/app/core/components/card-profile";
 import FilterHome from "@/app/core/components/filter-home";

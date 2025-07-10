@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
   return (
-    <Container className="bg-[var(--shape-parent)] aspect-[2/3] flex justify-center items-center flex-col rounded-lg  w-full shadow-md/20 relative z-0   ">
+    <Container className="bg-[var(--shape-parent)] py-12 flex justify-center items-center flex-col rounded-lg  w-full relative z-0   ">
       <Shape className="w-20 h-20 rounded-full bg-[var(--shape-child)]  absolute z-[-5] top-0 left-0  blur-md" />
       <Shape className="w-20 h-20 rounded-full bg-[var(--shape-child)]  absolute z-[-5] bottom-0 right-0  blur-md" />
       <Image
@@ -24,9 +24,11 @@ const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
         Rp.{data.price}
       </Text>
       <Container className=" absolute bottom-0 bg-background w-full h-10 rounded-t-lg z-[-4]">
-        <Container className="w-full flex justify-center items-center h-full gap-1">
+        <Container className=" flex justify-center items-center h-full gap-1 ">
           <ShoppingBasket />
-          <Text className="md:text-4xl text-sm font-bold">{data.cart}</Text>
+          <Text className="md:text-4xl text-sm font-extralight">
+            {data.cart}
+          </Text>
         </Container>
       </Container>
     </Container>

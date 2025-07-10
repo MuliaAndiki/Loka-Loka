@@ -59,22 +59,36 @@ const HomeChildren: React.FC = () => {
                   Rekomendasi
                 </Text>
                 {RouteConfigStatic.map((items, key) => (
-                  <Link key={key} href={items.lihatSemua.href}>
+                  <Link key={key} href={items.lihatSemuaRekomendasi.href}>
                     <Text className="font-extralight text-sm">
-                      {items.lihatSemua.title}
+                      {items.lihatSemuaRekomendasi.title}
                     </Text>
                   </Link>
                 ))}
               </Container>
               <Container className="w-full p-2">
                 <Container className="grid grid-cols-2 grid-rows-1 gap-4 ">
-                  {RekomendasiSchemaData.map((items, key) => (
+                  {RekomendasiSchemaData.slice(0, 4).map((items, key) => (
                     <Container
                       key={key}
                       className="flex justify-center items-center"
                     >
                       <RekomendasiHome data={items} />
                     </Container>
+                  ))}
+                </Container>
+              </Container>
+              <Container className="w-full p-2 ">
+                <Container className="flex justify-between items-center">
+                  <Text className="md:text-4xl text-lg font-bold">
+                    Terdekat
+                  </Text>
+                  {RouteConfigStatic.map((items, key) => (
+                    <Link key={key} href={items.lihatSemuaTerdekat.href}>
+                      <Text className="md:text-4xl text-lg font-bold">
+                        {items.lihatSemuaTerdekat.title}
+                      </Text>
+                    </Link>
                   ))}
                 </Container>
               </Container>

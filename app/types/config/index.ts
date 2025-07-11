@@ -1,3 +1,5 @@
+import { any } from "zod";
+
 export interface RouteStaticConfig {
   login: {
     title: string;
@@ -21,6 +23,14 @@ export interface RouteStaticConfig {
   };
   lihatSemuaTerdekat: {
     title: string;
+    href: string;
+  };
+  profile: {
+    title: string;
+    href: string;
+  };
+  editProfile: {
+    title: any;
     href: string;
   };
 }

@@ -17,7 +17,7 @@ export default function HeaderApp() {
   };
   return (
     <nav>
-      <Container className="flex justify-between items-center p-2 ">
+      <Container className="flex justify-between items-center w-full p-2 ">
         <button onClick={() => handleBack()}>
           <ArrowLeft />
         </button>

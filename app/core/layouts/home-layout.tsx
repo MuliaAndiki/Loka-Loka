@@ -12,7 +12,7 @@ export default function HomeLayout({
 }) {
   return (
     <SidebarProvider>
-      <Container className="flex flex-col min-h-screen overflow-auto ">
+      <Container className="flex flex-col h-full overflow-x-hidden ">
         <HomeShapeHeaderV1 />
         <HeaderApp />
         <AppSidebar />

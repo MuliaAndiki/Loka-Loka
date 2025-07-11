@@ -3,10 +3,12 @@ import Container from "@/app/ui/container";
 import { Text } from "@/app/ui/Text";
 import { Activity, House, User } from "lucide-react";
 import { Button } from "@/app/ui/button";
+import { useRouter } from "next/navigation";
 const FooterApp: React.FC = () => {
-  const [isActive, setIsActive] = useState<"Home" | "Events" | "Profile">(
-    "Home"
-  );
+  const router = useRouter();
+  const [isActive, setIsActive] = useState<
+    "Default" | "Home" | "Events" | "Profile"
+  >("Default");
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -17,10 +19,22 @@ const FooterApp: React.FC = () => {
   }, [isActive]);
 
   const NavigationItems = [
-    { name: "Home", icon: <House /> },
-    { name: "Events", icon: <Activity /> },
-    { name: "Profile", icon: <User /> },
+    { name: "Home", icon: <House />, href: "/home" },
+    { name: "Events", icon: <Activity />, href: "/" },
+    { name: "Profile", icon: <User />, href: "/profile" },
   ] as const;
+
+  const handleRedirect = (name: typeof isActive) => {
+    setVisible(true);
+    setIsActive(name);
+
+    const item = NavigationItems.find((item) => item.name === name);
+    if (!item) return;
+
+    setTimeout(() => {
+      router.push(item.href);
+    }, 1000);
+  };
 
   const renderContent = () => {
     const baseClass = `flex justify-center items-center flex-col transition-opacity duration-1000 ease-in-out ${
@@ -60,10 +74,7 @@ const FooterApp: React.FC = () => {
           <Button
             key={items.name}
             variant="ghost"
-            onClick={() => {
-              setVisible(true);
-              setIsActive(items.name);
-            }}
+            onClick={() => handleRedirect(items.name)}
             disabled={isActive === items.name}
           >
             {items.icon}

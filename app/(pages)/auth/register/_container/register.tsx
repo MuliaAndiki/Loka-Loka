@@ -14,7 +14,7 @@ import {
   GoogleOAuthProvider,
 } from "@react-oauth/google";
 import { Button } from "@/app/ui/button";
-import NavLayout from "@/app/core/layouts/nav.layout";
+import NavLayout from "@/app/core/layouts/auth-layout";
 import Link from "next/link";
 import AuthShapeHeader from "@/app/components/auth-shape-header";
 

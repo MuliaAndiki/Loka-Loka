@@ -1,5 +1,5 @@
 import { RouteStaticConfig, RouteLogicConfig } from "../types/config";
-
+import { UserPen } from "lucide-react";
 export const RouteConfigStatic: RouteStaticConfig[] = [
   {
     login: {
@@ -25,6 +25,14 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
     lihatSemuaTerdekat: {
       title: "Lihat Semua",
       href: "#",
+    },
+    profile: {
+      href: "/profile",
+      title: "Profile",
+    },
+    editProfile: {
+      title: UserPen,
+      href: "/profile/edit-profile",
     },
   },
 ];

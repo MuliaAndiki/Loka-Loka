@@ -6,6 +6,7 @@ import { RouteConfigStatic } from "@/app/config/route.config";
 import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/public/asset/iconFix.png";
+
 const SplashScreenChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   return (

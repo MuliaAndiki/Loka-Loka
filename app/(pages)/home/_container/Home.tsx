@@ -10,7 +10,6 @@ import PromotionApp from "@/app/core/components/promotion-app";
 import { PromotionSchemaData } from "@/app/config/component.config";
 import { Swiper, SwiperSlide } from "swiper/react";
 import KategoriHome from "@/app/core/components/kategori-home";
-import { RouteStaticConfig } from "@/app/types/config";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import RekomendasiHome from "@/app/core/components/rekomendasi-home";
 import { RekomendasiSchemaData } from "@/app/config/component.config";

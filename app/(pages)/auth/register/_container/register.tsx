@@ -6,7 +6,7 @@ import Icon from "@/public/asset/iconFix.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { formRegisterSchema } from "@/app/types/form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Text } from "@/app/ui/Text";
 import {
   CredentialResponse,
@@ -16,13 +16,11 @@ import {
 import { Button } from "@/app/ui/button";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import Link from "next/link";
-import AxiosClient from "@/app/utils/axios.client";
-import { useRouter } from "next/navigation";
+import { useRegister } from "@/app/hooks/mutation/auth/useRegister";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
-  const router = useRouter();
   const alert = useAlert();
   const [formRegister, setFormRegister] = useState<formRegisterSchema>({
     fullname: "",
@@ -30,7 +28,9 @@ const RegisterChildren: React.FC = () => {
     password: "",
   });
 
-  const handleRegister = async () => {
+  const { mutate: register, isPending } = useRegister();
+
+  const handleRegister = () => {
     if (
       !formRegister.email ||
       !formRegister.fullname ||
@@ -43,24 +43,7 @@ const RegisterChildren: React.FC = () => {
       });
       return;
     }
-    try {
-      const res = await AxiosClient.post(`/auth`, formRegister);
-      console.log(res);
-      alert.toast({
-        title: "Berhasil Daftar",
-        message: "Berhasil",
-        icon: "success",
-        onVoid: () => {
-          router.push("/auth/login");
-        },
-      });
-    } catch (error) {
-      alert.toast({
-        title: "Gagal Mendaftar",
-        icon: "error",
-        message: "Gagal",
-      });
-    }
+    return register(formRegister);
   };
 
   const handleLoginGoogle = async (e: CredentialResponse) => {};
@@ -139,8 +122,12 @@ const RegisterChildren: React.FC = () => {
                   />
                 </Container>
 
-                <Button className="w-full" onClick={() => handleRegister()}>
-                  Daftar
+                <Button
+                  className="w-full"
+                  onClick={() => handleRegister()}
+                  disabled={isPending}
+                >
+                  {isPending ? "Mendaftar" : "Daftar"}
                 </Button>
                 <Container className="w-full flex items-center justify-center gap-1">
                   <Text className="text-center text-sm lg:text-4xl">

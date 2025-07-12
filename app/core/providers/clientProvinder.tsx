@@ -30,7 +30,7 @@ export default function LayoutClient({
               <Toaster
                 position="top-center"
                 toastOptions={{
-                  duration: 300,
+                  duration: 900,
                 }}
               />
             </AlertProvinder>

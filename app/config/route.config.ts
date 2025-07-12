@@ -1,5 +1,9 @@
-import { RouteStaticConfig, RouteLogicConfig } from "../types/config";
-import { UserPen } from "lucide-react";
+import {
+  RouteStaticConfig,
+  RouteLogicConfig,
+  RouteProfileAppConfig,
+} from "../types/config";
+import { UserPen, Calendar, ChevronRight, CreditCard } from "lucide-react";
 export const RouteConfigStatic: RouteStaticConfig[] = [
   {
     login: {
@@ -42,3 +46,18 @@ export const RouteConfigLogic: RouteLogicConfig = {
     href: "/home",
   },
 };
+
+export const RouteProfileApp: RouteProfileAppConfig[] = [
+  {
+    title: "Order History",
+    href: "/",
+    iconV1: Calendar,
+    iconV2: ChevronRight,
+  },
+  {
+    title: "Payment Me",
+    href: "/",
+    iconV1: CreditCard,
+    iconV2: ChevronRight,
+  },
+];

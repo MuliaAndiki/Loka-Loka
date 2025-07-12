@@ -2,12 +2,13 @@
 import { store, persistor } from "@/app/stores/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { useEffect } from "react";
 import { useIsMobile } from "../../hooks/Mobile/use-mobile";
 import { MobileContex } from "../../hooks/Mobile/use-mobile";
 import { ThemeProvider } from "@/app/hooks/theme/use-theme";
 import { Toaster } from "react-hot-toast";
 import { AlertProvinder } from "@/app/hooks/alert/costum-alert";
+import ReactQueryClientProvinder from "@/app/hooks/query/query-client";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export default function LayoutClient({
   children,
@@ -22,7 +23,10 @@ export default function LayoutClient({
         <ThemeProvider>
           <MobileContex.Provider value={IsMobile}>
             <AlertProvinder>
-              {children}
+              <ReactQueryClientProvinder>
+                {children}
+                <ReactQueryDevtools initialIsOpen={false} />
+              </ReactQueryClientProvinder>
               <Toaster
                 position="top-center"
                 toastOptions={{

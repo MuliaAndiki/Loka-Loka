@@ -6,7 +6,7 @@ export const formLoginType = z.object({
 });
 
 export const formRegisterType = z.object({
-  nama: z.string(),
+  fullname: z.string(),
   email: z.string(),
   password: z.string(),
 });

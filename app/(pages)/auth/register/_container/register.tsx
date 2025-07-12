@@ -6,7 +6,7 @@ import Icon from "@/public/asset/iconFix.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { formRegisterSchema } from "@/app/types/form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Text } from "@/app/ui/Text";
 import {
   CredentialResponse,
@@ -16,14 +16,52 @@ import {
 import { Button } from "@/app/ui/button";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import Link from "next/link";
+import AxiosClient from "@/app/utils/axios.client";
+import { useRouter } from "next/navigation";
+import { useAlert } from "@/app/hooks/alert/costum-alert";
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
+  const router = useRouter();
+  const alert = useAlert();
   const [formRegister, setFormRegister] = useState<formRegisterSchema>({
-    nama: "",
+    fullname: "",
     email: "",
     password: "",
   });
+
+  const handleRegister = async () => {
+    if (
+      !formRegister.email ||
+      !formRegister.fullname ||
+      !formRegister.password
+    ) {
+      alert.toast({
+        title: "Cek Kolom",
+        message: "Coba Lagi",
+        icon: "warning",
+      });
+      return;
+    }
+    try {
+      const res = await AxiosClient.post(`/auth`, formRegister);
+      console.log(res);
+      alert.toast({
+        title: "Berhasil Daftar",
+        message: "Berhasil",
+        icon: "success",
+        onVoid: () => {
+          router.push("/auth/login");
+        },
+      });
+    } catch (error) {
+      alert.toast({
+        title: "Gagal Mendaftar",
+        icon: "error",
+        message: "Gagal",
+      });
+    }
+  };
 
   const handleLoginGoogle = async (e: CredentialResponse) => {};
 
@@ -62,11 +100,11 @@ const RegisterChildren: React.FC = () => {
                 <Container className="my-2">
                   <Input
                     placeholder="Nama"
-                    name={formRegister.nama}
-                    value={formRegister.nama}
+                    name={formRegister.fullname}
+                    value={formRegister.fullname}
                     onChange={(e) =>
                       setFormRegister((prev) => {
-                        const newObj = { ...prev, nama: e.target.value };
+                        const newObj = { ...prev, fullname: e.target.value };
                         return newObj;
                       })
                     }
@@ -101,7 +139,9 @@ const RegisterChildren: React.FC = () => {
                   />
                 </Container>
 
-                <Button className="w-full">Daftar</Button>
+                <Button className="w-full" onClick={() => handleRegister()}>
+                  Daftar
+                </Button>
                 <Container className="w-full flex items-center justify-center gap-1">
                   <Text className="text-center text-sm lg:text-4xl">
                     Sudah Memiliki Akun?

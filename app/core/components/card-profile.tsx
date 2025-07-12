@@ -20,8 +20,8 @@ const CardProfile: React.FC = () => {
         <Container className=" w-full justify-end items-center gap-2 mx-2 flex">
           <Chart />
           <Container className="flex-col flex items-end justify-center">
-            <Text className="text-sm md:text-4xl ">USERNAME</Text>
-            <Text className="text-sm md:text-4xl">Your Location</Text>
+            <Text className="text-sm md:text-2xl ">USERNAME</Text>
+            <Text className="text-sm md:text-2xl">Location</Text>
           </Container>
           <Image
             src={ProfileDummy}

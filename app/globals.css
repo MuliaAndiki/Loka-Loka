@@ -116,21 +116,21 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
+    --background: #eaebed;
     --foreground: #0a0a0a;
     --primary: #7f5af0;
     --primary-foreground: #ffffff;
-    --shape-parent: #ffbe5d;
-    --shape-child: #ffab2d;
-    --border: #0a0a0a;
+    --shapeV1-parent: #f3af4a;
+    --shapeV1-child: #ffbe5d;
+    --border: #fffdfd;
   }
   .dark {
     --background: #0a0a0a;
     --foreground: #0a0a0a;
     --primary: #9a7dff;
     --primary-foreground: #000000;
-    --shape-parent: #175753;
-    --shape-child: #0a4440;
+    --shapeV1-parent: #175753;
+    --shapeV1-child: #0a4440;
     --border: #fffdfd;
   }
   .body {

@@ -16,7 +16,6 @@ import {
 import { Button } from "@/app/ui/button";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import Link from "next/link";
-import AuthShapeHeader from "@/app/components/auth-shape-header";
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -33,7 +32,6 @@ const RegisterChildren: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <Container as="main" className="w-full h-full relative">
-            <AuthShapeHeader />
             <Container className="flex flex-col w-full mx-auto">
               <Container className="w-full flex justify-center border-black">
                 <Image
@@ -90,7 +88,7 @@ const RegisterChildren: React.FC = () => {
                 </Container>
                 <Container className="my-2">
                   <Input
-                    placeholder="Password"
+                    placeholder="Kata Sandi"
                     type="password"
                     name={formRegister.password}
                     value={formRegister.password}

@@ -96,7 +96,7 @@ const LoginChild: React.FC = () => {
                 <Container className="mb-2 relative ">
                   <Input
                     type={showPassword ? "text" : "password"}
-                    placeholder="Passowrd"
+                    placeholder="Kata Sandi"
                     name={formLogin.password}
                     value={formLogin.password}
                     onChange={(e) =>

@@ -2,11 +2,11 @@ import axios, { AxiosResponse, AxiosError } from "axios";
 import { store } from "../stores/store";
 import { env } from "../config/env.config";
 
-const API = axios.create({
+const AxiosClient = axios.create({
   baseURL: env.NEXT_PUBLIC_API_ID,
 });
 
-API.interceptors.request.use(
+AxiosClient.interceptors.request.use(
   (config: any): any => {
     const token = store.getState().auth.currentUser?.token;
     if (token) {
@@ -19,7 +19,7 @@ API.interceptors.request.use(
   }
 );
 
-API.interceptors.response.use(
+AxiosClient.interceptors.response.use(
   (reponse: AxiosResponse): AxiosResponse => {
     return reponse;
   },
@@ -28,4 +28,4 @@ API.interceptors.response.use(
   }
 );
 
-export default API;
+export default AxiosClient;

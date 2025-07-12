@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useIsMobile } from "../../hooks/Mobile/use-mobile";
 import { MobileContex } from "../../hooks/Mobile/use-mobile";
 import { ThemeProvider } from "@/app/hooks/theme/use-theme";
+import { Toaster } from "react-hot-toast";
+import { AlertProvinder } from "@/app/hooks/alert/costum-alert";
 
 export default function LayoutClient({
   children,
@@ -19,7 +21,15 @@ export default function LayoutClient({
       <PersistGate persistor={persistor}>
         <ThemeProvider>
           <MobileContex.Provider value={IsMobile}>
-            {children}
+            <AlertProvinder>
+              {children}
+              <Toaster
+                position="top-center"
+                toastOptions={{
+                  duration: 300,
+                }}
+              />
+            </AlertProvinder>
           </MobileContex.Provider>
         </ThemeProvider>
       </PersistGate>

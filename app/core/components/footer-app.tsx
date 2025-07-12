@@ -69,7 +69,7 @@ const FooterApp: React.FC = () => {
   return (
     <Container className="w-full h-full ">
       {renderContent()}
-      <Container className="flex justify-around items-center bg-[var(--shape-parent)] rounded-lg m-2 p-1 shadow-md/20">
+      <Container className="flex justify-around items-center bg-[var(--shapeV1-child)] rounded-lg m-2 p-1 shadow-md/20">
         {NavigationItems.map((items) => (
           <Button
             key={items.name}

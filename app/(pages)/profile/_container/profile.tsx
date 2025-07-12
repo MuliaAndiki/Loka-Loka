@@ -28,7 +28,7 @@ const ProfileChildren: React.FC = () => {
                   className="rounded-full object-contain border"
                 />
                 <Container className="flex justify-center items-start flex-col">
-                  <Text>Profile</Text>
+                  <Text>Username</Text>
                   <Text>Location</Text>
                 </Container>
               </Container>
@@ -48,7 +48,7 @@ const ProfileChildren: React.FC = () => {
                 <Link
                   key={key}
                   href={items.href}
-                  className="w-full flex justify-between items-center my-2 border-b-2 border-[var(--shape-child)] p-2"
+                  className="w-full flex justify-between items-center my-2 border-b-2 border-[var(--shapeV1-child)] p-2"
                 >
                   <Container className="flex gap-2 items-center justify-center">
                     <items.iconV1 />

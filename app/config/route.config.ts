@@ -2,8 +2,17 @@ import {
   RouteStaticConfig,
   RouteLogicConfig,
   RouteProfileAppConfig,
+  RouteChartConfig,
 } from "../types/config";
-import { UserPen, Calendar, ChevronRight, CreditCard } from "lucide-react";
+import {
+  UserPen,
+  Calendar,
+  ChevronRight,
+  CreditCard,
+  MapPin,
+  Warehouse,
+  Bookmark,
+} from "lucide-react";
 export const RouteConfigStatic: RouteStaticConfig[] = [
   {
     login: {
@@ -49,15 +58,40 @@ export const RouteConfigLogic: RouteLogicConfig = {
 
 export const RouteProfileApp: RouteProfileAppConfig[] = [
   {
-    title: "Order History",
-    href: "/",
+    title: "Riwayat Pesanan",
+    href: "#",
     iconV1: Calendar,
     iconV2: ChevronRight,
   },
   {
-    title: "Payment Me",
-    href: "/",
+    title: "Metode Pembayaran",
+    href: "#",
     iconV1: CreditCard,
     iconV2: ChevronRight,
+  },
+  {
+    title: "Alamat Saya",
+    href: "#",
+    iconV1: MapPin,
+    iconV2: ChevronRight,
+  },
+  {
+    title: "Disimpan",
+    href: "#",
+    iconV1: Bookmark,
+    iconV2: ChevronRight,
+  },
+  {
+    title: "Tentang Kami",
+    href: "#",
+    iconV1: Warehouse,
+    iconV2: ChevronRight,
+  },
+];
+
+export const RouteChartApp: RouteChartConfig[] = [
+  {
+    title: "Biling",
+    href: "#",
   },
 ];

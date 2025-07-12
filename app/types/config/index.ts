@@ -47,3 +47,8 @@ export interface RouteProfileAppConfig {
   iconV2: any;
   href: string;
 }
+
+export interface RouteChartConfig {
+  title: string;
+  href: string;
+}

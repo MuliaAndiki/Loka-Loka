@@ -3,7 +3,7 @@ import { Text } from "@/app/ui/Text";
 import Image from "next/image";
 import ProfileDummy from "@/public/asset/Profile.svg";
 import { Button } from "@/app/ui/button";
-import DropDownMenuHome from "../../components/drop-down-home";
+import Chart from "../../components/chart";
 
 const CardProfile: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const CardProfile: React.FC = () => {
         </Container>
 
         <Container className=" w-full justify-end items-center gap-2 mx-2 flex">
-          <DropDownMenuHome />
+          <Chart />
           <Container className="flex-col flex items-end justify-center">
             <Text className="text-sm md:text-4xl ">USERNAME</Text>
             <Text className="text-sm md:text-4xl">Your Location</Text>

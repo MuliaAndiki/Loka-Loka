@@ -6,24 +6,29 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/app/ui/dropdown-menu";
-import { Bell } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import UseTooltip from "../core/partials/tooltip";
+import { RouteChartApp } from "../config/route.config";
+import Link from "next/link";
 
 const DropDownMenuHome: React.FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <UseTooltip content="Notafikasi">
-          <Bell />
+          <ShoppingCart />
         </UseTooltip>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>Notafikasi</DropdownMenuLabel>
+        <DropdownMenuLabel className="text-md md:text-4xl font-bold">
+          Loka-Loka
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+        {RouteChartApp.map((items, key) => (
+          <Link key={key} href={items.href}>
+            <DropdownMenuItem>{items.title}</DropdownMenuItem>
+          </Link>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

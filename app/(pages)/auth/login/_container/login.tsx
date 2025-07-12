@@ -19,12 +19,13 @@ import {
 import { themeConfig } from "@/app/types/config/theme.config";
 import { useTheme } from "@/app/hooks/theme/use-theme";
 import NavLayout from "@/app/core/layouts/auth-layout";
-import { useRouter } from "next/navigation";
+import { useAlert } from "@/app/hooks/alert/costum-alert";
+import { useLogin } from "@/app/hooks/mutation/auth/useLogin";
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
   const { theme } = useTheme();
-  const router = useRouter();
+  const alert = useAlert();
 
   const [formLogin, setFormLogin] = useState<formLoginSchema>({
     email: "",
@@ -32,17 +33,20 @@ const LoginChild: React.FC = () => {
   });
   const [showPassword, setShowPassword] = useState<boolean>();
 
+  const { mutate: login, isPending } = useLogin();
   const handleLoginGoogle = async (e: CredentialResponse) => {};
 
   const handleLogin = () => {
-    const isRoute = RouteConfigLogic.login.href;
-    if (isRoute) {
-      router.push(isRoute);
-    } else {
-      console.error("Login Route Not Found In Config");
+    if (!formLogin.email || !formLogin.password) {
+      alert.toast({
+        title: "Mohon Isi Semua Colum",
+        message: "Periksa Semua Colum",
+        icon: "warning",
+      });
+      return;
     }
+    return login(formLogin);
   };
-
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (
@@ -116,8 +120,12 @@ const LoginChild: React.FC = () => {
                   </button>
                 </Container>
 
-                <Button onClick={() => handleLogin()} className="w-full my-2">
-                  Login
+                <Button
+                  onClick={() => handleLogin()}
+                  disabled={isPending}
+                  className="w-full my-2"
+                >
+                  {isPending ? "Masuk..." : "Masuk"}
                 </Button>
                 <Container className="text-end w-full">
                   {RouteConfigStatic.map((route, key) => (

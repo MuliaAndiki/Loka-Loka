@@ -40,3 +40,10 @@ export interface RouteLogicConfig {
     href: string;
   };
 }
+
+export interface RouteProfileAppConfig {
+  iconV1: any;
+  title: string;
+  iconV2: any;
+  href: string;
+}

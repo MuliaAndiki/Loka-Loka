@@ -17,6 +17,7 @@ import Link from "next/link";
 
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
+
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (

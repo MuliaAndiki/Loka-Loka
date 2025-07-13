@@ -3,7 +3,7 @@ import Container from "@/app/ui/container";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import { Text } from "@/app/ui/Text";
-import Icon from "@/public/asset/hpl.png";
+
 import Image from "next/image";
 import { Button } from "@/app/ui/button";
 import { Input } from "@/app/ui/input";
@@ -20,7 +20,7 @@ const MetodeLainChildren: React.FC = () => {
               <Text className="text-lg md:text-4xl font-bold">Metode Lain</Text>
               <Image
                 alt="icon"
-                src={Icon}
+                src="/asset/hpl.png"
                 width={isMobile ? 150 : 200}
                 height={isMobile ? 150 : 200}
                 className="object-cover h-auto "

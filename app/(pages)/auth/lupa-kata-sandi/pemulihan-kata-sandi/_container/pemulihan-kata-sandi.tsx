@@ -3,11 +3,10 @@ import NavLayout from "@/app/core/layouts/auth-layout";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import Container from "@/app/ui/container";
 import { Text } from "@/app/ui/Text";
-import RecoveryIcon from "@/public/asset/recovery.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { Button } from "@/app/ui/button";
-import AuthShapeHeader from "@/app/components/auth-shape-header";
+
 const PemulihanKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   return (
@@ -19,7 +18,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
               <Text>Page Pemulihan Kata Sandi</Text>
               <Image
                 alt="Icon"
-                src={RecoveryIcon}
+                src="/asset/recovery.png"
                 width={isMobile ? 200 : 300}
                 height={isMobile ? 200 : 300}
                 className="h-auto object-cover"

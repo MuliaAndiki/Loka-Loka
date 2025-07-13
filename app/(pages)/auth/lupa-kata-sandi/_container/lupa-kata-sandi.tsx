@@ -3,7 +3,6 @@ import Container from "@/app/ui/container";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import { Text } from "@/app/ui/Text";
 import NavLayout from "@/app/core/layouts/auth-layout";
-import ForrgotPassword from "@/public/asset/Lupa.png";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { Button } from "@/app/ui/button";
@@ -26,7 +25,7 @@ const LupaKataSandiChildren: React.FC = () => {
               </Text>
               <Image
                 className="object-cover h-auto"
-                src={ForrgotPassword}
+                src="/asset/Lupa.png"
                 alt="Icon"
                 width={isMobile ? 300 : 400}
                 height={isMobile ? 300 : 400}

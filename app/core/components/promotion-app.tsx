@@ -15,7 +15,7 @@ const PromotionApp: React.FC<PromotionSchemaProps> = ({ data }) => {
           </Text>
           <Text className="text-3xl md:text-lg font-bold">{data.desk}</Text>
         </Container>
-        <Container className="flex w-full ">
+        <Container className="flex w-full">
           <Image
             alt="Foto"
             src={data.image}

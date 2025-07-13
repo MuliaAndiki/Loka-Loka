@@ -39,13 +39,18 @@ export interface RouteLogicConfig {
   login: {
     href: string;
   };
+  logout: {
+    href: string;
+  };
 }
 
 export interface RouteProfileAppConfig {
   iconV1: any;
   title: string;
   iconV2: any;
-  href: string;
+  href?: string;
+  onClick?: () => void;
+  isPending?: boolean;
 }
 
 export interface RouteChartConfig {

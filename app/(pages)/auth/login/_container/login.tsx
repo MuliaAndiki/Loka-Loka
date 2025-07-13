@@ -6,9 +6,8 @@ import Link from "next/link";
 import { formLoginSchema } from "@/app/types/form";
 import { Input } from "@/app/ui/input";
 import Container from "@/app/ui/container";
-import { RouteConfigStatic, RouteConfigLogic } from "@/app/config/route.config";
+import { RouteConfigStatic } from "@/app/config/route.config";
 import Image from "next/image";
-import Icon from "@/public/asset/iconFix.png";
 import { Button } from "@/app/ui/button";
 import { Text } from "@/app/ui/Text";
 import {
@@ -58,7 +57,7 @@ const LoginChild: React.FC = () => {
               <Container className="flex flex-col justify-center items-center">
                 <Image
                   className="object-cover h-auto"
-                  src={Icon}
+                  src="/asset/iconFix.png"
                   alt="Icon"
                   width={isMobile ? 300 : 400}
                   height={isMobile ? 300 : 400}

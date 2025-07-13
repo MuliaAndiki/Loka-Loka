@@ -5,7 +5,6 @@ import OnboardingLayout from "@/app/core/layouts/onboarding-layout";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Link from "next/link";
 import Image from "next/image";
-import Icon from "@/public/asset/iconFix.png";
 
 const SplashScreenChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -18,7 +17,13 @@ const SplashScreenChildren: React.FC = () => {
               {RouteConfigStatic.map((items, key) => (
                 <Container as="main" key={key} className="">
                   <Link href={items.login.href}>
-                    <Image src={Icon} alt="icon" className="object-contain" />
+                    <Image
+                      src="/asset/iconFix.png"
+                      alt="icon"
+                      className="object-contain "
+                      width={isMobile ? 600 : 700}
+                      height={isMobile ? 600 : 700}
+                    />
                   </Link>
                 </Container>
               ))}

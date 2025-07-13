@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { loginUser } from "@/app/service/auth/auth.service";
+import AuthApi from "@/app/service/auth/auth.service";
 import { useRouter } from "next/navigation";
 import { formLoginSchema } from "@/app/types/form";
 import { useAlert } from "../../alert/costum-alert";
@@ -7,13 +7,15 @@ import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 import { useAppDispatch } from "../../dispatch/dispatch";
 import { setCurrentUser } from "@/app/stores/AuthSlice/authSlice";
 import { userSchema } from "@/app/types/api";
+import { RouteConfigLogic } from "@/app/config/route.config";
+
 export const useLogin = () => {
   const router = useRouter();
   const alert = useAlert();
   const dispatch = useAppDispatch();
 
   return useMutation<TResponse<any>, Error, formLoginSchema>({
-    mutationFn: loginUser,
+    mutationFn: AuthApi.loginUser,
     onSuccess: (res) => {
       const userPayload: userSchema = {
         user: res.data.isAuthExist,
@@ -26,7 +28,7 @@ export const useLogin = () => {
         message: "Selamat Datang Di Loka-Loka",
         icon: "success",
         onVoid: () => {
-          router.push("/home");
+          router.push(RouteConfigLogic.login.href);
         },
       });
     },

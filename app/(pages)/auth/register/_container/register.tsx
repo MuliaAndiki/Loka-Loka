@@ -2,7 +2,7 @@
 import Container from "@/app/ui/container";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import { RouteConfigStatic } from "@/app/config/route.config";
-import Icon from "@/public/asset/iconFix.png";
+
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { formRegisterSchema } from "@/app/types/form";
@@ -57,7 +57,7 @@ const RegisterChildren: React.FC = () => {
               <Container className="w-full flex justify-center border-black">
                 <Image
                   alt="icon"
-                  src={Icon}
+                  src="/asset/iconFix.png"
                   width={isMobile ? 300 : 400}
                   height={isMobile ? 300 : 400}
                   className="object-cover h-auto"

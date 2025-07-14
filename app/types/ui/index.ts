@@ -65,3 +65,8 @@ export interface AlertContexType {
   modal: (p: ModalProps) => void;
   confirm: (p: ModalProps) => Promise<boolean>;
 }
+
+export interface FallbackProps {
+  title: string;
+  className?: string;
+}

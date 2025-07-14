@@ -12,6 +12,7 @@ import {
   MapPin,
   Warehouse,
   Bookmark,
+  LogOut,
 } from "lucide-react";
 import { useLogout } from "../hooks/mutation/auth/useLogout";
 export const RouteConfigStatic: RouteStaticConfig[] = [
@@ -58,6 +59,9 @@ export const RouteConfigLogic: RouteLogicConfig = {
   logout: {
     href: "/auth/login",
   },
+  regiter: {
+    href: "/auth/login",
+  },
 };
 
 export const RouteProfileApp = () => {
@@ -97,7 +101,7 @@ export const RouteProfileApp = () => {
     },
     {
       title: "Keluar",
-      iconV1: Warehouse,
+      iconV1: LogOut,
       iconV2: ChevronRight,
       onClick: handleLogout,
       isPending: isPending,

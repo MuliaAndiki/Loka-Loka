@@ -9,6 +9,7 @@ import { RouteConfigStatic } from "@/app/config/route.config";
 import HistoryApp from "@/app/core/components/history-app";
 import Link from "next/link";
 import { RouteProfileApp } from "@/app/config/route.config";
+import Fallback from "@/app/ui/fallback";
 const ProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const routes = RouteProfileApp();
@@ -61,14 +62,25 @@ const ProfileChildren: React.FC = () => {
                       <items.iconV2 />
                     </Link>
                   ) : (
-                    <button
-                      onClick={items.onClick}
-                      className="flex items-center gap-2 p-2 w-full text-left"
-                      disabled={items.isPending}
-                    >
-                      <items.iconV1 size={18} />
-                      <span>{items.title}</span>
-                    </button>
+                    <Container className="w-full flex justify-between items-center my-2 border-b-2 border-[var(--shapeV1-child)] p-2 text-red-500">
+                      <items.iconV1 />
+                      <button
+                        onClick={items.onClick}
+                        className="flex items-center gap-2 p-2 w-full text-left cursor-pointer "
+                        disabled={items.isPending}
+                      >
+                        <Text className=" text-red-500 md:text-4xl text-lg font-semibold ">
+                          {items.isPending ? (
+                            <Fallback
+                              title="Tunggu Sebentar"
+                              className="text-red-500"
+                            />
+                          ) : (
+                            items.title
+                          )}
+                        </Text>
+                      </button>
+                    </Container>
                   )}
                 </Container>
               ))}

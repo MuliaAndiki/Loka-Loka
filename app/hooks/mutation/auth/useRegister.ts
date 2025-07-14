@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useAlert } from "../../alert/costum-alert";
 import { formRegisterSchema } from "@/app/types/form";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
-
+import { RouteConfigLogic } from "@/app/config/route.config";
 export const useRegister = () => {
   const router = useRouter();
   const alert = useAlert();
@@ -17,7 +17,7 @@ export const useRegister = () => {
         message: "Berhasil",
         icon: "success",
         onVoid: () => {
-          router.push("/auth/login");
+          router.push(RouteConfigLogic.regiter.href);
         },
       });
     },

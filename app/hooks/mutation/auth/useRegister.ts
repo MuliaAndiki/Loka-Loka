@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "@/app/service/auth/auth.service";
+import AuthApi from "@/app/service/auth/auth.service";
 import { useRouter } from "next/navigation";
 import { useAlert } from "../../alert/costum-alert";
 import { formRegisterSchema } from "@/app/types/form";
@@ -10,7 +10,7 @@ export const useRegister = () => {
   const alert = useAlert();
 
   return useMutation<TResponse<any>, Error, formRegisterSchema>({
-    mutationFn: registerUser,
+    mutationFn: AuthApi.registerUser,
     onSuccess: (res) => {
       alert.toast({
         title: "Berhasil Daftar",

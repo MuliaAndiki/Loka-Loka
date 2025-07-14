@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { loginUser } from "@/app/service/auth/auth.service";
+import AuthApi from "@/app/service/auth/auth.service";
 import { useRouter } from "next/navigation";
 import { formLoginSchema } from "@/app/types/form";
 import { useAlert } from "../../alert/costum-alert";
@@ -13,7 +13,7 @@ export const useLogin = () => {
   const dispatch = useAppDispatch();
 
   return useMutation<TResponse<any>, Error, formLoginSchema>({
-    mutationFn: loginUser,
+    mutationFn: AuthApi.loginUser,
     onSuccess: (res) => {
       const userPayload: userSchema = {
         user: res.data.isAuthExist,

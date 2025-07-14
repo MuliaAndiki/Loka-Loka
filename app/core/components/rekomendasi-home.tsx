@@ -4,7 +4,6 @@ import Image from "next/image";
 import { RekomendasiSchemaProps } from "../../types/props";
 import Shape from "@/app/ui/shape";
 import { ShoppingBasket } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
   return (

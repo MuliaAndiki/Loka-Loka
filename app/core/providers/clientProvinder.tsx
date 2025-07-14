@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { useIsMobile } from "../../hooks/Mobile/use-mobile";
 import { MobileContex } from "../../hooks/Mobile/use-mobile";
-import { ThemeProvider } from "@/app/hooks/theme/use-theme";
 import { Toaster } from "react-hot-toast";
 import { AlertProvinder } from "@/app/hooks/alert/costum-alert";
 import ReactQueryClientProvinder from "@/app/hooks/query/query-client";
@@ -20,22 +19,20 @@ export default function LayoutClient({
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <ThemeProvider>
-          <MobileContex.Provider value={IsMobile}>
-            <AlertProvinder>
-              <ReactQueryClientProvinder>
-                {children}
-                <ReactQueryDevtools initialIsOpen={false} />
-              </ReactQueryClientProvinder>
-              <Toaster
-                position="top-center"
-                toastOptions={{
-                  duration: 900,
-                }}
-              />
-            </AlertProvinder>
-          </MobileContex.Provider>
-        </ThemeProvider>
+        <MobileContex.Provider value={IsMobile}>
+          <AlertProvinder>
+            <ReactQueryClientProvinder>
+              {children}
+              <ReactQueryDevtools initialIsOpen={false} />
+            </ReactQueryClientProvinder>
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                duration: 900,
+              }}
+            />
+          </AlertProvinder>
+        </MobileContex.Provider>
       </PersistGate>
     </Provider>
   );

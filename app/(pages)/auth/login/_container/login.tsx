@@ -15,15 +15,12 @@ import {
   GoogleLogin,
   GoogleOAuthProvider,
 } from "@react-oauth/google";
-import { themeConfig } from "@/app/types/config/theme.config";
-import { useTheme } from "@/app/hooks/theme/use-theme";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 import { useLogin } from "@/app/hooks/mutation/auth/useLogin";
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
-  const { theme } = useTheme();
   const alert = useAlert();
 
   const [formLogin, setFormLogin] = useState<formLoginSchema>({
@@ -50,9 +47,7 @@ const LoginChild: React.FC = () => {
     <Container as="main" className="w-full h-full">
       {isMobile && (
         <NavLayout>
-          <Container
-            className={`w-full h-full bg-[${themeConfig[theme].primary.background}] `}
-          >
+          <Container className={`w-full h-full `}>
             <Container className="flex flex-col w-full mx-auto z-0">
               <Container className="flex flex-col justify-center items-center">
                 <Image

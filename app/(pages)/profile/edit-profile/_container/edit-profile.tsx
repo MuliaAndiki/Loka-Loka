@@ -4,6 +4,7 @@ import Container from "@/app/ui/container";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import { Text } from "@/app/ui/Text";
 import ProfileLayout from "@/app/core/layouts/profile-layout";
+import Image from "next/image";
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   return (
@@ -11,7 +12,7 @@ const EditProfileChildren: React.FC = () => {
       {isMobile && (
         <ProfileLayout>
           <Container className="w-full h-full">
-            <Container className="flex justify-center items-center">
+            <Container className="flex justify-center items-center flex-col">
               <Text>Ini Page Edit Profile</Text>
             </Container>
           </Container>

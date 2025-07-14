@@ -8,6 +8,7 @@ import { Input } from "@/app/ui/input";
 import { formRegisterSchema } from "@/app/types/form";
 import { useState } from "react";
 import { Text } from "@/app/ui/Text";
+import Fallback from "@/app/ui/fallback";
 import {
   CredentialResponse,
   GoogleLogin,
@@ -127,7 +128,7 @@ const RegisterChildren: React.FC = () => {
                   onClick={() => handleRegister()}
                   disabled={isPending}
                 >
-                  {isPending ? "Mendaftar" : "Daftar"}
+                  {isPending ? <Fallback title="Tunggu Sebentar" /> : "Daftar"}
                 </Button>
                 <Container className="w-full flex items-center justify-center gap-1">
                   <Text className="text-center text-sm lg:text-4xl">

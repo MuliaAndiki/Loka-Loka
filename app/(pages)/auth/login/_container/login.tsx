@@ -15,6 +15,7 @@ import {
   GoogleLogin,
   GoogleOAuthProvider,
 } from "@react-oauth/google";
+import Fallback from "@/app/ui/fallback";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 import { useLogin } from "@/app/hooks/mutation/auth/useLogin";
@@ -29,7 +30,6 @@ const LoginChild: React.FC = () => {
   });
   const [showPassword, setShowPassword] = useState<boolean>();
 
-  //fetch
   const { mutate: login, isPending } = useLogin();
   const handleLoginGoogle = async (e: CredentialResponse) => {};
 
@@ -120,7 +120,7 @@ const LoginChild: React.FC = () => {
                   disabled={isPending}
                   className="w-full my-2"
                 >
-                  {isPending ? "Masuk..." : "Masuk"}
+                  {isPending ? <Fallback title="Tunggu Sebentar" /> : "Masuk"}
                 </Button>
                 <Container className="text-end w-full">
                   {RouteConfigStatic.map((route, key) => (

@@ -42,6 +42,9 @@ export interface RouteLogicConfig {
   logout: {
     href: string;
   };
+  regiter: {
+    href: string;
+  };
 }
 
 export interface RouteProfileAppConfig {

@@ -17,6 +17,8 @@ import {
 import { formEditProfileSchema } from "@/app/types/form";
 import { useState } from "react";
 import { useRef } from "react";
+import { useEditProfile } from "@/app/hooks/mutation/auth/useEditProfile";
+import Fallback from "@/app/ui/fallback";
 
 import ProfileLayout from "@/app/core/layouts/profile-layout";
 const EditProfileChildren: React.FC = () => {
@@ -42,22 +44,33 @@ const EditProfileChildren: React.FC = () => {
     ref.current?.click();
   };
 
+  const { mutate: editProfile, isPending, isError } = useEditProfile();
+
+  const handleEditProfile = () => {
+    const payload = Object.fromEntries(
+      Object.entries(formEditProfile).filter(([_, v]) => v !== "" && v !== null)
+    );
+    return editProfile(payload as any);
+  };
   return (
     <Container className="w-full h-full">
       {isMobile && (
         <ProfileLayout>
           <Container className="w-full h-full">
             <Container className="flex  w-full justify-center items-center flex-col">
-              <Image
-                alt="icon"
-                src="/asset/Profile.svg"
-                className="rounded-full object-cover border"
-                width={isMobile ? 120 : 200}
-                height={isMobile ? 120 : 200}
-              />
-              <Button onClick={() => handleClick()} type="button">
-                +
-              </Button>
+              <Container className="flex justify-center items-center flex-col gap-4 mt-6">
+                <Image
+                  alt="icon"
+                  src="/asset/Profile.svg"
+                  className="rounded-full object-cover border"
+                  width={isMobile ? 120 : 200}
+                  height={isMobile ? 120 : 200}
+                />
+                <Button onClick={handleClick} type="button">
+                  Unggah Foto
+                </Button>
+                <input ref={ref} type="file" className="hidden" />
+              </Container>
 
               <Container className="my-4 w-full max-w-4/5 flex justify-center items-center flex-col ">
                 <Container className="w-full justify-center items-start flex flex-col my-4 gap-2">
@@ -125,7 +138,17 @@ const EditProfileChildren: React.FC = () => {
                     </SelectContent>
                   </Select>
                 </Container>
-                <Button className="w-full my-4">Update Profile</Button>
+                <Button
+                  className="w-full my-4"
+                  onClick={() => handleEditProfile()}
+                  disabled={isPending}
+                >
+                  {isPending ? (
+                    <Fallback title="Tunggu Sebentar" />
+                  ) : (
+                    "Update Profile"
+                  )}
+                </Button>
               </Container>
             </Container>
           </Container>

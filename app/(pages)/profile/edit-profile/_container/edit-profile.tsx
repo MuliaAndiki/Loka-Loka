@@ -19,10 +19,12 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEditProfile } from "@/app/hooks/mutation/auth/useEditProfile";
 import Fallback from "@/app/ui/fallback";
+import { useAlert } from "@/app/hooks/alert/costum-alert";
 
 import ProfileLayout from "@/app/core/layouts/profile-layout";
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
+  const alert = useAlert();
   const [formEditProfile, setFormEditProfile] = useState<formEditProfileSchema>(
     {
       email: "",
@@ -140,7 +142,17 @@ const EditProfileChildren: React.FC = () => {
                 </Container>
                 <Button
                   className="w-full my-4"
-                  onClick={() => handleEditProfile()}
+                  onClick={() =>
+                    alert.modal({
+                      title: "Edit Profile",
+                      deskripsi: "Anda Mengupdate Profile Anda?",
+                      icon: "question",
+                      onConfirm: () => {
+                        handleEditProfile();
+                      },
+                      onClose: () => {},
+                    })
+                  }
                   disabled={isPending}
                 >
                   {isPending ? (

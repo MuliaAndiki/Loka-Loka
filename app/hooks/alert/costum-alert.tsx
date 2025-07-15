@@ -46,7 +46,7 @@ export const AlertProvinder = ({ children }: { children: React.ReactNode }) => {
     resolver?.(true);
   };
   const handleCancel = () => {
-    modal?.onConfirm?.();
+    modal?.onClose?.();
     setModal(null);
     resolver?.(true);
   };

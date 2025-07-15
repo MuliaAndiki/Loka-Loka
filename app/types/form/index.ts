@@ -11,5 +11,13 @@ export const formRegisterType = z.object({
   password: z.string(),
 });
 
+export const formEditProfileType = z.object({
+  fullname: z.string(),
+  email: z.string(),
+  nomorhp: z.string(),
+  gender: z.boolean().nullable(),
+});
+
 export type formLoginSchema = z.infer<typeof formLoginType>;
 export type formRegisterSchema = z.infer<typeof formRegisterType>;
+export type formEditProfileSchema = z.infer<typeof formEditProfileType>;

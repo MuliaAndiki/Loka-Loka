@@ -10,9 +10,24 @@ import HistoryApp from "@/app/core/components/history-app";
 import Link from "next/link";
 import { RouteProfileApp } from "@/app/config/route.config";
 import Fallback from "@/app/ui/fallback";
+import { Skeleton } from "@/app/ui/skeleton";
+import { useGetProfileById } from "@/app/hooks/mutation/auth/useGetProfile";
 const ProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const routes = RouteProfileApp();
+  const { data, isPending, isError } = useGetProfileById();
+
+  if (isError) {
+    return (
+      <Text className="text-lg md:text-4xl">
+        Mohon Maap Terjadi Kesalahan Saat Memuat Data
+      </Text>
+    );
+  }
+
+  if (isPending) {
+    return <Skeleton className="rounded-full w-[100px] h-[20]" />;
+  }
   return (
     <Container className="w-full h-full">
       {isMobile && (
@@ -28,8 +43,10 @@ const ProfileChildren: React.FC = () => {
                   className="rounded-full object-contain border"
                 />
                 <Container className="flex justify-center items-start flex-col">
-                  <Text>Username</Text>
-                  <Text>Location</Text>
+                  <Text className="text-lg md:text-4xl">
+                    {data.data.fullname}
+                  </Text>
+                  <Text>{data.data.lokasi}</Text>
                 </Container>
               </Container>
               <Container className="">
@@ -62,7 +79,7 @@ const ProfileChildren: React.FC = () => {
                       <items.iconV2 />
                     </Link>
                   ) : (
-                    <Container className="w-full flex justify-between items-center my-2 border-b-2 border-[var(--shapeV1-child)] p-2 text-red-500">
+                    <Container className="w-full flex justify-between items-center  border-b-2 border-[var(--shapeV1-child)] p-2 text-red-500">
                       <items.iconV1 />
                       <button
                         onClick={items.onClick}

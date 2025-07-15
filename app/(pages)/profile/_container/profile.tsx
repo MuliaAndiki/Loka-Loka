@@ -26,7 +26,7 @@ const ProfileChildren: React.FC = () => {
   }
 
   if (isPending) {
-    return <Skeleton className="rounded-full w-[100px] h-[20]" />;
+    return <Skeleton className=" w-full h-screen" />;
   }
   return (
     <Container className="w-full h-full">

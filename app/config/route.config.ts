@@ -62,6 +62,9 @@ export const RouteConfigLogic: RouteLogicConfig = {
   regiter: {
     href: "/auth/login",
   },
+  editProfile: {
+    href: "/profile",
+  },
 };
 
 export const RouteProfileApp = () => {

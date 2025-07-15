@@ -45,6 +45,9 @@ export interface RouteLogicConfig {
   regiter: {
     href: string;
   };
+  editProfile: {
+    href: string;
+  };
 }
 
 export interface RouteProfileAppConfig {

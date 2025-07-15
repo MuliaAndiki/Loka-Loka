@@ -1,5 +1,9 @@
 import AxiosClient from "@/app/utils/axios.client";
-import { formRegisterSchema, formLoginSchema } from "@/app/types/form";
+import {
+  formRegisterSchema,
+  formLoginSchema,
+  formEditProfileSchema,
+} from "@/app/types/form";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 
 class AuthApi {
@@ -17,6 +21,10 @@ class AuthApi {
   }
   async getProfile(): Promise<TResponse<any>> {
     const res = await AxiosClient.get("/auth/getProfileByUser");
+    return res.data;
+  }
+  async editProfile(payload: formEditProfileSchema): Promise<TResponse<any>> {
+    const res = await AxiosClient.put("/auth/editProfile", payload);
     return res.data;
   }
 }

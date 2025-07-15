@@ -9,9 +9,6 @@ export const userType = z.object({
     fullname: z.string(),
     email: z.string(),
     password: z.string(),
-    nomorHp: z.string().nullable(),
-    lokasi: z.string().nullable(),
-    gender: z.boolean().nullable(),
   }),
 });
 

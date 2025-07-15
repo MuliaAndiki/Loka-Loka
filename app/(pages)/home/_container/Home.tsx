@@ -14,9 +14,17 @@ import { RouteConfigStatic } from "@/app/config/route.config";
 import RekomendasiHome from "@/app/core/components/rekomendasi-home";
 import { RekomendasiSchemaData } from "@/app/config/component.config";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
 
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
+  // Debug Data
+  // const { currentUser } = useAppSelector((state) => state.auth);
+
+  // useEffect(() => {
+  //   console.log(`Debug Awal Untuk Data User ${currentUser?.user}`);
+  // }, []);
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (

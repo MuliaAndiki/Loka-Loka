@@ -118,8 +118,8 @@
   :root {
     --background: #eaebed;
     --foreground: #0a0a0a;
-    --primary: #7f5af0;
-    --primary-foreground: #ffffff;
+    --primary: #ffbe5d;
+    --primary-foreground: #0e0a17;
     --shapeV1-parent: #f3af4a;
     --shapeV1-child: #ffbe5d;
     --border: #fffdfd;
@@ -127,7 +127,7 @@
   .dark {
     --background: #0a0a0a;
     --foreground: #0a0a0a;
-    --primary: #9a7dff;
+    --primary: #175753;
     --primary-foreground: #000000;
     --shapeV1-parent: #175753;
     --shapeV1-child: #0a4440;

@@ -26,7 +26,6 @@ export const useLogin = () => {
         message: "Selamat Datang Di Loka-Loka",
         icon: "success",
         onVoid: () => {
-          router.push("/home");
         },
       });
     },

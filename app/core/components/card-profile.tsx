@@ -1,7 +1,7 @@
 import Container from "@/app/ui/container";
 import { Text } from "@/app/ui/Text";
 import Image from "next/image";
-import ProfileDummy from "@/public/asset/Profile.svg";
+
 import { useGetProfileById } from "@/app/hooks/mutation/auth/useGetProfile";
 import Chart from "../../components/chart";
 import { Skeleton } from "@/app/ui/skeleton";
@@ -33,10 +33,10 @@ const CardProfile: React.FC = () => {
           <Chart />
           <Container className="flex-col flex items-end justify-center">
             <Text className="text-sm md:text-2xl ">{data?.data.fullname}</Text>
-            <Text className="text-sm md:text-2xl">Location</Text>
+            <Text className="text-sm md:text-2xl">{data.data.lokasi}</Text>
           </Container>
           <Image
-            src={ProfileDummy}
+            src="/asset/Profile.svg"
             alt="Profile"
             width={50}
             height={50}

@@ -95,7 +95,7 @@ export const RouteProfileApp = () => {
     },
     {
       title: "Tentang Kami",
-      href: "#",
+      href: "/profile/tentang-kami",
       iconV1: Warehouse,
       iconV2: ChevronRight,
     },

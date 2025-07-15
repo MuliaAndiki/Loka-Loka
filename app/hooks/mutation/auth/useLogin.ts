@@ -7,6 +7,7 @@ import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 import { useAppDispatch } from "../../dispatch/dispatch";
 import { setCurrentUser } from "@/app/stores/AuthSlice/authSlice";
 import { userSchema } from "@/app/types/api";
+import { RouteConfigLogic } from "@/app/config/route.config";
 export const useLogin = () => {
   const router = useRouter();
   const alert = useAlert();
@@ -26,6 +27,7 @@ export const useLogin = () => {
         message: "Selamat Datang Di Loka-Loka",
         icon: "success",
         onVoid: () => {
+          router.push(RouteConfigLogic.login.href);
         },
       });
     },

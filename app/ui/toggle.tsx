@@ -1,21 +1,13 @@
-import { useAppDispatch, useAppSelector } from "../hooks/dispatch/dispatch";
+import { useTheme } from "../hooks/theme/use-theme";
 import { Button } from "./button";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { selectTheme, toggleTheme } from "@/app/stores/themeSlice/themeSlice";
 const ToggleTheme: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const theme = useAppSelector(selectTheme);
-
-  const handleToggle = () => {
-    dispatch(toggleTheme());
-
-    document.documentElement.classList.toggle("dark", theme !== "dark");
-  };
+  const { theme, toggleTheme } = useTheme();
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={handleToggle}
+      onClick={toggleTheme}
       className="size-9 rounded-md"
       aria-label="Toggle theme"
     >

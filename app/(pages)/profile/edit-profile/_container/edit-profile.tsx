@@ -16,6 +16,7 @@ import {
 } from "@/app/ui/select";
 import { formEditProfileSchema } from "@/app/types/form";
 import { useState } from "react";
+import { useRef } from "react";
 
 import ProfileLayout from "@/app/core/layouts/profile-layout";
 const EditProfileChildren: React.FC = () => {
@@ -28,6 +29,7 @@ const EditProfileChildren: React.FC = () => {
       gender: null,
     }
   );
+  const ref = useRef<HTMLInputElement>(null);
 
   const handleChageGender = (e: string) => {
     const booleanValue = e === "true" ? true : e === "false" ? false : null;
@@ -35,6 +37,9 @@ const EditProfileChildren: React.FC = () => {
       ...prev,
       gender: booleanValue,
     }));
+  };
+  const handleClick = () => {
+    ref.current?.click();
   };
 
   return (
@@ -50,6 +55,9 @@ const EditProfileChildren: React.FC = () => {
                 width={isMobile ? 120 : 200}
                 height={isMobile ? 120 : 200}
               />
+              <Button onClick={() => handleClick()} type="button">
+                +
+              </Button>
 
               <Container className="my-4 w-full max-w-4/5 flex justify-center items-center flex-col ">
                 <Container className="w-full justify-center items-start flex flex-col my-4 gap-2">

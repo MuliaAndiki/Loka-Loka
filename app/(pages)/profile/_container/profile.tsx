@@ -12,7 +12,9 @@ import { RouteProfileApp } from "@/app/config/route.config";
 import Fallback from "@/app/ui/fallback";
 import { Skeleton } from "@/app/ui/skeleton";
 import { useGetProfileById } from "@/app/hooks/mutation/auth/useGetProfile";
+import { useAlert } from "@/app/hooks/alert/costum-alert";
 const ProfileChildren: React.FC = () => {
+  const alert = useAlert();
   const { isMobile } = useIsMobile();
   const routes = RouteProfileApp();
   const { data, isPending, isError } = useGetProfileById();
@@ -82,7 +84,16 @@ const ProfileChildren: React.FC = () => {
                     <Container className="w-full flex justify-between items-center  border-b-2 border-[var(--shapeV1-child)] p-2 text-red-500">
                       <items.iconV1 />
                       <button
-                        onClick={items.onClick}
+                        onClick={() =>
+                          alert.modal({
+                            title: "Keluar",
+                            deskripsi: "Apakah Anda Yakin Ingin Keluar",
+                            icon: "question",
+                            onConfirm: () => {
+                              items.onClick?.();
+                            },
+                          })
+                        }
                         className="flex items-center gap-2 p-2 w-full text-left cursor-pointer "
                         disabled={items.isPending}
                       >

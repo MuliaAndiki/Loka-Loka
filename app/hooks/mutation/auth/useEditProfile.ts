@@ -30,7 +30,7 @@ export const useEditProfile = () => {
           router.push(RouteConfigLogic.editProfile.href);
           setTimeout(() => {
             router.refresh();
-          }, 1000);
+          }, 1500);
         },
       });
     },

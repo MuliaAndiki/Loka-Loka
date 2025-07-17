@@ -19,18 +19,18 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
   {
     login: {
       title: "Masuk Sekarang!",
-      href: "/auth/login",
+      href: "/login",
     },
     register: {
       title: "Daftar Sekarang!",
-      href: "/auth/register",
+      href: "/register",
     },
     lupaKataSandi: {
-      href: "/auth/lupa-kata-sandi",
+      href: "/lupa-kata-sandi",
       title: "Lupa Kata Sandi?",
     },
     metodeLain: {
-      href: "/auth/lupa-kata-sandi/metode-lain",
+      href: "/lupa-kata-sandi/metode-lain",
       title: "Coba menggunakan cara lain ?",
     },
     lihatSemuaRekomendasi: {
@@ -42,28 +42,28 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
       href: "#",
     },
     profile: {
-      href: "/profile",
+      href: "/user/profile",
       title: "Profile",
     },
     editProfile: {
       title: UserPen,
-      href: "/profile/edit-profile",
+      href: "/user/profile/edit-profile",
     },
   },
 ];
 
 export const RouteConfigLogic: RouteLogicConfig = {
   login: {
-    href: "/home",
+    href: "/user/home",
   },
   logout: {
-    href: "/auth/login",
+    href: "/user/login",
   },
   regiter: {
-    href: "/auth/login",
+    href: "/user/login",
   },
   editProfile: {
-    href: "/profile",
+    href: "/user/profile",
   },
 };
 
@@ -80,7 +80,7 @@ export const RouteProfileApp = () => {
     },
     {
       title: "Metode Pembayaran",
-      href: "/profile/metode-pembayaran",
+      href: "/user/profile/metode-pembayaran",
       iconV1: CreditCard,
       iconV2: ChevronRight,
     },
@@ -98,7 +98,7 @@ export const RouteProfileApp = () => {
     },
     {
       title: "Tentang Kami",
-      href: "/profile/tentang-kami",
+      href: "/user/profile/tentang-kami",
       iconV1: Warehouse,
       iconV2: ChevronRight,
     },

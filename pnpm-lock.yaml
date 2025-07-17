@@ -114,6 +114,9 @@ importers:
       chalk:
         specifier: ^5.4.1
         version: 5.4.1
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       figlet:
         specifier: ^1.8.1
         version: 1.8.1

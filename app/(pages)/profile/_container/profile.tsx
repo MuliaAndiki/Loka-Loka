@@ -116,6 +116,13 @@ const ProfileChildren: React.FC = () => {
           </Container>
         </ProfileLayout>
       )}
+      {!isMobile && (
+        <Container as="main" className="w-screen h-screen">
+          <Container className="flex justify-center items-center h-full">
+            <Text>Website Ini Tidak Tersedia Di Desktop</Text>
+          </Container>
+        </Container>
+      )}
     </Container>
   );
 };

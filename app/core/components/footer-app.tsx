@@ -19,9 +19,9 @@ const FooterApp: React.FC = () => {
   }, [isActive]);
 
   const NavigationItems = [
-    { name: "Home", icon: <House />, href: "/home" },
+    { name: "Home", icon: <House />, href: "/user/home" },
     { name: "Events", icon: <Activity />, href: "/" },
-    { name: "Profile", icon: <User />, href: "/profile" },
+    { name: "Profile", icon: <User />, href: "/user/profile" },
   ] as const;
 
   const handleRedirect = (name: typeof isActive) => {

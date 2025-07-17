@@ -4,9 +4,14 @@ import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import { RouteConfigLogic } from "@/app/config/route.config";
+import { persistor } from "@/app/stores/store";
+import { useAppDispatch } from "../../dispatch/dispatch";
+import { logout } from "@/app/stores/AuthSlice/authSlice";
+
 export const useLogout = () => {
   const alert = useAlert();
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   return useMutation<TResponse<any>, Error>({
     mutationFn: AuthApi.logoutUser,
@@ -17,6 +22,8 @@ export const useLogout = () => {
         icon: "success",
         onVoid: () => {
           router.push(RouteConfigLogic.logout.href);
+          dispatch(logout());
+          persistor.purge();
         },
       });
     },

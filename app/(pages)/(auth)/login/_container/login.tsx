@@ -28,10 +28,11 @@ const LoginChild: React.FC = () => {
     email: "",
     password: "",
   });
+
+  const handleLoginGoogle = async (e: CredentialResponse) => {};
   const [showPassword, setShowPassword] = useState<boolean>();
 
   const { mutate: login, isPending } = useLogin();
-  const handleLoginGoogle = async (e: CredentialResponse) => {};
 
   const handleLogin = () => {
     if (!formLogin.email || !formLogin.password) {

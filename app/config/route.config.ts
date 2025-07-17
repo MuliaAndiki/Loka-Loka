@@ -57,10 +57,10 @@ export const RouteConfigLogic: RouteLogicConfig = {
     href: "/user/home",
   },
   logout: {
-    href: "/user/login",
+    href: "/login",
   },
   regiter: {
-    href: "/user/login",
+    href: "/login",
   },
   editProfile: {
     href: "/user/profile",

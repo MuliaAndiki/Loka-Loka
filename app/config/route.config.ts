@@ -80,7 +80,7 @@ export const RouteProfileApp = () => {
     },
     {
       title: "Metode Pembayaran",
-      href: "#",
+      href: "/profile/metode-pembayaran",
       iconV1: CreditCard,
       iconV2: ChevronRight,
     },

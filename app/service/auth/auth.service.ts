@@ -3,12 +3,14 @@ import {
   formRegisterSchema,
   formLoginSchema,
   formEditProfileSchema,
+  formSendOtpSchema,
+  formVerifyOtpSchema,
 } from "@/app/types/form";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 
 class AuthApi {
   async registerUser(payload: formRegisterSchema): Promise<TResponse<any>> {
-    const res = await AxiosClient.post("/auth", payload);
+    const res = await AxiosClient.post("/auth/register", payload);
     return res.data;
   }
   async loginUser(payload: formLoginSchema): Promise<TResponse<any>> {
@@ -25,6 +27,14 @@ class AuthApi {
   }
   async editProfile(payload: formEditProfileSchema): Promise<TResponse<any>> {
     const res = await AxiosClient.put("/auth/editProfile", payload);
+    return res.data;
+  }
+  async sendOtp(payload: formSendOtpSchema): Promise<TResponse<any>> {
+    const res = await AxiosClient.post("/auth/send-otp", payload);
+    return res.data;
+  }
+  async verifyOtp(payload: formVerifyOtpSchema): Promise<TResponse<any>> {
+    const res = await AxiosClient.post("/auth/verify-otp", payload);
     return res.data;
   }
 }

@@ -60,10 +60,13 @@ export const RouteConfigLogic: RouteLogicConfig = {
     href: "/login",
   },
   regiter: {
-    href: "/login",
+    href: "/verify-otp",
   },
   editProfile: {
     href: "/user/profile",
+  },
+  verifyOtp: {
+    href: "/login",
   },
 };
 

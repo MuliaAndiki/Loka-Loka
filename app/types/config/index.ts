@@ -48,6 +48,9 @@ export interface RouteLogicConfig {
   editProfile: {
     href: string;
   };
+  verifyOtp: {
+    href: string;
+  };
 }
 
 export interface RouteProfileAppConfig {

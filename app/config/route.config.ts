@@ -4,6 +4,7 @@ import {
   RouteProfileAppConfig,
   RouteChartConfig,
 } from "../types/config";
+
 import {
   UserPen,
   Calendar,
@@ -66,6 +67,15 @@ export const RouteConfigLogic: RouteLogicConfig = {
     href: "/user/profile",
   },
   verifyOtp: {
+    href: "/login",
+  },
+  forgotByEmail: {
+    href: "/verify-otp",
+  },
+  prevResetPassword: {
+    href: "lupa-kata-sandi/pemulihan-kata-sandi",
+  },
+  resetPassowrd: {
     href: "/login",
   },
 };

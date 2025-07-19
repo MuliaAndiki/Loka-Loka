@@ -5,6 +5,7 @@ import {
   formEditProfileSchema,
   formSendOtpSchema,
   formVerifyOtpSchema,
+  formResetPasswordSchema,
 } from "@/app/types/form";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 
@@ -35,6 +36,19 @@ class AuthApi {
   }
   async verifyOtp(payload: formVerifyOtpSchema): Promise<TResponse<any>> {
     const res = await AxiosClient.post("/auth/verify-otp", payload);
+    return res.data;
+  }
+  async forgotPassword(payload: formSendOtpSchema): Promise<TResponse<any>> {
+    const res = await AxiosClient.post(
+      "/auth/forgot-password-by-email",
+      payload
+    );
+    return res.data;
+  }
+  async resetPassword(
+    payload: formResetPasswordSchema
+  ): Promise<TResponse<any>> {
+    const res = await AxiosClient.put("/auth/reset-password", payload);
     return res.data;
   }
 }

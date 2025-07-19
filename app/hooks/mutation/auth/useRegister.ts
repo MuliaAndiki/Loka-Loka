@@ -6,7 +6,7 @@ import { formRegisterSchema } from "@/app/types/form";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 import { RouteConfigLogic } from "@/app/config/route.config";
 import { useAppDispatch } from "../../dispatch/dispatch";
-import { setEmail } from "@/app/stores/OtpSlice/otpSlice";
+import { setEmail, setSource } from "@/app/stores/OtpSlice/otpSlice";
 export const useRegister = () => {
   const router = useRouter();
   const alert = useAlert();
@@ -28,6 +28,7 @@ export const useRegister = () => {
     },
     onSuccess: (res, variables) => {
       dispatch(setEmail(variables.email));
+      dispatch(setSource("register"));
       alert.toast({
         title: "Berhasil Daftar",
         message: "Berhasil",

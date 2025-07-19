@@ -6,9 +6,42 @@ import { Text } from "@/app/ui/Text";
 import Image from "next/image";
 import { Input } from "@/app/ui/input";
 import { Button } from "@/app/ui/button";
+import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
+import { useResetPassword } from "@/app/hooks/mutation/auth/useResetPassword";
+import { formResetPasswordSchema } from "@/app/types/form";
+import { useState, useRef } from "react";
+import { useAlert } from "@/app/hooks/alert/costum-alert";
+import Fallback from "@/app/ui/fallback";
 
 const PemulihanKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
+  const currentEmail = useAppSelector((state) => state.otp.email);
+  const [formResetPassword, setFormResetPassword] =
+    useState<formResetPasswordSchema>({
+      email: currentEmail,
+      password: "",
+    });
+  const alert = useAlert();
+  const [showPasswordV1, setShowPasswordV1] = useState<boolean>();
+  const [showPasswordV2, setShowPasswordV2] = useState<boolean>();
+  const { mutate: reset, isPending } = useResetPassword();
+
+  const confirmPasswordRef = useRef<HTMLInputElement>(null);
+
+  const isPasswordMatch =
+    confirmPasswordRef.current?.value === formResetPassword.password;
+  const handleResetPassword = () => {
+    if (!formResetPassword.email || !formResetPassword.password) {
+      alert.toast({
+        title: "Perhatian !",
+        message: "Mohon Isi Semua Kolum",
+        icon: "warning",
+      });
+      return;
+    }
+    return reset(formResetPassword);
+  };
+
   return (
     <Container className="w-full min-h-screen">
       {isMobile && (
@@ -24,11 +57,58 @@ const PemulihanKataSandiChildren: React.FC = () => {
                 className="h-auto object-cover"
               />
               <Container className="w-full max-w-[70%] mx-auto">
-                <Input className="my-2" placeholder="Kata Sandi Baru" />
-                <Input
-                  className="my-2"
-                  placeholder="Confirmasi Kata Sandi Baru"
-                />
+                <Container className="relative">
+                  <Input
+                    className="my-2"
+                    placeholder="Kata Sandi Baru"
+                    type="password"
+                    value={formResetPassword.password}
+                    onChange={(e) =>
+                      setFormResetPassword((prev) => {
+                        const newObj = { ...prev, password: e.target.value };
+                        return newObj;
+                      })
+                    }
+                  />
+                  <button
+                    type="button"
+                    aria-Text={
+                      showPasswordV1 ? "Hide password" : "Show password"
+                    }
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-sm"
+                    onClick={() => setShowPasswordV1((prev) => !prev)}
+                  >
+                    {showPasswordV1 ? "Hide" : "Show"}
+                  </button>
+                </Container>
+
+                <Container className="relative">
+                  <Input
+                    className="my-2"
+                    placeholder="Confirmasi Kata Sandi Baru"
+                    type="password"
+                    ref={confirmPasswordRef}
+                    onChange={() => {
+                      setFormResetPassword((prev) => ({
+                        ...prev,
+                      }));
+                    }}
+                  />
+                  <button
+                    type="button"
+                    aria-Text={
+                      showPasswordV2 ? "Hide password" : "Show password"
+                    }
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-sm"
+                    onClick={() => setShowPasswordV2((prev) => !prev)}
+                  >
+                    {showPasswordV2 ? "Hide" : "Show"}
+                  </button>
+                </Container>
+
+                {confirmPasswordRef.current?.value && !isPasswordMatch && (
+                  <Text>Kata Sandi Tidak Cocok</Text>
+                )}
 
                 <Button className="w-full my-2">Ubah Kata Sandi</Button>
 

@@ -25,12 +25,12 @@ export const useVerifyOtp = () => {
         onVoid: () => {
           if (source === "register") {
             router.push(RouteConfigLogic.verifyOtp.href);
+            dispatch(clearOtp());
           } else if (source === "forgotPasswordByEmail") {
             router.push(RouteConfigLogic.prevResetPassword.href);
           } else {
             router.push("/");
           }
-          dispatch(clearOtp());
           persistor.purge();
         },
       });

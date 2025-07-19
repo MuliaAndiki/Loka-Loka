@@ -9,7 +9,7 @@ import { Button } from "@/app/ui/button";
 import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
 import { useResetPassword } from "@/app/hooks/mutation/auth/useResetPassword";
 import { formResetPasswordSchema } from "@/app/types/form";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 import Fallback from "@/app/ui/fallback";
 
@@ -26,15 +26,23 @@ const PemulihanKataSandiChildren: React.FC = () => {
   const [showPasswordV2, setShowPasswordV2] = useState<boolean>();
   const { mutate: reset, isPending } = useResetPassword();
 
+  useEffect(() => {
+    console.log("Data Email", currentEmail);
+  }, []);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
-
-  const isPasswordMatch =
-    confirmPasswordRef.current?.value === formResetPassword.password;
   const handleResetPassword = () => {
     if (!formResetPassword.email || !formResetPassword.password) {
       alert.toast({
         title: "Perhatian !",
         message: "Mohon Isi Semua Kolum",
+        icon: "warning",
+      });
+      return;
+    }
+    if (confirmPasswordRef.current?.value !== formResetPassword.password) {
+      alert.toast({
+        title: "Perhatian!",
+        message: "Konfirmasi kata sandi tidak cocok",
         icon: "warning",
       });
       return;
@@ -61,7 +69,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
                   <Input
                     className="my-2"
                     placeholder="Kata Sandi Baru"
-                    type="password"
+                    type={showPasswordV1 ? "text" : "password"}
                     value={formResetPassword.password}
                     onChange={(e) =>
                       setFormResetPassword((prev) => {
@@ -86,7 +94,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
                   <Input
                     className="my-2"
                     placeholder="Confirmasi Kata Sandi Baru"
-                    type="password"
+                    type={showPasswordV2 ? "text" : "password"}
                     ref={confirmPasswordRef}
                     onChange={() => {
                       setFormResetPassword((prev) => ({
@@ -105,12 +113,17 @@ const PemulihanKataSandiChildren: React.FC = () => {
                     {showPasswordV2 ? "Hide" : "Show"}
                   </button>
                 </Container>
-
-                {confirmPasswordRef.current?.value && !isPasswordMatch && (
-                  <Text>Kata Sandi Tidak Cocok</Text>
-                )}
-
-                <Button className="w-full my-2">Ubah Kata Sandi</Button>
+                <Button
+                  className="w-full my-2"
+                  disabled={isPending}
+                  onClick={() => handleResetPassword()}
+                >
+                  {isPending ? (
+                    <Fallback title="Tunggu Sebentar" />
+                  ) : (
+                    "Ubah Kata Sandi"
+                  )}
+                </Button>
 
                 <Text className="text-sm md:text-4xl italic">
                   <Text className="text-red-500">Note:</Text> Mohon Ingat

@@ -27,6 +27,12 @@ export const formSendOtpType = z.object({
   email: z.string(),
 });
 
+export const formResetPassword = z.object({
+  email: z.string().nullable(),
+  password: z.string(),
+});
+
+export type formResetPasswordSchema = z.infer<typeof formResetPassword>;
 export type formLoginSchema = z.infer<typeof formLoginType>;
 export type formRegisterSchema = z.infer<typeof formRegisterType>;
 export type formEditProfileSchema = z.infer<typeof formEditProfileType>;

@@ -51,6 +51,15 @@ export interface RouteLogicConfig {
   verifyOtp: {
     href: string;
   };
+  forgotByEmail: {
+    href: string;
+  };
+  prevResetPassword: {
+    href: string;
+  };
+  resetPassowrd: {
+    href: string;
+  };
 }
 
 export interface RouteProfileAppConfig {

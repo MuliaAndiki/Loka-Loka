@@ -5,10 +5,15 @@ import { useAlert } from "../../alert/costum-alert";
 import { formVerifyOtpSchema } from "@/app/types/form";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 import { RouteConfigLogic } from "@/app/config/route.config";
+import { useAppDispatch, useAppSelector } from "../../dispatch/dispatch";
+import { clearOtp } from "@/app/stores/OtpSlice/otpSlice";
+import { persistor } from "@/app/stores/store";
 
 export const useVerifyOtp = () => {
   const router = useRouter();
   const alert = useAlert();
+  const dispatch = useAppDispatch();
+  const source = useAppSelector((state) => state.otp.source);
 
   return useMutation<TResponse<any>, Error, formVerifyOtpSchema>({
     mutationFn: AuthApi.verifyOtp,
@@ -18,7 +23,15 @@ export const useVerifyOtp = () => {
         message: "Berhasil Verifikasi OTP",
         icon: "success",
         onVoid: () => {
-          router.push(RouteConfigLogic.verifyOtp.href);
+          if (source === "register") {
+            router.push(RouteConfigLogic.verifyOtp.href);
+          } else if (source === "forgotPasswordByEmail") {
+            router.push(RouteConfigLogic.prevResetPassword.href);
+          } else {
+            router.push("/");
+          }
+          dispatch(clearOtp());
+          persistor.purge();
         },
       });
     },

@@ -31,7 +31,7 @@ console.log(`${chalk.gray("🕒  Started at  :")} ${chalk.white(time)}\n`);
 const isWin = process.platform === "win32";
 const cmd = isWin ? "npx.cmd" : "npx";
 
-const dev = spawn(cmd, ["next", "dev"], {
+const dev = spawn(cmd, ["next", "dev", "--turbo"], {
   stdio: "inherit",
   shell: true,
 });

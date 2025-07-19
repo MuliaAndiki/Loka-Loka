@@ -12,12 +12,12 @@ export const useRegister = () => {
   const alert = useAlert();
   const dispatch = useAppDispatch();
 
-  type ReegisterRespon = {
+  type RegisterRespon = {
     register: TResponse<any>;
     otp: TResponse<any>;
   };
 
-  return useMutation<ReegisterRespon, Error, formRegisterSchema>({
+  return useMutation<RegisterRespon, Error, formRegisterSchema>({
     mutationFn: async (registerPayload) => {
       const resRegister = await AuthApi.registerUser(registerPayload);
       const resOtp = await AuthApi.sendOtp({ email: registerPayload.email });

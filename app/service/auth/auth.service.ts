@@ -30,10 +30,6 @@ class AuthApi {
     const res = await AxiosClient.put("/auth/editProfile", payload);
     return res.data;
   }
-  async sendOtp(payload: formSendOtpSchema): Promise<TResponse<any>> {
-    const res = await AxiosClient.post("/auth/send-otp", payload);
-    return res.data;
-  }
   async verifyOtp(payload: formVerifyOtpSchema): Promise<TResponse<any>> {
     const res = await AxiosClient.post("/auth/verify-otp", payload);
     return res.data;

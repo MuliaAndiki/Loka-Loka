@@ -9,7 +9,7 @@ import { Button } from "@/app/ui/button";
 import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
 import { useResetPassword } from "@/app/hooks/mutation/auth/useResetPassword";
 import { formResetPasswordSchema } from "@/app/types/form";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 import Fallback from "@/app/ui/fallback";
 
@@ -26,9 +26,6 @@ const PemulihanKataSandiChildren: React.FC = () => {
   const [showPasswordV2, setShowPasswordV2] = useState<boolean>();
   const { mutate: reset, isPending } = useResetPassword();
 
-  useEffect(() => {
-    console.log("Data Email", currentEmail);
-  }, []);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
   const handleResetPassword = () => {
     if (!formResetPassword.email || !formResetPassword.password) {

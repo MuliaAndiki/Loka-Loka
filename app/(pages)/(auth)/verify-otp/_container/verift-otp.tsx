@@ -9,7 +9,6 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/app/ui/input-otp";
-import { formVerifyOtpSchema } from "@/app/types/form";
 import { useState } from "react";
 import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
 import { useVerifyOtp } from "@/app/hooks/mutation/auth/useVerifyOtp";
@@ -17,6 +16,7 @@ import { useAlert } from "@/app/hooks/alert/costum-alert";
 import { Button } from "@/app/ui/button";
 import { useSendOtp } from "@/app/hooks/mutation/auth/useSendOtp";
 import Fallback from "@/app/ui/fallback";
+import { IconUserScan } from "@tabler/icons-react";
 
 const VerifyOtpChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -60,7 +60,8 @@ const VerifyOtpChildren: React.FC = () => {
             <Text className="text-lg md:text-4xl font-extrabold">
               Masukan Kode OTP Kamu
             </Text>
-            <Container className="my-4">
+            <IconUserScan width={150} height={150} className="my-2" />
+            <Container className="my-4 ">
               <InputOTP value={otp} maxLength={6} onChange={(e) => setOtp(e)}>
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />
@@ -75,11 +76,25 @@ const VerifyOtpChildren: React.FC = () => {
                 </InputOTPGroup>
               </InputOTP>
             </Container>
-            <Button onClick={() => handleVerityOtp()} disabled={isPending}>
-              {isPending ? <Fallback title="Tunggu " /> : "Verifikasi"}
-            </Button>
-            <Text>Tidak Menerima Otp ? </Text>
-            <Button onClick={() => handleSendOtp()}>Kirim</Button>
+
+            <Container className="mx-auto max-w-[70%] w-full flex-col flex justify-center items-center">
+              <Button
+                onClick={() => handleVerityOtp()}
+                disabled={isPending}
+                className="w-full"
+              >
+                {isPending ? <Fallback title="Tunggu " /> : "Verifikasi"}
+              </Button>
+              <Container className="flex items-end justify-end w-full">
+                <Text className="md:text-4xl text-sm  italic font-semibold ">
+                  Tidak Menerima Kode Otp ?
+                </Text>
+              </Container>
+
+              <Button onClick={() => handleSendOtp()} className="w-full">
+                Kirim
+              </Button>
+            </Container>
           </Container>
         </AuthLayout>
       )}

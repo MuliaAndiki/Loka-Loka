@@ -3,11 +3,9 @@ import Container from "@/app/ui/container";
 import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import { Text } from "@/app/ui/Text";
-
-import Image from "next/image";
 import { Button } from "@/app/ui/button";
 import { Input } from "@/app/ui/input";
-import AuthShapeHeader from "@/app/components/auth-shape-header";
+import { IconLockOpenOff } from "@tabler/icons-react";
 
 const MetodeLainChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -18,13 +16,7 @@ const MetodeLainChildren: React.FC = () => {
           <Container className={`w-full h-full relative`}>
             <Container className="flex justify-center items-center flex-col">
               <Text className="text-lg md:text-4xl font-bold">Metode Lain</Text>
-              <Image
-                alt="icon"
-                src="/asset/hpl.png"
-                width={isMobile ? 150 : 200}
-                height={isMobile ? 150 : 200}
-                className="object-cover h-auto "
-              />
+              <IconLockOpenOff width={150} height={150} className="my-2" />
               <Text className="text-sm md:text-2xl">
                 Mohon Masukkan Kontak Anda Untuk Melakukan Pemulihan
               </Text>

@@ -15,6 +15,7 @@ import {
   Bookmark,
   LogOut,
 } from "lucide-react";
+
 import { useLogout } from "../hooks/mutation/auth/useLogout";
 export const RouteConfigStatic: RouteStaticConfig[] = [
   {

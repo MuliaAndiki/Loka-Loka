@@ -47,6 +47,10 @@ class AuthApi {
     const res = await AxiosClient.put("/auth/reset-password", payload);
     return res.data;
   }
+  async sendOtpRegister(payload: formSendOtpSchema): Promise<TResponse<any>> {
+    const res = await AxiosClient.post("/auth/send-otp-register", payload);
+    return res.data;
+  }
 }
 
 export default new AuthApi();

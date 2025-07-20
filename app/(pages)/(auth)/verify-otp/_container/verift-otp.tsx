@@ -15,20 +15,21 @@ import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
 import { useVerifyOtp } from "@/app/hooks/mutation/auth/useVerifyOtp";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 import { Button } from "@/app/ui/button";
+import { useSendOtp } from "@/app/hooks/mutation/auth/useSendOtp";
+import Fallback from "@/app/ui/fallback";
 
 const VerifyOtpChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const Email = useAppSelector((state) => state.otp.email);
-  const [formVerifyOtp, setFormVerifyOtp] = useState<formVerifyOtpSchema>({
-    otp: "",
-    email: Email,
-  });
+  const [otp, setOtp] = useState<string>("");
+  const source = useAppSelector((state) => state.otp.source);
   const alert = useAlert();
 
   const { mutate: verift, isPending } = useVerifyOtp();
+  const { mutate: send } = useSendOtp();
 
   const handleVerityOtp = () => {
-    if (!formVerifyOtp.email || !formVerifyOtp.otp) {
+    if (!Email || !otp) {
       alert.toast({
         title: "Mohon Cek Kembali",
         message: "OTP Tidak Valid",
@@ -36,8 +37,21 @@ const VerifyOtpChildren: React.FC = () => {
       });
       return;
     }
-    return verift(formVerifyOtp);
+    return verift({ email: Email, otp });
   };
+
+  const handleSendOtp = () => {
+    if (!Email) {
+      alert.toast({
+        title: "Mohon Cek Kembali",
+        message: "Email Anda Tidak Terdaftar",
+        icon: "warning",
+      });
+      return;
+    }
+    return send({ email: Email });
+  };
+
   return (
     <Container className="w-full h-screen">
       {isMobile && (
@@ -47,16 +61,7 @@ const VerifyOtpChildren: React.FC = () => {
               Masukan Kode OTP Kamu
             </Text>
             <Container className="my-4">
-              <InputOTP
-                value={formVerifyOtp.otp}
-                maxLength={6}
-                onChange={(value) =>
-                  setFormVerifyOtp((prev) => ({
-                    ...prev,
-                    otp: value,
-                  }))
-                }
-              >
+              <InputOTP value={otp} maxLength={6} onChange={(e) => setOtp(e)}>
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />
                   <InputOTPSlot index={1} />
@@ -70,7 +75,11 @@ const VerifyOtpChildren: React.FC = () => {
                 </InputOTPGroup>
               </InputOTP>
             </Container>
-            <Button onClick={() => handleVerityOtp()}>Verifikasi</Button>
+            <Button onClick={() => handleVerityOtp()} disabled={isPending}>
+              {isPending ? <Fallback title="Tunggu " /> : "Verifikasi"}
+            </Button>
+            <Text>Tidak Menerima Otp ? </Text>
+            <Button onClick={() => handleSendOtp()}>Kirim</Button>
           </Container>
         </AuthLayout>
       )}

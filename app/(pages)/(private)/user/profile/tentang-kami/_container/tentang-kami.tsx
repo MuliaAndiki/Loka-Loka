@@ -15,7 +15,7 @@ const TentangKamiChildren: React.FC = () => {
             <Container className="w-full p-4">
               <AboutUsChart />
             </Container>
-            <Container className="w-full max-w-2xl mx-auto p-4 flex-col flex justify-between">
+            <Container className="w-full max-w-2xl mx-auto p-4 flex-col flex  justify-around">
               <Text className="font-semibold whitespace-pre-line text-xl my-2">
                 Tentang Kami :
               </Text>

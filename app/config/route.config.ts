@@ -76,7 +76,7 @@ export const RouteConfigLogic: RouteLogicConfig = {
   prevResetPassword: {
     href: "lupa-kata-sandi/pemulihan-kata-sandi",
   },
-  resetPassowrd: {
+  resetPassword: {
     href: "/login",
   },
 };

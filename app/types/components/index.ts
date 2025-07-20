@@ -14,5 +14,12 @@ export const RekomendasiType = z.object({
   cart: z.string(),
 });
 
+export const KategoriType = z.object({
+  image: z.string(),
+  title: z.string(),
+  href: z.string(),
+});
+
+export type KategoriSchema = z.infer<typeof KategoriType>;
 export type PromotionSchema = z.infer<typeof PromotionType>;
 export type RekomendasiSchema = z.infer<typeof RekomendasiType>;

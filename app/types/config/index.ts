@@ -57,7 +57,7 @@ export interface RouteLogicConfig {
   prevResetPassword: {
     href: string;
   };
-  resetPassowrd: {
+  resetPassword: {
     href: string;
   };
 }

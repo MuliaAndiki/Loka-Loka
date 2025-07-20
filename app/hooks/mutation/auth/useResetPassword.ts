@@ -18,7 +18,7 @@ export const useResetPassword = () => {
         message: "Berhasil Reset Password Anda",
         icon: "success",
         onVoid: () => {
-          router.push(RouteConfigLogic.resetPassowrd.href);
+          router.push(RouteConfigLogic.resetPassword.href);
         },
       });
     },

@@ -16,7 +16,7 @@ import { RekomendasiSchemaData } from "@/app/config/component.config";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
-
+import { KategoriSchemaData } from "@/app/config/component.config";
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   // Debug Data
@@ -57,8 +57,18 @@ const HomeChildren: React.FC = () => {
                   ))}
                 </Swiper>
               </Container>
-              <Container className="w-full flex mt-2 p-4 ">
-                <KategoriHome />
+
+              <Container className=" flex-col flex w-full">
+                <Container className="flex justify-end items-center p-2">
+                  <Text className="text-sm md:text-4xl font-extralight">
+                    Lihat Selengkapnya Kategori
+                  </Text>
+                </Container>
+                <Container className="w-full flex mt-2 p-4 gap-4">
+                  {KategoriSchemaData.map((item, key) => (
+                    <KategoriHome data={item} key={key} />
+                  ))}
+                </Container>
               </Container>
 
               <Container className="w-full flex justify-between p-2 items-center">

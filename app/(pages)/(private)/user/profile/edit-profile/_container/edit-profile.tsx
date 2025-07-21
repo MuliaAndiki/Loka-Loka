@@ -29,7 +29,7 @@ const EditProfileChildren: React.FC = () => {
     {
       email: "",
       fullname: "",
-      nomorhp: "",
+      phoneNumber: "",
       gender: null,
     }
   );
@@ -114,10 +114,10 @@ const EditProfileChildren: React.FC = () => {
                   <Input
                     className=""
                     placeholder="*Contoh: 084321132"
-                    value={formEditProfile.nomorhp}
+                    value={formEditProfile.phoneNumber}
                     onChange={(e) =>
                       setFormEditProfile((prev) => {
-                        const newObj = { ...prev, nomorhp: e.target.value };
+                        const newObj = { ...prev, phoneNumber: e.target.value };
                         return newObj;
                       })
                     }

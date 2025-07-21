@@ -12,15 +12,20 @@ import { formResetPasswordSchema } from "@/app/types/form";
 import { useState, useRef } from "react";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 import Fallback from "@/app/ui/fallback";
+import { useRouter } from "next/navigation";
 
 const PemulihanKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
-  const currentEmail = useAppSelector((state) => state.otp.email);
+  const router = useRouter();
+  const { email: currentEmail, phoneNumber: currentPhoneNumber } =
+    useAppSelector((state) => state.otp);
   const [formResetPassword, setFormResetPassword] =
     useState<formResetPasswordSchema>({
       email: currentEmail,
+      phoneNumber: currentPhoneNumber,
       password: "",
     });
+  const source = useAppSelector((state) => state.otp.source);
   const alert = useAlert();
   const [showPasswordV1, setShowPasswordV1] = useState<boolean>();
   const [showPasswordV2, setShowPasswordV2] = useState<boolean>();
@@ -28,23 +33,58 @@ const PemulihanKataSandiChildren: React.FC = () => {
 
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
   const handleResetPassword = () => {
-    if (!formResetPassword.email || !formResetPassword.password) {
+    if (!formResetPassword.password) {
       alert.toast({
         title: "Perhatian !",
-        message: "Mohon Isi Semua Kolum",
+        message: "Password Harus Diisi",
         icon: "warning",
       });
       return;
     }
-    if (confirmPasswordRef.current?.value !== formResetPassword.password) {
+    if (source === "forgotPasswordByEmail") {
+      if (!formResetPassword.email) {
+        alert.toast({
+          title: "Perhatian !",
+          message: "Email tidak ditemukan",
+          icon: "warning",
+          onVoid: () => {
+            router.push("/login");
+          },
+        });
+        return;
+      }
+      reset({
+        email: formResetPassword.email,
+        phoneNumber: null,
+        password: formResetPassword.password,
+      });
+    } else if (source === "forgotPasswordByPhoneNumber") {
+      if (!formResetPassword.phoneNumber) {
+        alert.toast({
+          title: "Perhatian !",
+          message: "Phone Number tidak ditemukan",
+          icon: "warning",
+          onVoid: () => {
+            router.push("/login");
+          },
+        });
+        return;
+      }
+      reset({
+        email: null,
+        password: formResetPassword.password,
+        phoneNumber: formResetPassword.phoneNumber,
+      });
+    } else {
       alert.toast({
-        title: "Perhatian!",
-        message: "Konfirmasi kata sandi tidak cocok",
-        icon: "warning",
+        title: "Perhatian !",
+        message: "Email & NomorHp Tidak Dikenali",
+        icon: "error",
+        onVoid: () => {
+          router.push("/login");
+        },
       });
-      return;
     }
-    return reset(formResetPassword);
   };
 
   return (

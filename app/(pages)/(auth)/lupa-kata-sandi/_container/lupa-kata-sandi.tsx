@@ -9,7 +9,7 @@ import { Button } from "@/app/ui/button";
 import { RouteConfigStatic } from "@/app/config/route.config";
 import Link from "next/link";
 import { useForgotPasswordByEmail } from "@/app/hooks/mutation/auth/useForgotPasswordByEmail";
-import { formSendOtpSchema } from "@/app/types/form";
+import { formSendOtpEmail } from "@/app/types/form";
 import { useState } from "react";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 import Fallback from "@/app/ui/fallback";
@@ -18,7 +18,7 @@ const LupaKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
   const [formForgotPassword, setFormForgotPassword] =
-    useState<formSendOtpSchema>({
+    useState<formSendOtpEmail>({
       email: "",
     });
 

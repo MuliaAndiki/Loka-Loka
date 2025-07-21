@@ -27,7 +27,9 @@ export const useVerifyOtp = () => {
             router.push(RouteConfigLogic.verifyOtp.href);
             dispatch(clearOtp());
           } else if (source === "forgotPasswordByEmail") {
-            router.push(RouteConfigLogic.prevResetPassword.href);
+            router.push(RouteConfigLogic.prevResetPasswordByEmail.href);
+          } else if (source === "forgotPasswordByPhoneNumber") {
+            router.push(RouteConfigLogic.prevResetPasswordByPhoneNumber.href);
           } else {
             router.push("/");
           }

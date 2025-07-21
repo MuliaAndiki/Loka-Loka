@@ -73,7 +73,13 @@ export const RouteConfigLogic: RouteLogicConfig = {
   forgotByEmail: {
     href: "/verify-otp",
   },
-  prevResetPassword: {
+  forgotByPhoneNumber: {
+    href: "/verify-otp",
+  },
+  prevResetPasswordByEmail: {
+    href: "lupa-kata-sandi/pemulihan-kata-sandi",
+  },
+  prevResetPasswordByPhoneNumber: {
     href: "lupa-kata-sandi/pemulihan-kata-sandi",
   },
   resetPassword: {

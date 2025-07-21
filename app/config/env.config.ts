@@ -7,10 +7,10 @@ export const env = createEnv({
    * Serverside Environment variables, not available on the client.
    * Will throw if you access these variables on the client.
    */
-  server: {
-    DATABASE_URL: z.string().url(),
-    OPEN_AI_API_KEY: z.string().min(1),
-  },
+  // server: {
+  //   DATABASE_URL: z.string().url(),
+  //   OPEN_AI_API_KEY: z.string().min(1),
+  // },
   /*
    * Environment variables available on the client (and server).
    *
@@ -27,8 +27,8 @@ export const env = createEnv({
    * only specify client-side variables.
    */
   runtimeEnv: {
-    DATABASE_URL: process.env.DATABASE_URL,
-    OPEN_AI_API_KEY: process.env.OPEN_AI_API_KEY,
+    // DATABASE_URL: process.env.DATABASE_URL,
+    // OPEN_AI_API_KEY: process.env.OPEN_AI_API_KEY,
     NEXT_PUBLIC_API_ID: process.env.NEXT_PUBLIC_API_ID,
   },
   // experimental__runtimeEnv: {

@@ -7,11 +7,13 @@ interface OtpState {
     | "forgotPasswordByEmail"
     | "forgotPasswordByPhoneNumber"
     | null;
+  phoneNumber: string | null;
 }
 
 const initialState: OtpState = {
   email: null,
   source: null,
+  phoneNumber: null,
 };
 
 export const otpSlice = createSlice({
@@ -20,6 +22,9 @@ export const otpSlice = createSlice({
   reducers: {
     setEmail: (state, action: PayloadAction<string>) => {
       state.email = action.payload;
+    },
+    setPhoneNumber: (state, action: PayloadAction<string>) => {
+      state.phoneNumber = action.payload;
     },
     setSource: (
       state,
@@ -36,5 +41,6 @@ export const otpSlice = createSlice({
   },
 });
 
-export const { setEmail, clearOtp, setSource } = otpSlice.actions;
+export const { setEmail, clearOtp, setSource, setPhoneNumber } =
+  otpSlice.actions;
 export default otpSlice.reducer;

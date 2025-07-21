@@ -20,11 +20,11 @@ import { KategoriSchemaData } from "@/app/config/component.config";
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   // Debug Data
-  // const { currentUser } = useAppSelector((state) => state.auth);
+  const { currentUser } = useAppSelector((state) => state.auth);
 
-  // useEffect(() => {
-  //   console.log(`Debug Awal Untuk Data User ${currentUser?.user}`);
-  // }, []);
+  useEffect(() => {
+    console.log(`Debug Awal Untuk Data User ${currentUser?.user.phoneNumber}`);
+  }, []);
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (

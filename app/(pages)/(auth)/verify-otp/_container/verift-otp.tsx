@@ -17,31 +17,82 @@ import { Button } from "@/app/ui/button";
 import { useSendOtp } from "@/app/hooks/mutation/auth/useSendOtp";
 import Fallback from "@/app/ui/fallback";
 import { IconUserScan } from "@tabler/icons-react";
+import { formVerifyOtpSchema } from "@/app/types/form";
+import { useRouter } from "next/navigation";
 
 const VerifyOtpChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
-  const Email = useAppSelector((state) => state.otp.email);
-  const [otp, setOtp] = useState<string>("");
+
   const source = useAppSelector((state) => state.otp.source);
   const alert = useAlert();
-
+  const { email: currentEmail, phoneNumber: curentPhoneNumber } =
+    useAppSelector((state) => state.otp);
   const { mutate: verift, isPending } = useVerifyOtp();
   const { mutate: send } = useSendOtp();
+  const router = useRouter();
 
+  const [formVerifyOtp, setFormVerifyOt] = useState<formVerifyOtpSchema>({
+    email: currentEmail,
+    phoneNumber: curentPhoneNumber,
+    otp: "",
+  });
   const handleVerityOtp = () => {
-    if (!Email || !otp) {
+    if (!formVerifyOtp.otp) {
       alert.toast({
-        title: "Mohon Cek Kembali",
-        message: "OTP Tidak Valid",
+        title: "Perhatian !",
+        message: "Otp Tidak Boleh Kosong",
         icon: "warning",
       });
       return;
     }
-    return verift({ email: Email, otp });
+    if (source === "forgotPasswordByEmail") {
+      if (!formVerifyOtp.email) {
+        alert.toast({
+          title: "Perhatian !",
+          message: "Email Tidak Ditemukan",
+          icon: "warning",
+          onVoid: () => {
+            router.push("/login");
+          },
+        });
+        return;
+      }
+      verift({
+        email: formVerifyOtp.email,
+        otp: formVerifyOtp.otp,
+        phoneNumber: null,
+      });
+    } else if (source === "forgotPasswordByPhoneNumber") {
+      if (!formVerifyOtp.phoneNumber) {
+        alert.toast({
+          title: "Perhatian!",
+          message: "Nomor Hp Tidak Ditemukan",
+          icon: "warning",
+          onVoid: () => {
+            router.push("/login");
+          },
+        });
+        return;
+      }
+      verift({
+        email: null,
+        otp: formVerifyOtp.otp,
+        phoneNumber: formVerifyOtp.phoneNumber,
+      });
+    } else {
+      alert.toast({
+        title: "Perhatian !",
+        message: "Otp Tidak Dikenali",
+        icon: "error",
+        onVoid: () => {
+          router.push("/login");
+        },
+      });
+    }
   };
 
   const handleSendOtp = () => {
-    if (!Email) {
+    if (!formVerifyOtp.email && !formVerifyOtp.phoneNumber) {
       alert.toast({
         title: "Mohon Cek Kembali",
         message: "Email Anda Tidak Terdaftar",
@@ -49,7 +100,34 @@ const VerifyOtpChildren: React.FC = () => {
       });
       return;
     }
-    return send({ email: Email });
+
+    if (source === "forgotPasswordByEmail" || source === "register") {
+      if (!formVerifyOtp.email) {
+        alert.toast({
+          title: "Perhatian !",
+          message: "Email Tidak Dikenali",
+          icon: "success",
+        });
+        return;
+      }
+      send({ email: formVerifyOtp.email });
+    } else if (source === "forgotPasswordByPhoneNumber") {
+      if (!formVerifyOtp.phoneNumber) {
+        alert.toast({
+          title: "Perhatian !",
+          message: "Nomor Hp Tidak Dikenali",
+          icon: "warning",
+        });
+        return;
+      }
+      send({ phoneNumber: formVerifyOtp.phoneNumber });
+    } else {
+      alert.toast({
+        title: "Gagal!",
+        message: "Sumber OTP tidak dikenali",
+        icon: "error",
+      });
+    }
   };
 
   return (
@@ -62,7 +140,16 @@ const VerifyOtpChildren: React.FC = () => {
             </Text>
             <IconUserScan width={150} height={150} className="my-2" />
             <Container className="my-4 ">
-              <InputOTP value={otp} maxLength={6} onChange={(e) => setOtp(e)}>
+              <InputOTP
+                value={formVerifyOtp.otp}
+                maxLength={6}
+                onChange={(e) =>
+                  setFormVerifyOt((prev) => ({
+                    ...prev,
+                    otp: e,
+                  }))
+                }
+              >
                 <InputOTPGroup>
                   <InputOTPSlot index={0} />
                   <InputOTPSlot index={1} />

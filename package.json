@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "preview": "pnpm build && pnpm start",
-    "cleanbuild": "rm -rf .next && pnpm build:linted && pnpm start"
+    "cleanbuild": "rm -rf .next && pnpm lint && pnpm build && pnpm start"
   },
   "dependencies": {
     "@iconify/react": "^6.0.0",

@@ -54,7 +54,14 @@ export interface RouteLogicConfig {
   forgotByEmail: {
     href: string;
   };
-  prevResetPassword: {
+  forgotByPhoneNumber: {
+    href: string;
+  };
+  prevResetPasswordByEmail: {
+    href: string;
+  };
+
+  prevResetPasswordByPhoneNumber: {
     href: string;
   };
   resetPassword: {

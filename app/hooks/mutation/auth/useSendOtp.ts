@@ -3,20 +3,30 @@ import AuthApi from "@/app/service/auth/auth.service";
 import { useAlert } from "../../alert/costum-alert";
 import { useAppSelector } from "../../dispatch/dispatch";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
-import { formSendOtpSchema } from "@/app/types/form";
+import { formSendOtpEmail } from "@/app/types/form";
+import { formSendOtpPhoneNumber } from "@/app/types/form";
+
+type SendOtpPayload = formSendOtpEmail | formSendOtpPhoneNumber;
 
 export const useSendOtp = () => {
   const alert = useAlert();
   const source = useAppSelector((state) => state.otp.source);
 
-  return useMutation<TResponse<any>, Error, formSendOtpSchema>({
+  return useMutation<TResponse<any>, Error, SendOtpPayload>({
     mutationFn: async (res) => {
       if (source === "register") {
-        return await AuthApi.sendOtpRegister(res);
+        if (!("email" in res)) throw new Error("Email is required");
+        return await AuthApi.sendOtpRegister({ email: res.email });
       } else if (source === "forgotPasswordByEmail") {
-        return await AuthApi.forgotPassword(res);
+        if (!("email" in res)) throw new Error("Email is required");
+        return await AuthApi.forgotPasswordByEmail({ email: res.email });
+      } else if (source === "forgotPasswordByPhoneNumber") {
+        if (!("phoneNumber" in res)) throw new Error("PhoneNumber is requid");
+        return await AuthApi.forgotPasswordByPhoneNumber({
+          phoneNumber: res.phoneNumber,
+        });
       } else {
-        throw new Error("Sumber OTP tidak dikenali");
+        throw new Error("Sumber Otp tidak dikenali");
       }
     },
 

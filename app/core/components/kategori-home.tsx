@@ -16,7 +16,7 @@ const KategoriHome: React.FC<KategoriSchemaProps> = ({ data }) => {
             height={120}
             className="object-cover h-auto "
           />
-          <Text>{data.title}</Text>
+          <Text className="text-lg md:text-4xl font-bold">{data.title}</Text>
         </Container>
       </Link>
     </Container>

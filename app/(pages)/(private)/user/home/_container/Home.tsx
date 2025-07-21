@@ -64,10 +64,23 @@ const HomeChildren: React.FC = () => {
                     Lihat Selengkapnya Kategori
                   </Text>
                 </Container>
-                <Container className="w-full flex mt-2 p-4 gap-4">
-                  {KategoriSchemaData.map((item, key) => (
-                    <KategoriHome data={item} key={key} />
-                  ))}
+                <Container className="w-full flex  p-4 gap-4">
+                  <Swiper
+                    spaceBetween={16}
+                    slidesPerView={3}
+                    grabCursor
+                    breakpoints={{
+                      768: {
+                        slidesPerView: 1,
+                      },
+                    }}
+                  >
+                    {KategoriSchemaData.map((item, key) => (
+                      <SwiperSlide key={key}>
+                        <KategoriHome data={item} />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </Container>
               </Container>
 

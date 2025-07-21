@@ -15,7 +15,7 @@ export default function ProfileLayout({
       {!hiddenShape.includes(pathname) && <ProfileShapeHeader />}
       <HeaderApp />
       <Container className="w-screen h-auto">{children}</Container>
-      <Container className="fixed bottom-0 left-0 w-full z-20 ">
+      <Container className="fixed bottom-0  left-0 w-full z-20 ">
         <FooterApp />
       </Container>
     </Container>

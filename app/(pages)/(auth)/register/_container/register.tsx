@@ -9,11 +9,7 @@ import { formRegisterSchema } from "@/app/types/form";
 import { useState } from "react";
 import { Text } from "@/app/ui/Text";
 import Fallback from "@/app/ui/fallback";
-import {
-  CredentialResponse,
-  GoogleLogin,
-  GoogleOAuthProvider,
-} from "@react-oauth/google";
+import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
 import { Button } from "@/app/ui/button";
 import NavLayout from "@/app/core/layouts/auth-layout";
 import Link from "next/link";
@@ -71,14 +67,12 @@ const RegisterChildren: React.FC = () => {
                   </Text>
                 </Container>
                 <Container className="my-1">
-                  <GoogleOAuthProvider clientId="">
-                    <GoogleLogin
-                      onSuccess={(e) => handleLoginGoogle(e)}
-                      onError={() =>
-                        console.log("Gagal Melakukan Login Dengan Google")
-                      }
-                    />
-                  </GoogleOAuthProvider>
+                  <GoogleLogin
+                    onSuccess={(e) => handleLoginGoogle(e)}
+                    onError={() =>
+                      console.log("Gagal Melakukan Login Dengan Google")
+                    }
+                  />
                 </Container>
 
                 <Container className="my-2">

@@ -74,8 +74,8 @@ const EditProfileChildren: React.FC = () => {
                 <input ref={ref} type="file" className="hidden" />
               </Container>
 
-              <Container className="my-4 w-full max-w-4/5 flex justify-center items-center flex-col ">
-                <Container className="w-full justify-center items-start flex flex-col my-4 gap-2">
+              <Container className="mb-6 w-full max-w-4/5 flex justify-center items-center flex-col ">
+                <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
                   <Label className="font-semibold text-lg md:text-4xl">
                     Nama Lengkap :
                   </Label>
@@ -91,7 +91,7 @@ const EditProfileChildren: React.FC = () => {
                     }
                   />
                 </Container>
-                <Container className="w-full justify-center items-start flex flex-col my-4 gap-2">
+                <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
                   <Label className="font-semibold text-lg md:text-4xl">
                     Email :
                   </Label>
@@ -107,7 +107,7 @@ const EditProfileChildren: React.FC = () => {
                     }
                   />
                 </Container>
-                <Container className="w-full justify-center items-start flex flex-col my-4 gap-2">
+                <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
                   <Label className="font-semibold text-lg md:text-4xl">
                     Nomor HandPhone :
                   </Label>
@@ -123,7 +123,7 @@ const EditProfileChildren: React.FC = () => {
                     }
                   />
                 </Container>
-                <Container className="w-full justify-center items-start flex flex-col my-4 gap-2">
+                <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
                   <Label className=" font-semibold text-lg md:text-4xl">
                     Gender :
                   </Label>
@@ -141,7 +141,7 @@ const EditProfileChildren: React.FC = () => {
                   </Select>
                 </Container>
                 <Button
-                  className="w-full my-4"
+                  className="w-full mb-6 "
                   onClick={() =>
                     alert.modal({
                       title: "Edit Profile",

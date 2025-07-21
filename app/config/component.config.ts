@@ -59,4 +59,24 @@ export const KategoriSchemaData: KategoriSchema[] = [
     href: "#",
     image: "/asset/Festival.png",
   },
+  {
+    title: "Jepang",
+    href: "#",
+    image: "/asset/Festival.png",
+  },
+  {
+    title: "Korea",
+    href: "#",
+    image: "/asset/Festival.png",
+  },
+  {
+    title: "Mukbang",
+    href: "#",
+    image: "/asset/Festival.png",
+  },
+  {
+    title: "Indoie",
+    href: "#",
+    image: "/asset/Festival.png",
+  },
 ];

@@ -9,7 +9,7 @@ export default function HeaderApp() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const hidenArrow = ["/home", "/profile"];
+  const hidenArrow = ["/user/home", "/user/profile"];
 
   const handleBack = () => {
     if (window.history.length > 1) {

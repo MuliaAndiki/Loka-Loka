@@ -2,7 +2,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface OtpState {
   email: string | null;
-  source: "register" | "forgotPasswordByEmail" | null;
+  source:
+    | "register"
+    | "forgotPasswordByEmail"
+    | "forgotPasswordByPhoneNumber"
+    | null;
 }
 
 const initialState: OtpState = {
@@ -19,7 +23,9 @@ export const otpSlice = createSlice({
     },
     setSource: (
       state,
-      action: PayloadAction<"register" | "forgotPasswordByEmail">
+      action: PayloadAction<
+        "register" | "forgotPasswordByEmail" | "forgotPasswordByPhoneNumber"
+      >
     ) => {
       state.source = action.payload;
     },

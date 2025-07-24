@@ -22,9 +22,13 @@ import Fallback from "@/app/ui/fallback";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
 
 import ProfileLayout from "@/app/core/layouts/profile-layout";
+import { useRouter } from "next/navigation";
+
+import { RouteConfigStatic } from "@/app/config/route.config";
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
+  const router = useRouter();
   const [formEditProfile, setFormEditProfile] = useState<formEditProfileSchema>(
     {
       email: "",
@@ -123,7 +127,7 @@ const EditProfileChildren: React.FC = () => {
                     }
                   />
                 </Container>
-                <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
+                <Container className="w-full justify-center items-start flex flex-col gap-2">
                   <Label className=" font-semibold text-lg md:text-4xl">
                     Gender :
                   </Label>
@@ -140,6 +144,29 @@ const EditProfileChildren: React.FC = () => {
                     </SelectContent>
                   </Select>
                 </Container>
+                <Container className="flex justify-end w-full p-1 mb-6 ">
+                  {RouteConfigStatic.map((items, key) => (
+                    <button
+                      onClick={() =>
+                        alert.modal({
+                          title: "Perhatian !",
+                          deskripsi:
+                            "Disaran Kamu Melengkapi Semua Data Terlebih Dahulu",
+                          icon: "warning",
+                          onConfirm: () => {
+                            router.push(items.updateRole.href);
+                          },
+                        })
+                      }
+                      key={key}
+                    >
+                      <Text className="cursor-pointer">
+                        {items.updateRole.title}
+                      </Text>
+                    </button>
+                  ))}
+                </Container>
+
                 <Button
                   className="w-full mb-6 "
                   onClick={() =>

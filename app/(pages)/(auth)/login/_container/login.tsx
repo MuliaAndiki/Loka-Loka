@@ -37,8 +37,8 @@ const LoginChild: React.FC = () => {
   const handleLogin = () => {
     if (!formLogin.email || !formLogin.password) {
       alert.toast({
-        title: "Mohon Isi Semua Colum",
-        message: "Periksa Semua Colum",
+        title: "Perhatian !",
+        message: "Mohon Isi Semua Colum",
         icon: "warning",
       });
       return;

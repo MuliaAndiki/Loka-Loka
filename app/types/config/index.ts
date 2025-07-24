@@ -33,6 +33,10 @@ export interface RouteStaticConfig {
     title: any;
     href: string;
   };
+  updateRole: {
+    title: string;
+    href: string;
+  };
 }
 
 export interface RouteLogicConfig {

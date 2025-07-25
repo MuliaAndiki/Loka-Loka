@@ -53,7 +53,7 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
     },
     daftarBrand: {
       title: "Daftarkan Brand Anda?",
-      href: "/user/profile/buat-brand",
+      href: "/user/buat-brand",
     },
   },
 ];

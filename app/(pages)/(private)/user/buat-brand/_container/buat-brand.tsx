@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from "@/app/hooks/dispatch/dispatch";
 import { IconBrandItch } from "@tabler/icons-react";
 import { updateForm } from "@/app/stores/BrandSlice/brandSlice";
 import { useRouter } from "next/navigation";
+import { Button } from "@/app/ui/button";
 
 const BuatBrandChildren: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ const BuatBrandChildren: React.FC = () => {
       });
       return;
     }
-    router.push("#");
+    router.push("/user/buat-brand/2");
   };
   const { isMobile } = useIsMobile();
   return (
@@ -39,9 +40,8 @@ const BuatBrandChildren: React.FC = () => {
         <ProfileLayout>
           <Container className="flex justify-center items-center flex-col">
             <IconBrandItch stroke={1} width={100} height={100} />
-            <Text className="text-lg md:text-4xl font-bold my-2">Brand</Text>
             <Container className=" w-full max-w-4/5 mx-auto my-4 p-2 flex flex-col">
-              <Container className="w-full my-1">
+              <Container className="w-full my-2">
                 <Label className="text-lg md:text-4xl mb-2">Nama Brand :</Label>
                 <Input
                   placeholder="Masukan Nama Brand"
@@ -53,7 +53,7 @@ const BuatBrandChildren: React.FC = () => {
                   }
                 />
               </Container>
-              <Container className="w-full my-1">
+              <Container className="w-full my-2">
                 <Label className="text-lg md:text-4xl mb-2">Email :</Label>
                 <Input
                   placeholder="Masukan Email Brand"
@@ -69,12 +69,38 @@ const BuatBrandChildren: React.FC = () => {
                   }
                 />
               </Container>
-              <Container className="w-full my-1">
+              <Container className="w-full my-2">
                 <Label className="text-lg md:text-4xl mb-2">Nomor Hp :</Label>
                 <Input
                   placeholder="Nomor HandPhone"
-                  onChange={(e) => dispatch}
+                  onChange={(e) =>
+                    dispatch(
+                      updateForm({
+                        path: "kontak.phone",
+                        value: e.target.value,
+                      })
+                    )
+                  }
                 />
+              </Container>
+              <Container className="w-full my-2">
+                <Label className="text-lg md:text-2xl mb-2">Website :</Label>
+                <Input
+                  placeholder="Website Optional"
+                  onChange={(e) =>
+                    dispatch(
+                      updateForm({
+                        path: "kontak.website",
+                        value: e.target.value,
+                      })
+                    )
+                  }
+                />
+              </Container>
+              <Container className="w-full my-2">
+                <Button className="w-full" onClick={() => handleNext()}>
+                  Selanjutnya
+                </Button>
               </Container>
             </Container>
           </Container>

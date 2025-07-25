@@ -1,11 +1,5 @@
 import { SidebarProps, DropdownProps } from "../types/ui";
-import {
-  Activity,
-  SquareUserRound,
-  History,
-  CircleX,
-  Settings,
-} from "lucide-react";
+import { Activity, SquareUserRound, History } from "lucide-react";
 
 export const SidebarItems: SidebarProps[] = [
   {

@@ -13,6 +13,7 @@ import Fallback from "@/app/ui/fallback";
 import { Skeleton } from "@/app/ui/skeleton";
 import { useGetProfileById } from "@/app/hooks/mutation/auth/useGetProfile";
 import { useAlert } from "@/app/hooks/alert/costum-alert";
+
 const ProfileChildren: React.FC = () => {
   const alert = useAlert();
   const { isMobile } = useIsMobile();
@@ -48,6 +49,17 @@ const ProfileChildren: React.FC = () => {
                   <Text className="text-lg md:text-4xl">
                     {data.data.fullname}
                   </Text>
+                  {!data.data.lokai && (
+                    <Container>
+                      {RouteConfigStatic.map((items, key) => (
+                        <Link key={key} href={items.daftarBrand.href}>
+                          <Text className="text-sm ">
+                            {items.daftarBrand.title}
+                          </Text>
+                        </Link>
+                      ))}
+                    </Container>
+                  )}
                   <Text>{data.data.lokasi}</Text>
                 </Container>
               </Container>

@@ -1,5 +1,4 @@
 import { SlidersHorizontal } from "lucide-react";
-import { Text } from "@/app/ui/Text";
 import {
   Sheet,
   SheetContent,

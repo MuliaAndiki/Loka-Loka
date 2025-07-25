@@ -135,7 +135,7 @@ const EditProfileChildren: React.FC = () => {
                     onValueChange={handleChageGender}
                     value={String(formEditProfile.gender)}
                   >
-                    <SelectTrigger className="w-full">
+                    <SelectTrigger className="w-full mb-6">
                       <SelectValue placeholder="*Contoh: Laki - Laki" />
                     </SelectTrigger>
                     <SelectContent>
@@ -143,28 +143,6 @@ const EditProfileChildren: React.FC = () => {
                       <SelectItem value="false">Perempuan</SelectItem>
                     </SelectContent>
                   </Select>
-                </Container>
-                <Container className="flex justify-end w-full p-1 mb-6 ">
-                  {RouteConfigStatic.map((items, key) => (
-                    <button
-                      onClick={() =>
-                        alert.modal({
-                          title: "Perhatian !",
-                          deskripsi:
-                            "Disaran Kamu Melengkapi Semua Data Terlebih Dahulu",
-                          icon: "warning",
-                          onConfirm: () => {
-                            router.push(items.updateRole.href);
-                          },
-                        })
-                      }
-                      key={key}
-                    >
-                      <Text className="cursor-pointer">
-                        {items.updateRole.title}
-                      </Text>
-                    </button>
-                  ))}
                 </Container>
 
                 <Button

@@ -1,4 +1,4 @@
-import OrganizerApi from "@/app/service/auth/orginazer.service";
+import BrandApi from "@/app/service/auth/brand.service";
 import { useMutation } from "@tanstack/react-query";
 import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
 import { useAlert } from "../../alert/costum-alert";
@@ -10,7 +10,7 @@ export const useUpdateRole = () => {
   const router = useRouter();
 
   return useMutation<TResponse<any>, Error, formUpdateRoleSchema>({
-    mutationFn: OrganizerApi.updateRole,
+    mutationFn: BrandApi.createBrand,
     onSuccess: (res) => {
       alert.toast({
         title: "Berhasil",

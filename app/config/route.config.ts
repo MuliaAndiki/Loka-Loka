@@ -51,9 +51,9 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
       title: UserPen,
       href: "/user/profile/edit-profile",
     },
-    updateRole: {
-      title: "Ingin Menjadi Penyelengara?",
-      href: "/user/profile/edit-profile/update-role",
+    daftarBrand: {
+      title: "Daftarkan Brand Anda?",
+      href: "/user/profile/buat-brand",
     },
   },
 ];

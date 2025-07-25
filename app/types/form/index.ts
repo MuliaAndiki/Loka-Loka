@@ -35,9 +35,9 @@ export const formResetPassword = z.object({
   password: z.string(),
 });
 
-export const formUpdateRoleType = z.object({
+export const formBikinBrandType = z.object({
   userId: z.string().nullable().optional(),
-  brand: z.string(),
+  nama: z.string(),
   document: z.object({
     ktp: z.string(),
     izinUsaha: z.string(),
@@ -45,10 +45,22 @@ export const formUpdateRoleType = z.object({
     proposalBrand: z.string(),
     other: z.array(z.string()).optional(),
   }),
+  kontak: z.object({
+    email: z.string(),
+    phone: z.string(),
+    website: z.string().optional(),
+    other: z.array(z.string()).optional(),
+  }),
+  sosialMedia: z.object({
+    instagram: z.string().optional(),
+    facebook: z.string().optional(),
+    tiktok: z.string().optional(),
+    other: z.array(z.string()).optional(),
+  }),
   description: z.string().optional(),
 });
 
-export type formUpdateRoleSchema = z.infer<typeof formUpdateRoleType>;
+export type formBikinBrandSchema = z.infer<typeof formBikinBrandType>;
 export type formResetPasswordSchema = z.infer<typeof formResetPassword>;
 export type formLoginSchema = z.infer<typeof formLoginType>;
 export type formRegisterSchema = z.infer<typeof formRegisterType>;

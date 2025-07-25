@@ -1,0 +1,94 @@
+"use client";
+import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
+import Container from "@/app/ui/container";
+import ProfileLayout from "@/app/core/layouts/profile-layout";
+import { Input } from "@/app/ui/input";
+import { Text } from "@/app/ui/Text";
+import { useAlert } from "@/app/hooks/alert/costum-alert";
+import { Label } from "@/app/ui/label";
+import { useAppDispatch, useAppSelector } from "@/app/hooks/dispatch/dispatch";
+import { IconBrandItch } from "@tabler/icons-react";
+import { updateForm } from "@/app/stores/BrandSlice/brandSlice";
+import { useRouter } from "next/navigation";
+
+const BuatBrandChildren: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const alert = useAlert();
+  const formBrand = useAppSelector((state) => state.brand.currentForm);
+  const router = useRouter();
+
+  const handleNext = () => {
+    if (
+      !formBrand.nama ||
+      !formBrand.kontak?.email ||
+      !formBrand.kontak.phone
+    ) {
+      alert.toast({
+        title: "Perhatian!",
+        message: "Mohon Lengkapi Seluruh Colum",
+        icon: "warning",
+      });
+      return;
+    }
+    router.push("#");
+  };
+  const { isMobile } = useIsMobile();
+  return (
+    <Container className="w-full h-full ">
+      {isMobile && (
+        <ProfileLayout>
+          <Container className="flex justify-center items-center flex-col">
+            <IconBrandItch stroke={1} width={100} height={100} />
+            <Text className="text-lg md:text-4xl font-bold my-2">Brand</Text>
+            <Container className=" w-full max-w-4/5 mx-auto my-4 p-2 flex flex-col">
+              <Container className="w-full my-1">
+                <Label className="text-lg md:text-4xl mb-2">Nama Brand :</Label>
+                <Input
+                  placeholder="Masukan Nama Brand"
+                  value={formBrand.nama || ""}
+                  onChange={(e) =>
+                    dispatch(
+                      updateForm({ path: "nama", value: e.target.value })
+                    )
+                  }
+                />
+              </Container>
+              <Container className="w-full my-1">
+                <Label className="text-lg md:text-4xl mb-2">Email :</Label>
+                <Input
+                  placeholder="Masukan Email Brand"
+                  value={formBrand.kontak?.email || ""}
+                  type="email"
+                  onChange={(e) =>
+                    dispatch(
+                      updateForm({
+                        path: "kontak.email",
+                        value: e.target.value,
+                      })
+                    )
+                  }
+                />
+              </Container>
+              <Container className="w-full my-1">
+                <Label className="text-lg md:text-4xl mb-2">Nomor Hp :</Label>
+                <Input
+                  placeholder="Nomor HandPhone"
+                  onChange={(e) => dispatch}
+                />
+              </Container>
+            </Container>
+          </Container>
+        </ProfileLayout>
+      )}
+      {!isMobile && (
+        <Container as="main" className="w-screen h-screen">
+          <Container className="flex justify-center items-center h-full">
+            <Text>Website Ini Tidak Tersedia Di Desktop</Text>
+          </Container>
+        </Container>
+      )}
+    </Container>
+  );
+};
+
+export default BuatBrandChildren;

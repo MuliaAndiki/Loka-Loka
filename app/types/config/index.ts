@@ -33,7 +33,7 @@ export interface RouteStaticConfig {
     title: any;
     href: string;
   };
-  updateRole: {
+  daftarBrand: {
     title: string;
     href: string;
   };

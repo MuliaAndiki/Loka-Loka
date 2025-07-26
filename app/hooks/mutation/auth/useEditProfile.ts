@@ -13,6 +13,7 @@ export const useEditProfile = () => {
   const alert = useAlert();
   const dispatch = useAppDispatch();
   const current = useAppSelector((state) => state.auth.currentUser);
+
   return useMutation<TResponse<any>, Error, formEditProfileSchema>({
     mutationFn: AuthApi.editProfile,
     onSuccess: (res) => {

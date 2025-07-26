@@ -86,6 +86,8 @@ const RegisterChildren: React.FC = () => {
                 <Container className="my-2">
                   <Input
                     placeholder="Email"
+                    type="email"
+                    inputMode="email"
                     name={formRegister.email}
                     value={formRegister.email}
                     onChange={(e) =>

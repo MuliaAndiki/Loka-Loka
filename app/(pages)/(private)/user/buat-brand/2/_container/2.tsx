@@ -10,14 +10,16 @@ import { useAlert } from '@/app/hooks/alert/costum-alert';
 import { IconBrandItch } from '@tabler/icons-react';
 import { Input } from '@/app/ui/input';
 import { Label } from '@/app/ui/label';
+import { updateForm } from '@/app/stores/BrandSlice/brandSlice';
 
 const Slide2Children: React.FC = () => {
   const { isMobile } = useIsMobile();
   const dispatch = useAppDispatch();
   const alert = useAlert();
-  const formBrand = useAppSelector((state) => state.brand);
+  const formBrand = useAppSelector((state) => state.brand.currentForm);
   const router = useRouter();
 
+  const handleNext = () => {};
   return (
     <Container className="w-full h-full">
       {isMobile && (
@@ -26,8 +28,23 @@ const Slide2Children: React.FC = () => {
             <IconBrandItch stroke={1.3} width={100} height={100} />
             <Container className="w-full max-w-4/5 mx-auto my-4 flex flex-col">
               <Container className="w-full">
+                <Label className="mb-2 text-lg md:text-2xl font-bold">NIK :</Label>
+                <Input
+                  className="w-full"
+                  type="number"
+                  value={formBrand.document?.other ?? ''}
+                  onChange={(e) =>
+                    dispatch(
+                      updateForm({
+                        path: 'document.other',
+                        value: e.target.value,
+                      })
+                    )
+                  }
+                />
+              </Container>
+              <Container className="w-full">
                 <Label></Label>
-                <Input />
               </Container>
             </Container>
           </Container>

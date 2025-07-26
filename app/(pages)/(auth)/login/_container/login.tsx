@@ -74,6 +74,8 @@ const LoginChild: React.FC = () => {
                 <Container className="mb-4 mt-4 ">
                   <Input
                     placeholder="Email"
+                    type="email"
+                    inputMode="email"
                     name={formLogin.email}
                     value={formLogin.email}
                     className="w-full"

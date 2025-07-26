@@ -38,7 +38,7 @@ const ProfileChildren: React.FC = () => {
               <Container className="flex justify-center items-center gap-4">
                 <Image
                   alt="Profile"
-                  src="/asset/Profile.svg"
+                  src={data.data.fotoProfile ? data.data.fotoProfile : '/asset/Profile.svg'}
                   width={80}
                   height={80}
                   className="rounded-full object-contain border"

@@ -16,6 +16,7 @@ export const formEditProfileType = z.object({
   email: z.string(),
   phoneNumber: z.string(),
   gender: z.boolean().nullable(),
+  fotoProfile: z.instanceof(File).nullable(),
 });
 
 export const formVerifyOtpType = z.object({

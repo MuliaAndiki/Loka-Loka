@@ -14,22 +14,21 @@ import { useRef } from 'react';
 import { useEditProfile } from '@/app/hooks/mutation/auth/useEditProfile';
 import Fallback from '@/app/ui/fallback';
 import { useAlert } from '@/app/hooks/alert/costum-alert';
-
 import ProfileLayout from '@/app/core/layouts/profile-layout';
-import { useRouter } from 'next/navigation';
-
 import { RouteConfigStatic } from '@/app/config/route.config';
+import UploadsTrigger from '@/app/utils/UploadTriger';
+import { objectToFormData } from '@/app/utils/formdata';
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
-  const router = useRouter();
   const [formEditProfile, setFormEditProfile] = useState<formEditProfileSchema>({
     email: '',
     fullname: '',
     phoneNumber: '',
     gender: null,
+    fotoProfile: null,
   });
-  const ref = useRef<HTMLInputElement>(null);
+  const { mutate: editProfile, isPending, isError } = useEditProfile();
 
   const handleChageGender = (e: string) => {
     const booleanValue = e === 'true' ? true : e === 'false' ? false : null;
@@ -38,18 +37,27 @@ const EditProfileChildren: React.FC = () => {
       gender: booleanValue,
     }));
   };
-  const handleClick = () => {
-    ref.current?.click();
-  };
 
-  const { mutate: editProfile, isPending, isError } = useEditProfile();
+  const handleFotoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      console.log('Triger', e.target.files);
+      setFormEditProfile((prev) => ({
+        ...prev,
+        fotoProfile: file,
+      }));
+    }
+  };
 
   const handleEditProfile = () => {
     const payload = Object.fromEntries(
       Object.entries(formEditProfile).filter(([_, v]) => v !== '' && v !== null)
     );
-    return editProfile(payload as any);
+    const formData = objectToFormData(payload);
+
+    return editProfile(formData as any);
   };
+
   return (
     <Container className="w-full h-full">
       {isMobile && (
@@ -64,10 +72,9 @@ const EditProfileChildren: React.FC = () => {
                   width={isMobile ? 120 : 200}
                   height={isMobile ? 120 : 200}
                 />
-                <Button onClick={handleClick} type="button">
-                  Unggah Foto
-                </Button>
-                <input ref={ref} type="file" className="hidden" />
+                <UploadsTrigger onChange={handleFotoChange} accept="image/*" multiple={false}>
+                  <Button>Uploads</Button>
+                </UploadsTrigger>
               </Container>
 
               <Container className="mb-6 w-full max-w-4/5 flex justify-center items-center flex-col ">
@@ -89,6 +96,7 @@ const EditProfileChildren: React.FC = () => {
                   <Label className="font-semibold text-lg md:text-4xl">Email :</Label>
                   <Input
                     className=""
+                    inputMode="email"
                     placeholder="*Contoh: UdinSahputra@example.com"
                     value={formEditProfile.email}
                     onChange={(e) =>
@@ -103,6 +111,9 @@ const EditProfileChildren: React.FC = () => {
                   <Label className="font-semibold text-lg md:text-4xl">Nomor HandPhone :</Label>
                   <Input
                     className=""
+                    type="number"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     placeholder="*Contoh: 084321132"
                     value={formEditProfile.phoneNumber}
                     onChange={(e) =>

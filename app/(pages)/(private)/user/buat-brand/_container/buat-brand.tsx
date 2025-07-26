@@ -30,6 +30,7 @@ const BuatBrandChildren: React.FC = () => {
     router.push('/user/buat-brand/2');
   };
   const { isMobile } = useIsMobile();
+
   return (
     <Container className="w-full h-full ">
       {isMobile && (
@@ -41,44 +42,51 @@ const BuatBrandChildren: React.FC = () => {
                 <Label className="text-lg md:text-4xl mb-2">Nama Brand :</Label>
                 <Input
                   placeholder="Masukan Nama Brand"
-                  value={formBrand.nama || ''}
-                  onChange={(e) => dispatch(updateForm({ path: 'nama', value: e.target.value }))}
+                  value={formBrand.nama ?? ''}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    console.log('input', value);
+                    dispatch(updateForm({ path: 'nama', value: e.target.value }));
+                  }}
                 />
               </Container>
               <Container className="w-full my-2">
                 <Label className="text-lg md:text-4xl mb-2">Email :</Label>
                 <Input
                   placeholder="Masukan Email Brand"
-                  value={formBrand.kontak?.email || ''}
+                  value={formBrand.kontak?.email ?? ''}
                   type="email"
-                  onChange={(e) =>
+                  onChange={(e) => {
                     dispatch(
                       updateForm({
                         path: 'kontak.email',
                         value: e.target.value,
                       })
-                    )
-                  }
+                    );
+                  }}
                 />
               </Container>
               <Container className="w-full my-2">
                 <Label className="text-lg md:text-4xl mb-2">Nomor Hp :</Label>
                 <Input
                   placeholder="Nomor HandPhone"
-                  onChange={(e) =>
+                  type="number"
+                  value={formBrand.kontak?.phone ?? ''}
+                  onChange={(e) => {
                     dispatch(
                       updateForm({
                         path: 'kontak.phone',
                         value: e.target.value,
                       })
-                    )
-                  }
+                    );
+                  }}
                 />
               </Container>
               <Container className="w-full my-2">
                 <Label className="text-lg md:text-2xl mb-2">Website :</Label>
                 <Input
                   placeholder="Website Optional"
+                  value={formBrand.kontak?.website || ''}
                   onChange={(e) =>
                     dispatch(
                       updateForm({

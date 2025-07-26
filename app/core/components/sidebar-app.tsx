@@ -7,19 +7,19 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/app/ui/sidebar";
-import { SidebarItems, DropdownItems } from "@/app/config/side.config";
+} from '@/app/ui/sidebar';
+import { SidebarItems, DropdownItems } from '@/app/config/side.config';
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/app/ui/dropdown-menu";
-import Link from "next/link";
-import { Text } from "@/app/ui/Text";
+} from '@/app/ui/dropdown-menu';
+import Link from 'next/link';
+import { Text } from '@/app/ui/Text';
 
-import { User2, ChevronUp } from "lucide-react";
+import { User2, ChevronUp } from 'lucide-react';
 
 export function AppSidebar() {
   return (
@@ -51,10 +51,7 @@ export function AppSidebar() {
             <ChevronUp className="ml-auto" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>
-        <DropdownMenuContent
-          side="top"
-          className="w-[--radix-popper-anchor-width]"
-        >
+        <DropdownMenuContent side="top" className="w-[--radix-popper-anchor-width]">
           <DropdownMenuItem>
             {DropdownItems.map((items, key) => (
               <Link key={key} href={items.Keluar.href}>

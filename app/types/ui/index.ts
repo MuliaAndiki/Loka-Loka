@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { JSX } from 'react';
 
 export interface ContainerProps {
   children?: React.ReactNode;
@@ -42,7 +42,7 @@ export interface ToolTipProps {
   children?: React.ReactNode;
 }
 
-type ToastType = "success" | "error" | "warning" | "info" | "question";
+type ToastType = 'success' | 'error' | 'warning' | 'info' | 'question';
 export interface ModalProps {
   title: string;
   icon: ToastType;

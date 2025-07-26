@@ -1,5 +1,5 @@
-import Container from "@/app/ui/container";
-import { Text } from "@/app/ui/Text";
+import Container from '@/app/ui/container';
+import { Text } from '@/app/ui/Text';
 const HistoryApp: React.FC = () => {
   return (
     <Container className="w-full  h-full">

@@ -1,6 +1,6 @@
-import axios, { AxiosResponse, AxiosError } from "axios";
-import { store } from "../stores/store";
-import { env } from "../config/env.config";
+import axios, { AxiosResponse, AxiosError } from 'axios';
+import { store } from '../stores/store';
+import { env } from '../config/env.config';
 
 const AxiosClient = axios.create({
   baseURL: env.NEXT_PUBLIC_API_ID,

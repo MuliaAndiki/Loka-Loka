@@ -1,6 +1,6 @@
-import Container from "../ui/container";
-import { Text } from "../ui/Text";
-import Image from "next/image";
+import Container from '../ui/container';
+import { Text } from '../ui/Text';
+import Image from 'next/image';
 
 const AboutUsChart: React.FC = () => {
   return (

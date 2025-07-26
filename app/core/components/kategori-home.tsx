@@ -1,8 +1,8 @@
-import Container from "@/app/ui/container";
-import { Text } from "@/app/ui/Text";
-import Image from "next/image";
-import Link from "next/link";
-import { KategoriSchemaProps } from "@/app/types/props";
+import Container from '@/app/ui/container';
+import { Text } from '@/app/ui/Text';
+import Image from 'next/image';
+import Link from 'next/link';
+import { KategoriSchemaProps } from '@/app/types/props';
 
 const KategoriHome: React.FC<KategoriSchemaProps> = ({ data }) => {
   return (

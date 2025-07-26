@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Dialog,
@@ -6,15 +6,15 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/app/ui/dialog";
-import { ModalProps } from "@/app/types/ui"; // path sesuai punyamu
+} from '@/app/ui/dialog';
+import { ModalProps } from '@/app/types/ui'; // path sesuai punyamu
 
 const iconMap = {
-  success: "✅",
-  error: "❌",
-  warning: "⚠️",
-  info: "ℹ️",
-  question: "❓",
+  success: '✅',
+  error: '❌',
+  warning: '⚠️',
+  info: 'ℹ️',
+  question: '❓',
 };
 
 interface AlertModalInternalProps extends ModalProps {
@@ -29,9 +29,9 @@ export function AlertModal({
   setOpen,
   title,
   deskripsi,
-  icon = "info",
-  confirmButtonText = "OK",
-  confirmButtonColor = "bg-primary",
+  icon = 'info',
+  confirmButtonText = 'OK',
+  confirmButtonColor = 'bg-primary',
   cancelText,
   onConfirm,
   onCancel,

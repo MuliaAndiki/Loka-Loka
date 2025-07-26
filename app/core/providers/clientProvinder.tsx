@@ -1,20 +1,16 @@
-"use client";
-import { store, persistor } from "@/app/stores/store";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { useIsMobile } from "../../hooks/Mobile/use-mobile";
-import { MobileContex } from "../../hooks/Mobile/use-mobile";
-import { Toaster } from "react-hot-toast";
-import { AlertProvinder } from "@/app/hooks/alert/costum-alert";
-import ReactQueryClientProvinder from "@/app/hooks/query/query-client";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ThemeProvider } from "@/app/hooks/theme/use-theme";
+'use client';
+import { store, persistor } from '@/app/stores/store';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { useIsMobile } from '../../hooks/Mobile/use-mobile';
+import { MobileContex } from '../../hooks/Mobile/use-mobile';
+import { Toaster } from 'react-hot-toast';
+import { AlertProvinder } from '@/app/hooks/alert/costum-alert';
+import ReactQueryClientProvinder from '@/app/hooks/query/query-client';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ThemeProvider } from '@/app/hooks/theme/use-theme';
 
-export default function LayoutClient({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LayoutClient({ children }: { children: React.ReactNode }) {
   const IsMobile = useIsMobile();
 
   return (

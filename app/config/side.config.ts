@@ -1,20 +1,20 @@
-import { SidebarProps, DropdownProps } from "../types/ui";
-import { Activity, SquareUserRound, History } from "lucide-react";
+import { SidebarProps, DropdownProps } from '../types/ui';
+import { Activity, SquareUserRound, History } from 'lucide-react';
 
 export const SidebarItems: SidebarProps[] = [
   {
-    title: "Profile",
-    href: "#",
+    title: 'Profile',
+    href: '#',
     icon: SquareUserRound,
   },
   {
-    title: "Events",
-    href: "#",
+    title: 'Events',
+    href: '#',
     icon: Activity,
   },
   {
-    title: "Riwayat",
-    href: "#",
+    title: 'Riwayat',
+    href: '#',
     icon: History,
   },
 ];
@@ -22,12 +22,12 @@ export const SidebarItems: SidebarProps[] = [
 export const DropdownItems: DropdownProps[] = [
   {
     Keluar: {
-      title: "Keluar",
-      href: "/splash",
+      title: 'Keluar',
+      href: '/splash',
     },
     Pengaturan: {
-      title: "Pengaturan",
-      href: "#",
+      title: 'Pengaturan',
+      href: '#',
     },
   },
 ];

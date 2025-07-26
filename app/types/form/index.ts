@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const formLoginType = z.object({
   email: z.string(),

@@ -1,10 +1,10 @@
-"use client";
-import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import OnboardingLayout from "@/app/core/layouts/onboarding-layout";
-import { RouteConfigStatic } from "@/app/config/route.config";
-import Link from "next/link";
-import Image from "next/image";
+'use client';
+import Container from '@/app/ui/container';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import OnboardingLayout from '@/app/core/layouts/onboarding-layout';
+import { RouteConfigStatic } from '@/app/config/route.config';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const SplashScreenChildren: React.FC = () => {
   const { isMobile } = useIsMobile();

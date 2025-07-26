@@ -1,13 +1,13 @@
-import { useMutation } from "@tanstack/react-query";
-import AuthApi from "@/app/service/auth/auth.service";
-import { useRouter } from "next/navigation";
-import { formLoginSchema } from "@/app/types/form";
-import { useAlert } from "../../alert/costum-alert";
-import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
-import { useAppDispatch } from "../../dispatch/dispatch";
-import { setCurrentUser } from "@/app/stores/AuthSlice/authSlice";
-import { userSchema } from "@/app/types/api";
-import { RouteConfigLogic } from "@/app/config/route.config";
+import { useMutation } from '@tanstack/react-query';
+import AuthApi from '@/app/service/auth/auth.service';
+import { useRouter } from 'next/navigation';
+import { formLoginSchema } from '@/app/types/form';
+import { useAlert } from '../../alert/costum-alert';
+import { TResponse } from '@/app/pkg/react-query/mutation-wrapper.type';
+import { useAppDispatch } from '../../dispatch/dispatch';
+import { setCurrentUser } from '@/app/stores/AuthSlice/authSlice';
+import { userSchema } from '@/app/types/api';
+import { RouteConfigLogic } from '@/app/config/route.config';
 export const useLogin = () => {
   const router = useRouter();
   const alert = useAlert();
@@ -23,9 +23,9 @@ export const useLogin = () => {
 
       dispatch(setCurrentUser(userPayload));
       alert.toast({
-        title: "Berhasil Login",
-        message: "Selamat Datang Di Loka-Loka",
-        icon: "success",
+        title: 'Berhasil Login',
+        message: 'Selamat Datang Di Loka-Loka',
+        icon: 'success',
         onVoid: () => {
           router.push(RouteConfigLogic.login.href);
         },
@@ -33,9 +33,9 @@ export const useLogin = () => {
     },
     onError: () => {
       alert.toast({
-        title: "Gagal Melakuakan Login",
-        message: "Mohon Periksa Kembali",
-        icon: "error",
+        title: 'Gagal Melakuakan Login',
+        message: 'Mohon Periksa Kembali',
+        icon: 'error',
       });
     },
   });

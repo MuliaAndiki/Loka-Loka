@@ -1,42 +1,38 @@
-"use client";
-import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import { RouteConfigStatic } from "@/app/config/route.config";
+'use client';
+import Container from '@/app/ui/container';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import { RouteConfigStatic } from '@/app/config/route.config';
 
-import Image from "next/image";
-import { Input } from "@/app/ui/input";
-import { formRegisterSchema } from "@/app/types/form";
-import { useState } from "react";
-import { Text } from "@/app/ui/Text";
-import Fallback from "@/app/ui/fallback";
-import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
-import { Button } from "@/app/ui/button";
-import NavLayout from "@/app/core/layouts/auth-layout";
-import Link from "next/link";
-import { useRegister } from "@/app/hooks/mutation/auth/useRegister";
-import { useAlert } from "@/app/hooks/alert/costum-alert";
+import Image from 'next/image';
+import { Input } from '@/app/ui/input';
+import { formRegisterSchema } from '@/app/types/form';
+import { useState } from 'react';
+import { Text } from '@/app/ui/Text';
+import Fallback from '@/app/ui/fallback';
+import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
+import { Button } from '@/app/ui/button';
+import NavLayout from '@/app/core/layouts/auth-layout';
+import Link from 'next/link';
+import { useRegister } from '@/app/hooks/mutation/auth/useRegister';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
 
 const RegisterChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
   const [formRegister, setFormRegister] = useState<formRegisterSchema>({
-    fullname: "",
-    email: "",
-    password: "",
+    fullname: '',
+    email: '',
+    password: '',
   });
 
   const { mutate: register, isPending } = useRegister();
 
   const handleRegister = () => {
-    if (
-      !formRegister.email ||
-      !formRegister.fullname ||
-      !formRegister.password
-    ) {
+    if (!formRegister.email || !formRegister.fullname || !formRegister.password) {
       alert.toast({
-        title: "Cek Kolom",
-        message: "Coba Lagi",
-        icon: "warning",
+        title: 'Cek Kolom',
+        message: 'Coba Lagi',
+        icon: 'warning',
       });
       return;
     }
@@ -69,9 +65,7 @@ const RegisterChildren: React.FC = () => {
                 <Container className="my-1">
                   <GoogleLogin
                     onSuccess={(e) => handleLoginGoogle(e)}
-                    onError={() =>
-                      console.log("Gagal Melakukan Login Dengan Google")
-                    }
+                    onError={() => console.log('Gagal Melakukan Login Dengan Google')}
                   />
                 </Container>
 
@@ -117,17 +111,11 @@ const RegisterChildren: React.FC = () => {
                   />
                 </Container>
 
-                <Button
-                  className="w-full"
-                  onClick={() => handleRegister()}
-                  disabled={isPending}
-                >
-                  {isPending ? <Fallback title="Tunggu Sebentar" /> : "Daftar"}
+                <Button className="w-full" onClick={() => handleRegister()} disabled={isPending}>
+                  {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Daftar'}
                 </Button>
                 <Container className="w-full flex items-center justify-center gap-1">
-                  <Text className="text-center text-sm lg:text-4xl">
-                    Sudah Memiliki Akun?
-                  </Text>
+                  <Text className="text-center text-sm lg:text-4xl">Sudah Memiliki Akun?</Text>
                   {RouteConfigStatic.map((route, key) => (
                     <Link key={key} href={route.login.href}>
                       <Text className="hover:text-[var(--custom-hover)] hover:duration-[0.2s] text-sm md:text-2xl">

@@ -1,4 +1,4 @@
-import { SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
@@ -6,8 +6,8 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/app/ui/sheet";
-import UseTooltip from "../partials/tooltip";
+} from '@/app/ui/sheet';
+import UseTooltip from '../partials/tooltip';
 const FilterHome: React.FC = () => {
   return (
     <Sheet>
@@ -21,8 +21,8 @@ const FilterHome: React.FC = () => {
         <SheetHeader>
           <SheetTitle>Are you absolutely sure?</SheetTitle>
           <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            This action cannot be undone. This will permanently delete your account and remove your
+            data from our servers.
           </SheetDescription>
         </SheetHeader>
       </SheetContent>

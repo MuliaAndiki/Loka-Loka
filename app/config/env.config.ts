@@ -1,7 +1,7 @@
-import { createEnv } from "@t3-oss/env-nextjs";
-import { z } from "zod";
+import { createEnv } from '@t3-oss/env-nextjs';
+import { z } from 'zod';
 
-const requiredString = z.string().trim().min(1, "This field is required");
+const requiredString = z.string().trim().min(1, 'This field is required');
 export const env = createEnv({
   /*
    * Serverside Environment variables, not available on the client.

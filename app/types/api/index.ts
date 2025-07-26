@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from 'zod';
 
 export const userType = z.object({
   token: z.string(),
@@ -8,9 +8,7 @@ export const userType = z.object({
     methotPayment: z.string(),
     fullname: z.string(),
     email: z.string(),
-    phoneNumber: z
-      .string()
-      .regex(/^(\+62|0)8[1-9][0-9]{6,9}$/, "Nomor HP tidak valid"),
+    phoneNumber: z.string().regex(/^(\+62|0)8[1-9][0-9]{6,9}$/, 'Nomor HP tidak valid'),
     password: z.string(),
     fotoProfile: z.string().nullable().optional(),
   }),

@@ -1,8 +1,8 @@
-"use client";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import Container from "@/app/ui/container";
-import { Text } from "@/app/ui/Text";
-import ProfileLayout from "@/app/core/layouts/profile-layout";
+'use client';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import Container from '@/app/ui/container';
+import { Text } from '@/app/ui/Text';
+import ProfileLayout from '@/app/core/layouts/profile-layout';
 const MetodePembayaranChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   return (

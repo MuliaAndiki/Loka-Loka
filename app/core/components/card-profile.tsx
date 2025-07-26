@@ -1,19 +1,17 @@
-import Container from "@/app/ui/container";
-import { Text } from "@/app/ui/Text";
-import Image from "next/image";
+import Container from '@/app/ui/container';
+import { Text } from '@/app/ui/Text';
+import Image from 'next/image';
 
-import { useGetProfileById } from "@/app/hooks/mutation/auth/useGetProfile";
-import Chart from "../../components/chart";
-import { Skeleton } from "@/app/ui/skeleton";
+import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
+import Chart from '../../components/chart';
+import { Skeleton } from '@/app/ui/skeleton';
 
 const CardProfile: React.FC = () => {
   const { data, isPending, isError } = useGetProfileById();
 
   if (isError) {
     return (
-      <Text className="text-lg md:text-lg">
-        Mohon Maap Terjadi Kesalahan Saat Memuat Data
-      </Text>
+      <Text className="text-lg md:text-lg">Mohon Maap Terjadi Kesalahan Saat Memuat Data</Text>
     );
   }
   if (isPending) {

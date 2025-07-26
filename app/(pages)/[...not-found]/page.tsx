@@ -1,5 +1,5 @@
-import BlankLayout from "@/app/core/layouts/blank.layout";
-import NotFound from "@/app/core/components/not-found";
+import BlankLayout from '@/app/core/layouts/blank.layout';
+import NotFound from '@/app/core/components/not-found';
 const NotFoundPage = async () => {
   return (
     <BlankLayout>

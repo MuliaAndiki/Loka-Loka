@@ -1,32 +1,29 @@
-"use client";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import { useState, useEffect } from "react";
-import Link from "next/link";
+'use client';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
-import { formLoginSchema } from "@/app/types/form";
-import { Input } from "@/app/ui/input";
-import Container from "@/app/ui/container";
-import { RouteConfigStatic } from "@/app/config/route.config";
-import Image from "next/image";
-import { Button } from "@/app/ui/button";
-import { Text } from "@/app/ui/Text";
-import {
-  CredentialResponse,
-  GoogleLogin,
-  GoogleOAuthProvider,
-} from "@react-oauth/google";
-import Fallback from "@/app/ui/fallback";
-import NavLayout from "@/app/core/layouts/auth-layout";
-import { useAlert } from "@/app/hooks/alert/costum-alert";
-import { useLogin } from "@/app/hooks/mutation/auth/useLogin";
+import { formLoginSchema } from '@/app/types/form';
+import { Input } from '@/app/ui/input';
+import Container from '@/app/ui/container';
+import { RouteConfigStatic } from '@/app/config/route.config';
+import Image from 'next/image';
+import { Button } from '@/app/ui/button';
+import { Text } from '@/app/ui/Text';
+import { CredentialResponse, GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
+import Fallback from '@/app/ui/fallback';
+import NavLayout from '@/app/core/layouts/auth-layout';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
+import { useLogin } from '@/app/hooks/mutation/auth/useLogin';
+import { IconLock, IconLockOpen } from '@tabler/icons-react';
 
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
 
   const [formLogin, setFormLogin] = useState<formLoginSchema>({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
 
   const handleLoginGoogle = async (e: CredentialResponse) => {};
@@ -37,9 +34,9 @@ const LoginChild: React.FC = () => {
   const handleLogin = () => {
     if (!formLogin.email || !formLogin.password) {
       alert.toast({
-        title: "Perhatian !",
-        message: "Mohon Isi Semua Colum",
-        icon: "warning",
+        title: 'Perhatian !',
+        message: 'Mohon Isi Semua Colum',
+        icon: 'warning',
       });
       return;
     }
@@ -61,9 +58,7 @@ const LoginChild: React.FC = () => {
                 />
 
                 <Text className="font-bold">Selamat Datang Di Loka-Loka</Text>
-                <Text className="font-light">
-                  Masukkan Akun Kamu Untuk Lanjut !
-                </Text>
+                <Text className="font-light">Masukkan Akun Kamu Untuk Lanjut !</Text>
               </Container>
 
               <Container className="mx-auto w-full max-w-[70%]">
@@ -71,9 +66,7 @@ const LoginChild: React.FC = () => {
                   <GoogleOAuthProvider clientId="">
                     <GoogleLogin
                       onSuccess={(e) => handleLoginGoogle(e)}
-                      onError={() =>
-                        console.log("Gagal Melakukan Login Menggunakan Google")
-                      }
+                      onError={() => console.log('Gagal Melakukan Login Menggunakan Google')}
                     />
                   </GoogleOAuthProvider>
                 </Container>
@@ -95,7 +88,7 @@ const LoginChild: React.FC = () => {
 
                 <Container className="mb-2 relative ">
                   <Input
-                    type={showPassword ? "text" : "password"}
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="Kata Sandi"
                     name={formLogin.password}
                     value={formLogin.password}
@@ -108,27 +101,21 @@ const LoginChild: React.FC = () => {
                   />
                   <button
                     type="button"
-                    aria-Text={showPassword ? "Hide password" : "Show password"}
+                    aria-Text={showPassword ? 'Hide password' : 'Show password'}
                     className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-sm"
                     onClick={() => setShowPassword((prev) => !prev)}
                   >
-                    {showPassword ? "Hide" : "Show"}
+                    {showPassword ? <IconLockOpen /> : <IconLock />}
                   </button>
                 </Container>
 
-                <Button
-                  onClick={() => handleLogin()}
-                  disabled={isPending}
-                  className="w-full my-2"
-                >
-                  {isPending ? <Fallback title="Tunggu Sebentar" /> : "Masuk"}
+                <Button onClick={() => handleLogin()} disabled={isPending} className="w-full my-2">
+                  {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Masuk'}
                 </Button>
                 <Container className="text-end w-full">
                   {RouteConfigStatic.map((route, key) => (
                     <Link key={key} href={route.lupaKataSandi.href}>
-                      <Text className="text-sm md:text-2xl">
-                        {route.lupaKataSandi.title}
-                      </Text>
+                      <Text className="text-sm md:text-2xl">{route.lupaKataSandi.title}</Text>
                     </Link>
                   ))}
                 </Container>

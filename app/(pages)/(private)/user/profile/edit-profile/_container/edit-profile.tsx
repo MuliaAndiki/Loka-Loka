@@ -1,46 +1,38 @@
-"use client";
+'use client';
 
-import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import { Text } from "@/app/ui/Text";
-import Image from "next/image";
-import { Input } from "@/app/ui/input";
-import { Button } from "@/app/ui/button";
-import { Label } from "@/app/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/app/ui/select";
-import { formEditProfileSchema } from "@/app/types/form";
-import { useState } from "react";
-import { useRef } from "react";
-import { useEditProfile } from "@/app/hooks/mutation/auth/useEditProfile";
-import Fallback from "@/app/ui/fallback";
-import { useAlert } from "@/app/hooks/alert/costum-alert";
+import Container from '@/app/ui/container';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import { Text } from '@/app/ui/Text';
+import Image from 'next/image';
+import { Input } from '@/app/ui/input';
+import { Button } from '@/app/ui/button';
+import { Label } from '@/app/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/ui/select';
+import { formEditProfileSchema } from '@/app/types/form';
+import { useState } from 'react';
+import { useRef } from 'react';
+import { useEditProfile } from '@/app/hooks/mutation/auth/useEditProfile';
+import Fallback from '@/app/ui/fallback';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
 
-import ProfileLayout from "@/app/core/layouts/profile-layout";
-import { useRouter } from "next/navigation";
+import ProfileLayout from '@/app/core/layouts/profile-layout';
+import { useRouter } from 'next/navigation';
 
-import { RouteConfigStatic } from "@/app/config/route.config";
+import { RouteConfigStatic } from '@/app/config/route.config';
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
   const router = useRouter();
-  const [formEditProfile, setFormEditProfile] = useState<formEditProfileSchema>(
-    {
-      email: "",
-      fullname: "",
-      phoneNumber: "",
-      gender: null,
-    }
-  );
+  const [formEditProfile, setFormEditProfile] = useState<formEditProfileSchema>({
+    email: '',
+    fullname: '',
+    phoneNumber: '',
+    gender: null,
+  });
   const ref = useRef<HTMLInputElement>(null);
 
   const handleChageGender = (e: string) => {
-    const booleanValue = e === "true" ? true : e === "false" ? false : null;
+    const booleanValue = e === 'true' ? true : e === 'false' ? false : null;
     setFormEditProfile((prev) => ({
       ...prev,
       gender: booleanValue,
@@ -54,7 +46,7 @@ const EditProfileChildren: React.FC = () => {
 
   const handleEditProfile = () => {
     const payload = Object.fromEntries(
-      Object.entries(formEditProfile).filter(([_, v]) => v !== "" && v !== null)
+      Object.entries(formEditProfile).filter(([_, v]) => v !== '' && v !== null)
     );
     return editProfile(payload as any);
   };
@@ -80,9 +72,7 @@ const EditProfileChildren: React.FC = () => {
 
               <Container className="mb-6 w-full max-w-4/5 flex justify-center items-center flex-col ">
                 <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
-                  <Label className="font-semibold text-lg md:text-4xl">
-                    Nama Lengkap :
-                  </Label>
+                  <Label className="font-semibold text-lg md:text-4xl">Nama Lengkap :</Label>
                   <Input
                     className=""
                     placeholder="*Contoh: Udin Sahputra"
@@ -96,9 +86,7 @@ const EditProfileChildren: React.FC = () => {
                   />
                 </Container>
                 <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
-                  <Label className="font-semibold text-lg md:text-4xl">
-                    Email :
-                  </Label>
+                  <Label className="font-semibold text-lg md:text-4xl">Email :</Label>
                   <Input
                     className=""
                     placeholder="*Contoh: UdinSahputra@example.com"
@@ -112,9 +100,7 @@ const EditProfileChildren: React.FC = () => {
                   />
                 </Container>
                 <Container className="w-full justify-center items-start flex flex-col mb-6 gap-2">
-                  <Label className="font-semibold text-lg md:text-4xl">
-                    Nomor HandPhone :
-                  </Label>
+                  <Label className="font-semibold text-lg md:text-4xl">Nomor HandPhone :</Label>
                   <Input
                     className=""
                     placeholder="*Contoh: 084321132"
@@ -128,13 +114,8 @@ const EditProfileChildren: React.FC = () => {
                   />
                 </Container>
                 <Container className="w-full justify-center items-start flex flex-col gap-2">
-                  <Label className=" font-semibold text-lg md:text-4xl">
-                    Gender :
-                  </Label>
-                  <Select
-                    onValueChange={handleChageGender}
-                    value={String(formEditProfile.gender)}
-                  >
+                  <Label className=" font-semibold text-lg md:text-4xl">Gender :</Label>
+                  <Select onValueChange={handleChageGender} value={String(formEditProfile.gender)}>
                     <SelectTrigger className="w-full mb-6">
                       <SelectValue placeholder="*Contoh: Laki - Laki" />
                     </SelectTrigger>
@@ -149,9 +130,9 @@ const EditProfileChildren: React.FC = () => {
                   className="w-full mb-6 "
                   onClick={() =>
                     alert.modal({
-                      title: "Edit Profile",
-                      deskripsi: "Anda Mengupdate Profile Anda?",
-                      icon: "question",
+                      title: 'Edit Profile',
+                      deskripsi: 'Anda Mengupdate Profile Anda?',
+                      icon: 'question',
                       onConfirm: () => {
                         handleEditProfile();
                       },
@@ -160,11 +141,7 @@ const EditProfileChildren: React.FC = () => {
                   }
                   disabled={isPending}
                 >
-                  {isPending ? (
-                    <Fallback title="Tunggu Sebentar" />
-                  ) : (
-                    "Update Profile"
-                  )}
+                  {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Update Profile'}
                 </Button>
               </Container>
             </Container>

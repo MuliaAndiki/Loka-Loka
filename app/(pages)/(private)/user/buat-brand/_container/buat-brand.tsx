@@ -1,16 +1,16 @@
-"use client";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import Container from "@/app/ui/container";
-import ProfileLayout from "@/app/core/layouts/profile-layout";
-import { Input } from "@/app/ui/input";
-import { Text } from "@/app/ui/Text";
-import { useAlert } from "@/app/hooks/alert/costum-alert";
-import { Label } from "@/app/ui/label";
-import { useAppDispatch, useAppSelector } from "@/app/hooks/dispatch/dispatch";
-import { IconBrandItch } from "@tabler/icons-react";
-import { updateForm } from "@/app/stores/BrandSlice/brandSlice";
-import { useRouter } from "next/navigation";
-import { Button } from "@/app/ui/button";
+'use client';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import Container from '@/app/ui/container';
+import BrandLayout from '@/app/core/layouts/brand-layout';
+import { Input } from '@/app/ui/input';
+import { Text } from '@/app/ui/Text';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
+import { Label } from '@/app/ui/label';
+import { useAppDispatch, useAppSelector } from '@/app/hooks/dispatch/dispatch';
+import { IconBrandItch } from '@tabler/icons-react';
+import { updateForm } from '@/app/stores/BrandSlice/brandSlice';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/app/ui/button';
 
 const BuatBrandChildren: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -19,50 +19,42 @@ const BuatBrandChildren: React.FC = () => {
   const router = useRouter();
 
   const handleNext = () => {
-    if (
-      !formBrand.nama ||
-      !formBrand.kontak?.email ||
-      !formBrand.kontak.phone
-    ) {
+    if (!formBrand.nama || !formBrand.kontak?.email || !formBrand.kontak.phone) {
       alert.toast({
-        title: "Perhatian!",
-        message: "Mohon Lengkapi Seluruh Colum",
-        icon: "warning",
+        title: 'Perhatian!',
+        message: 'Mohon Lengkapi Seluruh Colum',
+        icon: 'warning',
       });
       return;
     }
-    router.push("/user/buat-brand/2");
+    router.push('/user/buat-brand/2');
   };
   const { isMobile } = useIsMobile();
   return (
     <Container className="w-full h-full ">
       {isMobile && (
-        <ProfileLayout>
+        <BrandLayout>
           <Container className="flex justify-center items-center flex-col">
-            <IconBrandItch stroke={1} width={100} height={100} />
+            <IconBrandItch stroke={1.3} width={100} height={100} />
             <Container className=" w-full max-w-4/5 mx-auto my-4 p-2 flex flex-col">
               <Container className="w-full my-2">
                 <Label className="text-lg md:text-4xl mb-2">Nama Brand :</Label>
                 <Input
                   placeholder="Masukan Nama Brand"
-                  value={formBrand.nama || ""}
-                  onChange={(e) =>
-                    dispatch(
-                      updateForm({ path: "nama", value: e.target.value })
-                    )
-                  }
+                  value={formBrand.nama || ''}
+                  onChange={(e) => dispatch(updateForm({ path: 'nama', value: e.target.value }))}
                 />
               </Container>
               <Container className="w-full my-2">
                 <Label className="text-lg md:text-4xl mb-2">Email :</Label>
                 <Input
                   placeholder="Masukan Email Brand"
-                  value={formBrand.kontak?.email || ""}
+                  value={formBrand.kontak?.email || ''}
                   type="email"
                   onChange={(e) =>
                     dispatch(
                       updateForm({
-                        path: "kontak.email",
+                        path: 'kontak.email',
                         value: e.target.value,
                       })
                     )
@@ -76,7 +68,7 @@ const BuatBrandChildren: React.FC = () => {
                   onChange={(e) =>
                     dispatch(
                       updateForm({
-                        path: "kontak.phone",
+                        path: 'kontak.phone',
                         value: e.target.value,
                       })
                     )
@@ -90,7 +82,7 @@ const BuatBrandChildren: React.FC = () => {
                   onChange={(e) =>
                     dispatch(
                       updateForm({
-                        path: "kontak.website",
+                        path: 'kontak.website',
                         value: e.target.value,
                       })
                     )
@@ -104,7 +96,7 @@ const BuatBrandChildren: React.FC = () => {
               </Container>
             </Container>
           </Container>
-        </ProfileLayout>
+        </BrandLayout>
       )}
       {!isMobile && (
         <Container as="main" className="w-screen h-screen">

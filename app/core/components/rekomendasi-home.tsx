@@ -1,9 +1,9 @@
-import Container from "../../ui/container";
-import { Text } from "../../ui/Text";
-import Image from "next/image";
-import { RekomendasiSchemaProps } from "../../types/props";
-import Shape from "@/app/ui/shape";
-import { ShoppingBasket } from "lucide-react";
+import Container from '../../ui/container';
+import { Text } from '../../ui/Text';
+import Image from 'next/image';
+import { RekomendasiSchemaProps } from '../../types/props';
+import Shape from '@/app/ui/shape';
+import { ShoppingBasket } from 'lucide-react';
 
 const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
   return (
@@ -19,15 +19,11 @@ const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
       />
       <Text className="md:text-4xl text-2xl font-bold">{data.title}</Text>
       <Text className="md:text-4xl text-lg italic">{data.organizer}</Text>
-      <Text className="md:text-4xl font-extrabold  italic">
-        Rp.{data.price}
-      </Text>
+      <Text className="md:text-4xl font-extrabold  italic">Rp.{data.price}</Text>
       <Container className=" absolute bottom-0 bg-background w-full h-10 rounded-t-lg z-[-4]">
         <Container className=" flex justify-center items-center h-full gap-1 ">
           <ShoppingBasket />
-          <Text className="md:text-4xl text-sm font-extralight">
-            {data.cart}
-          </Text>
+          <Text className="md:text-4xl text-sm font-extralight">{data.cart}</Text>
         </Container>
       </Container>
     </Container>

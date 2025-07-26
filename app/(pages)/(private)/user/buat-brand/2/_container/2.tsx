@@ -1,16 +1,37 @@
-"use client";
-import Container from "@/app/ui/container";
-import { Text } from "@/app/ui/Text";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
+'use client';
+import Container from '@/app/ui/container';
+import { Text } from '@/app/ui/Text';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import BrandLayout from '@/app/core/layouts/brand-layout';
+import { useRouter } from 'next/navigation';
+import { useAppDispatch } from '@/app/hooks/dispatch/dispatch';
+import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
+import { IconBrandItch } from '@tabler/icons-react';
+import { Input } from '@/app/ui/input';
+import { Label } from '@/app/ui/label';
 
 const Slide2Children: React.FC = () => {
   const { isMobile } = useIsMobile();
+  const dispatch = useAppDispatch();
+  const alert = useAlert();
+  const formBrand = useAppSelector((state) => state.brand);
+  const router = useRouter();
+
   return (
     <Container className="w-full h-full">
       {isMobile && (
-        <Container className="flex justify-center items-center">
-          <Text>Setup Page</Text>
-        </Container>
+        <BrandLayout>
+          <Container className="flex justify-center items-center flex-col">
+            <IconBrandItch stroke={1.3} width={100} height={100} />
+            <Container className="w-full max-w-4/5 mx-auto my-4 flex flex-col">
+              <Container className="w-full">
+                <Label></Label>
+                <Input />
+              </Container>
+            </Container>
+          </Container>
+        </BrandLayout>
       )}
 
       {!isMobile && (

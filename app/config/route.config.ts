@@ -3,7 +3,7 @@ import {
   RouteLogicConfig,
   RouteProfileAppConfig,
   RouteChartConfig,
-} from "../types/config";
+} from '../types/config';
 
 import {
   UserPen,
@@ -14,80 +14,80 @@ import {
   Warehouse,
   Bookmark,
   LogOut,
-} from "lucide-react";
+} from 'lucide-react';
 
-import { useLogout } from "../hooks/mutation/auth/useLogout";
+import { useLogout } from '../hooks/mutation/auth/useLogout';
 export const RouteConfigStatic: RouteStaticConfig[] = [
   {
     login: {
-      title: "Masuk Sekarang!",
-      href: "/login",
+      title: 'Masuk Sekarang!',
+      href: '/login',
     },
     register: {
-      title: "Daftar Sekarang!",
-      href: "/register",
+      title: 'Daftar Sekarang!',
+      href: '/register',
     },
     lupaKataSandi: {
-      href: "/lupa-kata-sandi",
-      title: "Lupa Kata Sandi?",
+      href: '/lupa-kata-sandi',
+      title: 'Lupa Kata Sandi?',
     },
     metodeLain: {
-      href: "/lupa-kata-sandi/metode-lain",
-      title: "Coba menggunakan cara lain ?",
+      href: '/lupa-kata-sandi/metode-lain',
+      title: 'Coba menggunakan cara lain ?',
     },
     lihatSemuaRekomendasi: {
-      title: "Lihat Semua",
-      href: "#",
+      title: 'Lihat Semua',
+      href: '#',
     },
     lihatSemuaTerdekat: {
-      title: "Lihat Semua",
-      href: "#",
+      title: 'Lihat Semua',
+      href: '#',
     },
     profile: {
-      href: "/user/profile",
-      title: "Profile",
+      href: '/user/profile',
+      title: 'Profile',
     },
     editProfile: {
       title: UserPen,
-      href: "/user/profile/edit-profile",
+      href: '/user/profile/edit-profile',
     },
     daftarBrand: {
-      title: "Daftarkan Brand Anda?",
-      href: "/user/buat-brand",
+      title: 'Daftarkan Brand Anda?',
+      href: '/user/buat-brand',
     },
   },
 ];
 
 export const RouteConfigLogic: RouteLogicConfig = {
   login: {
-    href: "/user/home",
+    href: '/user/home',
   },
   logout: {
-    href: "/login",
+    href: '/login',
   },
   regiter: {
-    href: "/verify-otp",
+    href: '/verify-otp',
   },
   editProfile: {
-    href: "/user/profile",
+    href: '/user/profile',
   },
   verifyOtp: {
-    href: "/login",
+    href: '/login',
   },
   forgotByEmail: {
-    href: "/verify-otp",
+    href: '/verify-otp',
   },
   forgotByPhoneNumber: {
-    href: "/verify-otp",
+    href: '/verify-otp',
   },
   prevResetPasswordByEmail: {
-    href: "lupa-kata-sandi/pemulihan-kata-sandi",
+    href: 'lupa-kata-sandi/pemulihan-kata-sandi',
   },
   prevResetPasswordByPhoneNumber: {
-    href: "lupa-kata-sandi/pemulihan-kata-sandi",
+    href: 'lupa-kata-sandi/pemulihan-kata-sandi',
   },
   resetPassword: {
-    href: "/login",
+    href: '/login',
   },
 };
 
@@ -97,37 +97,37 @@ export const RouteProfileApp = () => {
 
   const Routes: RouteProfileAppConfig[] = [
     {
-      title: "Riwayat Pesanan",
-      href: "#",
+      title: 'Riwayat Pesanan',
+      href: '#',
       iconV1: Calendar,
       iconV2: ChevronRight,
     },
     {
-      title: "Metode Pembayaran",
-      href: "/user/profile/metode-pembayaran",
+      title: 'Metode Pembayaran',
+      href: '/user/profile/metode-pembayaran',
       iconV1: CreditCard,
       iconV2: ChevronRight,
     },
     {
-      title: "Alamat Saya",
-      href: "#",
+      title: 'Alamat Saya',
+      href: '#',
       iconV1: MapPin,
       iconV2: ChevronRight,
     },
     {
-      title: "Disimpan",
-      href: "#",
+      title: 'Disimpan',
+      href: '#',
       iconV1: Bookmark,
       iconV2: ChevronRight,
     },
     {
-      title: "Tentang Kami",
-      href: "/user/profile/tentang-kami",
+      title: 'Tentang Kami',
+      href: '/user/profile/tentang-kami',
       iconV1: Warehouse,
       iconV2: ChevronRight,
     },
     {
-      title: "Keluar",
+      title: 'Keluar',
       iconV1: LogOut,
       iconV2: ChevronRight,
       onClick: handleLogout,
@@ -139,7 +139,7 @@ export const RouteProfileApp = () => {
 
 export const RouteChartApp: RouteChartConfig[] = [
   {
-    title: "Biling",
-    href: "#",
+    title: 'Biling',
+    href: '#',
   },
 ];

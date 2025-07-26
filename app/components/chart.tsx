@@ -5,11 +5,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/app/ui/dropdown-menu";
-import { ShoppingCart } from "lucide-react";
-import UseTooltip from "../core/partials/tooltip";
-import { RouteChartApp } from "../config/route.config";
-import Link from "next/link";
+} from '@/app/ui/dropdown-menu';
+import { ShoppingCart } from 'lucide-react';
+import UseTooltip from '../core/partials/tooltip';
+import { RouteChartApp } from '../config/route.config';
+import Link from 'next/link';
 
 const DropDownMenuHome: React.FC = () => {
   return (
@@ -20,9 +20,7 @@ const DropDownMenuHome: React.FC = () => {
         </UseTooltip>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel className="text-md md:text-4xl font-bold">
-          Loka-Loka
-        </DropdownMenuLabel>
+        <DropdownMenuLabel className="text-md md:text-4xl font-bold">Loka-Loka</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {RouteChartApp.map((items, key) => (
           <Link key={key} href={items.href}>

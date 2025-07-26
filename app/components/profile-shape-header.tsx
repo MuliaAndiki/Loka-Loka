@@ -1,10 +1,10 @@
-import Shape from "../ui/shape";
-import { usePathname } from "next/navigation";
+import Shape from '../ui/shape';
+import { usePathname } from 'next/navigation';
 
 const ProfileShapeHeader: React.FC = () => {
   const pathname = usePathname();
 
-  const hidenShape = ["/profile/tentang-kami"];
+  const hidenShape = ['/profile/tentang-kami'];
 
   return (
     <nav>

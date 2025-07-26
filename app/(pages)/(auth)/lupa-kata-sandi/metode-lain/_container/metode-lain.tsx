@@ -1,31 +1,30 @@
-"use client";
-import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import NavLayout from "@/app/core/layouts/auth-layout";
-import { Text } from "@/app/ui/Text";
-import { Button } from "@/app/ui/button";
-import { Input } from "@/app/ui/input";
-import { IconLockOpenOff } from "@tabler/icons-react";
-import { formSendOtpPhoneNumber } from "@/app/types/form";
-import { useState } from "react";
-import { useForgotPasswordByPhoneNumber } from "@/app/hooks/mutation/auth/useForgotPasswordByPhoneNumber";
-import { useAlert } from "@/app/hooks/alert/costum-alert";
-import Fallback from "@/app/ui/fallback";
+'use client';
+import Container from '@/app/ui/container';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import NavLayout from '@/app/core/layouts/auth-layout';
+import { Text } from '@/app/ui/Text';
+import { Button } from '@/app/ui/button';
+import { Input } from '@/app/ui/input';
+import { IconLockOpenOff } from '@tabler/icons-react';
+import { formSendOtpPhoneNumber } from '@/app/types/form';
+import { useState } from 'react';
+import { useForgotPasswordByPhoneNumber } from '@/app/hooks/mutation/auth/useForgotPasswordByPhoneNumber';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
+import Fallback from '@/app/ui/fallback';
 
 const MetodeLainChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
-  const [formForgotPassword, setFormForgotPassword] =
-    useState<formSendOtpPhoneNumber>({
-      phoneNumber: "",
-    });
+  const [formForgotPassword, setFormForgotPassword] = useState<formSendOtpPhoneNumber>({
+    phoneNumber: '',
+  });
   const { mutate: forgot, isPending } = useForgotPasswordByPhoneNumber();
   const handleForgotPassword = () => {
     if (!formForgotPassword.phoneNumber) {
       alert.toast({
-        title: "Hati - Hati",
-        message: "Mohon Isi Semua Kolum",
-        icon: "warning",
+        title: 'Hati - Hati',
+        message: 'Mohon Isi Semua Kolum',
+        icon: 'warning',
       });
       return;
     }
@@ -62,11 +61,7 @@ const MetodeLainChildren: React.FC = () => {
                     onClick={() => handleForgotPassword()}
                     disabled={isPending}
                   >
-                    {isPending ? (
-                      <Fallback title="Tunggu Sebentar" />
-                    ) : (
-                      "Verifikasi"
-                    )}
+                    {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Verifikasi'}
                   </Button>
                 </Container>
               </Container>

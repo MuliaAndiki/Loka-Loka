@@ -1,10 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
-import authReducer from "../AuthSlice/authSlice";
-import otpReduser from "../OtpSlice/otpSlice";
-import brandReducer from "../BrandSlice/brandSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer, persistStore } from 'redux-persist';
+import authReducer from '../AuthSlice/authSlice';
+import otpReduser from '../OtpSlice/otpSlice';
+import brandReducer from '../BrandSlice/brandSlice';
 
 const rootReduser = combineReducers({
   auth: authReducer,
@@ -13,7 +13,7 @@ const rootReduser = combineReducers({
 });
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
 };
 

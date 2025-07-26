@@ -1,4 +1,4 @@
-import Shape from "@/app/ui/shape";
+import Shape from '@/app/ui/shape';
 const PromotionShapeApp: React.FC = () => {
   return (
     <>

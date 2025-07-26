@@ -1,12 +1,12 @@
-import { useMutation } from "@tanstack/react-query";
-import AuthApi from "@/app/service/auth/auth.service";
-import { useRouter } from "next/navigation";
-import { useAlert } from "../../alert/costum-alert";
-import { TResponse } from "@/app/pkg/react-query/mutation-wrapper.type";
-import { formEditProfileSchema } from "@/app/types/form";
-import { RouteConfigLogic } from "@/app/config/route.config";
-import { useAppDispatch, useAppSelector } from "../../dispatch/dispatch";
-import { setCurrentUser } from "@/app/stores/AuthSlice/authSlice";
+import { useMutation } from '@tanstack/react-query';
+import AuthApi from '@/app/service/auth/auth.service';
+import { useRouter } from 'next/navigation';
+import { useAlert } from '../../alert/costum-alert';
+import { TResponse } from '@/app/pkg/react-query/mutation-wrapper.type';
+import { formEditProfileSchema } from '@/app/types/form';
+import { RouteConfigLogic } from '@/app/config/route.config';
+import { useAppDispatch, useAppSelector } from '../../dispatch/dispatch';
+import { setCurrentUser } from '@/app/stores/AuthSlice/authSlice';
 
 export const useEditProfile = () => {
   const router = useRouter();
@@ -23,9 +23,9 @@ export const useEditProfile = () => {
         })
       );
       alert.toast({
-        title: "Berhasil Edit",
-        message: "Profile Anda Sudah Berubah",
-        icon: "success",
+        title: 'Berhasil Edit',
+        message: 'Profile Anda Sudah Berubah',
+        icon: 'success',
         onVoid: () => {
           router.push(RouteConfigLogic.editProfile.href);
           setTimeout(() => {
@@ -36,9 +36,9 @@ export const useEditProfile = () => {
     },
     onError: () => {
       alert.toast({
-        title: "Gagal Edit Profile",
-        message: "Mohon Coba Lagi",
-        icon: "error",
+        title: 'Gagal Edit Profile',
+        message: 'Mohon Coba Lagi',
+        icon: 'error',
       });
     },
   });

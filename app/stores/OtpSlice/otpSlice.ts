@@ -1,12 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface OtpState {
   email: string | null;
-  source:
-    | "register"
-    | "forgotPasswordByEmail"
-    | "forgotPasswordByPhoneNumber"
-    | null;
+  source: 'register' | 'forgotPasswordByEmail' | 'forgotPasswordByPhoneNumber' | null;
   phoneNumber: string | null;
 }
 
@@ -17,7 +13,7 @@ const initialState: OtpState = {
 };
 
 export const otpSlice = createSlice({
-  name: "otp",
+  name: 'otp',
   initialState,
   reducers: {
     setEmail: (state, action: PayloadAction<string>) => {
@@ -28,9 +24,7 @@ export const otpSlice = createSlice({
     },
     setSource: (
       state,
-      action: PayloadAction<
-        "register" | "forgotPasswordByEmail" | "forgotPasswordByPhoneNumber"
-      >
+      action: PayloadAction<'register' | 'forgotPasswordByEmail' | 'forgotPasswordByPhoneNumber'>
     ) => {
       state.source = action.payload;
     },
@@ -41,6 +35,5 @@ export const otpSlice = createSlice({
   },
 });
 
-export const { setEmail, clearOtp, setSource, setPhoneNumber } =
-  otpSlice.actions;
+export const { setEmail, clearOtp, setSource, setPhoneNumber } = otpSlice.actions;
 export default otpSlice.reducer;

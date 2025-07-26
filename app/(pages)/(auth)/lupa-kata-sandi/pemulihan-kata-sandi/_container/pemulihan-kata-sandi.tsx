@@ -1,30 +1,30 @@
-"use client";
-import NavLayout from "@/app/core/layouts/auth-layout";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import Container from "@/app/ui/container";
-import { Text } from "@/app/ui/Text";
-import Image from "next/image";
-import { Input } from "@/app/ui/input";
-import { Button } from "@/app/ui/button";
-import { useAppSelector } from "@/app/hooks/dispatch/dispatch";
-import { useResetPassword } from "@/app/hooks/mutation/auth/useResetPassword";
-import { formResetPasswordSchema } from "@/app/types/form";
-import { useState, useRef } from "react";
-import { useAlert } from "@/app/hooks/alert/costum-alert";
-import Fallback from "@/app/ui/fallback";
-import { useRouter } from "next/navigation";
+'use client';
+import NavLayout from '@/app/core/layouts/auth-layout';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import Container from '@/app/ui/container';
+import { Text } from '@/app/ui/Text';
+import Image from 'next/image';
+import { Input } from '@/app/ui/input';
+import { Button } from '@/app/ui/button';
+import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
+import { useResetPassword } from '@/app/hooks/mutation/auth/useResetPassword';
+import { formResetPasswordSchema } from '@/app/types/form';
+import { useState, useRef } from 'react';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
+import Fallback from '@/app/ui/fallback';
+import { useRouter } from 'next/navigation';
 
 const PemulihanKataSandiChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const router = useRouter();
-  const { email: currentEmail, phoneNumber: currentPhoneNumber } =
-    useAppSelector((state) => state.otp);
-  const [formResetPassword, setFormResetPassword] =
-    useState<formResetPasswordSchema>({
-      email: currentEmail,
-      phoneNumber: currentPhoneNumber,
-      password: "",
-    });
+  const { email: currentEmail, phoneNumber: currentPhoneNumber } = useAppSelector(
+    (state) => state.otp
+  );
+  const [formResetPassword, setFormResetPassword] = useState<formResetPasswordSchema>({
+    email: currentEmail,
+    phoneNumber: currentPhoneNumber,
+    password: '',
+  });
   const source = useAppSelector((state) => state.otp.source);
   const alert = useAlert();
   const [showPasswordV1, setShowPasswordV1] = useState<boolean>();
@@ -35,20 +35,20 @@ const PemulihanKataSandiChildren: React.FC = () => {
   const handleResetPassword = () => {
     if (!formResetPassword.password) {
       alert.toast({
-        title: "Perhatian !",
-        message: "Password Harus Diisi",
-        icon: "warning",
+        title: 'Perhatian !',
+        message: 'Password Harus Diisi',
+        icon: 'warning',
       });
       return;
     }
-    if (source === "forgotPasswordByEmail") {
+    if (source === 'forgotPasswordByEmail') {
       if (!formResetPassword.email) {
         alert.toast({
-          title: "Perhatian !",
-          message: "Email tidak ditemukan",
-          icon: "warning",
+          title: 'Perhatian !',
+          message: 'Email tidak ditemukan',
+          icon: 'warning',
           onVoid: () => {
-            router.push("/login");
+            router.push('/login');
           },
         });
         return;
@@ -58,14 +58,14 @@ const PemulihanKataSandiChildren: React.FC = () => {
         phoneNumber: null,
         password: formResetPassword.password,
       });
-    } else if (source === "forgotPasswordByPhoneNumber") {
+    } else if (source === 'forgotPasswordByPhoneNumber') {
       if (!formResetPassword.phoneNumber) {
         alert.toast({
-          title: "Perhatian !",
-          message: "Phone Number tidak ditemukan",
-          icon: "warning",
+          title: 'Perhatian !',
+          message: 'Phone Number tidak ditemukan',
+          icon: 'warning',
           onVoid: () => {
-            router.push("/login");
+            router.push('/login');
           },
         });
         return;
@@ -77,11 +77,11 @@ const PemulihanKataSandiChildren: React.FC = () => {
       });
     } else {
       alert.toast({
-        title: "Perhatian !",
-        message: "Email & NomorHp Tidak Dikenali",
-        icon: "error",
+        title: 'Perhatian !',
+        message: 'Email & NomorHp Tidak Dikenali',
+        icon: 'error',
         onVoid: () => {
-          router.push("/login");
+          router.push('/login');
         },
       });
     }
@@ -106,7 +106,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
                   <Input
                     className="my-2"
                     placeholder="Kata Sandi Baru"
-                    type={showPasswordV1 ? "text" : "password"}
+                    type={showPasswordV1 ? 'text' : 'password'}
                     value={formResetPassword.password}
                     onChange={(e) =>
                       setFormResetPassword((prev) => {
@@ -117,13 +117,11 @@ const PemulihanKataSandiChildren: React.FC = () => {
                   />
                   <button
                     type="button"
-                    aria-Text={
-                      showPasswordV1 ? "Hide password" : "Show password"
-                    }
+                    aria-Text={showPasswordV1 ? 'Hide password' : 'Show password'}
                     className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-sm"
                     onClick={() => setShowPasswordV1((prev) => !prev)}
                   >
-                    {showPasswordV1 ? "Hide" : "Show"}
+                    {showPasswordV1 ? 'Hide' : 'Show'}
                   </button>
                 </Container>
 
@@ -131,7 +129,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
                   <Input
                     className="my-2"
                     placeholder="Confirmasi Kata Sandi Baru"
-                    type={showPasswordV2 ? "text" : "password"}
+                    type={showPasswordV2 ? 'text' : 'password'}
                     ref={confirmPasswordRef}
                     onChange={() => {
                       setFormResetPassword((prev) => ({
@@ -141,13 +139,11 @@ const PemulihanKataSandiChildren: React.FC = () => {
                   />
                   <button
                     type="button"
-                    aria-Text={
-                      showPasswordV2 ? "Hide password" : "Show password"
-                    }
+                    aria-Text={showPasswordV2 ? 'Hide password' : 'Show password'}
                     className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 text-sm"
                     onClick={() => setShowPasswordV2((prev) => !prev)}
                   >
-                    {showPasswordV2 ? "Hide" : "Show"}
+                    {showPasswordV2 ? 'Hide' : 'Show'}
                   </button>
                 </Container>
                 <Button
@@ -155,16 +151,12 @@ const PemulihanKataSandiChildren: React.FC = () => {
                   disabled={isPending}
                   onClick={() => handleResetPassword()}
                 >
-                  {isPending ? (
-                    <Fallback title="Tunggu Sebentar" />
-                  ) : (
-                    "Ubah Kata Sandi"
-                  )}
+                  {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Ubah Kata Sandi'}
                 </Button>
 
                 <Text className="text-sm md:text-4xl italic">
-                  <Text className="text-red-500">Note:</Text> Mohon Ingat
-                  Kembali Kata Sandi Ketika Sudah Diubah !
+                  <Text className="text-red-500">Note:</Text> Mohon Ingat Kembali Kata Sandi Ketika
+                  Sudah Diubah !
                 </Text>
               </Container>
             </Container>

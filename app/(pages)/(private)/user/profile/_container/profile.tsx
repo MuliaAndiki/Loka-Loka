@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import Container from "@/app/ui/container";
-import { useIsMobile } from "@/app/hooks/Mobile/use-mobile";
-import { Text } from "@/app/ui/Text";
-import ProfileLayout from "@/app/core/layouts/profile-layout";
-import Image from "next/image";
-import { RouteConfigStatic } from "@/app/config/route.config";
-import HistoryApp from "@/app/core/components/history-app";
-import Link from "next/link";
-import { RouteProfileApp } from "@/app/config/route.config";
-import Fallback from "@/app/ui/fallback";
-import { Skeleton } from "@/app/ui/skeleton";
-import { useGetProfileById } from "@/app/hooks/mutation/auth/useGetProfile";
-import { useAlert } from "@/app/hooks/alert/costum-alert";
+import Container from '@/app/ui/container';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
+import { Text } from '@/app/ui/Text';
+import ProfileLayout from '@/app/core/layouts/profile-layout';
+import Image from 'next/image';
+import { RouteConfigStatic } from '@/app/config/route.config';
+import HistoryApp from '@/app/core/components/history-app';
+import Link from 'next/link';
+import { RouteProfileApp } from '@/app/config/route.config';
+import Fallback from '@/app/ui/fallback';
+import { Skeleton } from '@/app/ui/skeleton';
+import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
+import { useAlert } from '@/app/hooks/alert/costum-alert';
 
 const ProfileChildren: React.FC = () => {
   const alert = useAlert();
@@ -22,9 +22,7 @@ const ProfileChildren: React.FC = () => {
 
   if (isError) {
     return (
-      <Text className="text-lg md:text-4xl">
-        Mohon Maap Terjadi Kesalahan Saat Memuat Data
-      </Text>
+      <Text className="text-lg md:text-4xl">Mohon Maap Terjadi Kesalahan Saat Memuat Data</Text>
     );
   }
 
@@ -46,16 +44,12 @@ const ProfileChildren: React.FC = () => {
                   className="rounded-full object-contain border"
                 />
                 <Container className="flex justify-center items-start flex-col">
-                  <Text className="text-lg md:text-4xl">
-                    {data.data.fullname}
-                  </Text>
+                  <Text className="text-lg md:text-4xl">{data.data.fullname}</Text>
                   {!data.data.lokai && (
                     <Container>
                       {RouteConfigStatic.map((items, key) => (
                         <Link key={key} href={items.daftarBrand.href}>
-                          <Text className="text-sm ">
-                            {items.daftarBrand.title}
-                          </Text>
+                          <Text className="text-sm ">{items.daftarBrand.title}</Text>
                         </Link>
                       ))}
                     </Container>
@@ -85,9 +79,7 @@ const ProfileChildren: React.FC = () => {
                     >
                       <Container className="flex  gap-2 items-center justify-center">
                         <items.iconV1 />
-                        <Text className="md:text-4xl text-lg font-semibold ">
-                          {items.title}
-                        </Text>
+                        <Text className="md:text-4xl text-lg font-semibold ">{items.title}</Text>
                       </Container>
 
                       <items.iconV2 />
@@ -98,9 +90,9 @@ const ProfileChildren: React.FC = () => {
                       <button
                         onClick={() =>
                           alert.modal({
-                            title: "Keluar",
-                            deskripsi: "Apakah Anda Yakin Ingin Keluar",
-                            icon: "question",
+                            title: 'Keluar',
+                            deskripsi: 'Apakah Anda Yakin Ingin Keluar',
+                            icon: 'question',
                             onConfirm: () => {
                               items.onClick?.();
                             },
@@ -111,10 +103,7 @@ const ProfileChildren: React.FC = () => {
                       >
                         <Text className=" text-red-500 md:text-4xl text-lg font-semibold ">
                           {items.isPending ? (
-                            <Fallback
-                              title="Tunggu Sebentar"
-                              className="text-red-500"
-                            />
+                            <Fallback title="Tunggu Sebentar" className="text-red-500" />
                           ) : (
                             items.title
                           )}

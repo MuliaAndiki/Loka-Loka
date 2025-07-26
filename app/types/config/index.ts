@@ -1,4 +1,4 @@
-import { any } from "zod";
+import { any } from 'zod';
 
 export interface RouteStaticConfig {
   login: {

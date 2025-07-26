@@ -1,14 +1,12 @@
-import { useState, useEffect } from "react";
-import Container from "@/app/ui/container";
-import { Text } from "@/app/ui/Text";
-import { Activity, House, User } from "lucide-react";
-import { Button } from "@/app/ui/button";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from 'react';
+import Container from '@/app/ui/container';
+import { Text } from '@/app/ui/Text';
+import { Activity, House, User } from 'lucide-react';
+import { Button } from '@/app/ui/button';
+import { useRouter } from 'next/navigation';
 const FooterApp: React.FC = () => {
   const router = useRouter();
-  const [isActive, setIsActive] = useState<
-    "Default" | "Home" | "Events" | "Profile"
-  >("Default");
+  const [isActive, setIsActive] = useState<'Default' | 'Home' | 'Events' | 'Profile'>('Default');
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -19,9 +17,9 @@ const FooterApp: React.FC = () => {
   }, [isActive]);
 
   const NavigationItems = [
-    { name: "Home", icon: <House />, href: "/user/home" },
-    { name: "Events", icon: <Activity />, href: "/" },
-    { name: "Profile", icon: <User />, href: "/user/profile" },
+    { name: 'Home', icon: <House />, href: '/user/home' },
+    { name: 'Events', icon: <Activity />, href: '/' },
+    { name: 'Profile', icon: <User />, href: '/user/profile' },
   ] as const;
 
   const handleRedirect = (name: typeof isActive) => {
@@ -38,25 +36,25 @@ const FooterApp: React.FC = () => {
 
   const renderContent = () => {
     const baseClass = `flex justify-center items-center flex-col transition-opacity duration-1000 ease-in-out ${
-      visible ? "opacity-100" : "opacity-0"
+      visible ? 'opacity-100' : 'opacity-0'
     }`;
 
     switch (isActive) {
-      case "Home":
+      case 'Home':
         return (
           <Container key="home" className={baseClass}>
             <House className="text-primary" />
             <Text className="text-sm md:text-4xl font-bold">Home</Text>
           </Container>
         );
-      case "Events":
+      case 'Events':
         return (
           <Container key="events" className={baseClass}>
             <Activity className="text-primary" />
             <Text className="text-sm md:text-4xl font-bold">Event</Text>
           </Container>
         );
-      case "Profile":
+      case 'Profile':
         return (
           <Container key="profile" className={baseClass}>
             <User className="text-primary" />

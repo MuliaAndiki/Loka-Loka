@@ -20,13 +20,13 @@ export function objectToFormData(
         value.forEach((element, index) => {
           const arrayKey = `${formKey}[${index}]`;
 
-          if (typeof element === "object" && element !== null) {
+          if (typeof element === 'object' && element !== null) {
             objectToFormData(element, formData, arrayKey);
           } else {
             formData.append(arrayKey, element);
           }
         });
-      } else if (typeof value === "object" && value !== null) {
+      } else if (typeof value === 'object' && value !== null) {
         objectToFormData(value, formData, formKey);
       } else {
         formData.append(formKey, value);

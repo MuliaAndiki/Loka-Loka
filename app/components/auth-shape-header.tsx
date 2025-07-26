@@ -1,4 +1,4 @@
-import Shape from "../ui/shape";
+import Shape from '../ui/shape';
 
 const AuthShapeHeader: React.FC = () => {
   return (

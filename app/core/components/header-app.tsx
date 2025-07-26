@@ -1,21 +1,21 @@
-import Container from "@/app/ui/container";
-import { ArrowLeft } from "lucide-react";
-import ToggleTheme from "@/app/ui/toggle";
-import { useRouter } from "next/navigation";
-import UseTooltip from "../partials/tooltip";
-import { usePathname } from "next/navigation";
+import Container from '@/app/ui/container';
+import { ArrowLeft } from 'lucide-react';
+import ToggleTheme from '@/app/ui/toggle';
+import { useRouter } from 'next/navigation';
+import UseTooltip from '../partials/tooltip';
+import { usePathname } from 'next/navigation';
 
 export default function HeaderApp() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const hidenArrow = ["/user/home", "/user/profile"];
+  const hidenArrow = ['/user/home', '/user/profile'];
 
   const handleBack = () => {
     if (window.history.length > 1) {
       router.back();
     } else {
-      router.push("/");
+      router.push('/');
     }
   };
   return (

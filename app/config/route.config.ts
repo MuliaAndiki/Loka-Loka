@@ -54,6 +54,7 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
     daftarBrand: {
       title: 'Daftarkan Brand Anda?',
       href: '/user/buat-brand',
+      secoundTitle: 'Bikin Brand?',
     },
   },
 ];
@@ -88,6 +89,9 @@ export const RouteConfigLogic: RouteLogicConfig = {
   },
   resetPassword: {
     href: '/login',
+  },
+  createBrand: {
+    href: '/user/home',
   },
 };
 

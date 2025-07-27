@@ -45,7 +45,7 @@ const ProfileChildren: React.FC = () => {
                 />
                 <Container className="flex justify-center items-start flex-col">
                   <Text className="text-lg md:text-4xl">{data.data.fullname}</Text>
-                  {!data.data.lokai && (
+                  {!data.data.lokasi && (
                     <Container>
                       {RouteConfigStatic.map((items, key) => (
                         <Link key={key} href={items.daftarBrand.href}>

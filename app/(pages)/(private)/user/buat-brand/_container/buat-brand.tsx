@@ -19,7 +19,7 @@ const BuatBrandChildren: React.FC = () => {
   const router = useRouter();
 
   const handleNext = () => {
-    if (!formBrand.nama || !formBrand.kontak?.email || !formBrand.kontak.phone) {
+    if (!formBrand.nama || !formBrand.kontak?.email || !formBrand.kontak.phoneNumber) {
       alert.toast({
         title: 'Perhatian!',
         message: 'Mohon Lengkapi Seluruh Colum',
@@ -67,11 +67,11 @@ const BuatBrandChildren: React.FC = () => {
                 />
               </Container>
               <Container className="w-full my-2">
-                <Label className="text-lg md:text-4xl mb-2 font-semibold">Nomor Hp :</Label>
+                <Label className="text-lg md:text-4xl mb-2 font-semibold">Nomor HandPhone :</Label>
                 <Input
                   placeholder="Nomor HandPhone"
                   type="number"
-                  value={formBrand.kontak?.phone ?? ''}
+                  value={formBrand.kontak?.phoneNumber ?? ''}
                   onChange={(e) => {
                     dispatch(
                       updateForm({

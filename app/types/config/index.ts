@@ -36,6 +36,7 @@ export interface RouteStaticConfig {
   daftarBrand: {
     title: string;
     href: string;
+    secoundTitle?: string;
   };
 }
 
@@ -69,6 +70,9 @@ export interface RouteLogicConfig {
     href: string;
   };
   resetPassword: {
+    href: string;
+  };
+  createBrand: {
     href: string;
   };
 }

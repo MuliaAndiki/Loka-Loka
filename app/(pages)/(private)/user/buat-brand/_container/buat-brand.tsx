@@ -39,7 +39,7 @@ const BuatBrandChildren: React.FC = () => {
             <IconBrandItch stroke={1.3} width={100} height={100} />
             <Container className=" w-full max-w-4/5 mx-auto my-4 p-2 flex flex-col">
               <Container className="w-full my-2">
-                <Label className="text-lg md:text-4xl mb-2">Nama Brand :</Label>
+                <Label className="text-lg md:text-4xl mb-2 font-semibold">Nama Brand :</Label>
                 <Input
                   placeholder="Masukan Nama Brand"
                   value={formBrand.nama ?? ''}
@@ -51,7 +51,7 @@ const BuatBrandChildren: React.FC = () => {
                 />
               </Container>
               <Container className="w-full my-2">
-                <Label className="text-lg md:text-4xl mb-2">Email :</Label>
+                <Label className="text-lg md:text-4xl mb-2 font-semibold">Email :</Label>
                 <Input
                   placeholder="Masukan Email Brand"
                   value={formBrand.kontak?.email ?? ''}
@@ -67,7 +67,7 @@ const BuatBrandChildren: React.FC = () => {
                 />
               </Container>
               <Container className="w-full my-2">
-                <Label className="text-lg md:text-4xl mb-2">Nomor Hp :</Label>
+                <Label className="text-lg md:text-4xl mb-2 font-semibold">Nomor Hp :</Label>
                 <Input
                   placeholder="Nomor HandPhone"
                   type="number"
@@ -83,7 +83,7 @@ const BuatBrandChildren: React.FC = () => {
                 />
               </Container>
               <Container className="w-full my-2">
-                <Label className="text-lg md:text-2xl mb-2">Website :</Label>
+                <Label className="text-lg md:text-2xl mb-2 font-semibold">Website :</Label>
                 <Input
                   placeholder="Website Optional"
                   value={formBrand.kontak?.website || ''}

@@ -28,7 +28,7 @@ const Slide2Children: React.FC = () => {
             <IconBrandItch stroke={1.3} width={100} height={100} />
             <Container className="w-full max-w-4/5 mx-auto my-4 flex flex-col">
               <Container className="w-full">
-                <Label className="mb-2 text-lg md:text-2xl font-bold">NIK :</Label>
+                <Label className="mb-2 text-lg md:text-2xl font-semibold">NIK :</Label>
                 <Input
                   className="w-full"
                   type="number"

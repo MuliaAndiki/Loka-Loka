@@ -67,7 +67,11 @@ const EditProfileChildren: React.FC = () => {
               <Container className="flex justify-center items-center flex-col gap-4 mt-6">
                 <Image
                   alt="icon"
-                  src="/asset/Profile.svg"
+                  src={
+                    formEditProfile.fotoProfile instanceof File
+                      ? URL.createObjectURL(formEditProfile.fotoProfile)
+                      : formEditProfile.fotoProfile || '/asset/Profile.svg'
+                  }
                   className="rounded-full object-cover border"
                   width={isMobile ? 120 : 200}
                   height={isMobile ? 120 : 200}

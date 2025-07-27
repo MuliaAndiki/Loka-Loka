@@ -34,11 +34,11 @@ const CardProfile: React.FC = () => {
             <Text className="text-sm md:text-2xl">{data.data.lokasi}</Text>
           </Container>
           <Image
-            src="/asset/Profile.svg"
+            src={data.data.fotoProfile ? data.data.fotoProfile : '/asset/Profile.svg'}
             alt="Profile"
             width={50}
             height={50}
-            className="rounded-xl object-cover"
+            className="rounded-full object-cover"
           />
         </Container>
       </Container>

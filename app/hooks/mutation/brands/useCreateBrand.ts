@@ -4,8 +4,9 @@ import { TResponse } from '@/app/pkg/react-query/mutation-wrapper.type';
 import { useAlert } from '../../alert/costum-alert';
 import { formBikinBrandSchema } from '@/app/types/form';
 import { useRouter } from 'next/navigation';
+import { RouteConfigLogic } from '@/app/config/route.config';
 
-export const useUpdateRole = () => {
+export const useCreateBrand = () => {
   const alert = useAlert();
   const router = useRouter();
 
@@ -14,17 +15,17 @@ export const useUpdateRole = () => {
     onSuccess: (res) => {
       alert.toast({
         title: 'Berhasil',
-        message: 'Selamat Tinggal Menunggu Feed Back Dari Admin',
+        message: 'Mohon Tunngu Persetujuan Admin Daerah Anda',
         icon: 'success',
         onVoid: () => {
-          router.push('#');
+          router.push(RouteConfigLogic.createBrand.href);
         },
       });
     },
     onError: () => {
       alert.toast({
         title: 'Gagal',
-        message: 'Mohon Coba Lagi Sebentar Lagi!',
+        message: 'Mohon Coba Sebentar Lagi',
         icon: 'error',
       });
     },

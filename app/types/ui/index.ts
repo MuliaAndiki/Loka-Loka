@@ -1,4 +1,5 @@
 import { JSX } from 'react';
+import { z } from 'zod';
 
 export interface ContainerProps {
   children?: React.ReactNode;
@@ -70,3 +71,12 @@ export interface FallbackProps {
   title: string;
   className?: string;
 }
+
+export const showName = z.object({
+  ktp: z.string().nullable(),
+  izinUsaha: z.string().nullable(),
+  logo: z.string().nullable(),
+  proposalBrand: z.string().nullable(),
+});
+
+export type showNameProps = z.infer<typeof showName>;

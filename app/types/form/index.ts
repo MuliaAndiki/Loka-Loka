@@ -44,7 +44,7 @@ export const formBikinBrandType = z.object({
     izinUsaha: z.instanceof(File).nullable(),
     logo: z.instanceof(File).nullable(),
     proposalBrand: z.instanceof(File).nullable(),
-    other: z.string().nullable(),
+    other: z.array(z.string()).optional(),
   }),
   kontak: z.object({
     email: z.string(),

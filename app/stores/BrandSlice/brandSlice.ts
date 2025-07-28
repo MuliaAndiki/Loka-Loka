@@ -14,7 +14,7 @@ const formBrandSlice = createSlice({
   name: 'Brand',
   initialState,
   reducers: {
-    updateForm: (state, action: PayloadAction<{ path: string; value: any }>) => {
+    setFormBrand: (state, action: PayloadAction<{ path: string; value: any }>) => {
       set(state.currentForm, action.payload.path, action.payload.value);
     },
     resetForm(state) {
@@ -23,5 +23,5 @@ const formBrandSlice = createSlice({
   },
 });
 
-export const { updateForm, resetForm } = formBrandSlice.actions;
+export const { setFormBrand, resetForm } = formBrandSlice.actions;
 export default formBrandSlice.reducer;

@@ -17,7 +17,7 @@ import { useAlert } from '@/app/hooks/alert/costum-alert';
 import ProfileLayout from '@/app/core/layouts/profile-layout';
 import { RouteConfigStatic } from '@/app/config/route.config';
 import UploadsTrigger from '@/app/utils/UploadTriger';
-import { objectToFormData } from '@/app/utils/formdata';
+import { flattenToFormData } from '@/app/utils/formdata';
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
@@ -53,7 +53,7 @@ const EditProfileChildren: React.FC = () => {
     const payload = Object.fromEntries(
       Object.entries(formEditProfile).filter(([_, v]) => v !== '' && v !== null)
     );
-    const formData = objectToFormData(payload);
+    const formData = flattenToFormData(payload);
 
     return editProfile(formData as any);
   };

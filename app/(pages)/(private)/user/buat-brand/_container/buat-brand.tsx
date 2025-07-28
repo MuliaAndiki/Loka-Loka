@@ -8,7 +8,7 @@ import { useAlert } from '@/app/hooks/alert/costum-alert';
 import { Label } from '@/app/ui/label';
 import { useAppDispatch, useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { IconBrandItch } from '@tabler/icons-react';
-import { updateForm } from '@/app/stores/BrandSlice/brandSlice';
+import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/app/ui/button';
 
@@ -45,8 +45,7 @@ const BuatBrandChildren: React.FC = () => {
                   value={formBrand.nama ?? ''}
                   onChange={(e) => {
                     const value = e.target.value;
-                    console.log('input', value);
-                    dispatch(updateForm({ path: 'nama', value: e.target.value }));
+                    dispatch(setFormBrand({ path: 'nama', value: value }));
                   }}
                 />
               </Container>
@@ -57,10 +56,11 @@ const BuatBrandChildren: React.FC = () => {
                   value={formBrand.kontak?.email ?? ''}
                   type="email"
                   onChange={(e) => {
+                    const value = e.target.value;
                     dispatch(
-                      updateForm({
+                      setFormBrand({
                         path: 'kontak.email',
-                        value: e.target.value,
+                        value: value,
                       })
                     );
                   }}
@@ -73,10 +73,12 @@ const BuatBrandChildren: React.FC = () => {
                   type="number"
                   value={formBrand.kontak?.phoneNumber ?? ''}
                   onChange={(e) => {
+                    const value = e.target.value;
+                    console.log('nomor', value);
                     dispatch(
-                      updateForm({
-                        path: 'kontak.phone',
-                        value: e.target.value,
+                      setFormBrand({
+                        path: 'kontak.phoneNumber',
+                        value: value,
                       })
                     );
                   }}
@@ -87,14 +89,15 @@ const BuatBrandChildren: React.FC = () => {
                 <Input
                   placeholder="Website Optional"
                   value={formBrand.kontak?.website || ''}
-                  onChange={(e) =>
+                  onChange={(e) => {
+                    const value = e.target.value;
                     dispatch(
-                      updateForm({
+                      setFormBrand({
                         path: 'kontak.website',
-                        value: e.target.value,
+                        value: value,
                       })
-                    )
-                  }
+                    );
+                  }}
                 />
               </Container>
               <Container className="w-full my-2">

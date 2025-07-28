@@ -3,8 +3,8 @@ import { TResponse } from '@/app/pkg/react-query/mutation-wrapper.type';
 import { formBikinBrandSchema } from '@/app/types/form';
 
 class BrandApi {
-  async createBrand(payload: formBikinBrandSchema): Promise<TResponse<any>> {
-    const res = await AxiosClient.post('/brand/upgrade-role', payload);
+  async createBrand(payload: FormData): Promise<TResponse<any>> {
+    const res = await AxiosClient.post('/brand/create-brands', payload);
     return res.data;
   }
 }

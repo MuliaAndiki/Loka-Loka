@@ -4,7 +4,7 @@ import { Activity, SquareUserRound, History } from 'lucide-react';
 export const SidebarItems: SidebarProps[] = [
   {
     title: 'Profile',
-    href: '#',
+    href: '/user/profile/detail-profile',
     icon: SquareUserRound,
   },
   {

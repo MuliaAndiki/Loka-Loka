@@ -5,7 +5,7 @@ import ProfileShapeHeader from '@/app/components/profile-shape-header';
 import { usePathname } from 'next/navigation';
 export default function ProfileLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const hiddenShape = ['/user/profile/tentang-kami'];
+  const hiddenShape = ['/user/profile/tentang-kami', '/user/profile/detail-profile'];
   return (
     <Container className="flex flex-col min-h-screen w-full overflow-x-hidden relative z-0">
       {!hiddenShape.includes(pathname) && <ProfileShapeHeader />}

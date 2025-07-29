@@ -32,7 +32,7 @@ const HomeChildren: React.FC = () => {
         <HomeLayout>
           <Container as="main" className="w-full h-full ">
             <Container className="flex justify-center items-center flex-col">
-              <Container className="flex w-full ">
+              <Container className="flex w-full p-2 ">
                 <CardProfile />
               </Container>
               <Container className="flex items-center gap-2 w-full px-4 mt-2">

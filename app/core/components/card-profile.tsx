@@ -15,9 +15,18 @@ const CardProfile: React.FC = () => {
       <Text className="text-lg md:text-lg">Mohon Maap Terjadi Kesalahan Saat Memuat Data</Text>
     );
   }
+
   if (isPending) {
-    return <Skeleton className="rounded-full w-[100px] h-[20]" />;
+    return (
+      <Container className="w-full h-full">
+        <Container className="flex justify-between items-center">
+          <Skeleton className="w-full justify-start items-start flex mx-2 h-10" />
+          <Skeleton className="w-full justify-end items-center gap-2 mx-2 flex h-10" />
+        </Container>
+      </Container>
+    );
   }
+
   return (
     <Container className="w-full h-full ">
       <Container className="flex justify-between items-center">

@@ -17,6 +17,9 @@ export const formEditProfileType = z.object({
   phoneNumber: z.string(),
   gender: z.boolean().nullable(),
   fotoProfile: z.union([z.instanceof(File), z.string()]).nullable(),
+  provinsi: z.string(),
+  lat: z.number().nullable(),
+  lng: z.number().nullable(),
 });
 
 export const formVerifyOtpType = z.object({

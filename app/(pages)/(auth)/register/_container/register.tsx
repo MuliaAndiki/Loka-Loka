@@ -2,14 +2,13 @@
 import Container from '@/app/ui/container';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import { RouteConfigStatic } from '@/app/config/route.config';
-
 import Image from 'next/image';
 import { Input } from '@/app/ui/input';
 import { formRegisterSchema } from '@/app/types/form';
 import { useState } from 'react';
 import { Text } from '@/app/ui/Text';
 import Fallback from '@/app/ui/fallback';
-import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
+import { CredentialResponse, GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { Button } from '@/app/ui/button';
 import NavLayout from '@/app/core/layouts/auth-layout';
 import Link from 'next/link';
@@ -63,10 +62,12 @@ const RegisterChildren: React.FC = () => {
                   </Text>
                 </Container>
                 <Container className="my-1">
-                  <GoogleLogin
-                    onSuccess={(e) => handleLoginGoogle(e)}
-                    onError={() => console.log('Gagal Melakukan Login Dengan Google')}
-                  />
+                  <GoogleOAuthProvider clientId="">
+                    <GoogleLogin
+                      onSuccess={(e) => handleLoginGoogle(e)}
+                      onError={() => console.log('Gagal Melakukan Login Menggunakan Google')}
+                    />
+                  </GoogleOAuthProvider>
                 </Container>
 
                 <Container className="my-2">

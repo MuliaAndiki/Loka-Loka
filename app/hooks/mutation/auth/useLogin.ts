@@ -8,6 +8,7 @@ import { useAppDispatch } from '../../dispatch/dispatch';
 import { setCurrentUser } from '@/app/stores/AuthSlice/authSlice';
 import { userSchema } from '@/app/types/api';
 import { RouteConfigLogic } from '@/app/config/route.config';
+import { useAppSelector } from '../../dispatch/dispatch';
 export const useLogin = () => {
   const router = useRouter();
   const alert = useAlert();
@@ -16,6 +17,16 @@ export const useLogin = () => {
   return useMutation<TResponse<any>, Error, formLoginSchema>({
     mutationFn: AuthApi.loginUser,
     onSuccess: (res) => {
+      const isVerified = res.data.isAuthExist?.isVerified;
+      if (!isVerified) {
+        alert.toast({
+          title: 'Perhatian!',
+          message: 'Akun Anda Belum DiAktifkan',
+          icon: 'warning',
+        });
+        return;
+      }
+
       const userPayload: userSchema = {
         user: res.data.isAuthExist,
         token: res.data.token,

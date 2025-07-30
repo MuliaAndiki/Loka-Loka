@@ -20,6 +20,11 @@ export const KategoriType = z.object({
   href: z.string(),
 });
 
+export type LocationMarkerProps = {
+  markerRef: React.MutableRefObject<L.Marker | null>;
+  setLatLng?: (lat: number, lng: number) => void;
+};
+
 export type KategoriSchema = z.infer<typeof KategoriType>;
 export type PromotionSchema = z.infer<typeof PromotionType>;
 export type RekomendasiSchema = z.infer<typeof RekomendasiType>;

@@ -15,7 +15,6 @@ import { GenderFormat } from '@/app/utils/boolean.format';
 
 const DetailProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
-
   const { data, isPending, isError } = useGetProfileById();
 
   return (

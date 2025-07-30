@@ -9,17 +9,25 @@ import { Button } from '@/app/ui/button';
 import { Label } from '@/app/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/ui/select';
 import { formEditProfileSchema } from '@/app/types/form';
-import { useState } from 'react';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useEditProfile } from '@/app/hooks/mutation/auth/useEditProfile';
 import Fallback from '@/app/ui/fallback';
 import { useAlert } from '@/app/hooks/alert/costum-alert';
 import ProfileLayout from '@/app/core/layouts/profile-layout';
-import { RouteConfigStatic } from '@/app/config/route.config';
 import UploadsTrigger from '@/app/utils/UploadTriger';
 import { flattenToFormData } from '@/app/utils/formdata';
+import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+import L from 'leaflet';
+import LocationMarker from '@/app/components/locationMarker';
+import { PROVINCE_CENTERS } from '@/app/core/constants/province-center';
+import PopUp from '@/app/components/pop-up';
+
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
+  const [isActive, setIsActive] = useState<'Location' | null>(null);
+  const [selectedProvince, setSelectedProvince] = useState<string | null>(null);
+  const [tempLatLng, setTempLatLng] = useState<{ lat: number; lng: number } | null>(null);
+  const markerRef = useRef<L.Marker | null>(null);
   const alert = useAlert();
   const [formEditProfile, setFormEditProfile] = useState<formEditProfileSchema>({
     email: '',
@@ -27,9 +35,12 @@ const EditProfileChildren: React.FC = () => {
     phoneNumber: '',
     gender: null,
     fotoProfile: null,
+    lat: null,
+    lng: null,
+    provinsi: '',
   });
   const { mutate: editProfile, isPending, isError } = useEditProfile();
-
+  const [center, setCenter] = useState<[number, number]>([-2.5489, 118.0149]);
   const handleChageGender = (e: string) => {
     const booleanValue = e === 'true' ? true : e === 'false' ? false : null;
     setFormEditProfile((prev) => ({
@@ -58,6 +69,17 @@ const EditProfileChildren: React.FC = () => {
     return editProfile(formData as any);
   };
 
+  const handleOpenModal = (value: string) => {
+    setIsActive('Location');
+    setFormEditProfile((prev) => ({
+      ...prev,
+      provinsi: value,
+    }));
+    if (PROVINCE_CENTERS[value]) {
+      setCenter(PROVINCE_CENTERS[value]);
+    }
+  };
+
   return (
     <Container className="w-full h-full">
       {isMobile && (
@@ -72,7 +94,7 @@ const EditProfileChildren: React.FC = () => {
                       ? URL.createObjectURL(formEditProfile.fotoProfile)
                       : formEditProfile.fotoProfile || '/asset/Profile.svg'
                   }
-                  className="rounded-full object-cover border"
+                  className="rounded-full object-cover border aspect-square"
                   width={isMobile ? 120 : 200}
                   height={isMobile ? 120 : 200}
                 />
@@ -141,8 +163,83 @@ const EditProfileChildren: React.FC = () => {
                   </Select>
                 </Container>
 
+                <Container className="w-full justify-center items-start flex flex-col gap-2">
+                  <Label className=" font-semibold text-lg md:text-4xl">Lokasi :</Label>
+                  <Select
+                    onValueChange={(value) => handleOpenModal(value)}
+                    value={formEditProfile.provinsi ?? ''}
+                  >
+                    <SelectTrigger className="w-full mb-6">
+                      <SelectValue placeholder="*Contoh: Jawa Barat" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.keys(PROVINCE_CENTERS).map((prev) => (
+                        <SelectItem key={prev} value={prev}>
+                          {prev}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Container>
+
+                <PopUp isOpen={isActive === 'Location'} onClose={() => setIsActive(null)}>
+                  <Container className="overflow-hidden w-full h-[400px]">
+                    <MapContainer
+                      center={center}
+                      zoom={6}
+                      scrollWheelZoom={true}
+                      className="h-full w-full z-0"
+                    >
+                      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+                      <LocationMarker markerRef={markerRef} />
+
+                      {formEditProfile.lat && formEditProfile.lng && (
+                        <Marker
+                          position={[formEditProfile.lat, formEditProfile.lng]}
+                          icon={L.icon({
+                            iconUrl: '/asset/map-pin.svg',
+                            iconSize: [25, 41],
+                            iconAnchor: [12, 41],
+                          })}
+                          ref={(ref) => {
+                            if (ref) markerRef.current = ref;
+                          }}
+                        />
+                      )}
+                    </MapContainer>
+                  </Container>
+
+                  <Container className="text-sm text-foreground font-semibold my-2">
+                    Lokasi Anda: {formEditProfile.lat}, {formEditProfile.lng}
+                  </Container>
+
+                  <Container className="flex justify-around items-center">
+                    <Button
+                      variant="destructive"
+                      className="font-semibold"
+                      onClick={() => {
+                        if (markerRef.current) {
+                          const { lat, lng } = markerRef.current.getLatLng();
+                          setFormEditProfile((prev) => ({ ...prev, lat, lng }));
+                          setIsActive(null);
+                        }
+                      }}
+                    >
+                      Konfirmasi
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      className="font-semibold"
+                      onClick={() => setIsActive(null)}
+                    >
+                      Batalkan
+                    </Button>
+                  </Container>
+                </PopUp>
+
                 <Button
-                  className="w-full mb-6 "
+                  className="w-full mb-10 "
                   onClick={() =>
                     alert.modal({
                       title: 'Edit Profile',
@@ -151,7 +248,6 @@ const EditProfileChildren: React.FC = () => {
                       onConfirm: () => {
                         handleEditProfile();
                       },
-                      onClose: () => {},
                     })
                   }
                   disabled={isPending}

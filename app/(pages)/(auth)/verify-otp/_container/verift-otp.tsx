@@ -75,14 +75,28 @@ const VerifyOtpChildren: React.FC = () => {
         otp: formVerifyOtp.otp,
         phoneNumber: formVerifyOtp.phoneNumber,
       });
+    } else if (source === 'register') {
+      if (!formVerifyOtp.email) {
+        alert.toast({
+          title: 'Perhatian',
+          message: 'Email Tidak Ditemukan',
+          icon: 'warning',
+          onVoid: () => {
+            router.push('/login');
+          },
+        });
+        return;
+      }
+      verift({
+        email: formVerifyOtp.email,
+        otp: formVerifyOtp.otp,
+        phoneNumber: null,
+      });
     } else {
       alert.toast({
         title: 'Perhatian !',
         message: 'Otp Tidak Dikenali',
         icon: 'error',
-        onVoid: () => {
-          router.push('/login');
-        },
       });
     }
   };

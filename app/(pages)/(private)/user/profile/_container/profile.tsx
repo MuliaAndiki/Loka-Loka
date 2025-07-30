@@ -40,7 +40,7 @@ const ProfileChildren: React.FC = () => {
                 src={data.data.fotoProfile ? data.data.fotoProfile : '/asset/Profile.svg'}
                 width={80}
                 height={80}
-                className="rounded-full object-contain border"
+                className="rounded-full object-contain border aspect-square"
               />
               <Container className="flex justify-center items-start flex-col">
                 <Text className="text-lg md:text-4xl">{data.data.fullname}</Text>

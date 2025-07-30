@@ -79,4 +79,11 @@ export const showName = z.object({
   proposalBrand: z.string().nullable(),
 });
 
+export interface PopUpProps {
+  isOpen: boolean;
+  children: React.ReactNode;
+  onClose: () => void;
+  className?: string;
+}
+
 export type showNameProps = z.infer<typeof showName>;

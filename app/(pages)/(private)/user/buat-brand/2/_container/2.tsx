@@ -14,7 +14,7 @@ import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
 import UploadsTrigger from '@/app/utils/UploadTriger';
 import { Button } from '@/app/ui/button';
 import { showNameProps } from '@/app/types/ui';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Slide2Children: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -112,10 +112,6 @@ const Slide2Children: React.FC = () => {
     }
     router.push('/user/buat-brand/3');
   };
-
-  useEffect(() => {
-    console.log('Debug File', formBrand.document);
-  }, []);
 
   return (
     <Container className="w-full h-full">

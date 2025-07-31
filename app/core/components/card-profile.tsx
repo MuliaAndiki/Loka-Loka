@@ -41,8 +41,8 @@ const CardProfile: React.FC = () => {
           <Chart />
           <Container className="flex-col flex  justify-center ">
             <Text className="text-sm md:text-2xl ">{data?.data.fullname}</Text>
-            {/* <Text className="text-sm md:text-2xl">{data.data.lokasi}</Text> */}
-            {!data.data.lokasi && (
+            <Text className="text-sm md:text-2xl">{data.data.provinsi}</Text>
+            {!data.data.provinsi && (
               <Container>
                 {RouteConfigStatic.map((items, key) => (
                   <Link key={key} href={items.daftarBrand.href}>

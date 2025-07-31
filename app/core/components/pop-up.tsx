@@ -1,4 +1,4 @@
-import { PopUpProps } from '../types/ui';
+import { PopUpProps } from '../../types/ui';
 
 const PopUp: React.FC<PopUpProps> = ({ isOpen, children, onClose, className }) => {
   if (!isOpen) {

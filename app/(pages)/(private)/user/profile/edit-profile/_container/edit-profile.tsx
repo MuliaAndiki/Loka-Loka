@@ -18,15 +18,13 @@ import UploadsTrigger from '@/app/utils/UploadTriger';
 import { flattenToFormData } from '@/app/utils/formdata';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
-import LocationMarker from '@/app/components/locationMarker';
+import LocationMarker from '@/app/core/components/locationMarker';
 import { PROVINCE_CENTERS } from '@/app/core/constants/province-center';
-import PopUp from '@/app/components/pop-up';
+import PopUp from '@/app/core/components/pop-up';
 
 const EditProfileChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const [isActive, setIsActive] = useState<'Location' | null>(null);
-  const [selectedProvince, setSelectedProvince] = useState<string | null>(null);
-  const [tempLatLng, setTempLatLng] = useState<{ lat: number; lng: number } | null>(null);
   const markerRef = useRef<L.Marker | null>(null);
   const alert = useAlert();
   const [formEditProfile, setFormEditProfile] = useState<formEditProfileSchema>({

@@ -1,5 +1,5 @@
 'use client';
-import { LocationMarkerProps } from '../types/components';
+import { LocationMarkerProps } from '@/app/types/components';
 import { Marker, useMapEvents } from 'react-leaflet';
 import { useState } from 'react';
 import L, { LatLng } from 'leaflet';

@@ -7,8 +7,8 @@ import { useAlert } from '@/app/hooks/alert/costum-alert';
 import { Label } from '@/app/ui/label';
 import { useAppDispatch, useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { IconBrandItch } from '@tabler/icons-react';
-import { resetForm, setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
-import { useRouter } from 'next/navigation';
+import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
+// import { useRouter } from 'next/navigation';
 import { Button } from '@/app/ui/button';
 import { Textarea } from '@/app/ui/textarea';
 import { useCreateBrand } from '@/app/hooks/mutation/brands/useCreateBrand';
@@ -19,7 +19,7 @@ import { formBikinBrandType } from '@/app/types/form';
 
 const Slide4Children: React.FC = () => {
   const { isMobile } = useIsMobile();
-  const router = useRouter();
+  // const router = useRouter();
   const dispatch = useAppDispatch();
   const formBrand = useAppSelector((state) => state.brand.currentForm);
   const currentId = useAppSelector((state) => state.auth.currentUser?.user._id);

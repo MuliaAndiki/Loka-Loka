@@ -3,30 +3,23 @@ import { formLoginSchema } from '@/app/types/form';
 import React from 'react';
 import { Input } from '@/app/ui/input';
 import { IconLock, IconLockOpen } from '@tabler/icons-react';
-import { GoogleLogin, GoogleOAuthProvider, CredentialResponse } from '@react-oauth/google';
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { Button } from '@/app/ui/button';
 import Fallback from '@/app/ui/fallback';
 import Link from 'next/link';
 import { RouteConfigStatic } from '@/app/config/route.config';
 import { Text } from '@/app/ui/Text';
+import { LoginFormProps } from '@/app/types/components';
 
 const LoginForm = ({
   formLogin,
-  handleLoginGoogle,
-  setFormLogin,
-  showPassword,
-  setShowPassword,
   handleLogin,
+  handleLoginGoogle,
   isPending,
-}: {
-  formLogin: formLoginSchema;
-  setFormLogin: React.Dispatch<React.SetStateAction<formLoginSchema>>;
-  showPassword: boolean;
-  isPending: boolean;
-  handleLogin: () => void;
-  handleLoginGoogle: (e: CredentialResponse) => void;
-  setShowPassword: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+  setFormLogin,
+  setShowPassword,
+  showPassword,
+}: LoginFormProps) => {
   return (
     <Container className="mx-auto w-full max-w-[70%] ">
       <Container className="mb-4 mt-4">

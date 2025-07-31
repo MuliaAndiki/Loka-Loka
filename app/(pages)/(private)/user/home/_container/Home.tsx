@@ -15,7 +15,6 @@ import RekomendasiHome from '@/app/core/components/rekomendasi-home';
 import { RekomendasiSchemaData } from '@/app/config/component.config';
 import Link from 'next/link';
 import { useEffect } from 'react';
-import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { KategoriSchemaData } from '@/app/config/component.config';
 
 const HomeChildren: React.FC = () => {

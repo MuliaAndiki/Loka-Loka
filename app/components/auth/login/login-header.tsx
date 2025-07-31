@@ -4,7 +4,7 @@ import Container from '@/app/ui/container';
 
 const LoginHeader = ({ isMobile }: { isMobile: boolean }) => {
   return (
-    <Container className="flex flex-col justify-center items-center">
+    <Container as="main" className="flex flex-col justify-center items-center">
       <Image
         className="object-cover h-auto"
         src="/asset/iconFix.png"

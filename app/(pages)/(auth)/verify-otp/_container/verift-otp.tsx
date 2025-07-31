@@ -1,19 +1,18 @@
 'use client';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import Container from '@/app/ui/container';
-import { Text } from '@/app/ui/Text';
 import AuthLayout from '@/app/core/layouts/auth-layout';
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from '@/app/ui/input-otp';
 import { useState } from 'react';
 import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { useVerifyOtp } from '@/app/hooks/mutation/auth/useVerifyOtp';
 import { useAlert } from '@/app/hooks/alert/costum-alert';
-import { Button } from '@/app/ui/button';
 import { useSendOtp } from '@/app/hooks/mutation/auth/useSendOtp';
-import Fallback from '@/app/ui/fallback';
-import { IconUserScan } from '@tabler/icons-react';
 import { formVerifyOtpSchema } from '@/app/types/form';
 import { useRouter } from 'next/navigation';
+import VerifyOtpHeader from '@/app/components/auth/verify-otp/verify-otp-header';
+import VerifyOtpForm from '@/app/components/auth/verify-otp/verify-otp-form';
+import DesktopBlock from '@/app/components/desktop-block';
+import VerifyOtpFooter from '@/app/components/auth/verify-otp/verify-otp-footer';
 
 const VerifyOtpChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -23,11 +22,11 @@ const VerifyOtpChildren: React.FC = () => {
   const { email: currentEmail, phoneNumber: curentPhoneNumber } = useAppSelector(
     (state) => state.otp
   );
-  const { mutate: verift, isPending } = useVerifyOtp();
-  const { mutate: send } = useSendOtp();
+  const VerifyOtp = useVerifyOtp();
+  const sendOtp = useSendOtp();
   const router = useRouter();
 
-  const [formVerifyOtp, setFormVerifyOt] = useState<formVerifyOtpSchema>({
+  const [formVerifyOtp, setFormVeriftOtp] = useState<formVerifyOtpSchema>({
     email: currentEmail,
     phoneNumber: curentPhoneNumber,
     otp: '',
@@ -53,7 +52,7 @@ const VerifyOtpChildren: React.FC = () => {
         });
         return;
       }
-      verift({
+      VerifyOtp.mutate({
         email: formVerifyOtp.email,
         otp: formVerifyOtp.otp,
         phoneNumber: null,
@@ -70,7 +69,7 @@ const VerifyOtpChildren: React.FC = () => {
         });
         return;
       }
-      verift({
+      VerifyOtp.mutate({
         email: null,
         otp: formVerifyOtp.otp,
         phoneNumber: formVerifyOtp.phoneNumber,
@@ -87,7 +86,7 @@ const VerifyOtpChildren: React.FC = () => {
         });
         return;
       }
-      verift({
+      VerifyOtp.mutate({
         email: formVerifyOtp.email,
         otp: formVerifyOtp.otp,
         phoneNumber: null,
@@ -120,7 +119,7 @@ const VerifyOtpChildren: React.FC = () => {
         });
         return;
       }
-      send({ email: formVerifyOtp.email });
+      sendOtp.mutate({ email: formVerifyOtp.email });
     } else if (source === 'forgotPasswordByPhoneNumber') {
       if (!formVerifyOtp.phoneNumber) {
         alert.toast({
@@ -130,7 +129,7 @@ const VerifyOtpChildren: React.FC = () => {
         });
         return;
       }
-      send({ phoneNumber: formVerifyOtp.phoneNumber });
+      sendOtp.mutate({ phoneNumber: formVerifyOtp.phoneNumber });
     } else {
       alert.toast({
         title: 'Gagal!',
@@ -145,57 +144,18 @@ const VerifyOtpChildren: React.FC = () => {
       {isMobile && (
         <AuthLayout>
           <Container className="flex justify-center items-center flex-col">
-            <Text className="text-lg md:text-4xl font-extrabold">Masukan Kode OTP Kamu</Text>
-            <IconUserScan width={150} height={150} className="my-2" />
-            <Container className="my-4 ">
-              <InputOTP
-                value={formVerifyOtp.otp}
-                maxLength={6}
-                onChange={(e) =>
-                  setFormVerifyOt((prev) => ({
-                    ...prev,
-                    otp: e,
-                  }))
-                }
-              >
-                <InputOTPGroup>
-                  <InputOTPSlot index={0} />
-                  <InputOTPSlot index={1} />
-                  <InputOTPSlot index={2} />
-                </InputOTPGroup>
-                <InputOTPSeparator />
-                <InputOTPGroup>
-                  <InputOTPSlot index={3} />
-                  <InputOTPSlot index={4} />
-                  <InputOTPSlot index={5} />
-                </InputOTPGroup>
-              </InputOTP>
-            </Container>
-
-            <Container className="mx-auto max-w-[70%] w-full flex-col flex justify-center items-center">
-              <Button onClick={() => handleVerityOtp()} disabled={isPending} className="w-full">
-                {isPending ? <Fallback title="Tunggu " /> : 'Verifikasi'}
-              </Button>
-              <Container className="flex items-end justify-end w-full">
-                <Text className="md:text-4xl text-sm  italic font-semibold ">
-                  Tidak Menerima Kode Otp ?
-                </Text>
-              </Container>
-
-              <Button onClick={() => handleSendOtp()} className="w-full">
-                Kirim
-              </Button>
-            </Container>
+            <VerifyOtpHeader />
+            <VerifyOtpForm
+              formVerifyOtp={formVerifyOtp}
+              handleVerifyOtp={() => handleVerityOtp()}
+              isPending={VerifyOtp.isPending}
+              setFormVerifyOtp={setFormVeriftOtp}
+            />
+            <VerifyOtpFooter handleSendOtp={() => handleSendOtp()} isPending={sendOtp.isPending} />
           </Container>
         </AuthLayout>
       )}
-      {!isMobile && (
-        <Container as="main" className="w-screen h-screen ">
-          <Container className="flex justify-center items-center">
-            <Text>Website Ini Tidak Tersedia di Desktop</Text>
-          </Container>
-        </Container>
-      )}
+      {!isMobile && <DesktopBlock />}
     </Container>
   );
 };

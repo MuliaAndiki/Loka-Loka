@@ -1,6 +1,6 @@
 'use client';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { formLoginSchema } from '@/app/types/form';
 import Container from '@/app/ui/container';
 import { CredentialResponse } from '@react-oauth/google';
@@ -21,7 +21,10 @@ const LoginChild: React.FC = () => {
     password: '',
   });
 
-  const handleLoginGoogle = async (e: CredentialResponse) => {};
+  const handleLoginGoogle = async (e: CredentialResponse) => {
+    console.log(e.credential);
+  };
+
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const { mutate: login, isPending } = useLogin();

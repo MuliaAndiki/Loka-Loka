@@ -9,6 +9,8 @@ import HomeKategori from '@/app/components/private/user/home/home-kategori';
 import HomeRekomendasi from '@/app/components/private/user/home/home-rekomendasi';
 import HomeTerdekat from '@/app/components/private/user/home/home-terdekat';
 import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
+// import { useEffect } from 'react';
+// import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
 
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -18,7 +20,7 @@ const HomeChildren: React.FC = () => {
   // const { currentUser } = useAppSelector((state) => state.auth);
 
   // useEffect(() => {
-  //   console.log(`Debug Awal Untuk Data User ${currentUser?.user.phoneNumber}`);
+  //   console.log(`Debug Awal Untuk Data User ${currentUser?.user.provinsi}`);
   // }, []);
   return (
     <Container as="main" className="w-full h-full">

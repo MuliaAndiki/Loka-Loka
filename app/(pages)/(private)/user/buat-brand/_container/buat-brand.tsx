@@ -3,14 +3,15 @@ import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import Container from '@/app/ui/container';
 import BrandLayout from '@/app/core/layouts/brand-layout';
 import { Input } from '@/app/ui/input';
-import { Text } from '@/app/ui/Text';
 import { useAlert } from '@/app/hooks/alert/costum-alert';
 import { Label } from '@/app/ui/label';
 import { useAppDispatch, useAppSelector } from '@/app/hooks/dispatch/dispatch';
-import { IconBrandItch } from '@tabler/icons-react';
 import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/app/ui/button';
+import DesktopBlock from '@/app/components/desktop-block';
+import BuatBrandHeader from '@/app/components/private/user/buat-brand/buat-brand-header';
+import BuatBrandForm from '@/app/components/private/user/buat-brand/buat-brand-form';
 
 const BuatBrandChildren: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -35,87 +36,16 @@ const BuatBrandChildren: React.FC = () => {
     <Container className="w-full h-full ">
       {isMobile && (
         <BrandLayout>
-          <Container className="flex justify-center items-center flex-col">
-            <IconBrandItch stroke={1.3} width={100} height={100} />
-            <Container className=" w-full max-w-4/5 mx-auto my-4 p-2 flex flex-col">
-              <Container className="w-full my-2">
-                <Label className="text-lg md:text-4xl mb-2 font-semibold">Nama Brand :</Label>
-                <Input
-                  placeholder="Masukan Nama Brand"
-                  value={formBrand.nama ?? ''}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    dispatch(setFormBrand({ path: 'nama', value: value }));
-                  }}
-                />
-              </Container>
-              <Container className="w-full my-2">
-                <Label className="text-lg md:text-4xl mb-2 font-semibold">Email :</Label>
-                <Input
-                  placeholder="Masukan Email Brand"
-                  value={formBrand.kontak?.email ?? ''}
-                  type="email"
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    dispatch(
-                      setFormBrand({
-                        path: 'kontak.email',
-                        value: value,
-                      })
-                    );
-                  }}
-                />
-              </Container>
-              <Container className="w-full my-2">
-                <Label className="text-lg md:text-4xl mb-2 font-semibold">Nomor HandPhone :</Label>
-                <Input
-                  placeholder="Nomor HandPhone"
-                  type="number"
-                  value={formBrand.kontak?.phoneNumber ?? ''}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    console.log('nomor', value);
-                    dispatch(
-                      setFormBrand({
-                        path: 'kontak.phoneNumber',
-                        value: value,
-                      })
-                    );
-                  }}
-                />
-              </Container>
-              <Container className="w-full my-2">
-                <Label className="text-lg md:text-2xl mb-2 font-semibold">Website :</Label>
-                <Input
-                  placeholder="Website Optional"
-                  value={formBrand.kontak?.website || ''}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    dispatch(
-                      setFormBrand({
-                        path: 'kontak.website',
-                        value: value,
-                      })
-                    );
-                  }}
-                />
-              </Container>
-              <Container className="w-full my-2">
-                <Button className="w-full" onClick={() => handleNext()}>
-                  Selanjutnya
-                </Button>
-              </Container>
-            </Container>
-          </Container>
+          <BuatBrandHeader />
+          <BuatBrandForm
+            dispatch={dispatch}
+            formBrand={formBrand}
+            handleNext={() => handleNext()}
+            setFormBrand={setFormBrand}
+          />
         </BrandLayout>
       )}
-      {!isMobile && (
-        <Container as="main" className="w-screen h-screen">
-          <Container className="flex justify-center items-center h-full">
-            <Text>Website Ini Tidak Tersedia Di Desktop</Text>
-          </Container>
-        </Container>
-      )}
+      {!isMobile && <DesktopBlock />}
     </Container>
   );
 };

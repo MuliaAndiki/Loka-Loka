@@ -38,7 +38,7 @@ export function AlertModal({
 }: AlertModalInternalProps) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-sm text-center">
+      <DialogContent className="sm:max-w-sm text-center [&>button]:hidden">
         <DialogHeader>
           <div className="text-4xl mb-2">{iconMap[icon]}</div>
           <DialogTitle>{title}</DialogTitle>

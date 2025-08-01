@@ -1,20 +1,17 @@
 'use client';
 import Container from '@/app/ui/container';
-import { Text } from '@/app/ui/Text';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import BrandLayout from '@/app/core/layouts/brand-layout';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/app/hooks/dispatch/dispatch';
 import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { useAlert } from '@/app/hooks/alert/costum-alert';
-import { IconBrandItch } from '@tabler/icons-react';
-import { Input } from '@/app/ui/input';
-import { Label } from '@/app/ui/label';
 import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
-import UploadsTrigger from '@/app/utils/UploadTriger';
-import { Button } from '@/app/ui/button';
 import { showNameProps } from '@/app/types/ui';
 import { useState } from 'react';
+import Slide2Header from '@/app/components/private/user/buat-brand/2-header';
+import Slide2Form from '@/app/components/private/user/buat-brand/2-form';
+import DesktopBlock from '@/app/components/desktop-block';
 
 const Slide2Children: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -117,103 +114,22 @@ const Slide2Children: React.FC = () => {
     <Container className="w-full h-full">
       {isMobile && (
         <BrandLayout>
-          <Container className="flex justify-center items-center flex-col">
-            <IconBrandItch stroke={1.3} width={100} height={100} />
-            <Text>Dokument</Text>
-            <Container className="w-full max-w-4/5 mx-auto my-4 flex flex-col">
-              <Container className="w-full">
-                <Label className="mb-2 text-lg md:text-2xl font-semibold">NIK :</Label>
-                <Input
-                  className="w-full"
-                  type="number"
-                  value={formBrand.document?.other ?? ''}
-                  onChange={(e) => {
-                    const newValue = [e.target.value];
-                    dispatch(
-                      setFormBrand({
-                        path: 'document.other',
-                        value: newValue,
-                      })
-                    );
-                  }}
-                />
-              </Container>
-
-              <Container className="w-full">
-                <Label className="mb-2 text-lg md:text-2xl font-semibold">Ktp :</Label>
-                <UploadsTrigger
-                  multiple={false}
-                  onChange={(e) => handleChangeKtp(e)}
-                  accept="image/*"
-                >
-                  <Button className="w-full">{showName.ktp ? showName.ktp : 'Uploads Ktp'}</Button>
-                  <Text className="justify-end flex italic font-semibold text-sm">
-                    Format: .jpg .webp .png
-                  </Text>
-                </UploadsTrigger>
-              </Container>
-              <Container className="w-full">
-                <Label className="mb-2 text-lg md:text-2xl font-semibold">Izin Usaha :</Label>
-                <UploadsTrigger
-                  multiple={false}
-                  accept="image/*"
-                  onChange={(e) => handleChangeIzinUsaha(e)}
-                >
-                  <Button className="w-full">
-                    {showName.izinUsaha ? showName.izinUsaha : 'Uploads Izin Usaha'}
-                  </Button>
-                </UploadsTrigger>
-                <Text className="flex justify-end text-sm font-semibold italic">
-                  Format: .pdf .doc
-                </Text>
-              </Container>
-
-              <Container className="w-full">
-                <Label className="mb-2 text-lg md:text-2xl font-semibold">Logo :</Label>
-                <UploadsTrigger
-                  accept="image/*"
-                  multiple={false}
-                  onChange={(e) => handleChangeLogo(e)}
-                >
-                  <Button className="w-full">
-                    {showName.logo ? showName.logo : 'Uploads Logo'}
-                  </Button>
-                  <Text className="flex justify-end text-sm font-semibold italic">
-                    Format: .jpg .webp .png
-                  </Text>
-                </UploadsTrigger>
-              </Container>
-
-              <Container className="w-full mb-6">
-                <Label className="mb-2 text-lg md:text-2xl font-semibold">Proposal Brand :</Label>
-                <UploadsTrigger
-                  accept="image/*"
-                  multiple={false}
-                  onChange={(e) => handleChangeProposalBrand(e)}
-                >
-                  <Button className="w-full">
-                    {showName.proposalBrand ? showName.proposalBrand : 'Uploads Proposal Brands'}
-                  </Button>
-                </UploadsTrigger>
-                <Text className="flex justify-end text-sm font-semibold italic">
-                  Format: .pdf .doc
-                </Text>
-              </Container>
-              <Button className="w-full" onClick={() => handleNext()}>
-                Selanjutnya
-              </Button>
-            </Container>
-          </Container>
+          <Slide2Header />
+          <Slide2Form
+            dispatch={dispatch}
+            formBrand={formBrand}
+            handleChangeIzinUsaha={(e) => handleChangeIzinUsaha(e)}
+            handleChangeProposalBrand={(e) => handleChangeProposalBrand(e)}
+            setFormBrand={setFormBrand}
+            handleChangeKtp={(e) => handleChangeKtp(e)}
+            handleChangeLogo={(e) => handleChangeLogo(e)}
+            handleNext={() => handleNext()}
+            showName={showName}
+          />
         </BrandLayout>
       )}
 
-      {!isMobile && (
-        <Container as="main" className="w-screen h-screen">
-          <Container className="flex justify-center items-center h-full">
-            <Text>Website Ini Tidak Tersedia Di Desktop</Text>
-          </Container>
-        </Container>
-      )}
+      {!isMobile && <DesktopBlock />}
     </Container>
   );
 };

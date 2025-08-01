@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import {
+  formBikinBrandSchema,
   formEditProfileSchema,
   formLoginSchema,
   formRegisterSchema,
@@ -11,6 +12,9 @@ import {
 import { CredentialResponse } from '@react-oauth/google';
 import React, { RefObject } from 'react';
 import { AlertContexType } from '../ui';
+import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
+import { AppDispatch } from '@/app/stores/store';
+import { showNameProps } from '@/app/types/ui';
 
 export const PromotionType = z.object({
   title: z.string(),
@@ -112,6 +116,33 @@ export type EditProfileFormProps = {
   handleEditProfile: () => void;
   isPending: boolean;
   center: [number, number];
+};
+
+export type BuatBrandFormProps = {
+  formBrand: Partial<formBikinBrandSchema>;
+  setFormBrand: typeof setFormBrand;
+  dispatch: AppDispatch;
+  handleNext: () => void;
+};
+
+export type Slide2FormProps = {
+  formBrand: Partial<formBikinBrandSchema>;
+  setFormBrand: typeof setFormBrand;
+  dispatch: AppDispatch;
+  handleNext: () => void;
+  showName: showNameProps;
+  handleChangeKtp: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChangeIzinUsaha: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChangeProposalBrand: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChangeLogo: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+export type Slide4FormProps = {
+  formBrand: Partial<formBikinBrandSchema>;
+  setFormBrand: typeof setFormBrand;
+  isPending: boolean;
+  dispatch: AppDispatch;
+  handleCreateBrand: () => void;
 };
 
 export type KategoriSchema = z.infer<typeof KategoriType>;

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import {
+  formEditProfileSchema,
   formLoginSchema,
   formRegisterSchema,
   formResetPasswordSchema,
@@ -9,6 +10,7 @@ import {
 } from '../form';
 import { CredentialResponse } from '@react-oauth/google';
 import React, { RefObject } from 'react';
+import { AlertContexType } from '../ui';
 
 export const PromotionType = z.object({
   title: z.string(),
@@ -90,6 +92,26 @@ export type VerifyOtpFormProps = {
 export type VerifyOtpFooterProps = {
   handleSendOtp: () => void;
   isPending: boolean;
+};
+
+export type EditProfileHeaderProps = {
+  isMobile: boolean;
+  formEditProfile: formEditProfileSchema;
+  handleChangeFoto: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+export type EditProfileFormProps = {
+  formEditProfile: formEditProfileSchema;
+  setFormEditProfile: React.Dispatch<React.SetStateAction<formEditProfileSchema>>;
+  handleChangeGender: (e: string) => void;
+  handleOpenModal: (value: string) => void;
+  isActive: string | null;
+  setIsActive: React.Dispatch<React.SetStateAction<'Location' | null>>;
+  markerRef: React.MutableRefObject<L.Marker | null>;
+  alert: AlertContexType;
+  handleEditProfile: () => void;
+  isPending: boolean;
+  center: [number, number];
 };
 
 export type KategoriSchema = z.infer<typeof KategoriType>;

@@ -37,7 +37,7 @@ const VerifyOtpForm = ({
           </InputOTPGroup>
         </InputOTP>
       </Container>
-      <Container className="w-full flex justify-center items-center flex-col">
+      <Container className="w-full flex justify-center items-center flex-col max-w-[70%]">
         <Button onClick={() => handleVerifyOtp()} disabled={isPending} className="w-full">
           {isPending ? <Fallback title="Tunggu " /> : 'Verifikasi'}
         </Button>

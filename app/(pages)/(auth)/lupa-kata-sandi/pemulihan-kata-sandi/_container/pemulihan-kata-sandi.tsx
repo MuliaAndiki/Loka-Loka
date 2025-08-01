@@ -27,7 +27,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
   const alert = useAlert();
   const [showPasswordV1, setShowPasswordV1] = useState<boolean>(false);
   const [showPasswordV2, setShowPasswordV2] = useState<boolean>(false);
-  const { mutate: reset, isPending } = useResetPassword();
+  const Reset = useResetPassword();
 
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
@@ -52,7 +52,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
         });
         return;
       }
-      reset({
+      Reset.mutate({
         email: formResetPassword.email,
         phoneNumber: null,
         password: formResetPassword.password,
@@ -69,7 +69,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
         });
         return;
       }
-      reset({
+      Reset.mutate({
         email: null,
         password: formResetPassword.password,
         phoneNumber: formResetPassword.phoneNumber,
@@ -95,7 +95,7 @@ const PemulihanKataSandiChildren: React.FC = () => {
             formResetPassword={formResetPassword}
             confirmPasswordRef={confirmPasswordRef}
             handleResetPassword={() => handleResetPassword()}
-            isPending={isPending}
+            isPending={Reset.isPending}
             setFormResetPassword={setFormResetPassword}
             setShowPasswordV1={setShowPasswordV1}
             setShowPasswordV2={setShowPasswordV2}

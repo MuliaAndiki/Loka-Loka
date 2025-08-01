@@ -16,7 +16,8 @@ const MetodeLainChildren: React.FC = () => {
   const [formForgotPassword, setFormForgotPassword] = useState<formSendOtpPhoneNumber>({
     phoneNumber: '',
   });
-  const { mutate: forgot, isPending } = useForgotPasswordByPhoneNumber();
+
+  const Forgot = useForgotPasswordByPhoneNumber();
   const handleForgotPassword = () => {
     if (!formForgotPassword.phoneNumber) {
       alert.toast({
@@ -26,7 +27,7 @@ const MetodeLainChildren: React.FC = () => {
       });
       return;
     }
-    return forgot(formForgotPassword);
+    return Forgot.mutate(formForgotPassword);
   };
 
   return (
@@ -37,7 +38,7 @@ const MetodeLainChildren: React.FC = () => {
           <MetodeLainForm
             formForgotPassword={formForgotPassword}
             handleForgotPassword={() => handleForgotPassword()}
-            isPending={isPending}
+            isPending={Forgot.isPending}
             setFormForgotPassword={setFormForgotPassword}
           />
         </NavLayout>

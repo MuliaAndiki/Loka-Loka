@@ -5,6 +5,7 @@ import OnboardingLayout from '@/app/core/layouts/onboarding-layout';
 import { RouteConfigStatic } from '@/app/config/route.config';
 import Link from 'next/link';
 import Image from 'next/image';
+import DesktopBlock from '@/app/components/desktop-block';
 
 const SplashScreenChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
@@ -31,13 +32,7 @@ const SplashScreenChildren: React.FC = () => {
           </Container>
         </OnboardingLayout>
       )}
-      {!isMobile && (
-        <Container as="main" className="w-screen h-screen">
-          <Container className="flex justify-center items-center h-full">
-            <h1>Website Ini Tidak Tersedia Di Desktop</h1>
-          </Container>
-        </Container>
-      )}
+      {!isMobile && <DesktopBlock />}
     </Container>
   );
 };

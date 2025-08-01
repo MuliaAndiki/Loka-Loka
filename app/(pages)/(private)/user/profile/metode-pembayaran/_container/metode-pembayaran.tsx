@@ -3,6 +3,7 @@ import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import Container from '@/app/ui/container';
 import { Text } from '@/app/ui/Text';
 import ProfileLayout from '@/app/core/layouts/profile-layout';
+import DesktopBlock from '@/app/components/desktop-block';
 const MetodePembayaranChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   return (
@@ -14,13 +15,7 @@ const MetodePembayaranChildren: React.FC = () => {
           </Container>
         </ProfileLayout>
       )}
-      {!isMobile && (
-        <Container as="main" className="w-screen h-screen">
-          <Container className="flex justify-center items-center h-full">
-            <Text>Website Ini Tidak Tersedia Di Desktop</Text>
-          </Container>
-        </Container>
-      )}
+      {!isMobile && <DesktopBlock />}
     </Container>
   );
 };

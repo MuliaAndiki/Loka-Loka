@@ -3,9 +3,9 @@ import { Label } from '@radix-ui/react-label';
 import { Input } from '@/app/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/ui/select';
 import PopUp from '@/app/core/components/pop-up';
-import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import LocationMarker from '@/app/core/components/locationMarker';
-import { PROVINCE_CENTERS } from '@/app/core/constants/province-center';
+import { Provinsi } from '@/app/core/constants/province-center';
 import { EditProfileFormProps } from '@/app/types/components';
 import { Button } from '@/app/ui/button';
 import Fallback from '@/app/ui/fallback';
@@ -97,7 +97,7 @@ const EditProfileForm = ({
                 <SelectValue placeholder="*Contoh: Jawa Barat" />
               </SelectTrigger>
               <SelectContent>
-                {Object.keys(PROVINCE_CENTERS).map((prev) => (
+                {Object.keys(Provinsi).map((prev) => (
                   <SelectItem key={prev} value={prev}>
                     {prev}
                   </SelectItem>

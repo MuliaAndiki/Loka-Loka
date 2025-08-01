@@ -17,3 +17,10 @@ export const userType = z.object({
 });
 
 export type userSchema = z.infer<typeof userType>;
+
+export type useQueryProps = {
+  isMobile?: boolean;
+  isError?: boolean;
+  isPending?: boolean;
+  data?: any;
+};

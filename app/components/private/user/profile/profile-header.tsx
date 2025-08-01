@@ -2,20 +2,24 @@ import Container from '@/app/ui/container';
 import Image from 'next/image';
 import { Text } from '@/app/ui/Text';
 import Link from 'next/link';
-import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
 import { Skeleton } from '@/app/ui/skeleton';
 import { RouteConfigStatic } from '@/app/config/route.config';
+import { useQueryProps } from '@/app/types/api';
+import ErrorMessage from '@/app/core/components/isError';
 
-const ProfileHeader = ({ isMobile }: { isMobile: boolean }) => {
-  const { data, isPending, isError } = useGetProfileById();
+const ProfileHeader = ({ isMobile, isError, isPending, data }: useQueryProps) => {
   if (isError) {
-    return (
-      <Text className="text-lg md:text-4xl">Mohon Maap Terjadi Kesalahan Saat Memuat Data</Text>
-    );
+    return <ErrorMessage />;
   }
 
   if (isPending) {
-    return <Skeleton className="w-full h-full" />;
+    return (
+      <Container className="w-full h-full">
+        <Container className="flex justify-between items-center">
+          <Skeleton className="w-full justify-start items-start flex mx-2 h-20" />
+        </Container>
+      </Container>
+    );
   }
   return (
     <Container as="header" className="flex justify-around items-center">

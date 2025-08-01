@@ -8,9 +8,12 @@ import HomePromotion from '@/app/components/private/user/home/home-promotion';
 import HomeKategori from '@/app/components/private/user/home/home-kategori';
 import HomeRekomendasi from '@/app/components/private/user/home/home-rekomendasi';
 import HomeTerdekat from '@/app/components/private/user/home/home-terdekat';
+import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
 
 const HomeChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
+  const Profile = useGetProfileById();
+
   // Debug Data
   // const { currentUser } = useAppSelector((state) => state.auth);
 
@@ -21,13 +24,16 @@ const HomeChildren: React.FC = () => {
     <Container as="main" className="w-full h-full">
       {isMobile && (
         <HomeLayout>
-          <Container as="main" className="w-full h-full ">
-            <HomeHeader isMobile={isMobile} />
-            <HomePromotion />
-            <HomeKategori />
-            <HomeRekomendasi />
-            <HomeTerdekat />
-          </Container>
+          <HomeHeader
+            isMobile={isMobile}
+            data={Profile.data}
+            isError={Profile.isError}
+            isPending={Profile.isPending}
+          />
+          <HomePromotion />
+          <HomeKategori />
+          <HomeRekomendasi />
+          <HomeTerdekat />
         </HomeLayout>
       )}
       {!isMobile && <DesktopBlock />}

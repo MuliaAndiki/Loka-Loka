@@ -2,23 +2,20 @@ import Container from '@/app/ui/container';
 import { Text } from '@/app/ui/Text';
 import Image from 'next/image';
 import { RouteConfigStatic } from '@/app/config/route.config';
-import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
 import Chart from '@/app/components/chart';
 import { Skeleton } from '@/app/ui/skeleton';
 import Link from 'next/link';
 import { Input } from '@/app/ui/input';
 import FilterHome from '@/app/core/components/filter-home';
+import { useQueryProps } from '@/app/types/api';
+import ErrorMessage from '@/app/core/components/isError';
 
-const HomeHeader = ({ isMobile }: { isMobile: boolean }) => {
-  const Profile = useGetProfileById();
-
-  if (Profile.isError) {
-    return (
-      <Text className="text-lg md:text-lg">Mohon Maap Terjadi Kesalahan Saat Memuat Data</Text>
-    );
+const HomeHeader = ({ data, isError, isMobile, isPending }: useQueryProps) => {
+  if (isError) {
+    return <ErrorMessage />;
   }
 
-  if (Profile.isPending) {
+  if (isPending) {
     return (
       <Container className="w-full h-full">
         <Container className="flex justify-between items-center">
@@ -40,9 +37,9 @@ const HomeHeader = ({ isMobile }: { isMobile: boolean }) => {
           <Container className=" w-full justify-end items-center gap-2 mx-2 flex">
             <Chart />
             <Container className="flex-col flex  justify-center ">
-              <Text className="text-sm md:text-2xl ">{Profile?.data.data.fullname}</Text>
-              <Text className="text-sm md:text-2xl">{Profile.data.data.provinsi}</Text>
-              {!Profile.data.data.provinsi && (
+              <Text className="text-sm md:text-2xl ">{data.data.fullname}</Text>
+              <Text className="text-sm md:text-2xl">{data.data.provinsi}</Text>
+              {!data.data.provinsi && (
                 <Container>
                   {RouteConfigStatic.map((items, key) => (
                     <Link key={key} href={items.daftarBrand.href}>
@@ -53,9 +50,7 @@ const HomeHeader = ({ isMobile }: { isMobile: boolean }) => {
               )}
             </Container>
             <Image
-              src={
-                Profile.data.data.fotoProfile ? Profile.data.data.fotoProfile : '/asset/Profile.svg'
-              }
+              src={data.data.fotoProfile ? data.data.fotoProfile : '/asset/Profile.svg'}
               alt="Profile"
               width={isMobile ? 50 : 100}
               height={isMobile ? 50 : 100}

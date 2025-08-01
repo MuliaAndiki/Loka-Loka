@@ -1,4 +1,4 @@
-export const PROVINCE_CENTERS: Record<string, [number, number]> = {
+export const Provinsi: Record<string, [number, number]> = {
   '-': [0, 120],
   Aceh: [4.6951, 96.7494],
   Bali: [-8.4095, 115.1889],

@@ -9,7 +9,7 @@ import { useAlert } from '@/app/hooks/alert/costum-alert';
 import ProfileLayout from '@/app/core/layouts/profile-layout';
 import { flattenToFormData } from '@/app/utils/formdata';
 import L from 'leaflet';
-import { PROVINCE_CENTERS } from '@/app/core/constants/province-center';
+import { Provinsi } from '@/app/core/constants/province-center';
 import EditProfileHeader from '@/app/components/private/user/edit-profile/edit-profile-header';
 import EditProfileForm from '@/app/components/private/user/edit-profile/edit-profile-form';
 import DesktopBlock from '@/app/components/desktop-block';
@@ -65,8 +65,8 @@ const EditProfileChildren: React.FC = () => {
       ...prev,
       provinsi: value,
     }));
-    if (PROVINCE_CENTERS[value]) {
-      setCenter(PROVINCE_CENTERS[value]);
+    if (Provinsi[value]) {
+      setCenter(Provinsi[value]);
     }
   };
 

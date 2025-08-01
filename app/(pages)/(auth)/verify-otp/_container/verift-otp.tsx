@@ -143,16 +143,14 @@ const VerifyOtpChildren: React.FC = () => {
     <Container className="w-full h-screen">
       {isMobile && (
         <AuthLayout>
-          <Container className="flex justify-center items-center flex-col">
-            <VerifyOtpHeader />
-            <VerifyOtpForm
-              formVerifyOtp={formVerifyOtp}
-              handleVerifyOtp={() => handleVerityOtp()}
-              isPending={VerifyOtp.isPending}
-              setFormVerifyOtp={setFormVeriftOtp}
-            />
-            <VerifyOtpFooter handleSendOtp={() => handleSendOtp()} isPending={sendOtp.isPending} />
-          </Container>
+          <VerifyOtpHeader />
+          <VerifyOtpForm
+            formVerifyOtp={formVerifyOtp}
+            handleVerifyOtp={() => handleVerityOtp()}
+            isPending={VerifyOtp.isPending}
+            setFormVerifyOtp={setFormVeriftOtp}
+          />
+          <VerifyOtpFooter handleSendOtp={() => handleSendOtp()} isPending={sendOtp.isPending} />
         </AuthLayout>
       )}
       {!isMobile && <DesktopBlock />}

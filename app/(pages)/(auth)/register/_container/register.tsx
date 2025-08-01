@@ -20,7 +20,7 @@ const RegisterChildren: React.FC = () => {
     password: '',
   });
 
-  const { mutate: register, isPending } = useRegister();
+  const Register = useRegister();
 
   const handleRegister = () => {
     if (!formRegister.email || !formRegister.fullname || !formRegister.password) {
@@ -31,7 +31,7 @@ const RegisterChildren: React.FC = () => {
       });
       return;
     }
-    return register(formRegister);
+    return Register.mutate(formRegister);
   };
 
   const handleLoginGoogle = async (e: CredentialResponse) => {
@@ -47,7 +47,7 @@ const RegisterChildren: React.FC = () => {
             formRegister={formRegister}
             handleLoginGoogle={(e) => handleLoginGoogle(e)}
             handleRegister={() => handleRegister()}
-            isPending={isPending}
+            isPending={Register.isPending}
             setFormRegister={setFormRegister}
           />
         </NavLayout>

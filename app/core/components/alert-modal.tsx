@@ -7,7 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/app/ui/dialog';
-import { ModalProps } from '@/app/types/ui'; // path sesuai punyamu
+import { ModalProps } from '@/app/types/ui';
 
 const iconMap = {
   success: '✅',

@@ -17,7 +17,7 @@ const LupaKataSandiChildren: React.FC = () => {
     email: '',
   });
 
-  const { mutate: forgot, isPending } = useForgotPasswordByEmail();
+  const Forgot = useForgotPasswordByEmail();
 
   const handleForgotPassword = () => {
     if (!formForgotPassword.email) {
@@ -28,7 +28,7 @@ const LupaKataSandiChildren: React.FC = () => {
       });
       return;
     }
-    return forgot(formForgotPassword);
+    return Forgot.mutate(formForgotPassword);
   };
   return (
     <Container className="w-full min-h-screen" as="main">
@@ -39,7 +39,7 @@ const LupaKataSandiChildren: React.FC = () => {
             formForgotPassword={formForgotPassword}
             setFormForgotPassword={setFormForgotPassword}
             handleForgotPassword={() => handleForgotPassword()}
-            isPending={isPending}
+            isPending={Forgot.isPending}
           />
         </NavLayout>
       )}

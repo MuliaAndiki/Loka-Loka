@@ -15,20 +15,15 @@ import DesktopBlock from '@/app/components/desktop-block';
 const LoginChild: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
-
   const [formLogin, setFormLogin] = useState<formLoginSchema>({
     email: '',
     password: '',
   });
-
   const handleLoginGoogle = async (e: CredentialResponse) => {
     console.log(e.credential);
   };
-
   const [showPassword, setShowPassword] = useState<boolean>(false);
-
-  const { mutate: login, isPending } = useLogin();
-
+  const Login = useLogin();
   const handleLogin = () => {
     if (!formLogin.email || !formLogin.password) {
       alert.toast({
@@ -38,7 +33,7 @@ const LoginChild: React.FC = () => {
       });
       return;
     }
-    return login(formLogin);
+    return Login.mutate(formLogin);
   };
   return (
     <Container as="main" className="w-full h-full">
@@ -52,7 +47,7 @@ const LoginChild: React.FC = () => {
               setShowPassword={setShowPassword}
               showPassword={showPassword}
               handleLogin={() => handleLogin()}
-              isPending={isPending}
+              isPending={Login.isPending}
               handleLoginGoogle={(e) => handleLoginGoogle(e)}
             />
           </Container>

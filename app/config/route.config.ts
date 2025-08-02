@@ -120,7 +120,7 @@ export const RouteProfileApp = () => {
     },
     {
       title: 'Disimpan',
-      href: '#',
+      href: '/user/profile/disimpan',
       iconV1: Bookmark,
       iconV2: ChevronRight,
     },

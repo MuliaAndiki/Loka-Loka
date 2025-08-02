@@ -1,17 +1,17 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import LayoutClient from "./core/providers/clientProvinder";
-import { Poppins } from "next/font/google";
+import type { Metadata } from 'next';
+import './globals.css';
+import LayoutClient from './core/providers/clientProvinder';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 
-const poppins = Poppins({
-  weight: ["600", "700"],
-  subsets: ["latin"],
-  variable: "--font-poppins",
+const PlusJakarta = Plus_Jakarta_Sans({
+  weight: ['600', '700'],
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta',
 });
 
 export const metadata: Metadata = {
-  title: "Loka-loka",
-  description: "Pusat Pembelian Tiket Event Terbesar",
+  title: 'Loka-loka',
+  description: 'Pusat Pembelian Tiket Event Terbesar',
 };
 
 export default function RootLayout({
@@ -21,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${poppins.variable} antialiased bg-background text-foreground`}
-      >
+      <body className={`${PlusJakarta.variable} antialiased bg-background text-foreground`}>
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

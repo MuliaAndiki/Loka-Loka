@@ -1,5 +1,3 @@
-import { any } from 'zod';
-
 export interface RouteStaticConfig {
   login: {
     title: string;
@@ -37,6 +35,10 @@ export interface RouteStaticConfig {
     title: string;
     href: string;
     secoundTitle?: string;
+  };
+  kategori: {
+    title: string;
+    href: string;
   };
 }
 

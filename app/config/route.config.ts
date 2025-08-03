@@ -56,6 +56,10 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
       href: '/user/buat-brand',
       secoundTitle: 'Bikin Brand?',
     },
+    kategori: {
+      title: 'Lihat Selengkapnya Kategori',
+      href: '/user/kategori',
+    },
   },
 ];
 

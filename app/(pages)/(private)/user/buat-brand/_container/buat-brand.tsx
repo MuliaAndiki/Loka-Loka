@@ -2,13 +2,10 @@
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import Container from '@/app/ui/container';
 import BrandLayout from '@/app/core/layouts/brand-layout';
-import { Input } from '@/app/ui/input';
 import { useAlert } from '@/app/hooks/alert/costum-alert';
-import { Label } from '@/app/ui/label';
 import { useAppDispatch, useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/app/ui/button';
 import DesktopBlock from '@/app/components/desktop-block';
 import BuatBrandHeader from '@/app/components/private/user/buat-brand/buat-brand-header';
 import BuatBrandForm from '@/app/components/private/user/buat-brand/buat-brand-form';
@@ -18,7 +15,7 @@ const BuatBrandChildren: React.FC = () => {
   const alert = useAlert();
   const formBrand = useAppSelector((state) => state.brand.currentForm);
   const router = useRouter();
-
+  
   const handleNext = () => {
     if (!formBrand.nama || !formBrand.kontak?.email || !formBrand.kontak.phoneNumber) {
       alert.toast({

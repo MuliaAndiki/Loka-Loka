@@ -9,7 +9,6 @@ import {
   SidebarMenuItem,
 } from '@/app/ui/sidebar';
 import { SidebarItems, DropdownItems } from '@/app/config/side.config';
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,10 +17,11 @@ import {
 } from '@/app/ui/dropdown-menu';
 import Link from 'next/link';
 import { Text } from '@/app/ui/Text';
-
 import { User2, ChevronUp } from 'lucide-react';
+import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
 
 export function AppSidebar() {
+  const currentUsername = useAppSelector((state) => state.auth.currentUser?.user.fullname);
   return (
     <Sidebar>
       <SidebarContent>
@@ -32,10 +32,10 @@ export function AppSidebar() {
               {SidebarItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.href}>
+                    <Link href={item.href}>
                       <item.icon />
-                      <span>{item.title}</span>
-                    </a>
+                      <Text>{item.title}</Text>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -47,7 +47,7 @@ export function AppSidebar() {
         <DropdownMenuTrigger asChild>
           <SidebarMenuButton>
             <User2 />
-            Username
+            {currentUsername ? currentUsername : 'Username'}
             <ChevronUp className="ml-auto" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>

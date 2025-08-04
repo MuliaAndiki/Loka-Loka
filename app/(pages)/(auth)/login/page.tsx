@@ -1,4 +1,4 @@
-import LoginChild from '@/app/(pages)/(auth)/login/_container/login';
+import LoginChildren from '@/app/(pages)/(auth)/login/_container/login';
 export default function Login() {
-  return <LoginChild />;
+  return <LoginChildren />;
 }

@@ -12,7 +12,7 @@ import LoginForm from '@/app/components/auth/login/login-form';
 import LoginFooter from '@/app/components/auth/login/login-footer';
 import DesktopBlock from '@/app/components/desktop-block';
 
-const LoginChild: React.FC = () => {
+const LoginChildren: React.FC = () => {
   const { isMobile } = useIsMobile();
   const alert = useAlert();
   const [formLogin, setFormLogin] = useState<formLoginSchema>({
@@ -59,4 +59,4 @@ const LoginChild: React.FC = () => {
     </Container>
   );
 };
-export default LoginChild;
+export default LoginChildren;

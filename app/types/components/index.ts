@@ -33,7 +33,16 @@ export const RekomendasiType = z.object({
 export const KategoriType = z.object({
   image: z.string(),
   title: z.string(),
-  href: z.string(),
+  params: z.string(),
+});
+
+export const BrandHomeType = z.object({
+  image: z.string(),
+  brand: z.string(),
+  promo: z.string(),
+  secoundImage: z.string(),
+  location: z.string(),
+  rating: z.string(),
 });
 
 export type LocationMarkerProps = {
@@ -148,3 +157,4 @@ export type Slide4FormProps = {
 export type KategoriSchema = z.infer<typeof KategoriType>;
 export type PromotionSchema = z.infer<typeof PromotionType>;
 export type RekomendasiSchema = z.infer<typeof RekomendasiType>;
+export type BrandHomeSchema = z.infer<typeof BrandHomeType>;

@@ -15,7 +15,7 @@ const BuatBrandChildren: React.FC = () => {
   const alert = useAlert();
   const formBrand = useAppSelector((state) => state.brand.currentForm);
   const router = useRouter();
-  
+
   const handleNext = () => {
     if (!formBrand.nama || !formBrand.kontak?.email || !formBrand.kontak.phoneNumber) {
       alert.toast({

@@ -2,10 +2,13 @@ import Container from '@/app/ui/container';
 import Link from 'next/link';
 import { Text } from '@/app/ui/Text';
 import { RouteConfigStatic } from '@/app/config/route.config';
-const HomeTerdekat = () => {
+import BrandsHome from '@/app/core/components/brand-home';
+import { BrandHomeData } from '@/app/config/component.config';
+
+const HomeBrand = () => {
   return (
-    <Container className="w-full p-2 ">
-      <Container className="flex justify-between items-center">
+    <Container className="flex justify-center items-center flex-col p-2">
+      <Container className="flex justify-between items-center w-full ">
         <Text className="md:text-4xl text-lg font-bold">Terdekat</Text>
         {RouteConfigStatic.map((items, key) => (
           <Link key={key} href={items.lihatSemuaTerdekat.href}>
@@ -13,8 +16,11 @@ const HomeTerdekat = () => {
           </Link>
         ))}
       </Container>
+      {BrandHomeData.map((items, key) => (
+        <BrandsHome key={key} data={items} />
+      ))}
     </Container>
   );
 };
 
-export default HomeTerdekat;
+export default HomeBrand;

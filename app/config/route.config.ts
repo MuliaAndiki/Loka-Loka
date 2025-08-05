@@ -105,8 +105,8 @@ export const RouteProfileApp = () => {
 
   const Routes: RouteProfileAppConfig[] = [
     {
-      title: 'Riwayat Pesanan',
-      href: '#',
+      title: 'Riwayat Pemesanan',
+      href: '/user/profile/riwayat-pemesanan',
       iconV1: Calendar,
       iconV2: ChevronRight,
     },

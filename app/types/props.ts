@@ -1,4 +1,10 @@
-import { PromotionSchema, RekomendasiSchema, KategoriSchema, BrandHomeSchema } from './components';
+import {
+  PromotionSchema,
+  RekomendasiSchema,
+  KategoriSchema,
+  BrandHomeSchema,
+  ProductSchema,
+} from './components';
 
 export interface PromotionSchemaProps {
   data: PromotionSchema;
@@ -14,4 +20,8 @@ export interface KategoriSchemaProps {
 
 export interface BrandHomeSchemaProps {
   data: BrandHomeSchema;
+}
+
+export interface ProductSchemaProps {
+  data: ProductSchema;
 }

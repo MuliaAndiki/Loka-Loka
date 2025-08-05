@@ -45,6 +45,14 @@ export const BrandHomeType = z.object({
   rating: z.string(),
 });
 
+export const ProductType = z.object({
+  image: z.string(),
+  title: z.string(),
+  rating: z.string(),
+  location: z.string(),
+  pricing: z.string(),
+});
+
 export type LocationMarkerProps = {
   markerRef: React.MutableRefObject<L.Marker | null>;
   setLatLng?: (lat: number, lng: number) => void;
@@ -158,3 +166,4 @@ export type KategoriSchema = z.infer<typeof KategoriType>;
 export type PromotionSchema = z.infer<typeof PromotionType>;
 export type RekomendasiSchema = z.infer<typeof RekomendasiType>;
 export type BrandHomeSchema = z.infer<typeof BrandHomeType>;
+export type ProductSchema = z.infer<typeof ProductType>;

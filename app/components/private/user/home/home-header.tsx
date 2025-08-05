@@ -5,12 +5,14 @@ import { RouteConfigStatic } from '@/app/config/route.config';
 import Chart from '@/app/components/chart';
 import { Skeleton } from '@/app/ui/skeleton';
 import Link from 'next/link';
-import { Input } from '@/app/ui/input';
-import FilterHome from '@/app/core/components/filter-home';
+
 import { useQueryProps } from '@/app/types/api';
 import ErrorMessage from '@/app/core/components/isError';
+import Searching from '@/app/ui/searching';
+import { useState } from 'react';
 
 const HomeHeader = ({ data, isError, isMobile, isPending }: useQueryProps) => {
+  const [fakeData, setFakeData] = useState<any>();
   if (isError) {
     return <ErrorMessage />;
   }
@@ -58,10 +60,7 @@ const HomeHeader = ({ data, isError, isMobile, isPending }: useQueryProps) => {
             />
           </Container>
         </Container>
-        <Container className="flex items-center gap-2 w-full px-4 mt-2">
-          <Input placeholder="Pencarian" />
-          <FilterHome />
-        </Container>
+        <Searching onChange={(e) => setFakeData(e)} value={fakeData} />
       </Container>
     </Container>
   );

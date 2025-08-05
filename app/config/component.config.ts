@@ -3,6 +3,7 @@ import {
   RekomendasiSchema,
   KategoriSchema,
   BrandHomeSchema,
+  ProductSchema,
 } from '../types/components';
 
 export const PromotionSchemaData: PromotionSchema[] = [
@@ -144,5 +145,22 @@ export const BrandHomeData: BrandHomeSchema[] = [
     promo: '23',
     rating: '4.3',
     secoundImage: '/asset/Events.jpeg',
+  },
+];
+
+export const ProductPupolarData: ProductSchema[] = [
+  {
+    image: '/asset/Events.jpeg',
+    location: '7.2 Km',
+    pricing: '150.000',
+    rating: '4.3',
+    title: 'Hindia',
+  },
+  {
+    image: '/asset/Events.jpeg',
+    location: '7.2 Km',
+    pricing: '150.000',
+    rating: '4.3',
+    title: 'Hindia',
   },
 ];

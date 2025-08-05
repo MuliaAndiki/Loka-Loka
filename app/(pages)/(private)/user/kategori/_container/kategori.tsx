@@ -19,6 +19,7 @@ const KategoriChildren = () => {
   const [fakeData, setFakeData] = useState<any>({
     fakedata: '',
   });
+
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (
@@ -52,7 +53,7 @@ const KategoriChildren = () => {
               value={fakeData}
             />
 
-            <Container className="flex justify-between items-center w-full p-4 mb-4">
+            <Container className="flex justify-between items-center w-full p-4">
               <Text className="text-lg font-semibold">Terbaik :</Text>
               <Text className="text-lg italic">Lainnya</Text>
             </Container>
@@ -71,9 +72,11 @@ const KategoriChildren = () => {
               <Text className="text-lg font-semibold">Popular</Text>
               <Text className="italic text-lg">Lainnya</Text>
             </Container>
-            {ProductPupolarData.map((items, key) => (
-              <ProductPopular data={items} key={key} />
-            ))}
+            <Container className="mb-10 w-full">
+              {ProductPupolarData.map((items, key) => (
+                <ProductPopular data={items} key={key} />
+              ))}
+            </Container>
           </Container>
         </HomeLayout>
       )}

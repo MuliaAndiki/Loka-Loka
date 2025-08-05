@@ -86,4 +86,9 @@ export interface PopUpProps {
   className?: string;
 }
 
+export interface SearchingProps {
+  value: any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 export type showNameProps = z.infer<typeof showName>;

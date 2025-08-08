@@ -118,7 +118,7 @@ export const RouteProfileApp = () => {
     },
     {
       title: 'Alamat Saya',
-      href: '#',
+      href: '/user/profile/alamat-saya',
       iconV1: MapPin,
       iconV2: ChevronRight,
     },

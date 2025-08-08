@@ -19,9 +19,10 @@ import Link from 'next/link';
 import { Text } from '@/app/ui/Text';
 import { User2, ChevronUp } from 'lucide-react';
 import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
+import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
 
 export function AppSidebar() {
-  const currentUsername = useAppSelector((state) => state.auth.currentUser?.user.fullname);
+  const username = useGetProfileById();
   return (
     <Sidebar>
       <SidebarContent>
@@ -47,7 +48,7 @@ export function AppSidebar() {
         <DropdownMenuTrigger asChild>
           <SidebarMenuButton>
             <User2 />
-            {currentUsername ? currentUsername : 'Username'}
+            {username.data?.data.fullname ? username.data.data.fullname : 'Username'}
             <ChevronUp className="ml-auto" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>

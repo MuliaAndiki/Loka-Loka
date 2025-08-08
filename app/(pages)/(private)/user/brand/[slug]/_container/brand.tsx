@@ -1,9 +1,9 @@
-'use client ';
-import { useParams } from 'next/navigation';
+'use client';
 import Container from '@/app/ui/container';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import DesktopBlock from '@/app/components/desktop-block';
 import { Text } from '@/app/ui/Text';
+import { useParams } from 'next/navigation';
 
 const BrandChildren = () => {
   const { isMobile } = useIsMobile();

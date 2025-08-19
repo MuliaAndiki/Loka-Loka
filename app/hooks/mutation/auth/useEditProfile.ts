@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import AuthApi from '@/app/service/auth/auth.service';
 import { useRouter } from 'next/navigation';
 import { useAlert } from '../../alert/costum-alert';
@@ -13,6 +13,7 @@ export const useEditProfile = () => {
   const alert = useAlert();
   const dispatch = useAppDispatch();
   const current = useAppSelector((state) => state.auth.currentUser);
+  const queryClient = useQueryClient();
 
   return useMutation<TResponse<any>, Error, formEditProfileSchema>({
     mutationFn: AuthApi.editProfile,
@@ -29,9 +30,7 @@ export const useEditProfile = () => {
         icon: 'success',
         onVoid: () => {
           router.push(RouteConfigLogic.editProfile.href);
-          setTimeout(() => {
-            router.refresh();
-          }, 1500);
+          queryClient.invalidateQueries({queryKey:['users'], exact:false})
         },
       });
     },

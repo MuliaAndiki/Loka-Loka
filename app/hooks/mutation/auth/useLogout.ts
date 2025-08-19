@@ -27,7 +27,8 @@ export const useLogout = () => {
         },
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal Keluar',
         message: 'Coba Sebentar Lagi',

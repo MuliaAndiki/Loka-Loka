@@ -42,7 +42,8 @@ export const useLogin = () => {
         },
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal Melakuakan Login',
         message: 'Mohon Periksa Kembali',

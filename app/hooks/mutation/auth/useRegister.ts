@@ -26,7 +26,8 @@ export const useRegister = () => {
         },
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal Mendaftar',
         icon: 'error',

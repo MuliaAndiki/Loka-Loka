@@ -1,4 +1,5 @@
 import Container from '@/app/ui/container';
+import { useQueryClient } from '@tanstack/react-query';
 import { Text } from '@/app/ui/Text';
 import Link from 'next/link';
 import Fallback from '@/app/ui/fallback';
@@ -11,6 +12,7 @@ type initialProps = {
 
 const ProfileRoute = ({ alert }: initialProps) => {
   const routes = RouteProfileApp();
+  const queryClient = useQueryClient();
 
   return (
     <Container
@@ -43,6 +45,7 @@ const ProfileRoute = ({ alert }: initialProps) => {
                     icon: 'question',
                     onConfirm: () => {
                       items.onClick?.();
+                      queryClient.removeQueries();
                     },
                   })
                 }

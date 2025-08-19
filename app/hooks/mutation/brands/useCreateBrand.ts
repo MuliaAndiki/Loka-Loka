@@ -25,7 +25,8 @@ export const useCreateBrand = () => {
         },
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal',
         message: 'Mohon Coba Sebentar Lagi',

@@ -37,7 +37,8 @@ export const useSendOtp = () => {
         icon: 'success',
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal',
         message: 'Gagal Mengirim Otp',

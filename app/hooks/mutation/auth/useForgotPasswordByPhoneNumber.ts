@@ -26,7 +26,8 @@ export const useForgotPasswordByPhoneNumber = () => {
         },
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal',
         message: 'Nomor Hp Anda Tidak Terverifikasi',

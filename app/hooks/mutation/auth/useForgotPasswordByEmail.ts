@@ -26,7 +26,8 @@ export const useForgotPasswordByEmail = () => {
         },
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal',
         message: 'Email Anda Tidak Terdaftar',

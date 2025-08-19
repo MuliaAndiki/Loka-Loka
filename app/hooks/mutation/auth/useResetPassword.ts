@@ -22,7 +22,8 @@ export const useResetPassword = () => {
         },
       });
     },
-    onError: () => {
+    onError: (err) => {
+      console.log(err);
       alert.toast({
         title: 'Gagal',
         message: 'Gagal Melakukan Reset Kata Sandi',

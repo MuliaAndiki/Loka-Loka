@@ -92,3 +92,8 @@ export interface SearchingProps {
 }
 
 export type showNameProps = z.infer<typeof showName>;
+
+export interface SpreedProps {
+  orientation?: 'horizontal' | 'vertical';
+  className?: string;
+}

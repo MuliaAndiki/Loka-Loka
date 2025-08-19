@@ -1,7 +1,7 @@
 'use client';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import Container from '@/app/ui/container';
-import BrandLayout from '@/app/core/layouts/brand-layout';
+import BikinBrandLayout from '@/app/core/layouts/bikin-brand-layout';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/app/hooks/dispatch/dispatch';
 import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
@@ -23,7 +23,7 @@ const Slide3Children = () => {
   return (
     <Container className="w-full h-full">
       {isMobile && (
-        <BrandLayout>
+        <BikinBrandLayout>
           <Slide3Header />
           <Slide3Form
             dispatch={dispatch}
@@ -31,7 +31,7 @@ const Slide3Children = () => {
             handleNext={() => handleNext()}
             setFormBrand={setFormBrand}
           />
-        </BrandLayout>
+        </BikinBrandLayout>
       )}
 
       {!isMobile && <DesktopBlock />}

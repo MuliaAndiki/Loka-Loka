@@ -1,7 +1,7 @@
 'use client';
 import Container from '@/app/ui/container';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
-import BrandLayout from '@/app/core/layouts/brand-layout';
+import BikinBrandLayout from '@/app/core/layouts/bikin-brand-layout';
 import { useRouter } from 'next/navigation';
 import { useAppDispatch } from '@/app/hooks/dispatch/dispatch';
 import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
@@ -113,7 +113,7 @@ const Slide2Children: React.FC = () => {
   return (
     <Container className="w-full h-full">
       {isMobile && (
-        <BrandLayout>
+        <BikinBrandLayout>
           <Slide2Header />
           <Slide2Form
             dispatch={dispatch}
@@ -126,7 +126,7 @@ const Slide2Children: React.FC = () => {
             handleNext={() => handleNext()}
             showName={showName}
           />
-        </BrandLayout>
+        </BikinBrandLayout>
       )}
 
       {!isMobile && <DesktopBlock />}

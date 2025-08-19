@@ -82,11 +82,6 @@ export const KategoriSchemaData: KategoriSchema[] = [
     image: '/asset/Festival.png',
   },
   {
-    title: 'Pameran',
-    params: '#',
-    image: '/asset/Festival.png',
-  },
-  {
     title: 'Kompetisi',
     params: '#',
     image: '/asset/Festival.png',

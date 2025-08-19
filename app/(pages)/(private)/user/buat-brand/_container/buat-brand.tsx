@@ -1,7 +1,7 @@
 'use client';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import Container from '@/app/ui/container';
-import BrandLayout from '@/app/core/layouts/brand-layout';
+import BikinBrandLayout from '@/app/core/layouts/bikin-brand-layout';
 import { useAlert } from '@/app/hooks/alert/costum-alert';
 import { useAppDispatch, useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { setFormBrand } from '@/app/stores/BrandSlice/brandSlice';
@@ -32,7 +32,7 @@ const BuatBrandChildren: React.FC = () => {
   return (
     <Container className="w-full h-full ">
       {isMobile && (
-        <BrandLayout>
+        <BikinBrandLayout>
           <BuatBrandHeader />
           <BuatBrandForm
             dispatch={dispatch}
@@ -40,7 +40,7 @@ const BuatBrandChildren: React.FC = () => {
             handleNext={() => handleNext()}
             setFormBrand={setFormBrand}
           />
-        </BrandLayout>
+        </BikinBrandLayout>
       )}
       {!isMobile && <DesktopBlock />}
     </Container>

@@ -8,7 +8,7 @@ const KategoriHome: React.FC<KategoriSchemaProps> = ({ data }) => {
   return (
     <Container className="w-auto h-full">
       <Link href={data.params}>
-        <Container className="bg-[var(--shapeV1-parent)] flex justify-center items-center rounded-lg p-2 shadow-md/20 flex-col ">
+        <Container className="bg-[var(--shapeV1-parent)] flex justify-center items-center rounded-lg p-2  flex-col ">
           <Image
             src={data.image}
             alt="icon"

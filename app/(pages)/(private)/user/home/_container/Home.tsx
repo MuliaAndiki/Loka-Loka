@@ -9,6 +9,7 @@ import HomeKategori from '@/app/components/private/user/home/home-kategori';
 import HomeRekomendasi from '@/app/components/private/user/home/home-rekomendasi';
 import HomeBrand from '@/app/components/private/user/home/home-terdekat';
 import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
+import HomeSpecialOfficer from '@/app/components/private/user/home/home-special-offer';
 // import { useEffect } from 'react';
 // import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
 
@@ -36,6 +37,7 @@ const HomeChildren: React.FC = () => {
           <HomeKategori />
           <HomeRekomendasi />
           <HomeBrand />
+          <HomeSpecialOfficer />
         </HomeLayout>
       )}
       {!isMobile && <DesktopBlock />}

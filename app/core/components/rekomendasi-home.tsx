@@ -17,13 +17,13 @@ const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
         height={120}
         className="object-cover h-auto "
       />
-      <Text className="md:text-4xl text-2xl font-bold">{data.title}</Text>
-      <Text className="md:text-4xl text-lg italic">{data.organizer}</Text>
-      <Text className="md:text-4xl font-extrabold  italic">Rp.{data.price}</Text>
+      <Text className=" text-2xl font-bold">{data.title}</Text>
+      <Text className=" text-lg italic">{data.organizer}</Text>
+      <Text className=" font-extrabold  italic">Rp{data.price.toLocaleString('id-ID')}</Text>
       <Container className=" absolute bottom-0 bg-background w-full h-10 rounded-t-lg z-[-4]">
         <Container className=" flex justify-center items-center h-full gap-1 ">
           <ShoppingBasket />
-          <Text className="md:text-4xl text-sm font-extralight">{data.cart}</Text>
+          <Text className=" text-xs font-bold">{data.cart}</Text>
         </Container>
       </Container>
     </Container>

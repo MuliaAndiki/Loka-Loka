@@ -4,13 +4,14 @@ import ToggleTheme from '@/app/ui/toggle';
 import { useRouter } from 'next/navigation';
 import UseTooltip from '../partials/tooltip';
 import { usePathname } from 'next/navigation';
+import Chart from '@/app/components/chart';
 
 export default function HeaderApp() {
   const router = useRouter();
   const pathname = usePathname();
 
   const hidenArrow = ['/user/home', '/user/profile'];
-
+  const hiddenChart = ['/user/kategori'];
   const handleBack = () => {
     if (window.history.length > 1) {
       router.back();
@@ -21,6 +22,7 @@ export default function HeaderApp() {
   return (
     <nav>
       <Container className="flex justify-between items-center w-full p-2 ">
+        {!hiddenChart.includes(pathname) && <Chart />}
         {!hidenArrow.includes(pathname) && (
           <button onClick={() => handleBack()}>
             <ArrowLeft />

@@ -9,7 +9,7 @@ const HomeBrand = () => {
   return (
     <Container className="flex justify-center items-center flex-col p-2">
       <Container className="flex justify-between items-center w-full ">
-        <Text className="md:text-4xl text-lg font-bold">Terdekat</Text>
+        <Text className="md:text-4xl text-lg font-bold">Terdekat :</Text>
         {RouteConfigStatic.map((items, key) => (
           <Link key={key} href={items.lihatSemuaTerdekat.href}>
             <Text className="font-extralight text-sm">{items.lihatSemuaTerdekat.title}</Text>

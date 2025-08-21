@@ -54,7 +54,7 @@ const KategoriChildren = () => {
             />
 
             <Container className="flex justify-between items-center w-full p-4">
-              <Text className="text-lg font-semibold">Terbaik :</Text>
+              <Text className="text-lg font-extrabold">Terbaik :</Text>
               <Text className="text-lg italic">Lainnya</Text>
             </Container>
 
@@ -69,7 +69,7 @@ const KategoriChildren = () => {
             </Container>
 
             <Container className="flex justify-between items-center w-full p-2">
-              <Text className="text-lg font-semibold">Popular</Text>
+              <Text className="text-lg font-extrabold">Popular</Text>
               <Text className="italic text-lg">Lainnya</Text>
             </Container>
             <Container className="mb-10 w-full">

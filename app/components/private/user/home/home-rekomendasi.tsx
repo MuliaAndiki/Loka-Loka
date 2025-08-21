@@ -9,7 +9,7 @@ const HomeRekomendasi = () => {
   return (
     <Container as="section" className="w-full h-full">
       <Container className="flex justify-between p-2 items-center">
-        <Text className="text-lg md:text-4xl font-bold ">Rekomendasi</Text>
+        <Text className="text-lg md:text-4xl font-bold ">Rekomendasi :</Text>
         {RouteConfigStatic.map((items, key) => (
           <Link key={key} href={items.lihatSemuaRekomendasi.href}>
             <Text className="font-extralight text-sm">{items.lihatSemuaRekomendasi.title}</Text>

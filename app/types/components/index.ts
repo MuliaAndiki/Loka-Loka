@@ -26,7 +26,7 @@ export const RekomendasiType = z.object({
   image: z.any(),
   title: z.string(),
   organizer: z.string(),
-  price: z.string(),
+  price: z.number(),
   cart: z.string(),
 });
 

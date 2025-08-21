@@ -2,7 +2,6 @@ import Container from '@/app/ui/container';
 import { Text } from '@/app/ui/Text';
 import Image from 'next/image';
 import { RouteConfigStatic } from '@/app/config/route.config';
-import Chart from '@/app/components/chart';
 import { Skeleton } from '@/app/ui/skeleton';
 import Link from 'next/link';
 
@@ -33,14 +32,13 @@ const HomeHeader = ({ data, isError, isMobile, isPending }: useQueryProps) => {
         <Container className="flex justify-between items-center">
           <Container className="w-full justify-start items-start flex mx-2">
             <Text className="md:text-4xl text-sm font-bold">
-              Jelajahi Event Yang Ada Di Seluruh Indonesia
+              Jelajahi Seluruh Event Di Indonesia
             </Text>
           </Container>
           <Container className=" w-full justify-end items-center gap-2 mx-2 flex">
-            <Chart />
             <Container className="flex-col flex  justify-center ">
-              <Text className="text-sm md:text-2xl ">{data.data.fullname}</Text>
-              <Text className="text-sm md:text-2xl">{data.data.provinsi}</Text>
+              <Text className="text-sm md:text-2xl w-full font-semibold">{data.data.fullname}</Text>
+              <Text className="text-sm md:text-2xl w-full font-semibold">{data.data.provinsi}</Text>
               {!data.data.provinsi && (
                 <Container>
                   {RouteConfigStatic.map((items, key) => (

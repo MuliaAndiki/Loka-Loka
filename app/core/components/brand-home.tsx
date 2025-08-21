@@ -8,7 +8,7 @@ import { BrandHomeSchemaProps } from '@/app/types/props';
 
 const BrandsHome: React.FC<BrandHomeSchemaProps> = ({ data }) => {
   return (
-    <Container className="w-full rounded-lg border my-2">
+    <Container className="w-full rounded-lg shadow shadow-lg/30 my-2">
       <Container className="flex justify-between items-center p-1 ">
         <Image
           alt="brand"

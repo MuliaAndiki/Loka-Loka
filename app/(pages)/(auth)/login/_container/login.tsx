@@ -40,17 +40,15 @@ const LoginChildren: React.FC = () => {
       {isMobile && (
         <NavLayout>
           <LoginHeader isMobile={isMobile} />
-          <Container className=" mt-4 w-full ">
-            <LoginForm
-              formLogin={formLogin}
-              setFormLogin={setFormLogin}
-              setShowPassword={setShowPassword}
-              showPassword={showPassword}
-              handleLogin={() => handleLogin()}
-              isPending={Login.isPending}
-              handleLoginGoogle={(e) => handleLoginGoogle(e)}
-            />
-          </Container>
+          <LoginForm
+            formLogin={formLogin}
+            setFormLogin={setFormLogin}
+            setShowPassword={setShowPassword}
+            showPassword={showPassword}
+            handleLogin={() => handleLogin()}
+            isPending={Login.isPending}
+            handleLoginGoogle={(e) => handleLoginGoogle(e)}
+          />
           <LoginFooter />
         </NavLayout>
       )}

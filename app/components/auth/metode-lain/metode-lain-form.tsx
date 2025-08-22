@@ -25,7 +25,11 @@ const MetodeLainForm = ({
           />
         </Container>
         <Container className="my-4">
-          <Button className="w-full" onClick={() => handleForgotPassword()} disabled={isPending}>
+          <Button
+            className="w-full font-semibold"
+            onClick={() => handleForgotPassword()}
+            disabled={isPending}
+          >
             {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Verifikasi'}
           </Button>
         </Container>

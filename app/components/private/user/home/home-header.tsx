@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { RouteConfigStatic } from '@/app/config/route.config';
 import { Skeleton } from '@/app/ui/skeleton';
 import Link from 'next/link';
-
 import { useQueryProps } from '@/app/types/api';
 import ErrorMessage from '@/app/core/components/isError';
 import Searching from '@/app/ui/searching';
@@ -29,8 +28,8 @@ const HomeHeader = ({ data, isError, isMobile, isPending }: useQueryProps) => {
   return (
     <Container as="main" className="w-full h-full ">
       <Container className="flex justify-center items-center flex-col">
-        <Container className="flex justify-between items-center">
-          <Container className="w-full justify-start items-start flex mx-2">
+        <Container className="flex justify-between items-center w-full p-2">
+          <Container className="w-full justify-start items-start flex ">
             <Text className="md:text-4xl text-sm font-bold">
               Jelajahi Seluruh Event Di Indonesia
             </Text>

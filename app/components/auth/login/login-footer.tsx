@@ -6,7 +6,7 @@ import { Text } from '@/app/ui/Text';
 const LoginFooter = () => {
   return (
     <Container as="section" className="flex justify-center items-center">
-      <Container className="flex gap-1">
+      <Container className="flex gap-1 font-semibold">
         <p>Tidak Memiliki Akun?</p>
         {RouteConfigStatic.map((items, key) => (
           <Container key={key} className="flex ">

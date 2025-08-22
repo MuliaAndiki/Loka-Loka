@@ -70,13 +70,13 @@ const LoginForm = ({
           </button>
         </Container>
       </Container>
-      <Button onClick={handleLogin} disabled={isPending} className="w-full my-2">
+      <Button onClick={handleLogin} disabled={isPending} className="w-full my-2 font-semibold">
         {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Masuk'}
       </Button>
       <Container className="text-end w-full">
         {RouteConfigStatic.map((route, key) => (
           <Link key={key} href={route.lupaKataSandi.href}>
-            <Text className="text-sm md:text-2xl">{route.lupaKataSandi.title}</Text>
+            <Text className="text-sm font-semibold md:text-2xl">{route.lupaKataSandi.title}</Text>
           </Link>
         ))}
       </Container>

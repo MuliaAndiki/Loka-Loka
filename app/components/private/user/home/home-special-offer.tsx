@@ -9,8 +9,8 @@ import SpesialOfficerComponent from '@/app/core/components/spesial-officer';
 const HomeSpecialOfficer: React.FC = () => {
   return (
     <Container as="main" className="w-full h-full">
-      <Container className="">
-        <Container className="flex justify-between items-center p-1">
+      <Container className=" mb-10 w-full">
+        <Container className="flex justify-between items-center p-2">
           <Text className="text-lg font-bold ">Special Offer :</Text>
           {RouteConfigStatic.map((items, key) => (
             <Link href={items.spesialOfficer.href} key={key}>

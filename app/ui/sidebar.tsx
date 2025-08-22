@@ -3,8 +3,7 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, VariantProps } from 'class-variance-authority';
-import { PanelLeftIcon } from 'lucide-react';
-
+import { ShoppingCart } from 'lucide-react';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import { cn } from '@/app/utils/utils';
 import { Button } from '@/app/ui/button';
@@ -13,6 +12,7 @@ import { Separator } from '@/app/ui/separator';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/app/ui/sheet';
 import { Skeleton } from '@/app/ui/skeleton';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/app/ui/tooltip';
+import UseTooltip from '../core/partials/tooltip';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -255,7 +255,9 @@ function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<t
       }}
       {...props}
     >
-      <PanelLeftIcon />
+      <UseTooltip content="Keranjang">
+        <ShoppingCart />
+      </UseTooltip>
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );

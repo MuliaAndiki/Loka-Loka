@@ -4,6 +4,7 @@ import {
   KategoriSchema,
   BrandHomeSchema,
   ProductSchema,
+  SpesialOfficerSchema,
 } from './components';
 
 export interface PromotionSchemaProps {
@@ -24,4 +25,8 @@ export interface BrandHomeSchemaProps {
 
 export interface ProductSchemaProps {
   data: ProductSchema;
+}
+
+export interface SpesialOfficerProps {
+  data: SpesialOfficerSchema;
 }

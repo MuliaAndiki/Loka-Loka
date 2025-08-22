@@ -17,9 +17,7 @@ export default function HomeLayout({ children }: { children: React.ReactNode }) 
         {!hidden.includes(pathname) && <SidebarTrigger />}
         <AppSidebar />
         <Container className="w-screen h-auto">{children}</Container>
-        <Container className="fixed bottom-0 left-0 w-full z-20 ">
-          <FooterApp />
-        </Container>
+        <Container className="fixed bottom-0 left-0 w-full z-20 ">{/* <FooterApp /> */}</Container>
       </Container>
     </SidebarProvider>
   );

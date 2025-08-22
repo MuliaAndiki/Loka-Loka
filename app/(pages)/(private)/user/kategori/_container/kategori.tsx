@@ -2,17 +2,22 @@
 
 import DesktopBlock from '@/app/components/desktop-block';
 import KategoriHome from '@/app/core/components/kategori-home';
-import HomeLayout from '@/app/core/layouts/home-layout';
+import ChildUserLayout from '@/app/core/layouts/child.user-layout';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 import Container from '@/app/ui/container';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { KategoriSchemaData, ProductPupolarData } from '@/app/config/component.config';
+import {
+  KategoriSchemaData,
+  ProductPupolarData,
+  SpesialOfficerData,
+} from '@/app/config/component.config';
 import Searching from '@/app/ui/searching';
 import { useState } from 'react';
 import { Text } from '@/app/ui/Text';
 import RekomendasiHome from '@/app/core/components/rekomendasi-home';
 import { RekomendasiSchemaData } from '@/app/config/component.config';
 import ProductPopular from '@/app/core/components/productPopular';
+import SpesialOfficerComponent from '@/app/core/components/spesial-officer';
 
 const KategoriChildren = () => {
   const { isMobile } = useIsMobile();
@@ -23,7 +28,7 @@ const KategoriChildren = () => {
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (
-        <HomeLayout>
+        <ChildUserLayout>
           <Container className="flex justify-center items-center flex-col">
             <Container className="w-full flex p-4 gap-4">
               <Swiper
@@ -55,7 +60,6 @@ const KategoriChildren = () => {
 
             <Container className="flex justify-between items-center w-full p-4">
               <Text className="text-lg font-extrabold">Terbaik :</Text>
-              <Text className="text-lg italic">Lainnya</Text>
             </Container>
 
             <Container className="w-full p-2">
@@ -69,16 +73,23 @@ const KategoriChildren = () => {
             </Container>
 
             <Container className="flex justify-between items-center w-full p-2">
-              <Text className="text-lg font-extrabold">Popular</Text>
-              <Text className="italic text-lg">Lainnya</Text>
+              <Text className="text-lg font-extrabold">Popular :</Text>
             </Container>
-            <Container className="mb-10 w-full">
+            <Container className=" w-full">
               {ProductPupolarData.map((items, key) => (
                 <ProductPopular data={items} key={key} />
               ))}
             </Container>
+            <Container className="flex justify-between items-center w-full p-2">
+              <Text className="text-lg font-extrabold">Spesial Officer :</Text>
+            </Container>
+            <Container className="mb-10 w-full">
+              {SpesialOfficerData.map((items, key) => (
+                <SpesialOfficerComponent key={key} data={items} />
+              ))}
+            </Container>
           </Container>
-        </HomeLayout>
+        </ChildUserLayout>
       )}
 
       {!isMobile && <DesktopBlock />}

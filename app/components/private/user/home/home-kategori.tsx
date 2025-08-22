@@ -17,7 +17,7 @@ const HomeKategori = () => {
             },
           }}
         >
-          {KategoriSchemaData.slice(0.2).map((item, key) => (
+          {KategoriSchemaData.map((item, key) => (
             <SwiperSlide key={key}>
               <KategoriHome data={item} />
             </SwiperSlide>

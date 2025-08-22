@@ -71,14 +71,18 @@ const RegisterForm = ({
         />
       </Container>
 
-      <Button className="w-full " onClick={() => handleRegister()} disabled={isPending}>
+      <Button
+        className="w-full font-semibold "
+        onClick={() => handleRegister()}
+        disabled={isPending}
+      >
         {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Daftar'}
       </Button>
       <Container className="w-full flex items-center justify-center gap-1">
-        <Text className="text-center text-sm lg:text-4xl">Sudah Memiliki Akun?</Text>
+        <Text className="text-center text-sm font-semibold lg:text-4xl">Sudah Memiliki Akun?</Text>
         {RouteConfigStatic.map((route, key) => (
           <Link key={key} href={route.login.href}>
-            <Text className="hover:text-[var(--custom-hover)] hover:duration-[0.2s] text-sm md:text-2xl">
+            <Text className="hover:text-[var(--custom-hover)] font-semibold hover:duration-[0.2s] text-sm md:text-2xl">
               {route.login.title}
             </Text>
           </Link>

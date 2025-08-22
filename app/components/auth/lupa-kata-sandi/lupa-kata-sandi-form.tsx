@@ -27,13 +27,19 @@ const LupaKataSandiForm = ({
           }
         />
       </Container>
-      <Button className="w-full" onClick={() => handleForgotPassword()} disabled={isPending}>
+      <Button
+        className="w-full font-semibold"
+        onClick={() => handleForgotPassword()}
+        disabled={isPending}
+      >
         {isPending ? <Fallback title="Tunggu Sebentar" /> : 'Verifikasi'}
       </Button>
       <Container className="w-full text-center my-1">
         {RouteConfigStatic.map((items, key) => (
           <Link key={key} href={items.metodeLain.href}>
-            <Text className="text-sm md:text-2xl">{items.metodeLain.title}</Text>
+            <Text className="text-sm md:text-2xl font-semibold hover:text-[var(--custom-hover)]">
+              {items.metodeLain.title}
+            </Text>
           </Link>
         ))}
       </Container>

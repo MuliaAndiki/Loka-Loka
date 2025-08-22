@@ -70,8 +70,8 @@ const BuatBrandForm = ({ formBrand, setFormBrand, dispatch, handleNext }: BuatBr
         />
       </Container>
       <Container className="w-full my-2">
-        <Button className="w-full" onClick={() => handleNext()}>
-          Selanjutnyae
+        <Button className="w-full font-semibold" onClick={() => handleNext()}>
+          Selanjutnya
         </Button>
       </Container>
     </Container>

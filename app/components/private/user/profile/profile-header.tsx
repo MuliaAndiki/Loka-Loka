@@ -6,6 +6,7 @@ import { Skeleton } from '@/app/ui/skeleton';
 import { RouteConfigStatic } from '@/app/config/route.config';
 import { useQueryProps } from '@/app/types/api';
 import ErrorMessage from '@/app/core/components/isError';
+import UseTooltip from '@/app/core/partials/tooltip';
 
 const ProfileHeader = ({ isMobile, isError, isPending, data }: useQueryProps) => {
   if (isError) {
@@ -48,7 +49,9 @@ const ProfileHeader = ({ isMobile, isError, isPending, data }: useQueryProps) =>
       <Container className="">
         {RouteConfigStatic.map((items, key) => (
           <Link key={key} href={items.editProfile.href}>
-            <items.editProfile.title />
+            <UseTooltip content="Edit Profile">
+              <items.editProfile.title />
+            </UseTooltip>
           </Link>
         ))}
       </Container>

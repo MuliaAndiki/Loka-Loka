@@ -4,14 +4,17 @@ import Image from 'next/image';
 import { Text } from '@/app/ui/Text';
 import { SpesialOfficerProps } from '@/app/types/props';
 
-const SpesialOfficerComponent: React.FC<SpesialOfficerProps> = ({ data }) => {
+const SpesialOfficerComponent: React.FC<SpesialOfficerProps & { isMobile?: boolean }> = ({
+  data,
+  isMobile,
+}) => {
   return (
     <Container className="w-full flex justify-center items-center  p-2  h-auto rounded-lg flex-col">
       <Image
         src={data.image}
         alt="banner"
-        width={400}
-        height={400}
+        width={isMobile ? 400 : 900}
+        height={isMobile ? 400 : 900}
         className="object-center rounded-t-lg"
       />
       <Container className="flex justify-start items-center w-full gap-2 bg-[var(--shapeV1-parent)] border rounded-b-lg p-1 mb-2">

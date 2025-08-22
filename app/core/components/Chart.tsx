@@ -18,10 +18,9 @@ import {
 import Link from 'next/link';
 import { Text } from '@/app/ui/Text';
 import { User2, ChevronUp } from 'lucide-react';
-import { useAppSelector } from '@/app/hooks/dispatch/dispatch';
 import { useGetProfileById } from '@/app/hooks/mutation/auth/useGetProfile';
 
-export function AppSidebar() {
+export function Chart() {
   const username = useGetProfileById();
   return (
     <Sidebar>

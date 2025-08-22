@@ -37,11 +37,11 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
     },
     lihatSemuaRekomendasi: {
       title: 'Lihat Semua',
-      href: '#',
+      href: '/user/rekomendasi',
     },
     lihatSemuaTerdekat: {
       title: 'Lihat Semua',
-      href: '#',
+      href: '/user/near',
     },
     profile: {
       href: '/user/profile',
@@ -61,7 +61,7 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
       href: '/user/kategori',
     },
     spesialOfficer: {
-      href: '#',
+      href: '/user/spesial-officer',
       title: 'Lihat Semua',
     },
   },

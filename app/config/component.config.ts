@@ -121,7 +121,7 @@ export const KategoriSchemaData: KategoriSchema[] = [
   },
   {
     title: 'Lainnya',
-    params: '#',
+    params: '/user/kategori',
     image: '/asset/Festival.png',
   },
 ];

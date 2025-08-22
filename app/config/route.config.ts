@@ -60,6 +60,10 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
       title: 'Lihat Selengkapnya Kategori',
       href: '/user/kategori',
     },
+    spesialOfficer: {
+      href: '#',
+      title: 'Lihat Semua',
+    },
   },
 ];
 

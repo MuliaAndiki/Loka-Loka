@@ -4,6 +4,7 @@ import {
   KategoriSchema,
   BrandHomeSchema,
   ProductSchema,
+  SpesialOfficerSchema,
 } from '../types/components';
 
 export const PromotionSchemaData: PromotionSchema[] = [
@@ -29,28 +30,29 @@ export const RekomendasiSchemaData: RekomendasiSchema[] = [
     title: 'Tiket',
     image: '/asset/Tiket.png',
     organizer: 'Motion Ime',
-    price: '1.000.000.000',
+    price: 10000000,
+
     cart: 'Masukan Ke Keranjang',
   },
   {
     title: 'Tiket',
     image: '/asset/Tiket.png',
     organizer: 'Motion Ime',
-    price: '1.000.000.000',
+    price: 10000000,
     cart: 'Masukan Ke Keranjang',
   },
   {
     title: 'Tiket',
     image: '/asset/Tiket.png',
     organizer: 'Motion Ime',
-    price: '1.000.000.000',
+    price: 10000000,
     cart: 'Masukan Ke Keranjang',
   },
   {
     title: 'Tiket',
     image: '/asset/Tiket.png',
     organizer: 'Motion Ime',
-    price: '1.000.000.000',
+    price: 10000000,
     cart: 'Masukan Ke Keranjang',
   },
 ];
@@ -171,5 +173,15 @@ export const ProductPupolarData: ProductSchema[] = [
     pricing: '150.000',
     rating: '4.3',
     title: 'Hindia',
+  },
+];
+
+export const SpesialOfficerData: SpesialOfficerSchema[] = [
+  {
+    title: 'Get Loka Loka',
+    brands: 'Loka Loka',
+    image: '/asset/banner.jpeg',
+    rating: '4.4',
+    secoundImage: '/asset/brand.jpeg',
   },
 ];

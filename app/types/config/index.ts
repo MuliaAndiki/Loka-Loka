@@ -40,6 +40,10 @@ export interface RouteStaticConfig {
     title: string;
     href: string;
   };
+  spesialOfficer: {
+    title: string;
+    href: string;
+  };
 }
 
 export interface RouteLogicConfig {

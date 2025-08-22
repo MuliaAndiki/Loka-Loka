@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { string, z } from 'zod';
 import {
   formBikinBrandSchema,
   formEditProfileSchema,
@@ -51,6 +51,14 @@ export const ProductType = z.object({
   rating: z.string(),
   location: z.string(),
   pricing: z.string(),
+});
+
+export const spesialOfficerType = z.object({
+  image: z.string(),
+  secoundImage: z.string(),
+  title: z.string(),
+  brands: z.string(),
+  rating: z.string(),
 });
 
 export type LocationMarkerProps = {
@@ -167,3 +175,4 @@ export type PromotionSchema = z.infer<typeof PromotionType>;
 export type RekomendasiSchema = z.infer<typeof RekomendasiType>;
 export type BrandHomeSchema = z.infer<typeof BrandHomeType>;
 export type ProductSchema = z.infer<typeof ProductType>;
+export type SpesialOfficerSchema = z.infer<typeof spesialOfficerType>;

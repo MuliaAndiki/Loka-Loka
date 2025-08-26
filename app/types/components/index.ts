@@ -66,6 +66,15 @@ export type LocationMarkerProps = {
   setLatLng?: (lat: number, lng: number) => void;
 };
 
+export const RiwayatComponetsType = z.object({
+  image: z.string(),
+  title: z.string(),
+  date: z.string(),
+  label: z.string().optional(),
+  pricing: z.number(),
+  items: z.string(),
+});
+
 // Props
 export type LoginFormProps = {
   formLogin: formLoginSchema;
@@ -176,3 +185,4 @@ export type RekomendasiSchema = z.infer<typeof RekomendasiType>;
 export type BrandHomeSchema = z.infer<typeof BrandHomeType>;
 export type ProductSchema = z.infer<typeof ProductType>;
 export type SpesialOfficerSchema = z.infer<typeof spesialOfficerType>;
+export type RiwayatComponetsShcema = z.infer<typeof RiwayatComponetsType>;

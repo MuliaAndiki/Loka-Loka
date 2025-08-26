@@ -8,7 +8,6 @@ import { useAppDispatch } from '../../dispatch/dispatch';
 import { setCurrentUser } from '@/app/stores/AuthSlice/authSlice';
 import { userSchema } from '@/app/types/api';
 import { RouteConfigLogic } from '@/app/config/route.config';
-import { useAppSelector } from '../../dispatch/dispatch';
 export const useLogin = () => {
   const router = useRouter();
   const alert = useAlert();
@@ -18,6 +17,7 @@ export const useLogin = () => {
     mutationFn: AuthApi.loginUser,
     onSuccess: (res) => {
       const isVerified = res.data.isAuthExist?.isVerified;
+      const role = res.data.isAuthExist?.role;
       if (!isVerified) {
         alert.toast({
           title: 'Perhatian!',
@@ -25,6 +25,14 @@ export const useLogin = () => {
           icon: 'warning',
         });
         return;
+      }
+
+      if (role === 'user') {
+        router.push(RouteConfigLogic.login.user);
+      } else if (role === 'organizer') {
+        router.push(RouteConfigLogic.login.organizer);
+      } else {
+        return null;
       }
 
       const userPayload: userSchema = {
@@ -37,9 +45,6 @@ export const useLogin = () => {
         title: 'Berhasil Login',
         message: 'Selamat Datang Di Loka-Loka',
         icon: 'success',
-        onVoid: () => {
-          router.push(RouteConfigLogic.login.href);
-        },
       });
     },
     onError: (err) => {

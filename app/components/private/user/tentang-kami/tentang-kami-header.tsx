@@ -4,6 +4,9 @@ import { Text } from '@/app/ui/Text';
 const TentangKamiHeader = ({ isMobile }: { isMobile: boolean }) => {
   return (
     <Container as="main" className="w-full p-4">
+      <Container className="flex justify-center items-center mb-2">
+        <Text className="text-3xl font-extrabold">Tentang Kami</Text>
+      </Container>
       <Container className="w-full h-full bg-[var(--shapeV1-child)] rounded-sm">
         <Container className="flex justify-center items-center flex-col relative">
           <Image

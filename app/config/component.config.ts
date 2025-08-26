@@ -5,6 +5,7 @@ import {
   BrandHomeSchema,
   ProductSchema,
   SpesialOfficerSchema,
+  RiwayatComponetsShcema,
 } from '../types/components';
 
 export const PromotionSchemaData: PromotionSchema[] = [
@@ -184,4 +185,15 @@ export const SpesialOfficerData: SpesialOfficerSchema[] = [
     rating: '4.4',
     secoundImage: '/asset/brand.jpeg',
   },
+];
+
+export const RiwayatComponentsData: RiwayatComponetsShcema[] = [
+  // {
+  //   title: 'Events',
+  //   date: '2020',
+  //   image: '/asset/Events.jpeg',
+  //   items: '2',
+  //   pricing: 100,
+  //   label: 'Active',
+  // },
 ];

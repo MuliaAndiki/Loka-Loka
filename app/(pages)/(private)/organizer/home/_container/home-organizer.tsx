@@ -9,7 +9,7 @@ const HomeChildren = () => {
   return (
     <Container as="main" className="w-full h-full">
       {isMobile && (
-        <Container as="section">
+        <Container as="section" className="flex justify-center items-center">
           <Text>Set Up Page Organize </Text>
         </Container>
       )}

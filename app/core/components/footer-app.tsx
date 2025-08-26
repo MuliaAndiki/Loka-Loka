@@ -18,7 +18,7 @@ const FooterApp: React.FC = () => {
 
   const NavigationItems = [
     { name: 'Home', icon: <House />, href: '/user/home' },
-    { name: 'Events', icon: <Activity />, href: '/' },
+    { name: 'Events', icon: <Activity />, href: '/user/events' },
     { name: 'Profile', icon: <User />, href: '/user/profile' },
   ] as const;
 

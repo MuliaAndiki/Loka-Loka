@@ -48,7 +48,8 @@ export interface RouteStaticConfig {
 
 export interface RouteLogicConfig {
   login: {
-    href: string;
+    user: string;
+    organizer: string;
   };
   logout: {
     href: string;

@@ -3,7 +3,7 @@ const Spreed: React.FC<SpreedProps> = ({ className, orientation }) => {
   return (
     <div
       className={`
-        bg-[var(--border-color,#e5e7eb)] 
+        bg-[var(--shapeV1-parent)]
         ${orientation === 'horizontal' ? 'w-full h-px' : 'h-full w-px'} 
         ${className}
       `}

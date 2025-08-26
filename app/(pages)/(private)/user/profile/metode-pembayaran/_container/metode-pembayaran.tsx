@@ -11,7 +11,7 @@ const MetodePembayaranChildren: React.FC = () => {
       {isMobile && (
         <ProfileLayout>
           <Container className="flex justify-center items-center">
-            <Text>SetUp Page</Text>
+            <Text className="text-lg font-bold">Metode Pembayaran</Text>
           </Container>
         </ProfileLayout>
       )}

@@ -2,7 +2,7 @@ import AuthApi from '@/app/service/auth/auth.service';
 import { useAlert } from '../../alert/costum-alert';
 import { TResponse } from '@/app/pkg/react-query/mutation-wrapper.type';
 import { useRouter } from 'next/navigation';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { RouteConfigLogic } from '@/app/config/route.config';
 import { persistor } from '@/app/stores/store';
 import { useAppDispatch } from '../../dispatch/dispatch';
@@ -12,6 +12,7 @@ export const useLogout = () => {
   const alert = useAlert();
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const queryClient = useQueryClient();
 
   return useMutation<TResponse<any>, Error>({
     mutationFn: AuthApi.logoutUser,
@@ -24,6 +25,7 @@ export const useLogout = () => {
           router.push(RouteConfigLogic.logout.href);
           dispatch(logout());
           persistor.purge();
+          queryClient.removeQueries();
         },
       });
     },

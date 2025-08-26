@@ -69,7 +69,8 @@ export const RouteConfigStatic: RouteStaticConfig[] = [
 
 export const RouteConfigLogic: RouteLogicConfig = {
   login: {
-    href: '/user/home',
+    user: '/user/home',
+    organizer: '/organizer/home',
   },
   logout: {
     href: '/login',

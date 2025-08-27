@@ -2,8 +2,10 @@ import Container from '@/app/ui/container';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { PromotionSchemaData } from '@/app/config/component.config';
 import PromotionApp from '@/app/core/components/promotion-app';
+import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 
 const HomePromotion = () => {
+  const { isMobile } = useIsMobile();
   return (
     <Container as="section" className="flex  w-full mt-4 items-start justify-center p-4 ">
       <Swiper
@@ -18,7 +20,7 @@ const HomePromotion = () => {
       >
         {PromotionSchemaData.map((item, key) => (
           <SwiperSlide key={key}>
-            <PromotionApp data={item} />
+            <PromotionApp isMobile={isMobile} data={item} />
           </SwiperSlide>
         ))}
       </Swiper>

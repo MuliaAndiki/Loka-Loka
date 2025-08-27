@@ -5,6 +5,7 @@ export interface ContainerProps {
   children?: React.ReactNode;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
+  onClick?: () => void;
 }
 
 export interface ShapeProps {

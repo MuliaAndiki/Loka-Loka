@@ -1,5 +1,5 @@
-import NearChild from './_container/near';
+import NearChildren from './_container/near';
 
 export default function Near() {
-  return <NearChild />;
+  return <NearChildren />;
 }

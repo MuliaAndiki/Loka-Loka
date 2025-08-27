@@ -3,13 +3,15 @@ import Container from '@/app/ui/container';
 import { Input } from '@/app/ui/input';
 import Spreed from '@/app/ui/spreed';
 import { Text } from '@/app/ui/Text';
-import { ArrowRight, SlidersHorizontal } from 'lucide-react';
+import { ArrowDown, ArrowRight, SlidersHorizontal } from 'lucide-react';
 import { useState } from 'react';
 import { contact } from '@/app/core/constants/kontak-kami';
+import Link from 'next/link';
+import { Label } from '@radix-ui/react-label';
 
 const TentangKamiKonten = () => {
   const [isState, setIState] = useState<'Tentang' | 'FAQ' | 'ContactUs'>('Tentang');
-
+  const [isActive, setIsActive] = useState<number | null>(null);
   return (
     <Container
       as="section"
@@ -62,7 +64,6 @@ const TentangKamiKonten = () => {
             dolorem harum id nostrum odit cum ad suscipit?
           </Text>
           <Spreed orientation="horizontal" className="my-2" />
-          {/* Components */}
           <Container className="flex justify-between items-center">
             <Text className="font-semibold">Lorem ipsum amet consectetur adipisicing elit.</Text>
 
@@ -74,13 +75,39 @@ const TentangKamiKonten = () => {
         <Container className="flex flex-col justify-center items-center">
           <Spreed className="my-2" orientation="horizontal" />
           <Container className="flex justify-between items-center flex-col w-full">
-            {contact.map((items, key) => (
-              <Container className="flex justify-between items-center w-full my-1" key={key}>
-                <Container className="flex justify-center items-center gap-2 ">
-                  <items.icon className="size-10 text-[var(--shapeV1-parent)]" />
-                  <Text className="text-lg font-semibold">{items.title}</Text>
+            {contact.map((items) => (
+              <Container key={items.id} className="w-full my-1">
+                <Container
+                  className="flex justify-between items-center cursor-pointer"
+                  onClick={() => setIsActive(isActive === items.id ? null : items.id)}
+                >
+                  <Container className="flex justify-center items-center gap-2">
+                    <items.icon className="size-10 text-[var(--shapeV1-parent)]" />
+                    <Text className="text-lg font-semibold">{items.title}</Text>
+                  </Container>
+
+                  {isActive === items.id ? (
+                    <ArrowDown className="text-[var(--shapeV1-parent)]" />
+                  ) : (
+                    <ArrowRight className="text-[var(--shapeV1-parent)]" />
+                  )}
                 </Container>
-                <items.state className="text-[var(--shapeV1-parent)]" />
+
+                {isActive === items.id && (
+                  <Container className="mt-2 p-2 rounded-lg bg-[var(--shapeV1-parent)]/10 transition-all duration-400">
+                    {items.content.map((items) => (
+                      <Link
+                        href={items.value}
+                        key={items.id}
+                        className="flex justify-start items-start flex-col "
+                      >
+                        <Label className="text-sm font-bold text-[var(--shapeV1-parent)] my-1">
+                          {items.label}
+                        </Label>
+                      </Link>
+                    ))}
+                  </Container>
+                )}
               </Container>
             ))}
           </Container>

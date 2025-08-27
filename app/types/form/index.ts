@@ -64,6 +64,28 @@ export const formBikinBrandType = z.object({
   description: z.string().optional(),
 });
 
+export const formBikinEventsType = z.object({
+  title: z.string(),
+  description: z.string(),
+  lokasi: z.string(),
+  start: z.date(),
+  end: z.date(),
+  price: z.string(),
+  tipe_events: z.string(),
+  lag: z.number(),
+  lgn: z.number(),
+  image: z.object({
+    thumbnail: z.instanceof(File).nullable(),
+    gallery: z.instanceof(File).nullable(),
+  }),
+  document: z.object({
+    galleryEvents: z.instanceof(File).nullable(),
+    thumbnailEvents: z.instanceof(File).nullable(),
+    documentEvents: z.instanceof(File).nullable(),
+  }),
+});
+
+export type formCreateEventsSchema = z.infer<typeof formBikinEventsType>;
 export type formBikinBrandSchema = z.infer<typeof formBikinBrandType>;
 export type formResetPasswordSchema = z.infer<typeof formResetPassword>;
 export type formLoginSchema = z.infer<typeof formLoginType>;

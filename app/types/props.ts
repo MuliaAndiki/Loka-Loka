@@ -5,6 +5,8 @@ import {
   BrandHomeSchema,
   SpesialOfficerSchema,
   RiwayatComponetsShcema,
+  CreaditCardShema,
+  PaymentMethodCardShema,
 } from './components';
 
 export interface PromotionSchemaProps {
@@ -29,4 +31,12 @@ export interface SpesialOfficerProps {
 
 export interface RiwayatComponetsProps {
   data: RiwayatComponetsShcema;
+}
+
+export interface CreaditCardShemaProps {
+  data: CreaditCardShema;
+}
+
+export interface PaymentMethodCardProps {
+  data: PaymentMethodCardShema;
 }

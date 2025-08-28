@@ -77,6 +77,8 @@
   --background: oklch(1 0 0);
   --foreground: oklch(0.129 0.042 264.695);
   --custom-hover: oklch(0.2749 0.088 271.44);
+  --shapeV1-parent: #f3af4a;
+  --shapeV1-child: #ffbe5d;
 }
 
 .dark {
@@ -112,6 +114,8 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
   --custom-hover: oklch(0.2749 0.088 271.44);
+  --shapeV1-parent: #175753;
+  --shapeV1-child: #0a4440;
 }
 
 @layer base {
@@ -120,8 +124,6 @@
     --foreground: #0a0a0a;
     --primary: #ffbe5d;
     --primary-foreground: #0e0a17;
-    --shapeV1-parent: #f3af4a;
-    --shapeV1-child: #ffbe5d;
     --border: #fffdfd;
   }
   .dark {
@@ -129,8 +131,6 @@
     --foreground: #0a0a0a;
     --primary: #175753;
     --primary-foreground: #000000;
-    --shapeV1-parent: #175753;
-    --shapeV1-child: #0a4440;
     --border: #fffdfd;
   }
   .body {

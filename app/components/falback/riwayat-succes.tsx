@@ -1,7 +1,7 @@
 import Container from '@/app/ui/container';
 import { Text } from '@/app/ui/Text';
 import { FileMinus } from 'lucide-react';
-export default function RiwayatSucces() {
+export default function FallbackRiwayatSucces() {
   return (
     <Container className="flex justify-center items-center h-full flex-col">
       <FileMinus size={150} />

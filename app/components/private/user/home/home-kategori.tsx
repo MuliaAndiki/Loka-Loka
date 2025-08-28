@@ -1,8 +1,9 @@
 import Container from '@/app/ui/container';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import KategoriHome from '@/app/core/components/kategori-home';
+import Kategori from '@/app/core/components/kategori-home';
 import { KategoriSchemaData } from '@/app/config/component.config';
+
 const HomeKategori = () => {
   return (
     <Container as="section" className=" flex-col flex w-full">
@@ -19,7 +20,7 @@ const HomeKategori = () => {
         >
           {KategoriSchemaData.map((item, key) => (
             <SwiperSlide key={key}>
-              <KategoriHome data={item} />
+              <Kategori data={item} />
             </SwiperSlide>
           ))}
         </Swiper>

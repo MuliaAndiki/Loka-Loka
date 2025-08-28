@@ -1,9 +1,8 @@
 import {
   PromotionSchema,
-  RekomendasiSchema,
+  TiketSchema,
   KategoriSchema,
   BrandHomeSchema,
-  ProductSchema,
   SpesialOfficerSchema,
   RiwayatComponetsShcema,
 } from './components';
@@ -12,8 +11,8 @@ export interface PromotionSchemaProps {
   data: PromotionSchema;
 }
 
-export interface RekomendasiSchemaProps {
-  data: RekomendasiSchema;
+export interface TiketSchemaProps {
+  data: TiketSchema;
 }
 
 export interface KategoriSchemaProps {
@@ -22,10 +21,6 @@ export interface KategoriSchemaProps {
 
 export interface BrandHomeSchemaProps {
   data: BrandHomeSchema;
-}
-
-export interface ProductSchemaProps {
-  data: ProductSchema;
 }
 
 export interface SpesialOfficerProps {

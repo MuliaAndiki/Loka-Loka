@@ -2,8 +2,8 @@ import Container from '@/app/ui/container';
 import { Text } from '@/app/ui/Text';
 import { RouteConfigStatic } from '@/app/config/route.config';
 import Link from 'next/link';
-import { RekomendasiSchemaData } from '@/app/config/component.config';
-import RekomendasiHome from '@/app/core/components/rekomendasi-home';
+import { TiketSchemaData } from '@/app/config/component.config';
+import Tiket from '@/app/core/components/tiket';
 
 const HomeRekomendasi = () => {
   return (
@@ -18,9 +18,9 @@ const HomeRekomendasi = () => {
       </Container>
       <Container className="p-2">
         <Container className="grid grid-cols-2 grid-rows-1 gap-4 ">
-          {RekomendasiSchemaData.slice(0, 4).map((items, key) => (
+          {TiketSchemaData.slice(0, 4).map((items, key) => (
             <Container key={key} className="flex justify-center items-center">
-              <RekomendasiHome data={items} />
+              <Tiket data={items} />
             </Container>
           ))}
         </Container>

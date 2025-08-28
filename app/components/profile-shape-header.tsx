@@ -1,17 +1,14 @@
 import Shape from '../ui/shape';
-import { usePathname } from 'next/navigation';
+import Container from '../ui/container';
 
-const ProfileShapeHeader: React.FC = () => {
-  const pathname = usePathname();
-
-  const hidenShape = ['/profile/tentang-kami'];
-
+const ProfileShapeHeader = () => {
   return (
-    <nav>
-      {!hidenShape.includes(pathname) && (
-        <Shape className="w-full h-40  bg-[var(--shapeV1-parent)] absolute z-[-5]  -translate-x-1/2 left-1/2 rounded-b-4xl" />
-      )}
-    </nav>
+    <Container className="absolute top-0 flex justify-center -translate-y-5 z-[-5] right-0 -translate-x-10">
+      <Shape className="absolute w-85 h-85 bg-[var(--shapeV1-parent)] z-[-5] -translate-y-20 rounded-full" />
+      <Shape className="absolute w-90 h-90 border -translate-y-20 rounded-full" />
+      <Shape className="absolute bg-[var(--shapeV1-child)] w-60 h-60 z-[-4] rounded-full -translate-y-8" />
+      <Shape className="absolute border w-63 h-63 z-[-4] rounded-full -translate-y-8" />
+    </Container>
   );
 };
 

@@ -22,7 +22,7 @@ export const PromotionType = z.object({
   image: z.any().optional(),
 });
 
-export const RekomendasiType = z.object({
+export const TiketType = z.object({
   image: z.any(),
   title: z.string(),
   organizer: z.string(),
@@ -43,14 +43,6 @@ export const BrandHomeType = z.object({
   secoundImage: z.string(),
   location: z.string(),
   rating: z.string(),
-});
-
-export const ProductType = z.object({
-  image: z.string(),
-  title: z.string(),
-  rating: z.string(),
-  location: z.string(),
-  pricing: z.string(),
 });
 
 export const spesialOfficerType = z.object({
@@ -181,8 +173,7 @@ export type Slide4FormProps = {
 
 export type KategoriSchema = z.infer<typeof KategoriType>;
 export type PromotionSchema = z.infer<typeof PromotionType>;
-export type RekomendasiSchema = z.infer<typeof RekomendasiType>;
+export type TiketSchema = z.infer<typeof TiketType>;
 export type BrandHomeSchema = z.infer<typeof BrandHomeType>;
-export type ProductSchema = z.infer<typeof ProductType>;
 export type SpesialOfficerSchema = z.infer<typeof spesialOfficerType>;
 export type RiwayatComponetsShcema = z.infer<typeof RiwayatComponetsType>;

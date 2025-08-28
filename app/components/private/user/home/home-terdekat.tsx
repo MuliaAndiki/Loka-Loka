@@ -2,7 +2,7 @@ import Container from '@/app/ui/container';
 import Link from 'next/link';
 import { Text } from '@/app/ui/Text';
 import { RouteConfigStatic } from '@/app/config/route.config';
-import BrandsHome from '@/app/core/components/brand-home';
+import Brands from '@/app/core/components/brand-home';
 import { BrandHomeData } from '@/app/config/component.config';
 
 const HomeBrand = () => {
@@ -17,7 +17,7 @@ const HomeBrand = () => {
         ))}
       </Container>
       {BrandHomeData.map((items, key) => (
-        <BrandsHome key={key} data={items} />
+        <Brands key={key} data={items} />
       ))}
     </Container>
   );

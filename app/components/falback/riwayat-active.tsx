@@ -2,7 +2,7 @@ import Container from '@/app/ui/container';
 import { Text } from '@/app/ui/Text';
 import { FileClock } from 'lucide-react';
 
-export default function RiwayatActive() {
+export default function FallbackRiwayatActive() {
   return (
     <Container className="flex justify-center items-center h-full flex-col">
       <FileClock size={150} />

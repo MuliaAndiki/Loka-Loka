@@ -4,7 +4,7 @@ import { RouteConfigStatic } from '@/app/config/route.config';
 import Link from 'next/link';
 import { Label } from '@/app/ui/label';
 import { SpesialOfficerData } from '@/app/config/component.config';
-import SpesialOfficerComponent from '@/app/core/components/spesial-officer';
+import SpesialOfficer from '@/app/core/components/spesial-officer';
 
 const HomeSpecialOfficer: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const HomeSpecialOfficer: React.FC = () => {
           ))}
         </Container>
         {SpesialOfficerData.map((items, key) => (
-          <SpesialOfficerComponent key={key} data={items} />
+          <SpesialOfficer key={key} data={items} />
         ))}
       </Container>
     </Container>

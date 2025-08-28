@@ -9,9 +9,9 @@ import { Button } from '@/app/ui/button';
 import { FileMinus, FileOutput } from 'lucide-react';
 import RiwayatComponent from '@/app/core/components/riwayat-components';
 import { RiwayatComponentsData } from '@/app/config/component.config';
-import RiwayatActive from '@/app/components/falback/riwayat-active';
-import RiwayatCancel from '@/app/components/falback/riwayat-cancel';
-import RiwayatSucces from '@/app/components/falback/riwayat-succes';
+import FallbackRiwayatActive from '@/app/components/falback/riwayat-active';
+import FallbackRiwayatCancel from '@/app/components/falback/riwayat-cancel';
+import FallbackRiwayatSucces from '@/app/components/falback/riwayat-succes';
 const RiwayatPemesananChildren = () => {
   const { isMobile } = useIsMobile();
   const [isState, setIsState] = useState<'Active' | 'Complate' | 'Cancel'>('Active');
@@ -58,7 +58,7 @@ const RiwayatPemesananChildren = () => {
                       ))}
                     </Container>
                   ) : (
-                    <RiwayatActive />
+                    <FallbackRiwayatActive />
                   )}
                 </Container>
               )}
@@ -71,7 +71,7 @@ const RiwayatPemesananChildren = () => {
                       ))}
                     </Container>
                   ) : (
-                    <RiwayatCancel />
+                    <FallbackRiwayatCancel />
                   )}
                 </Container>
               )}
@@ -84,7 +84,7 @@ const RiwayatPemesananChildren = () => {
                       ))}
                     </Container>
                   ) : (
-                    <RiwayatSucces />
+                    <FallbackRiwayatSucces />
                   )}
                 </Container>
               )}

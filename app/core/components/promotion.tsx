@@ -4,13 +4,10 @@ import Image from 'next/image';
 import PromotionShapeApp from '@/app/components/promotion-shape';
 import { PromotionSchemaProps } from '@/app/types/props';
 
-const PromotionApp: React.FC<PromotionSchemaProps & { isMobile: boolean }> = ({
-  data,
-  isMobile,
-}) => {
+const Promotion: React.FC<PromotionSchemaProps & { isMobile: boolean }> = ({ data, isMobile }) => {
   return (
-    <Container className="w-full min-h-full ">
-      <Container className="bg-[var(--shapeV1-parent)] shadow-md/20 flex justify-between items-center w-full  rounded-md p-3 relative overflow-hidden z-0 ">
+    <Container className="w-full min-h-full  ">
+      <Container className="bg-[var(--shapeV1-parent)] shadow-md/20 flex justify-between items-center w-full  rounded-md p-3 overflow-hidden z-0 relative ">
         <PromotionShapeApp />
         <Container className="flex justify-start flex-col">
           <Text className="md:text-2xl text-lg font-bold w-full">{data.title}</Text>
@@ -31,4 +28,4 @@ const PromotionApp: React.FC<PromotionSchemaProps & { isMobile: boolean }> = ({
   );
 };
 
-export default PromotionApp;
+export default Promotion;

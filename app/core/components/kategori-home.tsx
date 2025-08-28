@@ -4,11 +4,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { KategoriSchemaProps } from '@/app/types/props';
 
-const KategoriHome: React.FC<KategoriSchemaProps> = ({ data }) => {
+const Kategori: React.FC<KategoriSchemaProps> = ({ data }) => {
   return (
     <Container className="w-auto h-full">
       <Link href={data.params}>
-        <Container className="bg-[var(--shapeV1-parent)] flex justify-center items-center rounded-lg p-2  flex-col ">
+        <Container className="bg-[var(--shapeV1-parent)] flex justify-center items-center rounded-lg p-2 flex-col border shadow-lg shadow-[var(--shapeV1-parent)]/10 ">
           <Image
             src={data.image}
             alt="icon"
@@ -23,4 +23,4 @@ const KategoriHome: React.FC<KategoriSchemaProps> = ({ data }) => {
   );
 };
 
-export default KategoriHome;
+export default Kategori;

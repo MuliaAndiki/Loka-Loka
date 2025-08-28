@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Text } from '@/app/ui/Text';
 import { SpesialOfficerProps } from '@/app/types/props';
 
-const SpesialOfficerComponent: React.FC<SpesialOfficerProps & { isMobile?: boolean }> = ({
+const SpesialOfficer: React.FC<SpesialOfficerProps & { isMobile?: boolean }> = ({
   data,
   isMobile,
 }) => {
@@ -44,4 +44,4 @@ const SpesialOfficerComponent: React.FC<SpesialOfficerProps & { isMobile?: boole
   );
 };
 
-export default SpesialOfficerComponent;
+export default SpesialOfficer;

@@ -1,11 +1,11 @@
 import Container from '../../ui/container';
 import { Text } from '../../ui/Text';
 import Image from 'next/image';
-import { RekomendasiSchemaProps } from '../../types/props';
+import { TiketSchemaProps } from '../../types/props';
 import Shape from '@/app/ui/shape';
 import { ShoppingBasket } from 'lucide-react';
 
-const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
+const Tiket: React.FC<TiketSchemaProps> = ({ data }) => {
   return (
     <Container className="bg-[var(--shapeV1-parent)] py-12 flex justify-center items-center flex-col rounded-lg  w-full relative z-0   ">
       <Shape className="w-20 h-20 rounded-full bg-[var(--border)]  absolute z-[-5] top-0 left-0  blur-md" />
@@ -30,4 +30,4 @@ const RekomendasiHome: React.FC<RekomendasiSchemaProps> = ({ data }) => {
   );
 };
 
-export default RekomendasiHome;
+export default Tiket;

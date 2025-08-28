@@ -1,7 +1,7 @@
 import Container from '@/app/ui/container';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { PromotionSchemaData } from '@/app/config/component.config';
-import PromotionApp from '@/app/core/components/promotion-app';
+import Promotion from '@/app/core/components/promotion';
 import { useIsMobile } from '@/app/hooks/Mobile/use-mobile';
 
 const HomePromotion = () => {
@@ -20,7 +20,7 @@ const HomePromotion = () => {
       >
         {PromotionSchemaData.map((item, key) => (
           <SwiperSlide key={key}>
-            <PromotionApp isMobile={isMobile} data={item} />
+            <Promotion isMobile={isMobile} data={item} />
           </SwiperSlide>
         ))}
       </Swiper>

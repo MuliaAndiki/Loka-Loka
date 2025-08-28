@@ -2,7 +2,7 @@ import Container from '@/app/ui/container';
 import { Text } from '@/app/ui/Text';
 import { FileOutput } from 'lucide-react';
 
-export default function RiwayatCancel() {
+export default function FallbackRiwayatCancel() {
   return (
     <Container className="flex justify-center items-center h-full flex-col">
       <FileOutput size={150} />

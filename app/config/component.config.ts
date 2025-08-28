@@ -5,6 +5,8 @@ import {
   BrandHomeSchema,
   SpesialOfficerSchema,
   RiwayatComponetsShcema,
+  CreaditCardShema,
+  PaymentMethodCardShema,
 } from '../types/components';
 
 export const PromotionSchemaData: PromotionSchema[] = [
@@ -159,4 +161,37 @@ export const RiwayatComponentsData: RiwayatComponetsShcema[] = [
   //   pricing: 100,
   //   label: 'Active',
   // },
+];
+
+export const CreditCardData: CreaditCardShema[] = [
+  // {
+  //   title: 'Visa',
+  //   noCard: 1111222233334444,
+  //   expEnd: '10/2',
+  //   username: 'Mulia Andiki',
+  // },
+  // {
+  //   title: 'Visa',
+  //   noCard: 1111222233334444,
+  //   expEnd: '10/2',
+  //   username: 'Mulia Andiki',
+  // },
+];
+
+export const PaymentMethodData: PaymentMethodCardShema[] = [
+  {
+    icon: '/asset/payment/shopeePay.png',
+    title: 'Shopee Pay',
+    description: 'Payment GateWay Shopee',
+  },
+  {
+    icon: '/asset/payment/shopeePay.png',
+    title: 'Shopee Pay',
+    description: 'Payment GateWay Shopee',
+  },
+  {
+    icon: '/asset/payment/shopeePay.png',
+    title: 'Shopee Pay',
+    description: 'Payment GateWay Shopee',
+  },
 ];

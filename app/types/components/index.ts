@@ -67,6 +67,22 @@ export const RiwayatComponetsType = z.object({
   items: z.string(),
 });
 
+export const CreaditCardType = z.object({
+  title: z.string(),
+  noCard: z.number(),
+  username: z.string(),
+  // Date Type
+  expEnd: z.string(),
+});
+
+export interface PaymentMethodCardShema {
+  icon: any;
+  title: string;
+  description: string;
+  onClick?: () => void;
+  selected?: boolean;
+}
+
 // Props
 export type LoginFormProps = {
   formLogin: formLoginSchema;
@@ -171,6 +187,7 @@ export type Slide4FormProps = {
   handleCreateBrand: () => void;
 };
 
+export type CreaditCardShema = z.infer<typeof CreaditCardType>;
 export type KategoriSchema = z.infer<typeof KategoriType>;
 export type PromotionSchema = z.infer<typeof PromotionType>;
 export type TiketSchema = z.infer<typeof TiketType>;
